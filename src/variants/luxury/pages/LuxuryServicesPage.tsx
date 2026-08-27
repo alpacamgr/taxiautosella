@@ -62,9 +62,13 @@ export const LuxuryServicesPage: React.FC = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((svc, i) => (
-            <div key={i} className="bg-white p-8 rounded-2xl shadow-xl border border-[#0E1117]/5 hover:border-[#C5A880]/30 transition-colors">
-              <div className="w-10 h-10 rounded-full bg-[#0E1117]/5 flex items-center justify-center mb-6">
-                <Check className="w-5 h-5 text-[#C5A880]" />
+            <div 
+              key={i} 
+              onClick={() => openInquiryModal('Service Request', `Service Type: ${svc.title}\n\nPlease provide more details.`)}
+              className="bg-white p-8 rounded-2xl shadow-xl border border-[#0E1117]/5 hover:border-[#C5A880]/30 transition-colors cursor-pointer group"
+            >
+              <div className="w-10 h-10 rounded-full bg-[#0E1117]/5 flex items-center justify-center mb-6 group-hover:bg-[#C5A880] group-hover:text-white transition-colors">
+                <Check className="w-5 h-5 text-[#C5A880] group-hover:text-white" />
               </div>
               <h3 className="font-editorial text-2xl text-[#0E1117] mb-3">{svc.title}</h3>
               <p className="text-sm text-[#0E1117]/70 font-light leading-relaxed">

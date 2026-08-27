@@ -11,7 +11,7 @@ import {
 import { Link } from 'react-router-dom';
 
 export const LuxuryHome: React.FC = () => {
-  const { openBookingModal, updateBooking } = useAppStore();
+  const { openBookingModal, updateBooking, openInquiryModal } = useAppStore();
   const [bookingDetails, setBookingDetails] = useState({
     pickup: '',
     dropoff: '',
@@ -232,7 +232,7 @@ export const LuxuryHome: React.FC = () => {
                   <span className="flex items-center gap-1"><Briefcase className="w-3.5 h-3.5" /> {vehicle.luggage} Bags</span>
                 </div>
                 <button 
-                  onClick={() => openBookingModal(vehicle.id)}
+                  onClick={() => openInquiryModal('Fleet Request', `Vehicle: ${vehicle.name}\nCapacity: ${vehicle.passengers} Pax, ${vehicle.luggage} Bags\n${vehicle.subtitle}`)}
                   className="p-2.5 rounded-full bg-[#0E1117] text-[#F8F6F0] hover:bg-[#C5A880] hover:text-[#0E1117] transition-colors"
                 >
                   <ArrowRight className="w-4 h-4" />
@@ -253,7 +253,7 @@ export const LuxuryHome: React.FC = () => {
           {routes.map((r, i) => (
             <div 
               key={i} 
-              onClick={() => openBookingModal()}
+              onClick={() => openInquiryModal('Gateway Transfer', `Route: ${r.from} to ${r.to}\nDistance: ${r.dist}\nTime: ${r.time}\nRate: ${r.price}`)}
               className="p-6 bg-white rounded-2xl border border-[#0E1117]/5 hover:border-[#C5A880] transition-all cursor-pointer shadow-sm hover:shadow-md flex items-center justify-between"
             >
               <div>
@@ -298,16 +298,20 @@ export const LuxuryHome: React.FC = () => {
             </p>
             <div className="grid grid-cols-2 gap-4 text-sm text-[#0E1117]/80 font-medium">
               <ul className="space-y-3">
-                <li>• Elikos</li>
-                <li>• Dolomiti Sportclinic</li>
-                <li>• Bruno Riffeser</li>
-                <li>• Rusctlea</li>
+                <li>• <a href="https://www.elikos.com" target="_blank" rel="noopener noreferrer" className="hover:text-[#C5A880]">Elikos Helicopter Service</a></li>
+                <li>• <a href="https://www.dolomitisportclinic.com" target="_blank" rel="noopener noreferrer" className="hover:text-[#C5A880]">Dolomiti Sportclinic</a></li>
+                <li>• <a href="https://www.woodcarvings.info" target="_blank" rel="noopener noreferrer" className="hover:text-[#C5A880]">Bruno Riffeser Woodcarving</a></li>
+                <li>• <a href="https://www.rusctlea.com" target="_blank" rel="noopener noreferrer" className="hover:text-[#C5A880]">Rusctlea Ristorante</a></li>
+                <li>• <a href="https://www.suedtirol.info" target="_blank" rel="noopener noreferrer" className="hover:text-[#C5A880]">Südtirol / South Tyrol</a></li>
+                <li>• <a href="https://www.digiem.it" target="_blank" rel="noopener noreferrer" className="hover:text-[#C5A880]">Digiem</a></li>
               </ul>
               <ul className="space-y-3">
-                <li>• Europa Hotel</li>
-                <li>• Carrozzeria Gardena</li>
-                <li>• Val Gardena Tourism</li>
-                <li>• Intersport Rent</li>
+                <li>• <a href="https://www.hoteleuropa.it" target="_blank" rel="noopener noreferrer" className="hover:text-[#C5A880]">Hotel Europa</a></li>
+                <li>• <a href="https://www.carrozzeriagardena.it" target="_blank" rel="noopener noreferrer" className="hover:text-[#C5A880]">Carrozzeria Gardena</a></li>
+                <li>• <a href="https://www.valgardena.it" target="_blank" rel="noopener noreferrer" className="hover:text-[#C5A880]">Val Gardena Tourist Board</a></li>
+                <li>• <a href="https://www.intersportrent.com" target="_blank" rel="noopener noreferrer" className="hover:text-[#C5A880]">Intersport Rent</a></li>
+                <li>• <a href="https://www.dolomitisuperski.com" target="_blank" rel="noopener noreferrer" className="hover:text-[#C5A880]">Dolomiti Superski</a></li>
+                <li>• <a href="https://www.dolomitiunesco.info" target="_blank" rel="noopener noreferrer" className="hover:text-[#C5A880]">UNESCO Dolomites</a></li>
               </ul>
             </div>
           </div>

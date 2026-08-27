@@ -51,7 +51,11 @@ export const LuxuryBookingPage: React.FC = () => {
               <h2 className="font-editorial text-3xl text-[#0E1117] mb-6 border-b border-[#0E1117]/10 pb-4">Airport Transfers</h2>
               <div className="grid gap-3">
                 {airports.map((ap) => (
-                  <div key={ap.name} className="flex items-center justify-between p-4 bg-white rounded-xl shadow-sm border border-[#0E1117]/5">
+                  <div 
+                    key={ap.name} 
+                    onClick={() => openInquiryModal('Gateway Transfer', `Route: ${ap.name} to Val Gardena\nDistance: ${ap.dist}\nTime: ${ap.time}\nRate: ${ap.price}`)}
+                    className="flex items-center justify-between p-4 bg-white rounded-xl shadow-sm border border-[#0E1117]/5 hover:border-[#C5A880]/30 cursor-pointer transition-colors"
+                  >
                     <div>
                       <h4 className="font-medium text-[#0E1117]">{ap.name}</h4>
                       <p className="text-xs text-[#0E1117]/50 mt-1">{ap.dist} • Approx {ap.time}</p>
@@ -69,7 +73,11 @@ export const LuxuryBookingPage: React.FC = () => {
               <h2 className="font-editorial text-3xl text-[#0E1117] mb-6 border-b border-[#0E1117]/10 pb-4">Train Stations</h2>
               <div className="grid gap-3">
                 {stations.map((st) => (
-                  <div key={st.name} className="flex items-center justify-between p-4 bg-white rounded-xl shadow-sm border border-[#0E1117]/5">
+                  <div 
+                    key={st.name} 
+                    onClick={() => openInquiryModal('Train Station Transfer', `Route: ${st.name} to Val Gardena\nDistance: ${st.dist}\nTime: ${st.time}\nRate: ${st.price}`)}
+                    className="flex items-center justify-between p-4 bg-white rounded-xl shadow-sm border border-[#0E1117]/5 hover:border-[#C5A880]/30 cursor-pointer transition-colors"
+                  >
                     <div>
                       <h4 className="font-medium text-[#0E1117]">{st.name}</h4>
                       <p className="text-xs text-[#0E1117]/50 mt-1">{st.dist} • Approx {st.time}</p>

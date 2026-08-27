@@ -11,16 +11,18 @@ export const LuxuryMembersPage: React.FC = () => {
   ];
 
   const partners = [
-    { name: 'Val Gardena Tourism', url: 'https://www.valgardena.it' },
+    { name: 'Val Gardena Tourist Board', url: 'https://www.valgardena.it' },
     { name: 'Dolomiti Sportclinic', url: 'https://www.dolomitisportclinic.com' },
     { name: 'Elikos Helicopter Service', url: 'https://www.elikos.com' },
     { name: 'Intersport Rent', url: 'https://www.intersportrent.com' },
     { name: 'Dolomiti Superski', url: 'https://www.dolomitisuperski.com' },
     { name: 'UNESCO Dolomites', url: 'https://www.dolomitiunesco.info' },
-    { name: 'Hotel Europa', url: 'https://www.hoteleuropa.com' },
-    { name: 'Rusctlea Ristorante', url: 'https://www.rusctlea.it' },
-    { name: 'Bruno Riffeser', url: null },
-    { name: 'Carrozzeria Gardena', url: null }
+    { name: 'Südtirol / South Tyrol', url: 'https://www.suedtirol.info' },
+    { name: 'Hotel Europa', url: 'https://www.hoteleuropa.it' },
+    { name: 'Rusctlea Ristorante', url: 'https://www.rusctlea.com' },
+    { name: 'Bruno Riffeser Woodcarving', url: 'https://www.woodcarvings.info' },
+    { name: 'Carrozzeria Gardena', url: 'https://www.carrozzeriagardena.it' },
+    { name: 'Digiem', url: 'https://www.digiem.it' }
   ];
 
   const venues = [

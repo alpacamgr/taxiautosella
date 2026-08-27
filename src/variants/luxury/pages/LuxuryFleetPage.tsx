@@ -31,7 +31,7 @@ export const LuxuryFleetPage: React.FC = () => {
       tagline: 'Commanding presence and space for high-altitude luxury travel.',
       passengers: 4, luggage: 5,
       features: ['AirMATIC Air Suspension', 'Panoramic Roof', 'Off-Road Capability'],
-      image: '/images/fleet/mercedes-s-class-vip.jpg'
+      image: '/images/fleet/mercedes-gl-suv-4matic.jpg'
     },
     {
       id: 'van-vclass',
@@ -85,7 +85,7 @@ export const LuxuryFleetPage: React.FC = () => {
       tagline: 'Dedicated enclosed trailers for large groups requiring extensive gear transport.',
       passengers: 'N/A', luggage: '10 Bikes/Skis',
       features: ['Secure Enclosed Trailer', 'Up to 10 Mountain Bikes', 'Maximum Luggage Capacity'],
-      image: '/images/fleet/mercedes-vito-minibus-4matic.jpg'
+      image: '/images/fleet/mercedes-vito-ski-trailer.jpg'
     },
     {
       id: 'production',
@@ -142,7 +142,7 @@ export const LuxuryFleetPage: React.FC = () => {
                 <span className="flex items-center gap-1"><Briefcase className="w-3.5 h-3.5" /> {vehicle.luggage} Bags</span>
               </div>
               <button 
-                onClick={() => openBookingModal(vehicle.id)}
+                onClick={() => useAppStore.getState().openInquiryModal('Fleet Request', `Vehicle: ${vehicle.name}\nCapacity: ${vehicle.passengers} Pax, ${vehicle.luggage} Bags\n${vehicle.subtitle}`)}
                 className="px-4 py-2 bg-[#0E1117] text-[#F8F6F0] hover:bg-[#C5A880] hover:text-[#0E1117] font-semibold text-xs uppercase tracking-wider rounded-lg transition-colors flex items-center gap-1.5"
               >
                 <span>Reserve</span>
@@ -151,6 +151,21 @@ export const LuxuryFleetPage: React.FC = () => {
             </div>
           </div>
         ))}
+      </div>
+
+      <div className="mt-20 max-w-7xl mx-auto bg-[#0E1117] text-[#F8F6F0] p-10 md:p-16 rounded-3xl flex flex-col md:flex-row items-center justify-between shadow-2xl relative overflow-hidden">
+        <div className="relative z-10 max-w-2xl">
+          <h2 className="font-editorial text-4xl mb-4">Request a Custom Fleet Solution</h2>
+          <p className="text-[#F8F6F0]/70 font-light mb-8 md:mb-0">
+            For large corporate events, weddings, or specialized film production support, contact our dispatchers to coordinate multiple vehicles.
+          </p>
+        </div>
+        <button 
+          onClick={() => useAppStore.getState().openInquiryModal('Fleet Inquiry', 'I am inquiring about a custom fleet solution...')}
+          className="relative z-10 w-full md:w-auto px-8 py-4 bg-[#C5A880] text-[#0E1117] font-semibold text-xs uppercase tracking-widest hover:bg-white transition-colors rounded-lg flex items-center justify-center gap-2"
+        >
+          <span>Inquire Now</span>
+        </button>
       </div>
     </div>
   );

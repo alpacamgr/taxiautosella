@@ -10,31 +10,31 @@ export const LuxuryExcursionsPage: React.FC = () => {
       title: 'Venice Lagoon & Architecture',
       duration: 'Full Day',
       desc: 'Descend from the Alps to the Adriatic. Explore the canals, St. Mark\'s Square, and the rich history of La Serenissima.',
-      img: '/images/hero/autosella-fleet-lineup-dolomites.jpg'
+      img: '/images/excursions/venice-lagoon-tour.jpg'
     },
     {
       title: 'Verona & Lake Garda',
       duration: 'Full Day',
       desc: 'Visit the city of Romeo & Juliet, the grand Roman Arena, followed by a scenic drive along the shores of Lake Garda.',
-      img: '/images/fleet/mercedes-s-class-vip.jpg'
+      img: '/images/excursions/verona-arena-tour.jpg'
     },
     {
       title: 'Innsbruck Imperial & Swarovski',
       duration: 'Full Day',
       desc: 'Cross the Brenner Pass to Austria. See the Golden Roof, the Imperial Palace, and marvel at the Swarovski Crystal Worlds in Wattens.',
-      img: '/images/fleet/mercedes-e-class.jpg'
+      img: '/images/excursions/innsbruck-imperial-tour.jpg'
     },
     {
       title: 'Cortina d\'Ampezzo Olympic Capital',
       duration: 'Half or Full Day',
       desc: 'A spectacular drive through the Great Dolomites Road to the exclusive resort town of Cortina, home of the Winter Olympics.',
-      img: '/images/fleet/mercedes-v-class-luxury.jpg'
+      img: '/images/hero/autosella-fleet-lineup-dolomites.jpg'
     },
     {
       title: 'Bolzano Ötzi & Merano Spa',
       duration: 'Half or Full Day',
       desc: 'Discover Ötzi the Iceman in Bolzano\'s archaeological museum, then relax in the Mediterranean climate and thermal baths of Merano.',
-      img: '/images/fleet/mercedes-vito-minibus-4matic.jpg'
+      img: '/images/fleet/mercedes-v-class-luxury.jpg'
     },
     {
       title: 'Mountain Hut Dinners & Sledge Rides',
@@ -78,7 +78,7 @@ export const LuxuryExcursionsPage: React.FC = () => {
                   </p>
                 </div>
                 <button 
-                  onClick={() => openInquiryModal(`Tour: ${exc.title}`, `I am interested in the ${exc.duration} ${exc.title} excursion.`)}
+                  onClick={() => openInquiryModal('Excursion Inquiry', `Excursion: ${exc.title}\nDuration: ${exc.duration}\nPrice: Upon Request\n\nPlease provide availability and detailed pricing.`)}
                   className="self-start text-xs uppercase tracking-widest font-semibold text-[#0E1117] hover:text-[#C5A880] transition-colors flex items-center gap-2"
                 >
                   <span>Inquire Now</span>

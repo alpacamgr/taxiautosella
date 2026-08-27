@@ -2,7 +2,7 @@ import React from 'react';
 import { Outlet } from 'react-router-dom';
 import { LuxuryNav } from './components/LuxuryNav';
 import { BookingModal } from '../../components/booking/BookingModal';
-import { InquiryModal } from '../../components/booking/InquiryModal';
+import { LuxuryInquiryModal } from './components/LuxuryInquiryModal';
 
 export const LuxuryLayout: React.FC = () => {
   return (
@@ -21,7 +21,7 @@ export const LuxuryLayout: React.FC = () => {
       </div>
 
       <BookingModal />
-      <InquiryModal />
+      <LuxuryInquiryModal />
 
       {/* Luxury Footer */}
       <footer className="bg-[#0E1117] text-[#F8F6F0] py-16 px-6 lg:px-16 mt-auto">
