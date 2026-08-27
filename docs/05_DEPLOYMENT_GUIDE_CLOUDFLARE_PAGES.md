@@ -37,14 +37,9 @@ npx wrangler pages deploy dist --project-name=taxiautosella
 
 ---
 
-## 3. SPA Routing & Single-Page Fallbacks
+## 3. SPA Routing & Zero-Config Architecture
 
-Because the project uses React Router with `HashRouter` (`#/luxury`, `#/adventure`), all URLs are natively resolved on the client side without requiring server-side URL rewriting rules. 
-
-For standard history routing fallback, a `public/_redirects` file is included:
-```text
-/*    /index.html   200
-```
+Because the project uses React Router with `HashRouter` (`#/luxury`, `#/tech`, `#/adventure`), all URLs are resolved 100% on the client side without requiring server-side rewrite rules or custom `_redirects` files. Cloudflare Pages natively serves `/index.html` on the root domain, and the client-side router seamlessly handles all subpages and navigation states.
 
 ---
 
