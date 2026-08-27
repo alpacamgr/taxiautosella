@@ -3,7 +3,7 @@ import { useAppStore } from '../../../store/useAppStore';
 import { Check, ArrowRight } from 'lucide-react';
 
 export const LuxuryServicesPage: React.FC = () => {
-  const { openBookingModal } = useAppStore();
+  const { openInquiryModal } = useAppStore();
 
   const services = [
     {
@@ -82,7 +82,7 @@ export const LuxuryServicesPage: React.FC = () => {
             </p>
           </div>
           <button 
-            onClick={() => openBookingModal()}
+            onClick={() => openInquiryModal('Special Service Request', 'I am interested in arranging a special service...')}
             className="relative z-10 w-full md:w-auto px-8 py-4 bg-[#C5A880] text-[#0E1117] font-semibold text-xs uppercase tracking-widest hover:bg-white transition-colors rounded-lg flex items-center justify-center gap-2"
           >
             <span>Inquire Now</span>

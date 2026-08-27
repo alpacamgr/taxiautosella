@@ -7,32 +7,30 @@ export const TechNav: React.FC = () => {
   const { openBookingModal } = useAppStore();
 
   const links = [
-    { path: '/tech', label: 'Book Transfer' },
+    { path: '/tech', label: 'Welcome' },
     { path: '/tech/booking', label: 'Prices & Booking' },
     { path: '/tech/fleet', label: 'Our Vehicles' },
-    { path: '/tech/services', label: 'Services & Shuttles' },
-    { path: '/tech/tours', label: 'Tours & Excursions' },
-    { path: '/tech/faq', label: 'FAQ' },
+    { path: '/tech/services', label: 'Taxi, Minibus & Bus' },
+    { path: '/tech/tours', label: 'Organised Tours' },
+    { path: '/tech/faq', label: 'Q&A' },
     { path: '/tech/members', label: 'Members & Sponsors' },
   ];
 
   return (
-    <nav className="w-full bg-[#090D14] text-white border-b border-slate-800 px-4 sm:px-8 py-3.5 flex items-center justify-between shadow-sm font-['Inter',sans-serif]">
-      <Link to="/tech" className="flex items-center gap-2.5">
-        <span className="font-extrabold text-lg text-white tracking-tight">
-          Auto Sella <span className="text-[#059669] font-bold text-xs uppercase px-2 py-0.5 rounded-full bg-[#059669]/10 border border-[#059669]/30">Velocity</span>
-        </span>
+    <nav className="w-full bg-[#0A192F] text-white border-b border-slate-700/60 px-4 sm:px-8 py-3.5 flex items-center justify-between shadow-lg">
+      <Link to="/tech" className="flex items-center gap-3">
+        <img src="/images/brand/logo.svg" alt="Taxi Auto Sella Logo" className="h-7 w-auto object-contain brightness-100" />
       </Link>
 
-      <div className="hidden lg:flex items-center gap-6 text-xs font-semibold text-slate-300 tracking-tight">
+      <div className="hidden lg:flex items-center gap-6 text-xs font-semibold text-slate-200">
         {links.map((l) => (
           <NavLink
             key={l.path}
             to={l.path}
             end={l.path === '/tech'}
             className={({ isActive }) =>
-              `transition-colors hover:text-white ${
-                isActive ? 'text-[#059669] font-bold border-b-2 border-[#059669] pb-1' : ''
+              `transition-colors hover:text-[#F59E0B] ${
+                isActive ? 'text-[#F59E0B] font-bold border-b-2 border-[#F59E0B] pb-1' : ''
               }`
             }
           >
@@ -44,17 +42,17 @@ export const TechNav: React.FC = () => {
       <div className="flex items-center gap-3">
         <button
           onClick={() => openBookingModal()}
-          className="px-4 py-2 bg-[#059669] text-white font-bold text-xs rounded-xl shadow-md shadow-[#059669]/20 hover:bg-[#047857] transition-all flex items-center gap-1.5"
+          className="px-4 py-2 bg-[#D97706] text-white font-bold text-xs rounded-xl shadow-md hover:bg-[#b45309] transition-all flex items-center gap-1.5"
         >
           <Calendar className="w-3.5 h-3.5" />
-          <span>Instant Quote</span>
+          <span>Book Ride</span>
         </button>
 
         <a
           href="tel:+390471790033"
-          className="hidden sm:flex items-center gap-1.5 px-3 py-2 border border-slate-700 rounded-xl text-xs font-bold text-slate-300 hover:border-[#059669] hover:text-white transition-colors"
+          className="hidden sm:flex items-center gap-1.5 px-3 py-2 border border-slate-600 rounded-xl text-xs font-bold text-slate-200 hover:border-[#F59E0B] hover:text-[#F59E0B] transition-colors"
         >
-          <Phone className="w-3.5 h-3.5 text-[#059669]" />
+          <Phone className="w-3.5 h-3.5 text-[#F59E0B]" />
           <span>+39 0471 790033</span>
         </a>
       </div>

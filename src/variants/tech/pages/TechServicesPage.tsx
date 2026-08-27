@@ -1,47 +1,117 @@
 import React from 'react';
-import { PlaneTakeoff, Snowflake, HeartPulse, GraduationCap, PackageOpen, Bike, Dice5, Baby, Dog } from 'lucide-react';
+import { useAppStore } from '../../../store/useAppStore';
+import { 
+  Car, 
+  Mountain, 
+  ShieldCheck, 
+  HeartHandshake, 
+  Bike, 
+  Bus, 
+  Package, 
+  Baby, 
+  Sparkles,
+  PhoneCall,
+  ArrowRight
+} from 'lucide-react';
 
 export const TechServicesPage: React.FC = () => {
+  const { openBookingModal } = useAppStore();
+
   const services = [
-    { icon: <PlaneTakeoff />, title: 'Airport Transfers', desc: 'Direct, private transfers from all major airports in Northern Italy, Austria, and Southern Germany to your hotel in the Dolomites.' },
-    { icon: <Snowflake />, title: 'Hotel-to-Slope Ski Shuttles', desc: 'Daily dedicated shuttles taking you from your hotel door directly to the Sella Ronda lifts or Dolomiti Superski starting points.' },
-    { icon: <Dice5 />, title: 'Austrian Casino Trips', desc: 'Evening VIP transport to Casino Innsbruck or Casino Seefeld, including waiting time and late-night return.' },
-    { icon: <HeartPulse />, title: 'Minor Injury Patient Transport & Disabled', desc: 'Specialized vans for non-emergency medical transport (e.g., knee injuries from skiing) and fully wheelchair-accessible vans with hydraulic lifts.' },
-    { icon: <GraduationCap />, title: 'School Bus Services', desc: 'Trusted daily routing for local schools in the Val Gardena municipality with fully certified drivers.' },
-    { icon: <Baby />, title: 'Child Seats Provided', desc: 'We provide certified infant, toddler, and booster seats completely free of charge upon request.' },
-    { icon: <Dog />, title: 'Pet Transport', desc: 'Your furry friends are welcome. We provide adequate space and secure transport for dogs of all sizes.' },
-    { icon: <PackageOpen />, title: 'Express Luggage Courier', desc: 'Need your bags sent ahead? Or left something at the airport? We provide rapid point-to-point courier services.' },
-    { icon: <Bike />, title: '10-Bike / Ski Trailers', desc: 'Large groups? Our specialized enclosed trailers can haul up to 10 mountain bikes or 20 pairs of skis securely.' },
+    {
+      title: 'Private Chauffeur & Limousine Service',
+      desc: 'Discreet, high-comfort VIP transfers for business appointments, executive travel, and luxury chalet guests with meet & greet.',
+      icon: <Sparkles className="w-5 h-5 text-[#D97706]" />
+    },
+    {
+      title: 'Hotel-to-Ski-Slope Shuttles',
+      desc: 'Direct shuttles from hotels, garni, and residences in Val Gardena to Seceda, Saslong, Ciampinoi, and Dantercepies.',
+      icon: <Mountain className="w-5 h-5 text-[#D97706]" />
+    },
+    {
+      title: 'Austrian Casino & Evening Trips',
+      desc: 'Private transfers to the prestigious Austrian casinos in Innsbruck, Seefeld, and surrounding alpine cities.',
+      icon: <Car className="w-5 h-5 text-[#D97706]" />
+    },
+    {
+      title: 'Transport for Disabled Customers',
+      desc: 'Fully equipped vehicles with wheelchair ramps and secure safety restraints. Door-to-door platform meeting service.',
+      icon: <HeartHandshake className="w-5 h-5 text-[#D97706]" />
+    },
+    {
+      title: 'Minor Injury & Patient Medical Transport',
+      desc: 'Transportation for non-emergency patients with minor injuries returning to accommodations, clinics, or regional airports.',
+      icon: <ShieldCheck className="w-5 h-5 text-[#D97706]" />
+    },
+    {
+      title: 'Bike & Motorbike Shuttle Trailer',
+      desc: 'Trailer capable of transporting up to 10 bicycles or 2–3 motorbikes. Available across the Dolomites and northern Italy.',
+      icon: <Bike className="w-5 h-5 text-[#D97706]" />
+    },
+    {
+      title: 'School Bus & Group Services',
+      desc: 'Certified local transport for schools, youth groups, and sports associations throughout Val Gardena.',
+      icon: <Bus className="w-5 h-5 text-[#D97706]" />
+    },
+    {
+      title: 'Express Luggage & Courier Service',
+      desc: 'Fast, dependable express delivery of baggage, ski equipment, and urgent packages between hotels and valleys.',
+      icon: <Package className="w-5 h-5 text-[#D97706]" />
+    },
+    {
+      title: 'Child Seats & Pet Transport',
+      desc: 'Safety child seats (0–12 years) provided free on request. Safe and friendly transportation for household pets.',
+      icon: <Baby className="w-5 h-5 text-[#D97706]" />
+    }
   ];
 
   return (
-    <div className="min-h-screen bg-[#090D14] text-white font-['Inter',sans-serif] pb-20">
-      
-      {/* Header */}
-      <section className="px-6 pt-20 pb-12 max-w-7xl mx-auto border-b border-slate-800">
-        <h1 className="text-4xl lg:text-5xl font-extrabold tracking-tight mb-4">
-          Capabilities & <span className="text-[#059669]">Services</span>.
+    <div className="py-16 px-4 sm:px-8 lg:px-16 max-w-7xl mx-auto">
+      <div className="max-w-3xl mb-12">
+        <h1 className="text-3xl sm:text-5xl font-extrabold text-slate-900 mb-3">
+          Taxi, Minibus & Bus Services
         </h1>
-        <p className="text-lg text-slate-400 max-w-2xl">
-          Beyond standard transfers. We offer a full spectrum of specialized mobility solutions for the Val Gardena region.
+        <p className="text-base text-slate-600 leading-relaxed">
+          Val Gardena’s largest taxi and bus consortium. Our central office provides a 24-hour service in high season for immediate calls and planned bookings.
         </p>
-      </section>
+      </div>
 
-      {/* Services Grid */}
-      <section className="px-6 py-16 max-w-7xl mx-auto">
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {services.map((s, i) => (
-            <div key={i} className="p-6 bg-[#111827] border border-slate-800 rounded-xl hover:border-[#059669]/50 transition-colors group">
-              <div className="w-12 h-12 bg-slate-900 rounded-lg flex items-center justify-center text-[#059669] mb-6 group-hover:scale-110 transition-transform">
-                {React.cloneElement(s.icon as React.ReactElement, { className: 'w-6 h-6' })}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+        {services.map((s, idx) => (
+          <div key={idx} className="bg-white p-7 rounded-3xl border border-slate-200 shadow-sm flex flex-col justify-between hover:border-[#D97706] transition-colors">
+            <div>
+              <div className="w-12 h-12 rounded-2xl bg-slate-50 border border-slate-200 flex items-center justify-center mb-5">
+                {s.icon}
               </div>
-              <h3 className="text-xl font-bold text-slate-200 mb-3">{s.title}</h3>
-              <p className="text-sm text-slate-400 leading-relaxed">{s.desc}</p>
+              <h3 className="text-lg font-bold text-slate-900 mb-2">{s.title}</h3>
+              <p className="text-xs text-slate-600 leading-relaxed mb-6">{s.desc}</p>
             </div>
-          ))}
-        </div>
-      </section>
 
+            <button
+              onClick={() => openBookingModal()}
+              className="text-xs font-bold text-slate-900 hover:text-[#D97706] flex items-center gap-1.5 self-start"
+            >
+              <span>Inquire Service</span>
+              <ArrowRight className="w-4 h-4" />
+            </button>
+          </div>
+        ))}
+      </div>
+
+      {/* 24h Dispatch Callout */}
+      <div className="bg-[#0A192F] text-white p-8 sm:p-10 rounded-3xl border border-slate-700 flex flex-col sm:flex-row items-center justify-between gap-6">
+        <div>
+          <h2 className="text-2xl font-bold mb-1">24-Hour Central Taxi Dispatch</h2>
+          <p className="text-xs text-slate-300">Available round the clock during high season in Val Gardena.</p>
+        </div>
+        <a
+          href="tel:+390471790033"
+          className="px-6 py-3.5 bg-[#D97706] hover:bg-[#b45309] text-white font-extrabold text-xs uppercase tracking-wider rounded-xl transition-all flex items-center gap-2 shadow-lg whitespace-nowrap"
+        >
+          <PhoneCall className="w-4 h-4" />
+          <span>Call (+39) 0471 790033</span>
+        </a>
+      </div>
     </div>
   );
 };

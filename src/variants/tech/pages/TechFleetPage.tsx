@@ -1,146 +1,109 @@
 import React from 'react';
-import { CarFront, Users, Briefcase, Settings2, Plus, ArrowRight } from 'lucide-react';
+import { FLEET } from '../../../data/fleet';
+import { useAppStore } from '../../../store/useAppStore';
+import { Users, Briefcase, Check, ArrowRight } from 'lucide-react';
 
 export const TechFleetPage: React.FC = () => {
-  const fleet = [
+  const { openBookingModal } = useAppStore();
+
+  const specializedUnits = [
     {
-      class: 'Executive Sedan',
-      models: 'Mercedes E-Class 4MATIC',
-      pax: 3,
-      luggage: 3,
-      features: ['Leather interior', 'Free WiFi', 'AWD for snow', 'Climate control'],
-      highlight: false
+      title: 'Disabled Customer Transport (Wheelchair Lift)',
+      desc: 'Equipped with electric/hydraulic wheelchair ramp and ISO 4-point safety restraint system. Capacity: 1 wheelchair + 7 accompanying passengers.',
+      image: '/images/fleet/autosella_mercedes-v-05.jpg'
     },
     {
-      class: 'VIP Luxury Sedan',
-      models: 'Mercedes S-Class Long VIP',
-      pax: 2,
-      luggage: 2,
-      features: ['Massage seats', 'Privacy glass', 'AWD for snow', 'Bottled water'],
-      highlight: true
+      title: 'Bike & Motorbike Shuttle Trailer',
+      desc: 'Luggage trailer capable of carrying up to 10 bicycles/e-bikes or 2–3 motorbikes with luggage. Ideal for return transfers and breakdown recovery.',
+      image: '/images/fleet/mercedes-vito-ski-trailer.jpg'
     },
     {
-      class: 'Luxury SUV',
-      models: 'Mercedes GLS 4MATIC',
-      pax: 4,
-      luggage: 4,
-      features: ['Panoramic roof', 'Air suspension', 'Extra legroom'],
-      highlight: false
-    },
-    {
-      class: 'Premium Minivan',
-      models: 'Mercedes V-Class VIP',
-      pax: 7,
-      luggage: 7,
-      features: ['Conference seating', 'Extra long wheel base', 'Ski box option'],
-      highlight: true
-    },
-    {
-      class: 'Standard Minivan',
-      models: 'Mercedes Vito 4MATIC / Caravelle',
-      pax: 8,
-      luggage: 8,
-      features: ['Cost effective', 'High capacity', 'Ski box option'],
-      highlight: false
-    },
-    {
-      class: 'VIP Minibus',
-      models: 'Mercedes Sprinter VIP Coach',
-      pax: 20,
-      luggage: 20,
-      features: ['Reclining seats', 'Microphone', 'Large cargo hold', 'USB charging'],
-      highlight: false
-    },
-    {
-      class: 'Grand Coach',
-      models: '56-Passenger Touring Coach',
-      pax: 56,
-      luggage: 60,
-      features: ['Restroom', 'Fridge', 'TV/DVD', 'Huge luggage bays'],
-      highlight: false
+      title: 'Film & Photo Production Logistics',
+      desc: 'Specialized 4x4 production support vehicle for television, film, and commercial photoshoot crews working in the Dolomites.',
+      image: '/images/fleet/autosella_filmproduktion_01.jpg'
     }
   ];
 
-  const specialized = [
-    { name: 'Disabled Accessible Van', desc: 'Equipped with hydraulic lift for wheelchair accessibility.' },
-    { name: 'Ski/Bike Trailers', desc: 'Enclosed, secure trailers for up to 10 bikes or 20 pairs of skis.' },
-    { name: 'Film Production Support', desc: 'Logistics vans for camera equipment and crew transport.' }
-  ];
-
   return (
-    <div className="min-h-screen bg-[#090D14] text-white font-['Inter',sans-serif] pb-20">
-      
-      {/* Header */}
-      <section className="px-6 pt-20 pb-12 max-w-7xl mx-auto border-b border-slate-800">
-        <h1 className="text-4xl lg:text-5xl font-extrabold tracking-tight mb-4">
-          The <span className="text-[#059669]">Fleet</span> Matrix.
+    <div className="py-16 px-4 sm:px-8 lg:px-16 max-w-7xl mx-auto">
+      <div className="max-w-3xl mb-12">
+        <h1 className="text-3xl sm:text-5xl font-extrabold text-slate-900 mb-3">
+          Our 25-Vehicle Modern Fleet
         </h1>
-        <p className="text-lg text-slate-400 max-w-2xl mb-6">
-          25 state-of-the-art vehicles. All strictly equipped with 4MATIC All-Wheel Drive and premium winter tires for absolute safety in the Dolomites.
+        <p className="text-base text-slate-600 leading-relaxed">
+          From limousines to large 56-seat buses. All vehicles are modern Mercedes models with permanent 4MATIC all-wheel drive, offering maximum comfort and safety.
         </p>
-        <div className="flex flex-wrap gap-3">
-          <span className="px-3 py-1 bg-slate-800 text-xs font-bold rounded-md">100% 4MATIC</span>
-          <span className="px-3 py-1 bg-slate-800 text-xs font-bold rounded-md">Avg. Age &lt; 3 Years</span>
-          <span className="px-3 py-1 bg-slate-800 text-xs font-bold rounded-md">Euro 6d Emissions</span>
-        </div>
-      </section>
+      </div>
 
-      {/* Fleet Grid */}
-      <section className="px-6 py-16 max-w-7xl mx-auto">
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          
-          {fleet.map((vehicle, i) => (
-            <div key={i} className={`p-6 rounded-xl border ${vehicle.highlight ? 'bg-[#059669]/10 border-[#059669]/50' : 'bg-[#111827] border-slate-800'} relative group flex flex-col`}>
-              {vehicle.highlight && (
-                <div className="absolute top-0 right-6 -translate-y-1/2 px-3 py-1 bg-[#059669] text-white text-[10px] font-bold uppercase tracking-widest rounded-full">
-                  Popular
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+        {FLEET.map((v) => (
+          <div key={v.id} className="bg-white rounded-3xl p-6 border border-slate-200 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
+            <div>
+              <div className="h-56 rounded-2xl overflow-hidden mb-5 bg-slate-900">
+                <img src={v.image} alt={v.name} className="w-full h-full object-cover" />
+              </div>
+              <h3 className="text-xl font-bold text-slate-900 mb-1">{v.name}</h3>
+              <p className="text-xs font-bold text-[#D97706] mb-3">{v.subtitle}</p>
+              <p className="text-xs text-slate-600 mb-5 leading-relaxed">{v.tagline}</p>
+
+              <div className="p-3 bg-slate-50 rounded-xl border border-slate-200 mb-6 text-xs text-slate-700 space-y-1">
+                <div className="flex justify-between">
+                  <span>Passenger Capacity:</span>
+                  <strong className="text-slate-900">{v.passengers} Pax</strong>
                 </div>
-              )}
-              
-              <h3 className="text-xl font-bold text-slate-200 mb-1">{vehicle.class}</h3>
-              <p className="text-sm text-slate-400 font-medium mb-6">{vehicle.models}</p>
-              
-              <div className="flex gap-4 mb-6">
-                <div className="flex items-center gap-1.5 text-sm font-bold text-slate-300">
-                  <Users className="w-4 h-4 text-slate-500" /> {vehicle.pax} Pax
+                <div className="flex justify-between">
+                  <span>Luggage Capacity:</span>
+                  <strong className="text-slate-900">{v.luggage} Bags</strong>
                 </div>
-                <div className="flex items-center gap-1.5 text-sm font-bold text-slate-300">
-                  <Briefcase className="w-4 h-4 text-slate-500" /> {vehicle.luggage} Bags
+                <div className="flex justify-between">
+                  <span>Winter Ski Capacity:</span>
+                  <strong className="text-slate-900">⛷️ {v.skis} Pairs</strong>
                 </div>
               </div>
-              
-              <ul className="space-y-2 mb-8 flex-1">
-                {vehicle.features.map((f, j) => (
-                  <li key={j} className="flex items-start gap-2 text-xs text-slate-400">
-                    <Plus className="w-3.5 h-3.5 text-[#059669] shrink-0 mt-0.5" /> {f}
+
+              <ul className="space-y-1.5 mb-6 text-xs text-slate-600">
+                {v.features.slice(0, 3).map((f, i) => (
+                  <li key={i} className="flex items-center gap-2">
+                    <Check className="w-3.5 h-3.5 text-[#D97706] flex-shrink-0" />
+                    <span>{f}</span>
                   </li>
                 ))}
               </ul>
-
-              <button className="w-full py-2.5 bg-slate-800 text-slate-200 text-xs font-bold rounded-lg hover:bg-slate-700 transition-colors flex items-center justify-center gap-2">
-                Request <ArrowRight className="w-3.5 h-3.5" />
-              </button>
             </div>
-          ))}
 
-        </div>
-      </section>
+            <button
+              onClick={() => openBookingModal(v.id)}
+              className="w-full py-3 bg-[#0A192F] hover:bg-[#D97706] text-white font-bold text-xs rounded-xl transition-colors flex items-center justify-center gap-2"
+            >
+              <span>Book Vehicle</span>
+              <ArrowRight className="w-4 h-4" />
+            </button>
+          </div>
+        ))}
+      </div>
 
-      {/* Specialized Units */}
-      <section className="px-6 py-16 max-w-7xl mx-auto border-t border-slate-800">
-        <h2 className="text-2xl font-bold mb-8 flex items-center gap-3">
-          <Settings2 className="w-6 h-6 text-[#059669]" /> Specialized Units
-        </h2>
-        <div className="grid md:grid-cols-3 gap-6">
-          {specialized.map((s, i) => (
-            <div key={i} className="p-6 bg-slate-900 border border-slate-800 rounded-xl">
-              <h4 className="font-bold text-slate-200 mb-2">{s.name}</h4>
-              <p className="text-sm text-slate-500 leading-relaxed">{s.desc}</p>
+      {/* Specialized Vehicles */}
+      <h2 className="text-2xl font-bold text-slate-900 mb-6">Specialized Vehicles & Trailers</h2>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {specializedUnits.map((u, i) => (
+          <div key={i} className="bg-white rounded-3xl p-6 border border-slate-200 shadow-sm flex flex-col justify-between">
+            <div>
+              <div className="h-48 rounded-2xl overflow-hidden mb-5 bg-slate-900">
+                <img src={u.image} alt={u.title} className="w-full h-full object-cover" />
+              </div>
+              <h3 className="text-base font-bold text-slate-900 mb-2">{u.title}</h3>
+              <p className="text-xs text-slate-600 leading-relaxed mb-6">{u.desc}</p>
             </div>
-          ))}
-        </div>
-      </section>
 
+            <button
+              onClick={() => openBookingModal()}
+              className="w-full py-2.5 bg-slate-100 border border-slate-300 hover:border-[#D97706] text-slate-900 font-bold text-xs rounded-xl transition-colors"
+            >
+              Inquire Special Vehicle
+            </button>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };

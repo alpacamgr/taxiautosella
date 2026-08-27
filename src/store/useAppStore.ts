@@ -28,6 +28,9 @@ interface AppStore {
   language: Language;
   booking: BookingState;
   isModalOpen: boolean;
+  isInquiryModalOpen: boolean;
+  inquiryContext: string;
+  inquiryPrefill: string;
   isSuccessView: boolean;
   activeSection: string;
 
@@ -37,6 +40,8 @@ interface AppStore {
   updateBooking: (fields: Partial<BookingState>) => void;
   openBookingModal: (vehicleId?: string) => void;
   closeBookingModal: () => void;
+  openInquiryModal: (context: string, prefill?: string) => void;
+  closeInquiryModal: () => void;
   setSuccessView: (val: boolean) => void;
   setActiveSection: (sec: string) => void;
   t: (key: string) => string;
@@ -51,6 +56,9 @@ export const useAppStore = create<AppStore>((set, get) => ({
   activeConcept: 'luxury', // default concept
   language: 'en',
   isModalOpen: false,
+  isInquiryModalOpen: false,
+  inquiryContext: '',
+  inquiryPrefill: '',
   isSuccessView: false,
   activeSection: 'home',
 
@@ -90,6 +98,8 @@ export const useAppStore = create<AppStore>((set, get) => ({
     })),
 
   closeBookingModal: () => set({ isModalOpen: false, isSuccessView: false }),
+  openInquiryModal: (context, prefill = '') => set({ isInquiryModalOpen: true, inquiryContext: context, inquiryPrefill: prefill, isSuccessView: false }),
+  closeInquiryModal: () => set({ isInquiryModalOpen: false, isSuccessView: false }),
   setSuccessView: (val) => set({ isSuccessView: val }),
   setActiveSection: (sec) => set({ activeSection: sec }),
 

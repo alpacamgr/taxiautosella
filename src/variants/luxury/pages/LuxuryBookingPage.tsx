@@ -3,14 +3,14 @@ import { useAppStore } from '../../../store/useAppStore';
 import { ArrowRight, MapPin, Calendar, Users, Info } from 'lucide-react';
 
 export const LuxuryBookingPage: React.FC = () => {
-  const { openBookingModal } = useAppStore();
+  const { openInquiryModal } = useAppStore();
   const [form, setForm] = useState({
     name: '', email: '', phone: '', pickup: '', dropoff: '', date: '', time: '', passengers: '1', message: ''
   });
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    openBookingModal();
+    openInquiryModal('Custom Transfer Inquiry', `From: ${form.pickup} to ${form.dropoff} on ${form.date}. Passengers: ${form.passengers}.`);
   };
 
   const airports = [
@@ -122,14 +122,14 @@ export const LuxuryBookingPage: React.FC = () => {
                     <label className="block text-[11px] uppercase tracking-widest text-[#0E1117]/50 font-semibold mb-2">Pick-up</label>
                     <div className="relative">
                       <MapPin className="absolute left-3 top-3 w-4 h-4 text-[#C5A880]" />
-                      <input type="text" className="w-full bg-[#F8F6F0] border-none p-3 pl-10 rounded-lg text-sm outline-none focus:ring-1 focus:ring-[#C5A880]" required placeholder="Location" />
+                      <input type="text" value={form.pickup} onChange={e => setForm({...form, pickup: e.target.value})} className="w-full bg-[#F8F6F0] border-none p-3 pl-10 rounded-lg text-sm outline-none focus:ring-1 focus:ring-[#C5A880]" required placeholder="Location" />
                     </div>
                   </div>
                   <div>
                     <label className="block text-[11px] uppercase tracking-widest text-[#0E1117]/50 font-semibold mb-2">Drop-off</label>
                     <div className="relative">
                       <MapPin className="absolute left-3 top-3 w-4 h-4 text-[#C5A880]" />
-                      <input type="text" className="w-full bg-[#F8F6F0] border-none p-3 pl-10 rounded-lg text-sm outline-none focus:ring-1 focus:ring-[#C5A880]" required placeholder="Location" />
+                      <input type="text" value={form.dropoff} onChange={e => setForm({...form, dropoff: e.target.value})} className="w-full bg-[#F8F6F0] border-none p-3 pl-10 rounded-lg text-sm outline-none focus:ring-1 focus:ring-[#C5A880]" required placeholder="Location" />
                     </div>
                   </div>
                 </div>
@@ -139,14 +139,14 @@ export const LuxuryBookingPage: React.FC = () => {
                     <label className="block text-[11px] uppercase tracking-widest text-[#0E1117]/50 font-semibold mb-2">Date</label>
                     <div className="relative">
                       <Calendar className="absolute left-3 top-3 w-4 h-4 text-[#C5A880]" />
-                      <input type="date" className="w-full bg-[#F8F6F0] border-none p-3 pl-10 rounded-lg text-sm outline-none focus:ring-1 focus:ring-[#C5A880]" required />
+                      <input type="date" value={form.date} onChange={e => setForm({...form, date: e.target.value})} className="w-full bg-[#F8F6F0] border-none p-3 pl-10 rounded-lg text-sm outline-none focus:ring-1 focus:ring-[#C5A880]" required />
                     </div>
                   </div>
                   <div>
                     <label className="block text-[11px] uppercase tracking-widest text-[#0E1117]/50 font-semibold mb-2">Passengers</label>
                     <div className="relative">
                       <Users className="absolute left-3 top-3 w-4 h-4 text-[#C5A880]" />
-                      <select className="w-full bg-[#F8F6F0] border-none p-3 pl-10 rounded-lg text-sm outline-none focus:ring-1 focus:ring-[#C5A880]">
+                      <select value={form.passengers} onChange={e => setForm({...form, passengers: e.target.value})} className="w-full bg-[#F8F6F0] border-none p-3 pl-10 rounded-lg text-sm outline-none focus:ring-1 focus:ring-[#C5A880]">
                         <option>1-2</option>
                         <option>3-4</option>
                         <option>5-8</option>

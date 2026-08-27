@@ -11,8 +11,16 @@ export const LuxuryMembersPage: React.FC = () => {
   ];
 
   const partners = [
-    'Elikos', 'Dolomiti Sportclinic', 'Bruno Riffeser', 'Rusctlea', 
-    'Europa Hotel', 'Carrozzeria Gardena', 'Val Gardena Tourism', 'Intersport Rent'
+    { name: 'Val Gardena Tourism', url: 'https://www.valgardena.it' },
+    { name: 'Dolomiti Sportclinic', url: 'https://www.dolomitisportclinic.com' },
+    { name: 'Elikos Helicopter Service', url: 'https://www.elikos.com' },
+    { name: 'Intersport Rent', url: 'https://www.intersportrent.com' },
+    { name: 'Dolomiti Superski', url: 'https://www.dolomitisuperski.com' },
+    { name: 'UNESCO Dolomites', url: 'https://www.dolomitiunesco.info' },
+    { name: 'Hotel Europa', url: 'https://www.hoteleuropa.com' },
+    { name: 'Rusctlea Ristorante', url: 'https://www.rusctlea.it' },
+    { name: 'Bruno Riffeser', url: null },
+    { name: 'Carrozzeria Gardena', url: null }
   ];
 
   const venues = [
@@ -60,9 +68,15 @@ export const LuxuryMembersPage: React.FC = () => {
             </p>
             <ul className="space-y-3">
               {partners.map(partner => (
-                <li key={partner} className="flex items-center gap-3 text-sm font-medium text-[#0E1117]">
-                  <span className="w-1.5 h-1.5 bg-[#C5A880] rounded-full"></span>
-                  {partner}
+                <li key={partner.name} className="flex items-center gap-3 text-sm font-medium text-[#0E1117]">
+                  <span className="w-1.5 h-1.5 bg-[#C5A880] rounded-full flex-shrink-0"></span>
+                  {partner.url ? (
+                    <a href={partner.url} target="_blank" rel="noopener noreferrer" className="hover:text-[#C5A880] transition-colors decoration-1 underline-offset-4 hover:underline">
+                      {partner.name}
+                    </a>
+                  ) : (
+                    <span>{partner.name}</span>
+                  )}
                 </li>
               ))}
             </ul>

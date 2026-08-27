@@ -21,10 +21,8 @@ export const LuxuryHome: React.FC = () => {
 
   const handleStartBooking = (e: React.FormEvent) => {
     e.preventDefault();
-    if (bookingDetails.date) {
-      updateBooking({ date: bookingDetails.date });
-    }
-    openBookingModal();
+    const { openInquiryModal } = useAppStore.getState();
+    openInquiryModal('VIP Chauffeur Request', `Pickup: ${bookingDetails.pickup}, Dropoff: ${bookingDetails.dropoff}, Date: ${bookingDetails.date}, Passengers: ${bookingDetails.passengers}`);
   };
 
   const routes = [
@@ -141,7 +139,7 @@ export const LuxuryHome: React.FC = () => {
                   type="submit"
                   className="w-full mt-4 bg-[#0E1117] hover:bg-[#C5A880] text-[#F8F6F0] hover:text-[#0E1117] transition-all duration-300 py-4 px-6 font-semibold text-xs uppercase tracking-widest flex items-center justify-between group shadow-md"
                 >
-                  <span>Request White-Glove Quote</span>
+                  <span>Request VIP Chauffeur</span>
                   <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" />
                 </button>
               </div>

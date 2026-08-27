@@ -1,112 +1,98 @@
 import React from 'react';
-import { Users, Award, ShieldCheck, HeartHandshake } from 'lucide-react';
+import { Users, Building2, GlassWater } from 'lucide-react';
 
 export const TechMembersPage: React.FC = () => {
-  const members = [
-    "Kasslatter Armin", "Kasslatter Egon", "Kasslatter Mark",
-    "Kostner Armin", "Lardschneider Marco", "Lardschneider Peter",
-    "Malsiner Anton", "Malsiner Markus", "Moroder Anton",
-    "Mussner Egon", "Mussner Georg", "Mussner Ivo",
-    "Piazza Manuel", "Perathoner Ivan", "Perathoner Marco",
-    "Ploner Andreas", "Senoner Erich", "Senoner Stefan"
+  const allDrivers = [
+    "Bauer Dietrich", "Bauer Martin", "Bernardi Jonas", "Comploi Johann", 
+    "Demetz Mark", "Demetz Manuel", "Falaha Mohamed Majd", "Insam Andreas", 
+    "Moroder Mikeol", "Perathoner Erich", "Piazza Walter", "Ploner Iwan", 
+    "Ploner Vittorio", "Prinoth Markus", "Prucker Egon", "Runggaldier Franco", 
+    "Runggaldier Jasmin", "Runggaldier Leo"
+  ];
+
+  const sponsors = [
+    { name: "Elikos Helicopter Service", desc: "Scenic flights and heli-transfers in the Dolomites" },
+    { name: "Dolomiti Sportclinic", desc: "Specialized sports medicine and orthopaedic emergency clinic" },
+    { name: "Bruno Riffeser", desc: "Val Gardena master woodcarving and traditional South Tyrolean art" },
+    { name: "Rusctlea Ristorante", desc: "Fine traditional and gourmet dining in Val Gardena" },
+    { name: "Hotel Europa", desc: "Alpine hospitality partner in Santa Cristina" },
+    { name: "Carrozzeria Gardena", desc: "Official technical bodywork and automotive maintenance partner" },
+    { name: "Val Gardena Tourist Consortium", desc: "Official regional tourism board of Ortisei, S. Cristina, and Selva" },
+    { name: "Intersport Rent", desc: "Official ski and snowboard rental partner" }
+  ];
+
+  const nightlifeVenues = [
+    "Bar Caffe 2000", "Caffe Adler", "Marina Lounge", "Piz 5", 
+    "Disco Dancing Dali'", "La Stua", "Goalies' Pub", "Mauriz Keller", 
+    "Bar 181", "Après-Ski Bar Saltos"
   ];
 
   return (
-    <div className="min-h-screen bg-[#090D14] text-white font-['Inter',sans-serif] pb-20">
-      
-      {/* Header */}
-      <section className="px-6 pt-20 pb-12 max-w-7xl mx-auto border-b border-slate-800 text-center">
-        <h1 className="text-4xl lg:text-5xl font-extrabold tracking-tight mb-4">
-          The <span className="text-[#059669]">Consortium</span>.
+    <div className="py-16 px-4 sm:px-8 lg:px-16 max-w-7xl mx-auto">
+      <div className="max-w-3xl mb-12">
+        <h1 className="text-3xl sm:text-5xl font-extrabold text-slate-900 mb-3">
+          Members, Sponsors & Partners
         </h1>
-        <p className="text-lg text-slate-400 max-w-2xl mx-auto">
-          Taxi Auto Sella is an elite consortium of 18 independent driver-owners based in Val Gardena, united by a singular commitment to premium service.
+        <p className="text-base text-slate-600 leading-relaxed">
+          These are the independent driver members and official tourism partners that make up Taxi Auto Sella Consortium.
         </p>
-      </section>
+      </div>
 
-      <section className="px-6 py-16 max-w-7xl mx-auto grid lg:grid-cols-12 gap-12">
-        
-        {/* Members List */}
-        <div className="lg:col-span-8 space-y-8">
-          <div className="flex items-center gap-3 mb-6">
-            <Users className="w-6 h-6 text-[#059669]" />
-            <h2 className="text-2xl font-bold">18 Independent Drivers. One Standard.</h2>
-          </div>
-          
-          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
-            {members.map((m, i) => (
-              <div key={i} className="bg-[#111827] border border-slate-800 px-4 py-3 rounded-lg flex items-center gap-3">
-                <div className="w-8 h-8 rounded-full bg-slate-900 flex items-center justify-center text-xs font-bold text-slate-500">
-                  {m.charAt(0)}
-                </div>
-                <span className="text-sm font-semibold text-slate-200">{m}</span>
+      {/* Driver Members Grid */}
+      <div className="bg-white rounded-3xl p-8 border border-slate-200 shadow-sm mb-16">
+        <h2 className="text-2xl font-bold text-slate-900 mb-2 flex items-center gap-2">
+          <Users className="w-5 h-5 text-[#D97706]" />
+          <span>Consortium Driver Members</span>
+        </h2>
+        <p className="text-xs text-slate-500 mb-6">Our drivers are all local to Val Gardena and speak German, Italian, and English.</p>
+
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
+          {allDrivers.map((name, i) => (
+            <div key={i} className="p-3 bg-slate-50 rounded-xl border border-slate-200 text-center">
+              <div className="w-8 h-8 rounded-full bg-[#0A192F] text-[#F59E0B] text-xs font-bold flex items-center justify-center mx-auto mb-2">
+                {name.split(' ').map(n => n[0]).join('')}
               </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Structure */}
-        <div className="lg:col-span-4 space-y-6">
-          <div className="p-6 bg-slate-900 border border-slate-800 rounded-xl">
-            <ShieldCheck className="w-8 h-8 text-[#059669] mb-4" />
-            <h3 className="text-lg font-bold mb-2">Consortium Structure</h3>
-            <p className="text-sm text-slate-400 leading-relaxed mb-4">
-              Unlike gig-economy platforms, every driver in our consortium is an owner-operator. This ensures extreme accountability, impeccable vehicle maintenance, and a deep, personal knowledge of the Dolomite roads.
-            </p>
-            <div className="flex items-center gap-2 text-xs font-bold text-slate-300">
-              <Award className="w-4 h-4 text-[#059669]" /> 100% Local Expertise
+              <span className="text-xs font-bold text-slate-900 block">{name}</span>
+              <span className="text-[10px] text-slate-400">Val Gardena</span>
             </div>
-          </div>
+          ))}
         </div>
+      </div>
 
-      </section>
+      {/* Sponsors & Partners */}
+      <div className="mb-16">
+        <h2 className="text-2xl font-bold text-slate-900 mb-2 flex items-center gap-2">
+          <Building2 className="w-5 h-5 text-[#D97706]" />
+          <span>Our Sponsors & Regional Partners</span>
+        </h2>
+        <p className="text-xs text-slate-500 mb-6">Trusted tourism and commercial partners in Val Gardena.</p>
 
-      {/* Partners */}
-      <section className="px-6 py-16 max-w-7xl mx-auto border-t border-slate-800">
-        <div className="flex items-center gap-3 mb-12">
-          <HeartHandshake className="w-6 h-6 text-[#059669]" />
-          <h2 className="text-2xl font-bold">Official Partners & Sponsors</h2>
-        </div>
-        
-        <div className="grid md:grid-cols-2 gap-8">
-          <div className="space-y-4">
-            <h4 className="font-bold text-slate-500 uppercase tracking-widest text-xs">Tourism & Medical</h4>
-            <div className="grid grid-cols-2 gap-4">
-              <div className="p-6 bg-slate-900 border border-slate-800 rounded-lg flex items-center justify-center text-center font-bold text-slate-300">
-                Val Gardena Tourism
-              </div>
-              <div className="p-6 bg-slate-900 border border-slate-800 rounded-lg flex items-center justify-center text-center font-bold text-slate-300">
-                Intersport Rent
-              </div>
-              <div className="p-6 bg-slate-900 border border-slate-800 rounded-lg flex items-center justify-center text-center font-bold text-slate-300">
-                Dolomiti Sportclinic
-              </div>
-              <div className="p-6 bg-slate-900 border border-slate-800 rounded-lg flex items-center justify-center text-center font-bold text-slate-300">
-                Elikos Helicopters
-              </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {sponsors.map((s, idx) => (
+            <div key={idx} className="p-5 bg-white rounded-2xl border border-slate-200 shadow-sm">
+              <h3 className="font-bold text-sm text-slate-900 mb-1">{s.name}</h3>
+              <p className="text-xs text-slate-600 leading-relaxed">{s.desc}</p>
             </div>
-          </div>
-
-          <div className="space-y-4">
-            <h4 className="font-bold text-slate-500 uppercase tracking-widest text-xs">Val Gardena Nightlife</h4>
-            <div className="grid grid-cols-2 gap-4">
-              <div className="p-6 bg-slate-900 border border-slate-800 rounded-lg flex items-center justify-center text-center font-bold text-slate-300">
-                Luislkeller
-              </div>
-              <div className="p-6 bg-slate-900 border border-slate-800 rounded-lg flex items-center justify-center text-center font-bold text-slate-300">
-                Mauriz Keller
-              </div>
-              <div className="p-6 bg-slate-900 border border-slate-800 rounded-lg flex items-center justify-center text-center font-bold text-slate-300">
-                La Bula
-              </div>
-              <div className="p-6 bg-slate-900 border border-slate-800 rounded-lg flex items-center justify-center text-center font-bold text-slate-300">
-                Yello's
-              </div>
-            </div>
-          </div>
+          ))}
         </div>
-      </section>
+      </div>
 
+      {/* Nightlife Venues */}
+      <div className="bg-[#0A192F] text-white p-8 sm:p-10 rounded-3xl border border-slate-700">
+        <div className="flex items-center gap-2 mb-2">
+          <GlassWater className="w-5 h-5 text-[#F59E0B]" />
+          <h2 className="text-xl font-bold">Nightlife in Val Gardena</h2>
+        </div>
+        <p className="text-xs text-slate-300 mb-6">Safe night transfers to and from Val Gardena’s top venues and après-ski bars.</p>
+
+        <div className="grid grid-cols-2 sm:grid-cols-5 gap-3 text-xs">
+          {nightlifeVenues.map((v, i) => (
+            <div key={i} className="p-3 bg-[#112240] border border-slate-700 rounded-xl font-medium text-slate-200 text-center">
+              {v}
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
   );
 };

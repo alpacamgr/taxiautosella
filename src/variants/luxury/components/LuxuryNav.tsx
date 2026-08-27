@@ -19,12 +19,10 @@ export const LuxuryNav: React.FC = () => {
   return (
     <nav className="w-full bg-[#0E1117] text-[#F8F6F0] border-b border-white/10 px-6 lg:px-16 py-4 flex items-center justify-between">
       <Link to="/luxury" className="flex items-center gap-3">
-        <span className="font-editorial text-xl tracking-tight text-[#F8F6F0]">
-          Taxi Auto Sella <span className="text-[#C5A880] text-xs font-sans uppercase tracking-widest ml-2 hidden sm:inline">Chauffeur</span>
-        </span>
+        <img src="/images/brand/logo.svg" alt="Taxi Auto Sella" className="h-7 w-auto object-contain" />
       </Link>
 
-      <div className="hidden md:flex items-center gap-8 text-xs font-light tracking-wider">
+      <div className="hidden lg:flex items-center gap-8 text-xs font-light tracking-wider">
         {links.map((l) => (
           <NavLink
             key={l.path}

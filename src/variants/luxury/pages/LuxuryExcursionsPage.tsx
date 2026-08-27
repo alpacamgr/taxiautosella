@@ -3,7 +3,7 @@ import { useAppStore } from '../../../store/useAppStore';
 import { Map, ArrowRight, Clock, MapPin } from 'lucide-react';
 
 export const LuxuryExcursionsPage: React.FC = () => {
-  const { openBookingModal } = useAppStore();
+  const { openInquiryModal } = useAppStore();
 
   const excursions = [
     {
@@ -59,7 +59,7 @@ export const LuxuryExcursionsPage: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
           {excursions.map((exc, i) => (
             <div key={i} className="group bg-white rounded-2xl overflow-hidden shadow-xl border border-[#0E1117]/5 flex flex-col sm:flex-row">
-              <div className="w-full sm:w-2/5 h-64 sm:h-auto bg-slate-900 overflow-hidden relative">
+              <div className="w-full sm:w-2/5 aspect-[4/3] sm:aspect-auto sm:h-full bg-slate-900 overflow-hidden relative">
                 <img 
                   src={exc.img} 
                   alt={exc.title} 
@@ -78,7 +78,7 @@ export const LuxuryExcursionsPage: React.FC = () => {
                   </p>
                 </div>
                 <button 
-                  onClick={() => openBookingModal()}
+                  onClick={() => openInquiryModal(`Tour: ${exc.title}`, `I am interested in the ${exc.duration} ${exc.title} excursion.`)}
                   className="self-start text-xs uppercase tracking-widest font-semibold text-[#0E1117] hover:text-[#C5A880] transition-colors flex items-center gap-2"
                 >
                   <span>Inquire Now</span>

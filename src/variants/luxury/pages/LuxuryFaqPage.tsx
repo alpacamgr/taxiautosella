@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { ChevronDown } from 'lucide-react';
+import { useAppStore } from '../../../store/useAppStore';
 
 export const LuxuryFaqPage: React.FC = () => {
   const [openIdx, setOpenIdx] = useState<number | null>(0);
@@ -78,6 +79,21 @@ export const LuxuryFaqPage: React.FC = () => {
               </div>
             </div>
           ))}
+        </div>
+
+        <div className="mt-20 bg-[#0E1117] text-[#F8F6F0] p-10 md:p-16 rounded-3xl flex flex-col md:flex-row items-center justify-between shadow-2xl relative overflow-hidden">
+          <div className="relative z-10 max-w-2xl">
+            <h2 className="font-editorial text-4xl mb-4">Still have questions?</h2>
+            <p className="text-[#F8F6F0]/70 font-light mb-8 md:mb-0">
+              Our concierge team is available to assist you with any specific inquiries or custom requests.
+            </p>
+          </div>
+          <button 
+            onClick={() => useAppStore.getState().openInquiryModal('General Inquiry', '')}
+            className="relative z-10 w-full md:w-auto px-8 py-4 bg-[#C5A880] text-[#0E1117] font-semibold text-xs uppercase tracking-widest hover:bg-white transition-colors rounded-lg flex items-center justify-center gap-2"
+          >
+            <span>Inquire Now</span>
+          </button>
         </div>
       </div>
     </div>

@@ -1,102 +1,137 @@
 import React from 'react';
-import { Map, ArrowRight, Utensils } from 'lucide-react';
+import { EXCURSIONS } from '../../../data/excursions';
+import { useAppStore } from '../../../store/useAppStore';
+import { Clock, Check, ArrowRight } from 'lucide-react';
 
 export const TechToursPage: React.FC = () => {
-  const tours = [
+  const { openBookingModal } = useAppStore();
+
+  const additionalDestinations = [
     {
-      title: 'Venice Day Trip',
-      desc: 'Leave the mountains for a day and explore the floating city. We drop you off at Piazzale Roma and wait while you take a water taxi to St. Mark\'s Square.',
-      duration: 'Full Day (12h)',
-      tags: ['Culture', 'City']
+      title: 'Cortina d’Ampezzo — Winter Olympic Capital',
+      subtitle: 'Passo Falzarego & Passo Giau Scenic Route',
+      duration: 'Full Day (7–8 Hours)',
+      priceFrom: '€380 / van',
+      highlights: [
+        'Panoramic high pass journey across the Dolomites',
+        'Shopping and leisure in Cortina town center',
+        'Direct hotel pickup and return'
+      ],
+      desc: 'Visit the Queen of the Dolomites and winter Olympic host city in luxury Mercedes comfort.'
     },
     {
-      title: 'Verona & Lake Garda',
-      desc: 'Visit Juliet\'s balcony and the Roman Arena in Verona, followed by a scenic drive along the shores of Lake Garda or a wine tasting in Valpolicella.',
-      duration: 'Full Day (10h)',
-      tags: ['Wine', 'Sightseeing']
+      title: 'Bolzano & Merano — Spa Town & Ötzi the Iceman',
+      subtitle: 'South Tyrolean Cultural Day Trip',
+      duration: 'Full Day (6–8 Hours)',
+      priceFrom: '€320 / van',
+      highlights: [
+        'South Tyrol Museum of Archaeology (Ötzi)',
+        'Merano thermal spa promenade & historic Kurhaus',
+        'Traditional wine cellars & fruit market'
+      ],
+      desc: 'Discover South Tyrol’s historic capital and the beautiful thermal spa town of Merano.'
     },
     {
-      title: 'Innsbruck & Swarovski Crystal Worlds',
-      desc: 'Cross the border into Austria to explore the historic center of Innsbruck (Golden Roof) and the famous Swarovski Crystal Worlds in Wattens.',
-      duration: 'Full Day (9h)',
-      tags: ['Shopping', 'Family']
-    },
-    {
-      title: 'Cortina & The Great Dolomites Road',
-      desc: 'A spectacular driving tour through the heart of the Dolomites (UNESCO World Heritage), traversing famous mountain passes to reach the glamorous town of Cortina d\'Ampezzo.',
-      duration: 'Full/Half Day',
-      tags: ['Nature', 'Photography']
-    },
-    {
-      title: 'Bolzano & Merano',
-      desc: 'Discover Ötzi the Iceman at the Bolzano Archaeology Museum, shop in the medieval arcades, and stroll the botanical gardens of Trauttmansdorff Castle in Merano.',
-      duration: 'Half Day (6h)',
-      tags: ['Museum', 'Culture']
+      title: 'Mountain Hut Dinners & Evening Sledge Rides',
+      subtitle: 'Traditional Alpine Chalet Experience',
+      duration: 'Evening (4–5 Hours)',
+      priceFrom: '€180 / van',
+      highlights: [
+        '4x4 snow transfer to high altitude mountain huts',
+        'Traditional South Tyrolean dinner & wine',
+        'Optional torchlit sledge descent'
+      ],
+      desc: 'An authentic alpine evening with comfortable 4x4 snow transport and safe return to your hotel.'
     }
   ];
 
   return (
-    <div className="min-h-screen bg-[#090D14] text-white font-['Inter',sans-serif] pb-20">
-      
-      {/* Header */}
-      <section className="px-6 pt-20 pb-12 max-w-7xl mx-auto border-b border-slate-800">
-        <h1 className="text-4xl lg:text-5xl font-extrabold tracking-tight mb-4">
-          Organized <span className="text-[#059669]">Tours</span>.
+    <div className="py-16 px-4 sm:px-8 lg:px-16 max-w-7xl mx-auto">
+      <div className="max-w-3xl mb-12">
+        <h1 className="text-3xl sm:text-5xl font-extrabold text-slate-900 mb-3">
+          Organised Tours & Trips
         </h1>
-        <p className="text-lg text-slate-400 max-w-2xl">
-          Curated excursions from Val Gardena to the region's most iconic destinations. Sit back and enjoy the scenery in our luxury vehicles.
+        <p className="text-base text-slate-600 leading-relaxed">
+          We organize trips for you whatever time of year to a great many scenic destinations and cultural cities across northern Italy and central Europe.
         </p>
-      </section>
+      </div>
 
-      {/* Excursions */}
-      <section className="px-6 py-16 max-w-7xl mx-auto space-y-12">
-        
-        <div className="grid lg:grid-cols-2 gap-6">
-          {tours.map((t, i) => (
-            <div key={i} className="p-8 bg-[#111827] border border-slate-800 rounded-xl hover:border-slate-600 transition-colors flex flex-col">
-              <div className="flex justify-between items-start mb-4">
-                <h3 className="text-2xl font-bold text-slate-100">{t.title}</h3>
-                <span className="px-3 py-1 bg-slate-900 text-[#059669] text-xs font-bold rounded-full border border-slate-800">
-                  {t.duration}
-                </span>
-              </div>
-              <p className="text-slate-400 leading-relaxed mb-6 flex-1">
-                {t.desc}
-              </p>
-              <div className="flex items-center justify-between mt-auto pt-6 border-t border-slate-800/50">
-                <div className="flex gap-2">
-                  {t.tags.map(tag => (
-                    <span key={tag} className="text-[10px] uppercase font-bold text-slate-500 tracking-wider bg-slate-900 px-2 py-1 rounded">
-                      {tag}
-                    </span>
-                  ))}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+        {EXCURSIONS.map((tour) => (
+          <div key={tour.id} className="bg-white rounded-3xl overflow-hidden border border-slate-200 shadow-sm flex flex-col justify-between group">
+            <div>
+              <div className="h-64 overflow-hidden relative bg-slate-900">
+                <img src={tour.image} alt={tour.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                <div className="absolute top-4 left-4 bg-[#0A192F] text-[#F59E0B] text-xs font-bold px-3.5 py-1 rounded-full">
+                  {tour.duration}
                 </div>
-                <button className="text-sm font-bold text-[#059669] hover:text-white flex items-center gap-1 transition-colors">
-                  Inquire <ArrowRight className="w-4 h-4" />
-                </button>
+              </div>
+              <div className="p-7">
+                <h3 className="text-2xl font-bold text-slate-900 mb-1">{tour.title}</h3>
+                <p className="text-xs font-bold text-[#D97706] mb-3">{tour.subtitle}</p>
+                <p className="text-xs text-slate-600 leading-relaxed mb-6">{tour.description}</p>
+                <ul className="space-y-2 mb-6 text-xs text-slate-700">
+                  {tour.highlights.map((h, i) => (
+                    <li key={i} className="flex items-start gap-2">
+                      <Check className="w-4 h-4 text-[#D97706] flex-shrink-0 mt-0.5" />
+                      <span>{h}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
             </div>
-          ))}
-        </div>
 
-        {/* Hut Dinners */}
-        <div className="p-8 bg-gradient-to-r from-[#111827] to-[#059669]/10 border border-[#059669]/30 rounded-xl relative overflow-hidden">
-          <div className="absolute top-0 right-0 p-8 opacity-20">
-            <Utensils className="w-32 h-32 text-[#059669]" />
+            <div className="p-7 pt-0 border-t border-slate-100 flex items-center justify-between">
+              <div>
+                <span className="text-[10px] text-slate-400 uppercase tracking-widest block">Private Van Tour</span>
+                <span className="font-extrabold text-xl text-slate-900">{tour.priceFrom}</span>
+              </div>
+              <button
+                onClick={() => openBookingModal()}
+                className="px-6 py-3 bg-[#0A192F] hover:bg-[#D97706] text-white font-bold text-xs rounded-xl transition-colors flex items-center gap-2"
+              >
+                <span>Book Tour</span>
+                <ArrowRight className="w-4 h-4" />
+              </button>
+            </div>
           </div>
-          <div className="relative z-10 max-w-xl">
-            <h3 className="text-2xl font-bold text-white mb-3">Evening Mountain Hut Dinners</h3>
-            <p className="text-slate-300 leading-relaxed mb-6">
-              Experience the magic of the Dolomites at night. We provide transport from your hotel to the snowcat or snowmobile pickup points for exclusive dinners at high-altitude alpine huts (Rifugi). We'll be waiting to bring you home after dessert.
-            </p>
-            <button className="px-6 py-3 bg-[#059669] text-white text-sm font-bold rounded-lg hover:bg-[#047857] transition-colors">
-              Book Evening Transport
-            </button>
+        ))}
+      </div>
+
+      {/* Additional Cultural & Evening Tours */}
+      <h2 className="text-2xl font-bold text-slate-900 mb-6">Additional Day Excursions</h2>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {additionalDestinations.map((t, idx) => (
+          <div key={idx} className="bg-white p-7 rounded-3xl border border-slate-200 shadow-sm flex flex-col justify-between">
+            <div>
+              <div className="inline-block px-2.5 py-1 rounded-full bg-slate-100 text-xs font-bold text-slate-600 mb-3">
+                {t.duration}
+              </div>
+              <h3 className="text-lg font-bold text-slate-900 mb-1">{t.title}</h3>
+              <p className="text-xs font-bold text-[#D97706] mb-3">{t.subtitle}</p>
+              <p className="text-xs text-slate-600 mb-5 leading-relaxed">{t.desc}</p>
+              <ul className="space-y-1.5 mb-6 text-xs text-slate-600">
+                {t.highlights.map((h, i) => (
+                  <li key={i} className="flex items-start gap-1.5">
+                    <Check className="w-3.5 h-3.5 text-[#D97706] flex-shrink-0 mt-0.5" />
+                    <span>{h}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="pt-4 border-t border-slate-100 flex items-center justify-between">
+              <span className="text-sm font-extrabold text-slate-900">{t.priceFrom}</span>
+              <button
+                onClick={() => openBookingModal()}
+                className="px-4 py-2 bg-[#D97706] text-white font-bold text-xs rounded-xl hover:bg-[#b45309] transition-colors"
+              >
+                Inquire
+              </button>
+            </div>
           </div>
-        </div>
-
-      </section>
-
+        ))}
+      </div>
     </div>
   );
 };

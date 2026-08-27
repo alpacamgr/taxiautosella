@@ -1,6 +1,8 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
 import { LuxuryNav } from './components/LuxuryNav';
+import { BookingModal } from '../../components/booking/BookingModal';
+import { InquiryModal } from '../../components/booking/InquiryModal';
 
 export const LuxuryLayout: React.FC = () => {
   return (
@@ -17,6 +19,9 @@ export const LuxuryLayout: React.FC = () => {
       <div className="flex-1">
         <Outlet />
       </div>
+
+      <BookingModal />
+      <InquiryModal />
 
       {/* Luxury Footer */}
       <footer className="bg-[#0E1117] text-[#F8F6F0] py-16 px-6 lg:px-16 mt-auto">

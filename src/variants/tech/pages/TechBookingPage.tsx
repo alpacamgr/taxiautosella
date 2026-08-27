@@ -1,127 +1,120 @@
 import React from 'react';
-import { Plane, Train, Clock, CheckCircle } from 'lucide-react';
+import { useAppStore } from '../../../store/useAppStore';
+import { Plane, Train, ArrowRight } from 'lucide-react';
 
 export const TechBookingPage: React.FC = () => {
-  const airports = [
-    { name: 'Innsbruck (INN)', price: '180€', time: '1h 30m' },
-    { name: 'Verona (VRN)', price: '220€', time: '2h 00m' },
-    { name: 'Venice (VCE)', price: '350€', time: '3h 15m' },
-    { name: 'Treviso (TSF)', price: '340€', time: '3h 00m' },
-    { name: 'Bergamo (BGY)', price: '380€', time: '3h 30m' },
-    { name: 'Milan Linate (LIN)', price: '450€', time: '4h 00m' },
-    { name: 'Milan Malpensa (MXP)', price: '480€', time: '4h 15m' },
-    { name: 'Munich (MUC)', price: '400€', time: '3h 45m' },
-    { name: 'Bologna (BLQ)', price: '390€', time: '3h 30m' },
-    { name: 'Bolzano (BZO)', price: '90€', time: '0h 45m' },
+  const { openBookingModal } = useAppStore();
+
+  const airportRates = [
+    { name: 'Innsbruck Airport (INN)', dist: '120 km', time: '1h 30m', sedan: '€240', van: '€280' },
+    { name: 'Verona Valerio Catullo (VRN)', dist: '190 km', time: '2h 05m', sedan: '€340', van: '€380' },
+    { name: 'Munich Franz Josef Strauss (MUC)', dist: '310 km', time: '3h 30m', sedan: '€480', van: '€550' },
+    { name: 'Venice Marco Polo (VCE)', dist: '270 km', time: '3h 15m', sedan: '€440', van: '€490' },
+    { name: 'Milan Malpensa (MXP)', dist: '350 km', time: '3h 55m', sedan: '€540', van: '€620' },
+    { name: 'Milan Linate (LIN)', dist: '320 km', time: '3h 35m', sedan: '€500', van: '€580' },
+    { name: 'Bergamo Orio al Serio (BGY)', dist: '270 km', time: '3h 00m', sedan: '€430', van: '€490' },
+    { name: 'Treviso Canova (TSF)', dist: '230 km', time: '2h 50m', sedan: '€400', van: '€450' },
+    { name: 'Bologna Guglielmo Marconi (BLQ)', dist: '290 km', time: '3h 10m', sedan: '€460', van: '€520' },
+    { name: 'Bolzano Airport (BZO)', dist: '42 km', time: '45m', sedan: '€110', van: '€130' },
+  ];
+
+  const stationRates = [
+    { name: 'Bolzano / Bozen Railway Station', dist: '40 km', time: '45m', sedan: '€100', van: '€120' },
+    { name: 'Bressanone / Brixen Railway Station', dist: '32 km', time: '35m', sedan: '€85', van: '€105' },
+    { name: 'Ponte Gardena / Waidbruck Station', dist: '15 km', time: '20m', sedan: '€50', van: '€65' },
+    { name: 'Chiusa / Klausen Railway Station', dist: '25 km', time: '30m', sedan: '€70', van: '€85' },
   ];
 
   return (
-    <div className="min-h-screen bg-[#090D14] text-white font-['Inter',sans-serif] pb-20">
-      
-      {/* Header */}
-      <section className="px-6 pt-20 pb-12 max-w-7xl mx-auto border-b border-slate-800">
-        <h1 className="text-4xl lg:text-5xl font-extrabold tracking-tight mb-4">
-          Transparent <span className="text-[#059669]">Pricing</span> Matrix.
+    <div className="py-16 px-4 sm:px-8 lg:px-16 max-w-7xl mx-auto">
+      <div className="max-w-3xl mb-12">
+        <h1 className="text-3xl sm:text-5xl font-extrabold text-slate-900 mb-3">
+          Fixed Rates & Online Booking
         </h1>
-        <p className="text-lg text-slate-400 max-w-2xl">
-          Fixed rates with zero hidden fees. All prices include taxes, highway tolls, and standard luggage. 
+        <p className="text-base text-slate-600 leading-relaxed">
+          Guaranteed upfront fixed prices to and from Val Gardena. All highway tolls, alpine permits, meet & greet, and flight delay tracking are 100% included.
         </p>
-      </section>
+      </div>
 
-      {/* Pricing Tables */}
-      <section className="px-6 py-16 max-w-7xl mx-auto grid lg:grid-cols-2 gap-12">
-        
-        {/* Airports */}
-        <div className="space-y-6">
-          <div className="flex items-center gap-3 border-b border-slate-800 pb-4">
-            <Plane className="w-6 h-6 text-[#059669]" />
-            <h2 className="text-2xl font-bold">Airport Transfers</h2>
-          </div>
-          
-          <div className="bg-[#111827] rounded-xl border border-slate-800 overflow-hidden">
-            <table className="w-full text-sm text-left">
-              <thead className="bg-[#090D14] border-b border-slate-800 text-slate-400 font-bold uppercase text-[10px] tracking-wider">
-                <tr>
-                  <th className="px-6 py-4">Airport</th>
-                  <th className="px-6 py-4">Est. Time</th>
-                  <th className="px-6 py-4 text-right">Starting From</th>
+      {/* Airport Rates */}
+      <div className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm mb-12">
+        <div className="flex items-center gap-2 mb-6">
+          <Plane className="w-5 h-5 text-[#D97706]" />
+          <h2 className="text-xl font-bold text-slate-900">Airport Transfers (To / From Val Gardena)</h2>
+        </div>
+
+        <div className="overflow-x-auto">
+          <table className="w-full text-left text-xs sm:text-sm">
+            <thead>
+              <tr className="border-b border-slate-200 text-slate-400 font-bold uppercase text-[11px]">
+                <th className="py-3 px-4">Airport</th>
+                <th className="py-3 px-4">Distance & Time</th>
+                <th className="py-3 px-4">Sedan (1–3 Pax)</th>
+                <th className="py-3 px-4">Minivan (1–8 Pax)</th>
+                <th className="py-3 px-4 text-right">Action</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-slate-100">
+              {airportRates.map((r, i) => (
+                <tr key={i} className="hover:bg-slate-50 transition-colors">
+                  <td className="py-4 px-4 font-bold text-slate-900">{r.name}</td>
+                  <td className="py-4 px-4 text-slate-500">{r.dist} • {r.time}</td>
+                  <td className="py-4 px-4 font-extrabold text-slate-900">{r.sedan}</td>
+                  <td className="py-4 px-4 font-extrabold text-[#D97706]">{r.van}</td>
+                  <td className="py-4 px-4 text-right">
+                    <button
+                      onClick={() => openBookingModal()}
+                      className="px-4 py-1.5 bg-[#0A192F] hover:bg-[#D97706] text-white font-bold text-xs rounded-lg transition-colors"
+                    >
+                      Book
+                    </button>
+                  </td>
                 </tr>
-              </thead>
-              <tbody className="divide-y divide-slate-800/50">
-                {airports.map((a, i) => (
-                  <tr key={i} className="hover:bg-slate-800/20 transition-colors">
-                    <td className="px-6 py-4 font-semibold text-slate-200">{a.name}</td>
-                    <td className="px-6 py-4 text-slate-500">{a.time}</td>
-                    <td className="px-6 py-4 text-right font-bold text-[#059669]">{a.price}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      {/* Train Station Rates */}
+      <div className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm mb-12">
+        <div className="flex items-center gap-2 mb-6">
+          <Train className="w-5 h-5 text-[#D97706]" />
+          <h2 className="text-xl font-bold text-slate-900">Railway Station Transfers</h2>
         </div>
 
-        {/* Stations & Hourly */}
-        <div className="space-y-12">
-          
-          <div className="space-y-6">
-            <div className="flex items-center gap-3 border-b border-slate-800 pb-4">
-              <Train className="w-6 h-6 text-[#059669]" />
-              <h2 className="text-2xl font-bold">Train Stations</h2>
-            </div>
-            <div className="bg-[#111827] rounded-xl border border-slate-800 p-6 space-y-4">
-              <div className="flex justify-between items-center pb-4 border-b border-slate-800/50">
-                <div>
-                  <h4 className="font-bold text-slate-200">Bolzano / Bozen Station</h4>
-                  <p className="text-xs text-slate-500">45 minutes to Val Gardena</p>
-                </div>
-                <div className="text-lg font-bold text-[#059669]">From 90€</div>
-              </div>
-              <div className="flex justify-between items-center pb-4 border-b border-slate-800/50">
-                <div>
-                  <h4 className="font-bold text-slate-200">Bressanone / Brixen</h4>
-                  <p className="text-xs text-slate-500">40 minutes to Val Gardena</p>
-                </div>
-                <div className="text-lg font-bold text-[#059669]">From 80€</div>
-              </div>
-              <div className="flex justify-between items-center">
-                <div>
-                  <h4 className="font-bold text-slate-200">Chiusa / Klausen</h4>
-                  <p className="text-xs text-slate-500">30 minutes to Val Gardena</p>
-                </div>
-                <div className="text-lg font-bold text-[#059669]">From 60€</div>
-              </div>
-            </div>
-          </div>
-
-          <div className="space-y-6">
-            <div className="flex items-center gap-3 border-b border-slate-800 pb-4">
-              <Clock className="w-6 h-6 text-[#059669]" />
-              <h2 className="text-2xl font-bold">Hourly Dispositions</h2>
-            </div>
-            <div className="bg-gradient-to-br from-[#111827] to-[#090D14] rounded-xl border border-slate-800 p-6">
-              <p className="text-slate-400 text-sm mb-6">For business roadshows, flexible ski safaris, or VIP shopping trips.</p>
-              
-              <ul className="space-y-3 mb-6">
-                <li className="flex items-center gap-2 text-sm text-slate-300">
-                  <CheckCircle className="w-4 h-4 text-[#059669]" /> Minivan (up to 8 pax): <span className="font-bold text-white ml-auto">75€ / hour</span>
-                </li>
-                <li className="flex items-center gap-2 text-sm text-slate-300">
-                  <CheckCircle className="w-4 h-4 text-[#059669]" /> Executive Sedan: <span className="font-bold text-white ml-auto">85€ / hour</span>
-                </li>
-                <li className="flex items-center gap-2 text-sm text-slate-300">
-                  <CheckCircle className="w-4 h-4 text-[#059669]" /> Luxury S-Class: <span className="font-bold text-white ml-auto">On Request</span>
-                </li>
-              </ul>
-              
-              <div className="text-xs text-slate-500 bg-slate-900/50 p-3 rounded-lg border border-slate-800">
-                Minimum booking: 3 hours. Mileage limits apply.
-              </div>
-            </div>
-          </div>
-
+        <div className="overflow-x-auto">
+          <table className="w-full text-left text-xs sm:text-sm">
+            <thead>
+              <tr className="border-b border-slate-200 text-slate-400 font-bold uppercase text-[11px]">
+                <th className="py-3 px-4">Train Station</th>
+                <th className="py-3 px-4">Distance & Time</th>
+                <th className="py-3 px-4">Sedan (1–3 Pax)</th>
+                <th className="py-3 px-4">Minivan (1–8 Pax)</th>
+                <th className="py-3 px-4 text-right">Action</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-slate-100">
+              {stationRates.map((r, i) => (
+                <tr key={i} className="hover:bg-slate-50 transition-colors">
+                  <td className="py-4 px-4 font-bold text-slate-900">{r.name}</td>
+                  <td className="py-4 px-4 text-slate-500">{r.dist} • {r.time}</td>
+                  <td className="py-4 px-4 font-extrabold text-slate-900">{r.sedan}</td>
+                  <td className="py-4 px-4 font-extrabold text-[#D97706]">{r.van}</td>
+                  <td className="py-4 px-4 text-right">
+                    <button
+                      onClick={() => openBookingModal()}
+                      className="px-4 py-1.5 bg-[#0A192F] hover:bg-[#D97706] text-white font-bold text-xs rounded-lg transition-colors"
+                    >
+                      Book
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
-
-      </section>
+      </div>
     </div>
   );
 };
