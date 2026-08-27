@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import { useAppStore } from '../../store/useAppStore';
+import { FLEET } from '../../data/fleet';
+import { EXCURSIONS } from '../../data/excursions';
+import { CONSORTIUM_MEMBERS } from '../../data/drivers';
 import { 
   MapPin, 
   Calendar, 
@@ -8,17 +11,39 @@ import {
   Phone,
   MessageCircle,
   Clock,
-  Shield
+  Shield,
+  Check,
+  ChevronRight,
+  Sparkles,
+  Award,
+  Briefcase
 } from 'lucide-react';
 
 export const ConceptLuxury: React.FC = () => {
-  const { openBookingModal } = useAppStore();
+  const { openBookingModal, updateBooking, t } = useAppStore();
   const [bookingDetails, setBookingDetails] = useState({
     pickup: '',
     dropoff: '',
     date: '',
-    passengers: '1'
+    passengers: '2'
   });
+
+  const handleStartBooking = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (bookingDetails.date) {
+      updateBooking({ date: bookingDetails.date });
+    }
+    openBookingModal();
+  };
+
+  const routes = [
+    { from: 'Innsbruck Airport (INN)', to: 'Val Gardena', time: '1h 30m', dist: '120 km', price: 'from €240' },
+    { from: 'Verona Valerio Catullo (VRN)', to: 'Val Gardena', time: '2h 05m', dist: '190 km', price: 'from €340' },
+    { from: 'Munich Franz Josef Strauss (MUC)', to: 'Val Gardena', time: '3h 30m', dist: '310 km', price: 'from €480' },
+    { from: 'Venice Marco Polo (VCE)', to: 'Val Gardena', time: '3h 15m', dist: '270 km', price: 'from €440' },
+    { from: 'Milan Malpensa (MXP)', to: 'Val Gardena', time: '3h 55m', dist: '350 km', price: 'from €540' },
+    { from: 'Bolzano Airport (BZO)', to: 'Val Gardena', time: '45m', dist: '42 km', price: 'from €110' },
+  ];
 
   return (
     <div className="bg-[#F8F6F0] text-[#0E1117] min-h-screen font-sans selection:bg-[#C5A880] selection:text-white">
@@ -28,15 +53,15 @@ export const ConceptLuxury: React.FC = () => {
       `}</style>
       
       {/* HERO SECTION */}
-      <section className="relative w-full min-h-[90vh] bg-[#0E1117] text-[#F8F6F0] flex flex-col justify-end pb-24 lg:pb-32 px-6 lg:px-16 overflow-hidden">
+      <section className="relative w-full min-h-[90vh] bg-[#0E1117] text-[#F8F6F0] flex flex-col justify-end pb-20 lg:pb-28 px-6 lg:px-16 overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img 
-            src="https://images.unsplash.com/photo-1502784444187-359ac186c5bb?auto=format&fit=crop&w=2000&q=85" 
-            alt="Dolomites Mountains"
-            className="w-full h-full object-cover opacity-60"
+            src="/images/hero/autosella-fleet-lineup-dolomites.jpg" 
+            alt="Dolomites Luxury Fleet Lineup"
+            className="w-full h-full object-cover opacity-50"
           />
           <div className="absolute inset-0 bg-black/40 mix-blend-multiply" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0E1117] via-[#0E1117]/20 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0E1117] via-[#0E1117]/30 to-transparent" />
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-end">
@@ -45,25 +70,29 @@ export const ConceptLuxury: React.FC = () => {
               The Grand <br />
               <span className="italic text-[#C5A880]">Alpine</span> Chauffeur
             </h1>
-            <p className="text-lg sm:text-xl text-[#F8F6F0]/80 max-w-md font-light leading-relaxed">
-              Discreet, uncompromising luxury transfers across the Dolomites. Thirty-five years of consortium heritage.
+            <p className="text-base sm:text-xl text-[#F8F6F0]/80 max-w-md font-light leading-relaxed">
+              Discreet, uncompromising luxury transfers across the Dolomites. Thirty-five years of consortium heritage with 25 Mercedes 4MATIC vehicles.
             </p>
           </div>
 
           <div className="lg:col-span-5 w-full">
             {/* Bespoke Concierge Ribbon / Booking Panel */}
-            <div className="bg-[#F8F6F0] p-8 sm:p-10 text-[#0E1117] shadow-2xl">
-              <h2 className="font-editorial text-2xl mb-6 border-b border-[#0E1117]/10 pb-4">Reserve Your Journey</h2>
+            <form onSubmit={handleStartBooking} className="bg-[#F8F6F0] p-8 sm:p-10 text-[#0E1117] shadow-2xl rounded-2xl">
+              <h2 className="font-editorial text-2xl mb-6 border-b border-[#0E1117]/10 pb-4">
+                Reserve Your Journey
+              </h2>
               
               <div className="space-y-5">
                 <div className="group relative">
-                  <label className="block text-xs font-semibold uppercase tracking-widest text-[#0E1117]/50 mb-1">From</label>
+                  <label className="block text-[11px] font-semibold uppercase tracking-widest text-[#0E1117]/50 mb-1">
+                    Pick-Up Location
+                  </label>
                   <div className="flex items-center border-b border-[#0E1117]/20 py-2 transition-colors focus-within:border-[#C5A880]">
                     <MapPin className="w-4 h-4 text-[#C5A880] mr-3" />
                     <input 
                       type="text" 
-                      placeholder="Airport or Hotel"
-                      className="w-full bg-transparent border-none outline-none text-sm font-medium placeholder-[#0E1117]/30"
+                      placeholder="e.g. Innsbruck / Munich Airport"
+                      className="w-full bg-transparent border-none outline-none text-sm font-medium placeholder-[#0E1117]/40"
                       value={bookingDetails.pickup}
                       onChange={e => setBookingDetails({...bookingDetails, pickup: e.target.value})}
                     />
@@ -71,13 +100,15 @@ export const ConceptLuxury: React.FC = () => {
                 </div>
 
                 <div className="group relative">
-                  <label className="block text-xs font-semibold uppercase tracking-widest text-[#0E1117]/50 mb-1">To</label>
+                  <label className="block text-[11px] font-semibold uppercase tracking-widest text-[#0E1117]/50 mb-1">
+                    Destination
+                  </label>
                   <div className="flex items-center border-b border-[#0E1117]/20 py-2 transition-colors focus-within:border-[#C5A880]">
                     <MapPin className="w-4 h-4 text-[#C5A880] mr-3" />
                     <input 
                       type="text" 
-                      placeholder="Destination in Val Gardena"
-                      className="w-full bg-transparent border-none outline-none text-sm font-medium placeholder-[#0E1117]/30"
+                      placeholder="Hotel or Chalet in Val Gardena"
+                      className="w-full bg-transparent border-none outline-none text-sm font-medium placeholder-[#0E1117]/40"
                       value={bookingDetails.dropoff}
                       onChange={e => setBookingDetails({...bookingDetails, dropoff: e.target.value})}
                     />
@@ -86,247 +117,212 @@ export const ConceptLuxury: React.FC = () => {
 
                 <div className="grid grid-cols-2 gap-6">
                   <div className="group relative">
-                    <label className="block text-xs font-semibold uppercase tracking-widest text-[#0E1117]/50 mb-1">Date</label>
+                    <label className="block text-[11px] font-semibold uppercase tracking-widest text-[#0E1117]/50 mb-1">
+                      Date
+                    </label>
                     <div className="flex items-center border-b border-[#0E1117]/20 py-2 transition-colors focus-within:border-[#C5A880]">
                       <Calendar className="w-4 h-4 text-[#C5A880] mr-3" />
                       <input 
                         type="date" 
-                        className="w-full bg-transparent border-none outline-none text-sm font-medium text-[#0E1117]"
+                        className="w-full bg-transparent border-none outline-none text-xs font-medium text-[#0E1117]"
                         value={bookingDetails.date}
                         onChange={e => setBookingDetails({...bookingDetails, date: e.target.value})}
                       />
                     </div>
                   </div>
                   <div className="group relative">
-                    <label className="block text-xs font-semibold uppercase tracking-widest text-[#0E1117]/50 mb-1">Passengers</label>
+                    <label className="block text-[11px] font-semibold uppercase tracking-widest text-[#0E1117]/50 mb-1">
+                      Guests
+                    </label>
                     <div className="flex items-center border-b border-[#0E1117]/20 py-2 transition-colors focus-within:border-[#C5A880]">
                       <Users className="w-4 h-4 text-[#C5A880] mr-3" />
                       <select 
-                        className="w-full bg-transparent border-none outline-none text-sm font-medium text-[#0E1117]"
+                        className="w-full bg-transparent border-none outline-none text-xs font-medium text-[#0E1117]"
                         value={bookingDetails.passengers}
                         onChange={e => setBookingDetails({...bookingDetails, passengers: e.target.value})}
                       >
-                        {[1,2,3,4,5,6,7,8].map(n => <option key={n} value={n}>{n}</option>)}
+                        <option value="1">1 Passenger</option>
+                        <option value="2">2 Passengers</option>
+                        <option value="3-4">3–4 Passengers</option>
+                        <option value="5-8">5–8 (Minivan VIP)</option>
+                        <option value="9+">9+ Group Coach</option>
                       </select>
                     </div>
                   </div>
                 </div>
 
                 <button 
-                  onClick={() => openBookingModal()}
-                  className="w-full mt-6 bg-[#0E1117] hover:bg-[#161A23] text-[#F8F6F0] transition-colors py-4 px-6 flex items-center justify-between group"
+                  type="submit"
+                  className="w-full mt-4 bg-[#0E1117] hover:bg-[#C5A880] text-[#F8F6F0] hover:text-[#0E1117] transition-all duration-300 py-4 px-6 font-semibold text-xs uppercase tracking-widest flex items-center justify-between group shadow-md"
                 >
-                  <span className="text-xs font-semibold uppercase tracking-widest">Request Quote</span>
+                  <span>Request White-Glove Quote</span>
                   <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" />
                 </button>
               </div>
-            </div>
+            </form>
           </div>
         </div>
       </section>
 
-      {/* HERITAGE SECTION */}
-      <section className="py-24 lg:py-32 px-6 lg:px-16 bg-[#F8F6F0]">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          <div className="order-2 lg:order-1 relative">
-            <div className="aspect-[3/4] w-full max-w-md mx-auto lg:mx-0 overflow-hidden bg-[#0E1117]">
-              <img 
-                src="https://images.unsplash.com/photo-1610647752706-3bb12232b3ab?auto=format&fit=crop&w=800&q=80" 
-                alt="Chauffeur Service"
-                className="w-full h-full object-cover opacity-90 grayscale contrast-125"
-              />
-            </div>
-            <div className="absolute -bottom-8 -right-8 lg:bottom-12 lg:-right-12 bg-[#0E1117] p-8 text-[#F8F6F0] max-w-xs outline outline-1 outline-offset-8 outline-[#0E1117] shadow-2xl">
-              <div className="font-editorial text-5xl mb-2 text-[#C5A880]">35</div>
-              <div className="text-xs uppercase tracking-widest font-semibold">Years of Excellence</div>
-              <p className="text-sm mt-4 text-[#F8F6F0]/70 font-light">Founded by 18 native drivers, navigating the alpine passes with unmatched local expertise.</p>
-            </div>
-          </div>
-
-          <div className="order-1 lg:order-2 space-y-8 lg:pl-12">
-            <h2 className="font-editorial text-4xl lg:text-5xl text-[#0E1117] leading-tight">
-              A Consortium Built on <br />
-              <span className="italic text-[#C5A880]">Trust</span> & Tradition
+      {/* EDITORIAL HERITAGE SECTION */}
+      <section className="py-24 px-6 lg:px-16 max-w-7xl mx-auto border-b border-[#0E1117]/10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+          <div className="lg:col-span-6 space-y-6">
+            <h2 className="font-editorial text-4xl sm:text-5xl font-normal leading-tight text-[#0E1117]">
+              Thirty-Five Years of <br />
+              <span className="italic text-[#C5A880]">Dolomite</span> Mastery
             </h2>
-            <div className="w-12 h-[1px] bg-[#C5A880]" />
-            <p className="text-lg text-[#0E1117]/70 font-light leading-relaxed">
-              We are not just drivers; we are your hosts in the Dolomites. Since 1989, Taxi Auto Sella has set the standard for luxury transportation in Val Gardena. Our fleet of immaculate Mercedes-Benz vehicles is piloted by seasoned professionals who know every curve of these mountains.
+            <p className="text-base text-[#0E1117]/70 font-light leading-relaxed">
+              Founded in Santa Cristina in 1989, Taxi Auto Sella unites eighteen native mountain chauffeurs. We navigate high Alpine passes in every season with total composure, delivering guests seamlessly to five-star chalets and hotels.
             </p>
-            <div className="grid grid-cols-2 gap-8 pt-8 border-t border-[#0E1117]/10">
+            
+            <div className="grid grid-cols-3 gap-6 pt-6 border-t border-[#0E1117]/10">
               <div>
-                <Shield className="w-6 h-6 text-[#C5A880] mb-4" />
-                <h4 className="font-semibold text-sm uppercase tracking-widest mb-2 text-[#0E1117]">Impeccable Safety</h4>
-                <p className="text-sm text-[#0E1117]/60">4MATIC all-wheel drive and rigorous winter maintenance.</p>
+                <div className="font-editorial text-3xl text-[#0E1117]">25</div>
+                <div className="text-[11px] font-semibold text-[#0E1117]/50 uppercase tracking-widest mt-1">4MATIC Fleet</div>
               </div>
               <div>
-                <Clock className="w-6 h-6 text-[#C5A880] mb-4" />
-                <h4 className="font-semibold text-sm uppercase tracking-widest mb-2 text-[#0E1117]">Punctuality</h4>
-                <p className="text-sm text-[#0E1117]/60">Live flight tracking and complimentary wait times.</p>
+                <div className="font-editorial text-3xl text-[#0E1117]">18</div>
+                <div className="text-[11px] font-semibold text-[#0E1117]/50 uppercase tracking-widest mt-1">Native Drivers</div>
+              </div>
+              <div>
+                <div className="font-editorial text-3xl text-[#0E1117]">35+</div>
+                <div className="text-[11px] font-semibold text-[#0E1117]/50 uppercase tracking-widest mt-1">Years Active</div>
+              </div>
+            </div>
+          </div>
+
+          <div className="lg:col-span-6">
+            <div className="relative">
+              <img 
+                src="/images/fleet/mercedes-s-class-vip.jpg" 
+                alt="Mercedes S-Class VIP Transfer"
+                className="w-full h-[450px] object-cover shadow-2xl rounded-2xl"
+              />
+              <div className="absolute -bottom-6 -left-6 bg-[#0E1117] text-[#F8F6F0] p-6 max-w-xs shadow-xl hidden sm:block rounded-xl border border-white/10">
+                <p className="font-editorial text-lg italic text-[#C5A880] mb-1">
+                  &ldquo;Absolute punctuality and discretion.&rdquo;
+                </p>
+                <p className="text-[10px] text-[#F8F6F0]/60 uppercase tracking-widest">
+                  Val Gardena Tourist Consortium
+                </p>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* FLEET SHOWCASE */}
-      <section className="py-24 lg:py-32 bg-[#0E1117] text-[#F8F6F0] px-6 lg:px-16">
-        <div className="max-w-7xl mx-auto">
-          <div className="mb-16 lg:mb-24 flex flex-col md:flex-row md:items-end justify-between gap-8">
-            <div className="max-w-2xl">
-              <h2 className="font-editorial text-4xl lg:text-5xl mb-6">
-                The <span className="italic text-[#C5A880]">Collection</span>
-              </h2>
-              <p className="text-lg text-[#F8F6F0]/60 font-light">
-                Our meticulously maintained fleet represents the pinnacle of automotive engineering, tailored for alpine comfort.
-              </p>
-            </div>
-            <button onClick={() => openBookingModal()} className="shrink-0 text-xs font-semibold uppercase tracking-widest text-[#C5A880] hover:text-white transition-colors flex items-center gap-2">
-              View All Vehicles <ArrowRight className="w-4 h-4" />
-            </button>
+      {/* MINIMALIST FLEET PRESENTATION */}
+      <section className="py-24 px-6 lg:px-16 max-w-7xl mx-auto border-b border-[#0E1117]/10">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+          <div>
+            <h2 className="font-editorial text-4xl sm:text-5xl font-normal text-[#0E1117]">
+              The Mercedes-Benz <span className="italic text-[#C5A880]">Lineup</span>
+            </h2>
+            <p className="text-sm text-[#0E1117]/60 font-light mt-2 max-w-md">
+              Every vehicle in our fleet is permanently equipped with Mercedes 4MATIC all-wheel drive, premium acoustic glass, and winter alpine gear.
+            </p>
           </div>
+          <button 
+            onClick={() => openBookingModal()}
+            className="text-xs uppercase tracking-widest font-semibold text-[#0E1117] hover:text-[#C5A880] transition-colors flex items-center gap-2 self-start md:self-auto"
+          >
+            <span>Inquire Custom Fleet Assignment</span>
+            <ArrowRight className="w-4 h-4" />
+          </button>
+        </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
-            {[
-              {
-                name: 'Mercedes E-Class 4MATIC',
-                category: 'Executive Sedan',
-                pax: 3,
-                bags: 3,
-                image: 'https://images.unsplash.com/photo-1549399542-7e3f8b79c341?auto=format&fit=crop&w=600&q=80'
-              },
-              {
-                name: 'Mercedes V-Class VIP',
-                category: 'Luxury Van',
-                pax: 7,
-                bags: 7,
-                image: 'https://images.unsplash.com/photo-1618846648753-1596a77dce7e?auto=format&fit=crop&w=600&q=80'
-              },
-              {
-                name: 'Executive Coach',
-                category: 'Group Travel',
-                pax: 20,
-                bags: 20,
-                image: 'https://images.unsplash.com/photo-1570125909232-eb263c188f7e?auto=format&fit=crop&w=600&q=80'
-              }
-            ].map((vehicle, idx) => (
-              <div key={idx} className="group cursor-pointer">
-                <div className="aspect-[4/3] w-full overflow-hidden bg-[#161A23] mb-6 relative">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {FLEET.slice(0, 3).map((vehicle) => (
+            <div key={vehicle.id} className="bg-white p-6 shadow-xl rounded-2xl flex flex-col justify-between border border-[#0E1117]/5 group">
+              <div>
+                <div className="h-56 overflow-hidden mb-6 rounded-xl bg-slate-900">
                   <img 
                     src={vehicle.image} 
-                    alt={vehicle.name} 
-                    className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 mix-blend-luminosity group-hover:mix-blend-normal"
+                    alt={vehicle.name}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                   />
-                  <div className="absolute inset-0 border border-[#C5A880]/0 group-hover:border-[#C5A880]/30 transition-colors m-4" />
                 </div>
-                <div className="text-xs font-semibold uppercase tracking-widest text-[#C5A880] mb-2">{vehicle.category}</div>
-                <h3 className="font-editorial text-2xl mb-4 text-[#F8F6F0]">{vehicle.name}</h3>
-                <div className="flex items-center gap-6 text-sm text-[#F8F6F0]/50 font-light border-t border-[#F8F6F0]/10 pt-4">
-                  <span className="flex items-center gap-2"><Users className="w-4 h-4" /> {vehicle.pax} Passengers</span>
-                  <span className="flex items-center gap-2">
-                    <span className="w-4 h-4 border border-current rounded-sm flex items-center justify-center text-[10px]">B</span> 
-                    {vehicle.bags} Luggage
-                  </span>
-                </div>
+                <h3 className="font-editorial text-2xl text-[#0E1117] mb-1">{vehicle.name}</h3>
+                <p className="text-xs text-[#C5A880] font-medium tracking-wide uppercase mb-4">{vehicle.subtitle}</p>
+                <p className="text-xs text-[#0E1117]/70 font-light leading-relaxed mb-6">
+                  {vehicle.tagline}
+                </p>
               </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
-      {/* ROUTES & PRICING */}
-      <section className="py-24 lg:py-32 px-6 lg:px-16 bg-[#F8F6F0]">
-        <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="font-editorial text-4xl lg:text-5xl text-[#0E1117] mb-6">
-              Curated <span className="italic text-[#C5A880]">Journeys</span>
-            </h2>
-            <div className="w-12 h-[1px] bg-[#C5A880] mx-auto" />
-          </div>
-
-          <div className="space-y-0 border-t border-[#0E1117]/10">
-            {[
-              { route: 'Innsbruck Airport (INN) to Val Gardena', distance: '120 km', time: '1h 45m', price: 'from €380' },
-              { route: 'Munich Airport (MUC) to Val Gardena', distance: '300 km', time: '3h 30m', price: 'from €650' },
-              { route: 'Verona Airport (VRN) to Val Gardena', distance: '190 km', time: '2h 15m', price: 'from €420' },
-              { route: 'Venice Marco Polo (VCE) to Val Gardena', distance: '310 km', time: '3h 45m', price: 'from €680' },
-              { route: 'Milan Malpensa (MXP) to Val Gardena', distance: '360 km', time: '4h 15m', price: 'from €850' },
-            ].map((route, idx) => (
-              <div key={idx} className="group flex flex-col sm:flex-row sm:items-center justify-between py-6 border-b border-[#0E1117]/10 hover:border-[#C5A880] transition-colors cursor-pointer" onClick={() => openBookingModal()}>
-                <div className="mb-4 sm:mb-0 pr-4">
-                  <h4 className="text-lg font-medium text-[#0E1117] group-hover:text-[#C5A880] transition-colors mb-1">{route.route}</h4>
-                  <div className="text-sm text-[#0E1117]/50 font-light flex gap-4">
-                    <span>{route.distance}</span>
-                    <span>{route.time}</span>
-                  </div>
+              <div className="pt-4 border-t border-[#0E1117]/10 flex items-center justify-between">
+                <div className="flex items-center gap-4 text-xs text-[#0E1117]/60">
+                  <span className="flex items-center gap-1"><Users className="w-3.5 h-3.5" /> {vehicle.passengers} Pax</span>
+                  <span className="flex items-center gap-1"><Briefcase className="w-3.5 h-3.5" /> {vehicle.luggage} Bags</span>
                 </div>
-                <div className="flex items-center gap-6 shrink-0">
-                  <span className="font-editorial text-xl text-[#0E1117]">{route.price}</span>
-                  <div className="w-10 h-10 rounded-full border border-[#0E1117]/20 flex items-center justify-center group-hover:bg-[#C5A880] group-hover:border-[#C5A880] group-hover:text-white transition-all">
-                    <ArrowRight className="w-4 h-4" />
-                  </div>
-                </div>
+                <button 
+                  onClick={() => openBookingModal(vehicle.id)}
+                  className="p-2.5 rounded-full bg-[#0E1117] text-[#F8F6F0] hover:bg-[#C5A880] hover:text-[#0E1117] transition-colors"
+                >
+                  <ArrowRight className="w-4 h-4" />
+                </button>
               </div>
-            ))}
-          </div>
-
-          <div className="mt-12 text-center text-sm text-[#0E1117]/50 font-light">
-            <p>All transfers include complimentary meet & greet, wait time for flight delays, and bottled water.</p>
-          </div>
-        </div>
-      </section>
-
-      {/* FOOTER CONCIERGE */}
-      <footer className="bg-[#0E1117] text-[#F8F6F0] pt-24 pb-12 px-6 lg:px-16 border-t border-[#F8F6F0]/10">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-4 gap-12 mb-16">
-          <div className="lg:col-span-2">
-            <h3 className="font-editorial text-3xl mb-6 text-[#F8F6F0]">Taxi Auto Sella</h3>
-            <p className="text-[#F8F6F0]/60 font-light max-w-sm mb-8 leading-relaxed">
-              The premier chauffeur consortium of Val Gardena, delivering uncompromising alpine luxury since 1989.
-            </p>
-            <div className="flex gap-4">
-              <a href="https://wa.me/390471790033" className="flex items-center gap-2 text-sm text-[#C5A880] hover:text-white transition-colors">
-                <MessageCircle className="w-4 h-4" /> WhatsApp
-              </a>
-              <a href="tel:+390471790033" className="flex items-center gap-2 text-sm text-[#C5A880] hover:text-white transition-colors">
-                <Phone className="w-4 h-4" /> Direct Line
-              </a>
             </div>
-          </div>
-          
+          ))}
+        </div>
+      </section>
+
+      {/* POPULAR ROUTE DIRECTORY */}
+      <section className="py-24 px-6 lg:px-16 max-w-7xl mx-auto border-b border-[#0E1117]/10">
+        <h2 className="font-editorial text-4xl sm:text-5xl font-normal text-[#0E1117] mb-12">
+          Gateway <span className="italic text-[#C5A880]">Connections</span>
+        </h2>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {routes.map((r, i) => (
+            <div 
+              key={i} 
+              onClick={() => openBookingModal()}
+              className="p-6 bg-white rounded-2xl border border-[#0E1117]/5 hover:border-[#C5A880] transition-all cursor-pointer shadow-sm hover:shadow-md flex items-center justify-between"
+            >
+              <div>
+                <h4 className="font-semibold text-sm text-[#0E1117] mb-1">{r.from}</h4>
+                <div className="text-xs text-[#0E1117]/50 flex items-center gap-2">
+                  <span>{r.dist}</span>
+                  <span>•</span>
+                  <span>{r.time}</span>
+                </div>
+              </div>
+              <div className="text-right">
+                <span className="text-sm font-bold text-[#C5A880] block">{r.price}</span>
+                <span className="text-[10px] text-[#0E1117]/40 uppercase tracking-widest">Fixed Rate</span>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* LUXURY FOOTER */}
+      <footer className="bg-[#0E1117] text-[#F8F6F0] py-16 px-6 lg:px-16">
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start gap-12 border-b border-white/10 pb-12">
           <div>
-            <h4 className="text-xs font-semibold uppercase tracking-widest text-[#F8F6F0]/40 mb-6">Services</h4>
-            <ul className="space-y-4 text-sm text-[#F8F6F0]/80 font-light">
-              <li><button onClick={() => openBookingModal()} className="hover:text-[#C5A880] transition-colors">Airport Transfers</button></li>
-              <li><button onClick={() => openBookingModal()} className="hover:text-[#C5A880] transition-colors">Corporate Travel</button></li>
-              <li><button onClick={() => openBookingModal()} className="hover:text-[#C5A880] transition-colors">Ski Safaris</button></li>
-              <li><button onClick={() => openBookingModal()} className="hover:text-[#C5A880] transition-colors">Dolomites Excursions</button></li>
-            </ul>
+            <h3 className="font-editorial text-3xl text-[#F8F6F0] mb-2">Taxi Auto Sella</h3>
+            <p className="text-xs text-[#F8F6F0]/60 max-w-sm font-light leading-relaxed">
+              Consortium Noleggio con Conducente. Str. Gherdeina 7/A, I-39047 Santa Cristina (BZ), Val Gardena, Dolomites, Italy.
+            </p>
           </div>
 
-          <div>
-            <h4 className="text-xs font-semibold uppercase tracking-widest text-[#F8F6F0]/40 mb-6">Contact</h4>
-            <ul className="space-y-4 text-sm text-[#F8F6F0]/80 font-light">
-              <li>Via Meisules 285</li>
-              <li>39048 Selva di Val Gardena (BZ)</li>
-              <li>Italy</li>
-              <li className="pt-4"><a href="mailto:info@taxiautosella.it" className="hover:text-[#C5A880] transition-colors">info@taxiautosella.it</a></li>
-            </ul>
+          <div className="space-y-2 text-xs font-light text-[#F8F6F0]/70">
+            <div><strong>Direct Dispatch:</strong> (+39) 0471 790033</div>
+            <div><strong>Inquiries:</strong> info@taxiautosella.it</div>
+            <div><strong>VAT No.:</strong> IT01707460216</div>
           </div>
         </div>
 
-        <div className="max-w-7xl mx-auto border-t border-[#F8F6F0]/10 pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-[#F8F6F0]/40 font-light">
+        <div className="max-w-7xl mx-auto pt-8 flex flex-col sm:flex-row justify-between items-center text-[11px] text-[#F8F6F0]/40 gap-4">
           <p>© {new Date().getFullYear()} Taxi Auto Sella Consortium. All rights reserved.</p>
           <div className="flex gap-6">
-            <a href="#" className="hover:text-[#F8F6F0] transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-[#F8F6F0] transition-colors">Terms of Service</a>
-            <div className="flex gap-2 items-center border-l border-[#F8F6F0]/20 pl-6">
-              <span className="hover:text-[#F8F6F0] transition-colors cursor-pointer uppercase">En</span>
-              <span className="hover:text-[#F8F6F0] transition-colors cursor-pointer uppercase">It</span>
-              <span className="hover:text-[#F8F6F0] transition-colors cursor-pointer uppercase">De</span>
-            </div>
+            <a href="tel:+390471790033" className="hover:text-[#C5A880]">24/7 Hotline</a>
+            <a href="mailto:info@taxiautosella.it" className="hover:text-[#C5A880]">Email Dispatch</a>
           </div>
         </div>
       </footer>
+
     </div>
   );
 };

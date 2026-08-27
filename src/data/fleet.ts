@@ -31,7 +31,7 @@ export const FLEET: VehicleCategory[] = [
       'Complimentary Dolomite Spring Water',
       'Silent Acoustic Comfort Glass'
     ],
-    image: 'https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&w=1000&q=80',
+    image: '/images/fleet/mercedes-e-class.jpg',
     badge: 'Popular for Couples'
   },
   {
@@ -51,7 +51,7 @@ export const FLEET: VehicleCategory[] = [
       'Extra-Long Wheelbase for Luggage',
       'Oversized Ski / Snowboard Transport'
     ],
-    image: 'https://images.unsplash.com/photo-1549399542-7e3f8b79c341?auto=format&fit=crop&w=1000&q=80',
+    image: '/images/fleet/mercedes-v-class-luxury.jpg',
     badge: 'VIP Best Seller'
   },
   {
@@ -71,28 +71,28 @@ export const FLEET: VehicleCategory[] = [
       'Child & Booster Seats Available',
       'Summer Mountain Bike Trailer Compatible'
     ],
-    image: 'https://images.unsplash.com/photo-1563720223185-11003d516935?auto=format&fit=crop&w=1000&q=80',
+    image: '/images/fleet/mercedes-vito-minibus-4matic.jpg',
     badge: 'Best for Ski Groups'
   },
   {
-    id: 'van-accessible',
-    name: 'Mercedes Wheelchair Accessible 4x4',
-    subtitle: 'Inclusive Accessible Shuttle',
-    tagline: 'Custom hydraulic ramp or lift with ISO wheelchair tie-downs for barrier-free mountain travel.',
-    category: 'accessible',
-    passengers: 5,
-    luggage: 5,
-    skis: 4,
-    multiplier: 1.15,
+    id: 'sedan-sclass',
+    name: 'Mercedes-Benz S-Class Long VIP',
+    subtitle: 'Prestige Presidential Chauffeur',
+    tagline: 'Top-of-the-line comfort and prestige for distinguished guests and executive travel.',
+    category: 'sedan',
+    passengers: 3,
+    luggage: 3,
+    skis: 2,
+    multiplier: 1.45,
     features: [
-      'Integrated Hydraulic Wheelchair Ramp',
-      'Certified 4-Point Safety Restraints',
-      'Flat Floor with Ample Headroom',
-      'Trained Medical-Assistance Chauffeur',
-      'Direct Hotel Step-Free Drop-Off'
+      'First-Class Rear Reclining Seats with Massage',
+      'Acoustic Privacy Double Glazing',
+      '4MATIC All-Wheel Drive',
+      'Onboard Refreshments Bar',
+      'White-Glove VIP Chauffeur'
     ],
-    image: 'https://images.unsplash.com/photo-1519003722824-194d4455a60c?auto=format&fit=crop&w=1000&q=80',
-    badge: 'Barrier-Free Access'
+    image: '/images/fleet/mercedes-s-class-vip.jpg',
+    badge: 'Flagship Luxury'
   },
   {
     id: 'sprinter-vip',
@@ -111,7 +111,7 @@ export const FLEET: VehicleCategory[] = [
       'Panoramic Alpine View Windows',
       'Professional Commercial Chauffeur'
     ],
-    image: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=1000&q=80',
+    image: '/images/fleet/mercedes-sprinter-vip-coach.jpg',
     badge: 'Group & Events'
   },
   {
@@ -131,7 +131,7 @@ export const FLEET: VehicleCategory[] = [
       'Massive Underfloor Luggage Bays',
       'Full Euro-6 Eco Emissions Certified'
     ],
-    image: 'https://images.unsplash.com/photo-1570125909232-eb263c188f7e?auto=format&fit=crop&w=1000&q=80',
+    image: '/images/fleet/grand-touring-coach-56pax.jpg',
     badge: 'Large Groups'
   }
 ];

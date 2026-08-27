@@ -24,7 +24,7 @@ export const EXCURSIONS: ExcursionItem[] = [
       'Direct pickup and return to your hotel'
     ],
     description: 'Experience the world-renowned Sella Massif loop with our local drivers who know every scenic viewpoint, historical milestone, and hidden valley vista.',
-    image: 'https://images.unsplash.com/photo-1502784444187-359ac186c5bb?auto=format&fit=crop&w=1000&q=80',
+    image: '/images/hero/autosella-fleet-lineup-dolomites.jpg',
     badge: 'Most Popular'
   },
   {
@@ -40,7 +40,7 @@ export const EXCURSIONS: ExcursionItem[] = [
       'Bottled water and charging ports included'
     ],
     description: 'A magical transition from the rugged Dolomites to the romantic canals of Venice. Travel in executive luxury without the hassle of train transfers.',
-    image: 'https://images.unsplash.com/photo-1514890547357-a9ee288728e0?auto=format&fit=crop&w=1000&q=80',
+    image: '/images/excursions/venice-lagoon-tour.jpg',
     badge: 'Iconic Italian Day'
   },
   {
@@ -56,7 +56,7 @@ export const EXCURSIONS: ExcursionItem[] = [
       'Flexible private schedule'
     ],
     description: 'Combine Renaissance romance with Mediterranean warmth. Explore Verona’s ancient Roman amphitheatre and relax on the shores of Lake Garda.',
-    image: 'https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&w=1000&q=80',
+    image: '/images/excursions/verona-arena-tour.jpg',
     badge: 'Culture & Romance'
   },
   {
@@ -72,7 +72,7 @@ export const EXCURSIONS: ExcursionItem[] = [
       'Boutique shopping in historic Tyrolean old town'
     ],
     description: 'Cross the Austrian border in comfort. Discover the rich Habsburg heritage of Innsbruck and the sparkling art installations of Swarovski.',
-    image: 'https://images.unsplash.com/photo-1516483638261-f4dbaf036963?auto=format&fit=crop&w=1000&q=80',
+    image: '/images/excursions/innsbruck-imperial-tour.jpg',
     badge: 'Cross-Border Tour'
   }
 ];

@@ -12,15 +12,16 @@ import {
   Baby,
   MapPin, 
   PhoneCall, 
-  MessageCircle,
-  Clock,
+  MessageCircle, 
+  Clock, 
   Navigation,
   ShieldCheck,
-  Globe2
+  ChevronRight,
+  ArrowRight
 } from 'lucide-react';
 
 export const ConceptAdventure: React.FC = () => {
-  const { openBookingModal, setLanguage, language } = useAppStore();
+  const { openBookingModal, t } = useAppStore();
   
   const [gear, setGear] = useState({
     skis: true,
@@ -28,252 +29,201 @@ export const ConceptAdventure: React.FC = () => {
     childSeats: false
   });
 
-  const routes = [
-    { name: 'Passo Sella', alt: '2,240m', time: '45m', desc: 'Direct access to Col Rodella slopes' },
+  const passes = [
+    { name: 'Passo Sella', alt: '2,240m', time: '45m', desc: 'Direct ski access to Col Rodella slopes & Sassolungo' },
     { name: 'Passo Gardena', alt: '2,136m', time: '55m', desc: 'Dantercepies & Alta Badia connection' },
     { name: 'Passo Pordoi', alt: '2,239m', time: '50m', desc: 'Sass Pordoi cable car base' },
     { name: 'Passo Campolongo', alt: '1,875m', time: '40m', desc: 'Corvara & Arabba link' },
   ];
 
-  const languages = [
-    { code: 'en', label: 'EN' },
-    { code: 'it', label: 'IT' },
-    { code: 'de', label: 'DE' }
-  ] as const;
-
   return (
     <div className="bg-[#0B132B] text-[#F8FAFC] min-h-screen font-sans selection:bg-[#0284C7] selection:text-white">
       
-      {/* Navigation / Header */}
-      <nav className="absolute top-0 w-full z-50 px-6 py-6 flex items-center justify-between">
-        <div className="flex items-center gap-3">
-          <div className="w-10 h-10 bg-[#EA580C] rounded-lg flex items-center justify-center shrink-0">
-            <Mountain className="text-white w-6 h-6" />
-          </div>
-          <span className="font-bold text-xl tracking-tight text-white">
-            Auto Sella
-          </span>
-        </div>
-        
-        <div className="flex items-center gap-6">
-          <div className="hidden sm:flex bg-[#0F172A]/80 backdrop-blur-md rounded-full p-1 border border-white/10">
-            {languages.map(lang => (
-              <button
-                key={lang.code}
-                onClick={() => setLanguage(lang.code)}
-                className={`px-4 py-1.5 rounded-full text-xs font-bold transition-colors ${
-                  language === lang.code 
-                    ? 'bg-[#0284C7] text-white' 
-                    : 'text-slate-400 hover:text-white'
-                }`}
-              >
-                {lang.label}
-              </button>
-            ))}
-          </div>
-          <button 
-            onClick={() => openBookingModal()}
-            className="bg-white text-[#0B132B] px-5 py-2.5 rounded-full text-sm font-bold hover:bg-slate-200 transition-colors"
-          >
-            Book Expedition
-          </button>
-        </div>
-      </nav>
-
-      {/* Hero Section */}
-      <section className="relative min-h-[90vh] flex flex-col justify-center pt-24 pb-16 px-6 overflow-hidden">
-        {/* Background */}
+      {/* HERO SECTION — ALPINE SKI & EXPEDITION */}
+      <section className="relative min-h-[85vh] flex flex-col justify-center pt-16 pb-20 px-6 lg:px-16 overflow-hidden">
+        {/* Real Fleet Lineup Mountain Photo */}
         <div className="absolute inset-0 z-0">
           <img
-            src="https://images.unsplash.com/photo-1551524559-8af4e6624178?auto=format&fit=crop&w=2000&q=85"
-            alt="Dolomites Mountains"
-            className="w-full h-full object-cover opacity-20 scale-105"
+            src="/images/hero/autosella-fleet-lineup-dolomites.jpg"
+            alt="Dolomites Mountain Expedition"
+            className="w-full h-full object-cover opacity-40 scale-105"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-[#0B132B]/80 via-[#0B132B]/60 to-[#0B132B]" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#0B132B]/90 via-[#0B132B]/75 to-[#0B132B]" />
         </div>
 
-        <div className="relative z-10 max-w-7xl mx-auto w-full grid lg:grid-cols-2 gap-16 items-center">
+        <div className="relative z-10 max-w-7xl mx-auto w-full grid lg:grid-cols-12 gap-12 items-center">
           
-          <div className="max-w-2xl">
-            {/* NO kickers/eyebrows. Let the heading speak. */}
-            <h1 className="text-5xl sm:text-7xl font-black tracking-tight text-white leading-[1.05] mb-8 font-display">
+          <div className="lg:col-span-6 space-y-6">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#EA580C]/20 border border-[#EA580C]/40 text-[#EA580C] text-xs font-black uppercase tracking-wider">
+              <Mountain className="w-4 h-4" />
+              <span>Sella Ronda & Dolomiti Superski</span>
+            </div>
+
+            <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight text-white leading-[1.05] font-display">
               Dolomiti Alpine Express.
             </h1>
 
-            <p className="text-lg sm:text-xl text-slate-300 leading-relaxed mb-12">
-              Active mountain & ski expeditions. We provide 100% 4MATIC winter-certified transport directly to the Sella Ronda slopes, complete with high-capacity gear shuttles.
+            <p className="text-base sm:text-lg text-slate-300 max-w-lg leading-relaxed font-normal">
+              Direct airport shuttles to the ski slopes of Ortisei, Santa Cristina, and Selva. 4x4 Mercedes vans equipped for oversized ski boxes and mountain bike trailers.
             </p>
 
-            {/* Interactive Gear Loadout */}
-            <div className="bg-[#0F172A]/80 backdrop-blur-md border border-white/10 rounded-3xl p-6 mb-12">
-              <h2 className="text-sm font-bold text-white mb-4">Required Gear Space</h2>
-              <div className="flex flex-wrap gap-3">
+            {/* Interactive Gear Loadout Toggles */}
+            <div className="space-y-3 pt-2">
+              <span className="text-[11px] font-bold uppercase tracking-widest text-sky-400 block">
+                Select Your Equipment Loadout:
+              </span>
+              
+              <div className="flex flex-wrap gap-2.5">
                 <button
-                  onClick={() => setGear(g => ({ ...g, skis: !g.skis }))}
-                  className={`flex items-center gap-2 px-5 py-3 rounded-xl border text-sm font-bold transition-all ${
-                    gear.skis 
-                      ? 'bg-[#0284C7]/20 border-[#0284C7] text-white' 
-                      : 'bg-white/5 border-white/10 text-slate-400 hover:border-white/30 hover:text-white'
+                  type="button"
+                  onClick={() => setGear({ ...gear, skis: !gear.skis })}
+                  className={`px-4 py-2.5 rounded-xl text-xs font-bold transition-all flex items-center gap-2 border ${
+                    gear.skis
+                      ? "bg-[#0284C7] text-white border-sky-400 shadow-md"
+                      : "bg-[#0F172A]/80 text-slate-400 border-white/10 hover:border-white/20"
                   }`}
                 >
-                  <Snowflake className="w-4 h-4" />
-                  Skis & Snowboards
+                  <span>⛷️ Ski & Snowboard Box</span>
+                  <span className="text-[10px] opacity-80">{gear.skis ? "Included" : "+ Add"}</span>
                 </button>
+
                 <button
-                  onClick={() => setGear(g => ({ ...g, bikes: !g.bikes }))}
-                  className={`flex items-center gap-2 px-5 py-3 rounded-xl border text-sm font-bold transition-all ${
-                    gear.bikes 
-                      ? 'bg-emerald-500/20 border-emerald-500 text-white' 
-                      : 'bg-white/5 border-white/10 text-slate-400 hover:border-white/30 hover:text-white'
+                  type="button"
+                  onClick={() => setGear({ ...gear, bikes: !gear.bikes })}
+                  className={`px-4 py-2.5 rounded-xl text-xs font-bold transition-all flex items-center gap-2 border ${
+                    gear.bikes
+                      ? "bg-[#0284C7] text-white border-sky-400 shadow-md"
+                      : "bg-[#0F172A]/80 text-slate-400 border-white/10 hover:border-white/20"
                   }`}
                 >
-                  <Bike className="w-4 h-4" />
-                  Mountain Bikes
+                  <Bike className="w-3.5 h-3.5" />
+                  <span>Mountain Bike Trailer</span>
+                  <span className="text-[10px] opacity-80">{gear.bikes ? "Included" : "+ Add"}</span>
                 </button>
+
                 <button
-                  onClick={() => setGear(g => ({ ...g, childSeats: !g.childSeats }))}
-                  className={`flex items-center gap-2 px-5 py-3 rounded-xl border text-sm font-bold transition-all ${
-                    gear.childSeats 
-                      ? 'bg-[#EA580C]/20 border-[#EA580C] text-white' 
-                      : 'bg-white/5 border-white/10 text-slate-400 hover:border-white/30 hover:text-white'
+                  type="button"
+                  onClick={() => setGear({ ...gear, childSeats: !gear.childSeats })}
+                  className={`px-4 py-2.5 rounded-xl text-xs font-bold transition-all flex items-center gap-2 border ${
+                    gear.childSeats
+                      ? "bg-[#0284C7] text-white border-sky-400 shadow-md"
+                      : "bg-[#0F172A]/80 text-slate-400 border-white/10 hover:border-white/20"
                   }`}
                 >
-                  <Baby className="w-4 h-4" />
-                  Child Seats
+                  <Baby className="w-3.5 h-3.5" />
+                  <span>Child / Baby Seats</span>
+                  <span className="text-[10px] opacity-80">{gear.childSeats ? "Included" : "+ Add"}</span>
                 </button>
               </div>
             </div>
 
-            <div className="flex flex-wrap items-center gap-4">
-              <a 
-                href="tel:+390471790033"
-                className="flex items-center gap-3 bg-white text-[#0B132B] px-6 py-4 rounded-2xl font-bold hover:bg-slate-200 transition-colors"
+            {/* Quick CTAs */}
+            <div className="flex flex-wrap items-center gap-4 pt-4">
+              <button
+                onClick={() => openBookingModal()}
+                className="px-7 py-3.5 rounded-xl bg-[#EA580C] hover:bg-[#c2410c] text-white font-extrabold text-xs uppercase tracking-wider shadow-lg shadow-orange-600/30 transition-all flex items-center gap-2"
               >
-                <PhoneCall className="w-5 h-5" />
-                24/7 Dispatch
-              </a>
-              <a 
-                href="https://wa.me/390471790033"
+                <span>Book Mountain Shuttle</span>
+                <ArrowRight className="w-4 h-4" />
+              </button>
+
+              <a
+                href="https://wa.me/390471790033?text=Hello%20Taxi%20Auto%20Sella,%20I%20need%20a%20ski%20shuttle%20in%20Val%20Gardena."
                 target="_blank"
                 rel="noreferrer"
-                className="flex items-center gap-3 bg-[#128C7E] text-white px-6 py-4 rounded-2xl font-bold hover:bg-[#075E54] transition-colors"
+                className="px-5 py-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs flex items-center gap-2 shadow-md transition-all"
               >
-                <MessageCircle className="w-5 h-5" />
-                WhatsApp
+                <MessageCircle className="w-4 h-4" />
+                <span>WhatsApp Dispatch</span>
               </a>
             </div>
+
           </div>
 
-          <div className="relative">
-            {/* Dynamic Quote Calculator */}
-            <div className="bg-[#0F172A] border border-[#1E293B] rounded-3xl overflow-hidden shadow-2xl">
-              <div className="p-1">
-                <InstantQuoteWidget themeVariant="adventure" />
-              </div>
-            </div>
-            
-            {/* Trust badge */}
-            <div className="absolute -bottom-6 -left-6 bg-[#0B132B] border border-[#1E293B] rounded-2xl p-4 flex items-center gap-4 shadow-xl">
-              <div className="w-12 h-12 rounded-full bg-[#0284C7]/20 flex items-center justify-center">
-                <ShieldCheck className="text-[#38BDF8] w-6 h-6" />
-              </div>
-              <div>
-                <div className="text-white font-bold text-sm">100% 4MATIC</div>
-                <div className="text-slate-400 text-xs">Winter Snow Certified</div>
-              </div>
-            </div>
+          {/* Right Column: Hero Calculator */}
+          <div className="lg:col-span-6">
+            <InstantQuoteWidget themeVariant="adventure" />
           </div>
 
         </div>
       </section>
 
-      {/* Sella Ronda 4-Passes Section */}
-      <section className="py-24 px-6 bg-[#0F172A]">
-        <div className="max-w-7xl mx-auto">
-          <div className="mb-12 max-w-3xl">
-            <h2 className="text-4xl font-black text-white mb-6 font-display">
-              Sella Ronda 4-Passes Routes.
+      {/* SELLA RONDA 4-PASSES SECTION */}
+      <section className="py-20 px-6 lg:px-16 max-w-7xl mx-auto border-t border-sky-900/40">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
+          <div>
+            <h2 className="text-3xl sm:text-4xl font-black text-white font-display">
+              Sella Ronda 4-Passes Tour
             </h2>
-            <p className="text-lg text-slate-400">
-              Direct transport to the core strategic nodes of the Dolomiti Superski network. 
-              We track weather and road conditions in real-time to guarantee your connection.
+            <p className="text-xs sm:text-sm text-slate-300 mt-1 max-w-xl">
+              Travel between the high Dolomite passes in heated 4MATIC Mercedes comfort. Direct connections to ski lift valleys.
             </p>
           </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {routes.map((route, idx) => (
-              <div 
-                key={idx}
-                className="bg-[#0B132B] border border-[#1E293B] rounded-3xl p-6 hover:border-[#0284C7] transition-colors group cursor-pointer"
-                onClick={() => openBookingModal()}
-              >
-                <div className="flex items-start justify-between mb-8">
-                  <div className="w-10 h-10 rounded-full bg-[#0284C7]/10 flex items-center justify-center group-hover:bg-[#0284C7] transition-colors">
-                    <Navigation className="w-5 h-5 text-[#38BDF8] group-hover:text-white transition-colors" />
-                  </div>
-                  <div className="text-right">
-                    <div className="text-white font-bold">{route.alt}</div>
-                    <div className="text-xs text-slate-500 font-medium">Altitude</div>
-                  </div>
-                </div>
-                
-                <h3 className="text-xl font-bold text-white mb-2">{route.name}</h3>
-                <p className="text-sm text-slate-400 mb-6 min-h-[40px]">{route.desc}</p>
-                
-                <div className="flex items-center justify-between border-t border-[#1E293B] pt-4">
-                  <div className="flex items-center gap-2 text-sm font-medium text-slate-300">
-                    <Clock className="w-4 h-4 text-slate-500" />
-                    {route.time} from base
-                  </div>
-                </div>
-              </div>
-            ))}
+          <div className="text-xs font-bold text-sky-400 bg-sky-500/10 px-3.5 py-1.5 rounded-full border border-sky-400/30 self-start md:self-auto">
+            100% Alpine Winter Certified
           </div>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {passes.map((p, idx) => (
+            <div
+              key={idx}
+              onClick={() => openBookingModal()}
+              className="p-6 rounded-2xl bg-[#0F172A]/90 border border-sky-900/60 hover:border-sky-400 transition-all cursor-pointer group flex flex-col justify-between"
+            >
+              <div>
+                <div className="flex items-center justify-between text-xs text-sky-400 font-bold mb-2">
+                  <span>{p.alt}</span>
+                  <span className="flex items-center gap-1"><Clock className="w-3.5 h-3.5" /> {p.time}</span>
+                </div>
+                <h3 className="text-lg font-black text-white mb-1 group-hover:text-sky-300 transition-colors">
+                  {p.name}
+                </h3>
+                <p className="text-xs text-slate-400 leading-relaxed">{p.desc}</p>
+              </div>
+
+              <div className="pt-4 mt-6 border-t border-white/5 flex items-center justify-between text-xs text-sky-400 font-bold">
+                <span>Book Transfer</span>
+                <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </div>
+            </div>
+          ))}
         </div>
       </section>
 
-      {/* Fleet Showcase */}
-      <div className="bg-[#0B132B]">
-        <FleetShowcase themeVariant="adventure" />
-      </div>
+      {/* FLEET SHOWCASE */}
+      <FleetShowcase themeVariant="adventure" />
 
-      {/* Excursions */}
-      <div className="bg-[#0F172A]">
-        <ExcursionsSection themeVariant="adventure" />
-      </div>
+      {/* EXCURSIONS */}
+      <ExcursionsSection themeVariant="adventure" />
 
-      {/* Consortium & 18 Drivers */}
-      <div className="bg-[#0B132B]">
-        <DriversTrustSection themeVariant="adventure" />
-      </div>
+      {/* CONSORTIUM */}
+      <DriversTrustSection themeVariant="adventure" />
 
-      {/* FAQs */}
-      <div className="bg-[#0F172A]">
-        <FaqSection themeVariant="adventure" />
-      </div>
+      {/* FAQS */}
+      <FaqSection themeVariant="adventure" />
 
-      {/* Adventure Footer */}
-      <footer className="bg-[#050E1A] border-t border-[#1E293B] py-16 px-6">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left">
+      {/* ADVENTURE FOOTER */}
+      <footer className="bg-[#050E1A] text-slate-400 py-14 px-6 lg:px-16 text-xs border-t border-sky-950">
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start gap-8">
           <div>
-            <div className="flex items-center justify-center md:justify-start gap-2 mb-4 font-display font-black text-xl text-white">
-              <Mountain className="text-[#EA580C] w-6 h-6" />
-              Auto Sella
+            <div className="flex items-center gap-2 mb-2 font-display font-bold text-base text-white">
+              <span>Taxi Auto Sella Consortium</span>
             </div>
-            <p className="text-slate-400 text-sm">Piazza Nives 2, Selva di Val Gardena (BZ) 39048</p>
-            <p className="text-slate-500 text-xs mt-2">VAT: IT 01234567890</p>
+            <p className="max-w-sm text-slate-400">
+              Str. Gherdeina 7/A, I-39047 Santa Cristina (BZ), Val Gardena, Dolomites, Italy.
+            </p>
+            <p className="mt-1">VAT No.: IT01707460216 • 24/7 Ski Hotline: (+39) 0471 790033</p>
           </div>
 
-          <div className="flex flex-col items-center md:items-end gap-6">
-            <div className="flex flex-wrap justify-center gap-6 text-sm font-bold">
-              <a href="tel:+390471790033" className="text-white hover:text-[#38BDF8] transition-colors">Emergency Dispatch</a>
-              <a href="mailto:info@taxiautosella.it" className="text-white hover:text-[#38BDF8] transition-colors">info@taxiautosella.it</a>
-              <button onClick={() => openBookingModal()} className="text-white hover:text-[#38BDF8] transition-colors">Book Now</button>
+          <div className="flex flex-col md:items-end gap-2">
+            <div className="flex gap-4 text-sky-400">
+              <a href="tel:+390471790033" className="hover:underline">Emergency Hotline</a>
+              <a href="mailto:info@taxiautosella.it" className="hover:underline">Email Dispatch</a>
             </div>
-            <div className="flex items-center gap-2 text-slate-500 text-xs font-medium">
-              <Globe2 className="w-4 h-4" />
-              Multilingual Support: EN • IT • DE
-            </div>
+            <p className="text-[11px] text-slate-500 mt-2">
+              © {new Date().getFullYear()} Taxi Auto Sella Consortium. All rights reserved.
+            </p>
           </div>
         </div>
       </footer>
