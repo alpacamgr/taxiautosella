@@ -274,6 +274,47 @@ export const LuxuryHome: React.FC = () => {
           ))}
         </div>
       </section>
+
+      {/* NIGHTLIFE & PARTNERS */}
+      <section className="py-24 px-6 lg:px-16 max-w-7xl mx-auto border-t border-[#0E1117]/10">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
+          <div>
+            <h2 className="font-editorial text-4xl sm:text-5xl font-normal text-[#0E1117] mb-8">
+              Val Gardena <span className="italic text-[#C5A880]">Nightlife</span>
+            </h2>
+            <p className="text-sm text-[#0E1117]/70 font-light leading-relaxed mb-6">
+              When the slopes close, the après-ski and evening entertainment begins. We offer dedicated night shuttle services to all prime venues in the valley, ensuring you arrive in style and return safely to your chalet.
+            </p>
+            <div className="flex flex-wrap gap-3">
+              {['Caffe 2000', 'Adler', 'Marina', 'Piz 5', 'Dali\'', 'La Stua', 'Goalies\' Pub', 'Mauriz Keller', 'Bar 181', 'Saltos'].map(venue => (
+                <span key={venue} className="px-4 py-2 border border-[#0E1117]/20 rounded-full text-xs font-medium text-[#0E1117]">{venue}</span>
+              ))}
+            </div>
+          </div>
+          <div>
+            <h2 className="font-editorial text-4xl sm:text-5xl font-normal text-[#0E1117] mb-8">
+              Local <span className="italic text-[#C5A880]">Partners</span>
+            </h2>
+            <p className="text-sm text-[#0E1117]/70 font-light leading-relaxed mb-6">
+              Our 35 years of heritage have allowed us to build strong relationships with the valley's most prestigious establishments and essential services.
+            </p>
+            <div className="grid grid-cols-2 gap-4 text-sm text-[#0E1117]/80 font-medium">
+              <ul className="space-y-3">
+                <li>• Elikos</li>
+                <li>• Dolomiti Sportclinic</li>
+                <li>• Bruno Riffeser</li>
+                <li>• Rusctlea</li>
+              </ul>
+              <ul className="space-y-3">
+                <li>• Europa Hotel</li>
+                <li>• Carrozzeria Gardena</li>
+                <li>• Val Gardena Tourism</li>
+                <li>• Intersport Rent</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 };

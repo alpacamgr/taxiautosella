@@ -5,16 +5,15 @@ import { Language } from '../../data/translations';
 import { 
   Crown, 
   Zap, 
-  Mountain, 
-  Globe, 
-  PhoneCall, 
+  Compass, 
   ChevronDown, 
   Check,
-  Calendar
+  Calendar,
+  PhoneCall
 } from 'lucide-react';
 
 export const VariantHeader: React.FC = () => {
-  const { language, setLanguage, openBookingModal, t } = useAppStore();
+  const { language, setLanguage, openBookingModal } = useAppStore();
   const [isLangOpen, setIsLangOpen] = useState(false);
   const location = useLocation();
 
@@ -29,16 +28,16 @@ export const VariantHeader: React.FC = () => {
     {
       path: '/tech',
       label: '2. Modern Tech',
-      sub: 'WelcomePickups Style',
+      sub: 'High-Tech Platform',
       icon: <Zap className="w-3.5 h-3.5" />,
       activeColor: 'bg-emerald-500/20 text-emerald-300 border-emerald-500/40'
     },
     {
       path: '/adventure',
-      label: '3. Ski & Adventure',
-      sub: 'Expedition & Outdoor',
-      icon: <Mountain className="w-3.5 h-3.5" />,
-      activeColor: 'bg-sky-500/20 text-sky-300 border-sky-500/40'
+      label: '3. Valley Hospitality',
+      sub: 'Modern Alpine Living',
+      icon: <Compass className="w-3.5 h-3.5" />,
+      activeColor: 'bg-amber-600/20 text-amber-200 border-amber-600/40'
     }
   ];
 
@@ -52,7 +51,7 @@ export const VariantHeader: React.FC = () => {
     <header className="sticky top-0 z-50 w-full bg-[#090D14]/95 backdrop-blur-md border-b border-slate-800 text-white shadow-xl">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-2.5 flex flex-wrap items-center justify-between gap-3">
         
-        {/* Brand Logo & Route Identity */}
+        {/* Brand Logo & Presentation Hub */}
         <div className="flex items-center gap-3">
           <NavLink to="/luxury" className="flex items-center gap-2.5 group">
             <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-amber-500 to-amber-600 text-black font-extrabold flex items-center justify-center text-xs shadow-md">
@@ -69,10 +68,10 @@ export const VariantHeader: React.FC = () => {
           </NavLink>
         </div>
 
-        {/* 3 Dedicated Page Navigation Tabs */}
+        {/* 3 Dedicated Variant Tabs */}
         <nav className="flex items-center bg-slate-900/90 p-1 rounded-xl border border-slate-800 shadow-inner">
           {pages.map((p) => {
-            const isCurrent = location.pathname === p.path || (p.path === '/luxury' && location.pathname === '/');
+            const isCurrent = location.pathname.startsWith(p.path) || (p.path === '/luxury' && (location.pathname === '/' || location.pathname === ''));
             return (
               <NavLink
                 key={p.path}
@@ -93,7 +92,7 @@ export const VariantHeader: React.FC = () => {
         {/* Right Actions: Language & Direct Dispatch */}
         <div className="flex items-center gap-2.5">
           
-          {/* Language Selector Dropdown (English ready as default, IT & DE easily switchable) */}
+          {/* Language Selector Dropdown */}
           <div className="relative">
             <button
               onClick={() => setIsLangOpen(!isLangOpen)}

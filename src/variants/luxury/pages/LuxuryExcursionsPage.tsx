@@ -1,70 +1,93 @@
 import React from 'react';
-import { EXCURSIONS } from '../../../data/excursions';
 import { useAppStore } from '../../../store/useAppStore';
-import { Clock, Check, ArrowRight } from 'lucide-react';
+import { Map, ArrowRight, Clock, MapPin } from 'lucide-react';
 
 export const LuxuryExcursionsPage: React.FC = () => {
   const { openBookingModal } = useAppStore();
 
+  const excursions = [
+    {
+      title: 'Venice Lagoon & Architecture',
+      duration: 'Full Day',
+      desc: 'Descend from the Alps to the Adriatic. Explore the canals, St. Mark\'s Square, and the rich history of La Serenissima.',
+      img: '/images/hero/autosella-fleet-lineup-dolomites.jpg'
+    },
+    {
+      title: 'Verona & Lake Garda',
+      duration: 'Full Day',
+      desc: 'Visit the city of Romeo & Juliet, the grand Roman Arena, followed by a scenic drive along the shores of Lake Garda.',
+      img: '/images/fleet/mercedes-s-class-vip.jpg'
+    },
+    {
+      title: 'Innsbruck Imperial & Swarovski',
+      duration: 'Full Day',
+      desc: 'Cross the Brenner Pass to Austria. See the Golden Roof, the Imperial Palace, and marvel at the Swarovski Crystal Worlds in Wattens.',
+      img: '/images/fleet/mercedes-e-class.jpg'
+    },
+    {
+      title: 'Cortina d\'Ampezzo Olympic Capital',
+      duration: 'Half or Full Day',
+      desc: 'A spectacular drive through the Great Dolomites Road to the exclusive resort town of Cortina, home of the Winter Olympics.',
+      img: '/images/fleet/mercedes-v-class-luxury.jpg'
+    },
+    {
+      title: 'Bolzano Ötzi & Merano Spa',
+      duration: 'Half or Full Day',
+      desc: 'Discover Ötzi the Iceman in Bolzano\'s archaeological museum, then relax in the Mediterranean climate and thermal baths of Merano.',
+      img: '/images/fleet/mercedes-vito-minibus-4matic.jpg'
+    },
+    {
+      title: 'Mountain Hut Dinners & Sledge Rides',
+      duration: 'Evening',
+      desc: 'Nighttime snowcat or snowmobile rides to traditional alpine huts for dinner, followed by a thrilling sledge ride down the mountain.',
+      img: '/images/hero/autosella-fleet-lineup-dolomites.jpg'
+    }
+  ];
+
   return (
-    <div className="py-20 px-6 lg:px-16 max-w-7xl mx-auto">
-      <div className="max-w-3xl mb-16">
-        <h1 className="font-editorial text-4xl sm:text-6xl text-[#0E1117] mb-4">
-          Bespoke <span className="italic text-[#C5A880]">Excursions</span> & Day Tours
-        </h1>
-        <p className="text-base text-[#0E1117]/70 font-light leading-relaxed">
-          From panoramic Sella Ronda circuits to private Venetian day trips, discover northern Italy in uncompromising comfort with a native Dolomite chauffeur.
-        </p>
-      </div>
+    <div className="min-h-screen bg-[#F8F6F0] pt-24 pb-20">
+      <div className="max-w-7xl mx-auto px-6 lg:px-16">
+        <header className="mb-16 max-w-3xl">
+          <h1 className="font-editorial text-5xl lg:text-7xl font-normal text-[#0E1117] mb-6">
+            Organised <span className="italic text-[#C5A880]">Tours</span>
+          </h1>
+          <p className="text-[#0E1117]/70 text-lg font-light leading-relaxed">
+            Let our local expert chauffeurs guide you through the cultural, historical, and natural wonders surrounding the Dolomites.
+          </p>
+        </header>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-        {EXCURSIONS.map((tour) => (
-          <div key={tour.id} className="bg-white rounded-3xl overflow-hidden shadow-xl border border-[#0E1117]/5 flex flex-col justify-between group">
-            <div>
-              <div className="h-72 overflow-hidden bg-slate-900 relative">
-                <img
-                  src={tour.image}
-                  alt={tour.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+          {excursions.map((exc, i) => (
+            <div key={i} className="group bg-white rounded-2xl overflow-hidden shadow-xl border border-[#0E1117]/5 flex flex-col sm:flex-row">
+              <div className="w-full sm:w-2/5 h-64 sm:h-auto bg-slate-900 overflow-hidden relative">
+                <img 
+                  src={exc.img} 
+                  alt={exc.title} 
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-90"
                 />
-                <div className="absolute top-4 left-4 bg-[#0E1117] text-[#C5A880] px-3.5 py-1 rounded-full text-xs font-semibold uppercase tracking-wider">
-                  {tour.duration}
+              </div>
+              <div className="w-full sm:w-3/5 p-8 flex flex-col justify-between">
+                <div>
+                  <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-[#C5A880] mb-3">
+                    <Clock className="w-3.5 h-3.5" />
+                    <span>{exc.duration}</span>
+                  </div>
+                  <h3 className="font-editorial text-2xl text-[#0E1117] mb-3 leading-tight">{exc.title}</h3>
+                  <p className="text-sm text-[#0E1117]/70 font-light leading-relaxed mb-6">
+                    {exc.desc}
+                  </p>
                 </div>
-              </div>
-
-              <div className="p-8">
-                <h3 className="font-editorial text-3xl text-[#0E1117] mb-2">{tour.title}</h3>
-                <p className="text-xs text-[#C5A880] font-semibold uppercase tracking-widest mb-4">{tour.subtitle}</p>
-                <p className="text-xs text-[#0E1117]/70 font-light leading-relaxed mb-6">
-                  {tour.description}
-                </p>
-
-                <ul className="space-y-2 mb-8 text-xs text-[#0E1117]/80">
-                  {tour.highlights.map((h, i) => (
-                    <li key={i} className="flex items-start gap-2.5">
-                      <Check className="w-4 h-4 text-[#C5A880] flex-shrink-0 mt-0.5" />
-                      <span>{h}</span>
-                    </li>
-                  ))}
-                </ul>
+                <button 
+                  onClick={() => openBookingModal()}
+                  className="self-start text-xs uppercase tracking-widest font-semibold text-[#0E1117] hover:text-[#C5A880] transition-colors flex items-center gap-2"
+                >
+                  <span>Inquire Now</span>
+                  <ArrowRight className="w-4 h-4" />
+                </button>
               </div>
             </div>
-
-            <div className="p-8 pt-0 border-t border-[#0E1117]/5 flex items-center justify-between">
-              <div>
-                <span className="text-[10px] text-[#0E1117]/40 uppercase tracking-widest block">Private Van Tour</span>
-                <span className="font-editorial text-2xl text-[#0E1117]">{tour.priceFrom}</span>
-              </div>
-              <button
-                onClick={() => openBookingModal()}
-                className="px-6 py-3 bg-[#0E1117] text-[#F8F6F0] hover:bg-[#C5A880] hover:text-[#0E1117] text-xs font-semibold uppercase tracking-widest rounded-xl transition-colors flex items-center gap-2"
-              >
-                <span>Inquire Tour</span>
-                <ArrowRight className="w-4 h-4" />
-              </button>
-            </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </div>
   );

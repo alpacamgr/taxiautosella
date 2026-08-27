@@ -1,59 +1,146 @@
 import React from 'react';
-import { FLEET } from '../../../data/fleet';
-import { useAppStore } from '../../../store/useAppStore';
-import { Users, Briefcase, Check, ArrowRight } from 'lucide-react';
+import { CarFront, Users, Briefcase, Settings2, Plus, ArrowRight } from 'lucide-react';
 
 export const TechFleetPage: React.FC = () => {
-  const { openBookingModal } = useAppStore();
+  const fleet = [
+    {
+      class: 'Executive Sedan',
+      models: 'Mercedes E-Class 4MATIC',
+      pax: 3,
+      luggage: 3,
+      features: ['Leather interior', 'Free WiFi', 'AWD for snow', 'Climate control'],
+      highlight: false
+    },
+    {
+      class: 'VIP Luxury Sedan',
+      models: 'Mercedes S-Class Long VIP',
+      pax: 2,
+      luggage: 2,
+      features: ['Massage seats', 'Privacy glass', 'AWD for snow', 'Bottled water'],
+      highlight: true
+    },
+    {
+      class: 'Luxury SUV',
+      models: 'Mercedes GLS 4MATIC',
+      pax: 4,
+      luggage: 4,
+      features: ['Panoramic roof', 'Air suspension', 'Extra legroom'],
+      highlight: false
+    },
+    {
+      class: 'Premium Minivan',
+      models: 'Mercedes V-Class VIP',
+      pax: 7,
+      luggage: 7,
+      features: ['Conference seating', 'Extra long wheel base', 'Ski box option'],
+      highlight: true
+    },
+    {
+      class: 'Standard Minivan',
+      models: 'Mercedes Vito 4MATIC / Caravelle',
+      pax: 8,
+      luggage: 8,
+      features: ['Cost effective', 'High capacity', 'Ski box option'],
+      highlight: false
+    },
+    {
+      class: 'VIP Minibus',
+      models: 'Mercedes Sprinter VIP Coach',
+      pax: 20,
+      luggage: 20,
+      features: ['Reclining seats', 'Microphone', 'Large cargo hold', 'USB charging'],
+      highlight: false
+    },
+    {
+      class: 'Grand Coach',
+      models: '56-Passenger Touring Coach',
+      pax: 56,
+      luggage: 60,
+      features: ['Restroom', 'Fridge', 'TV/DVD', 'Huge luggage bays'],
+      highlight: false
+    }
+  ];
+
+  const specialized = [
+    { name: 'Disabled Accessible Van', desc: 'Equipped with hydraulic lift for wheelchair accessibility.' },
+    { name: 'Ski/Bike Trailers', desc: 'Enclosed, secure trailers for up to 10 bikes or 20 pairs of skis.' },
+    { name: 'Film Production Support', desc: 'Logistics vans for camera equipment and crew transport.' }
+  ];
 
   return (
-    <div className="py-16 px-4 sm:px-8 max-w-7xl mx-auto">
-      <div className="max-w-2xl mb-12">
-        <h1 className="text-3xl sm:text-5xl font-extrabold text-slate-900 mb-3">
-          Our Vehicle Fleet & Capacities
+    <div className="min-h-screen bg-[#090D14] text-white font-['Inter',sans-serif] pb-20">
+      
+      {/* Header */}
+      <section className="px-6 pt-20 pb-12 max-w-7xl mx-auto border-b border-slate-800">
+        <h1 className="text-4xl lg:text-5xl font-extrabold tracking-tight mb-4">
+          The <span className="text-[#059669]">Fleet</span> Matrix.
         </h1>
-        <p className="text-sm text-slate-600 leading-relaxed">
-          100% 4MATIC all-wheel-drive Mercedes vehicles. Compare passenger limits, luggage volumes, and winter ski/summer bike equipment allowances.
+        <p className="text-lg text-slate-400 max-w-2xl mb-6">
+          25 state-of-the-art vehicles. All strictly equipped with 4MATIC All-Wheel Drive and premium winter tires for absolute safety in the Dolomites.
         </p>
-      </div>
+        <div className="flex flex-wrap gap-3">
+          <span className="px-3 py-1 bg-slate-800 text-xs font-bold rounded-md">100% 4MATIC</span>
+          <span className="px-3 py-1 bg-slate-800 text-xs font-bold rounded-md">Avg. Age &lt; 3 Years</span>
+          <span className="px-3 py-1 bg-slate-800 text-xs font-bold rounded-md">Euro 6d Emissions</span>
+        </div>
+      </section>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {FLEET.map((v) => (
-          <div key={v.id} className="bg-slate-50 rounded-3xl p-6 border border-slate-200 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
-            <div>
-              <div className="h-52 rounded-2xl overflow-hidden mb-5 bg-slate-900">
-                <img src={v.image} alt={v.name} className="w-full h-full object-cover" />
+      {/* Fleet Grid */}
+      <section className="px-6 py-16 max-w-7xl mx-auto">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          
+          {fleet.map((vehicle, i) => (
+            <div key={i} className={`p-6 rounded-xl border ${vehicle.highlight ? 'bg-[#059669]/10 border-[#059669]/50' : 'bg-[#111827] border-slate-800'} relative group flex flex-col`}>
+              {vehicle.highlight && (
+                <div className="absolute top-0 right-6 -translate-y-1/2 px-3 py-1 bg-[#059669] text-white text-[10px] font-bold uppercase tracking-widest rounded-full">
+                  Popular
+                </div>
+              )}
+              
+              <h3 className="text-xl font-bold text-slate-200 mb-1">{vehicle.class}</h3>
+              <p className="text-sm text-slate-400 font-medium mb-6">{vehicle.models}</p>
+              
+              <div className="flex gap-4 mb-6">
+                <div className="flex items-center gap-1.5 text-sm font-bold text-slate-300">
+                  <Users className="w-4 h-4 text-slate-500" /> {vehicle.pax} Pax
+                </div>
+                <div className="flex items-center gap-1.5 text-sm font-bold text-slate-300">
+                  <Briefcase className="w-4 h-4 text-slate-500" /> {vehicle.luggage} Bags
+                </div>
               </div>
-              <h3 className="text-xl font-bold text-slate-900 mb-1">{v.name}</h3>
-              <p className="text-xs font-semibold text-emerald-700 mb-3">{v.subtitle}</p>
-              <p className="text-xs text-slate-600 mb-6 leading-relaxed">{v.tagline}</p>
+              
+              <ul className="space-y-2 mb-8 flex-1">
+                {vehicle.features.map((f, j) => (
+                  <li key={j} className="flex items-start gap-2 text-xs text-slate-400">
+                    <Plus className="w-3.5 h-3.5 text-[#059669] shrink-0 mt-0.5" /> {f}
+                  </li>
+                ))}
+              </ul>
 
-              <div className="grid grid-cols-3 gap-2 py-3 px-3 bg-white rounded-xl border border-slate-200 text-center mb-6 text-xs">
-                <div>
-                  <span className="font-bold text-slate-900 block">{v.passengers}</span>
-                  <span className="text-[10px] text-slate-500">Max Pax</span>
-                </div>
-                <div>
-                  <span className="font-bold text-slate-900 block">{v.luggage}</span>
-                  <span className="text-[10px] text-slate-500">Luggage</span>
-                </div>
-                <div>
-                  <span className="font-bold text-emerald-700 block">⛷️ {v.skis}</span>
-                  <span className="text-[10px] text-slate-500">Ski Pairs</span>
-                </div>
-              </div>
+              <button className="w-full py-2.5 bg-slate-800 text-slate-200 text-xs font-bold rounded-lg hover:bg-slate-700 transition-colors flex items-center justify-center gap-2">
+                Request <ArrowRight className="w-3.5 h-3.5" />
+              </button>
             </div>
+          ))}
 
-            <button
-              onClick={() => openBookingModal(v.id)}
-              className="w-full py-3 bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs rounded-xl transition-colors flex items-center justify-center gap-2"
-            >
-              <span>Select {v.name.split(' ')[1] || 'Vehicle'}</span>
-              <ArrowRight className="w-4 h-4" />
-            </button>
-          </div>
-        ))}
-      </div>
+        </div>
+      </section>
+
+      {/* Specialized Units */}
+      <section className="px-6 py-16 max-w-7xl mx-auto border-t border-slate-800">
+        <h2 className="text-2xl font-bold mb-8 flex items-center gap-3">
+          <Settings2 className="w-6 h-6 text-[#059669]" /> Specialized Units
+        </h2>
+        <div className="grid md:grid-cols-3 gap-6">
+          {specialized.map((s, i) => (
+            <div key={i} className="p-6 bg-slate-900 border border-slate-800 rounded-xl">
+              <h4 className="font-bold text-slate-200 mb-2">{s.name}</h4>
+              <p className="text-sm text-slate-500 leading-relaxed">{s.desc}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
     </div>
   );
 };

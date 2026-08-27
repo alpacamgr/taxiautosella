@@ -8,10 +8,12 @@ export const LuxuryNav: React.FC = () => {
 
   const links = [
     { path: '/luxury', label: 'Welcome' },
+    { path: '/luxury/booking', label: 'Prices & Booking' },
     { path: '/luxury/fleet', label: 'Our Vehicles' },
-    { path: '/luxury/excursions', label: 'Excursions & Tours' },
-    { path: '/luxury/about', label: 'Heritage & Drivers' },
-    { path: '/luxury/faq', label: 'FAQ' },
+    { path: '/luxury/services', label: 'Taxi, Minibus & Bus' },
+    { path: '/luxury/excursions', label: 'Organised Tours' },
+    { path: '/luxury/faq', label: 'Q&A' },
+    { path: '/luxury/members', label: 'Members & Partners' },
   ];
 
   return (
