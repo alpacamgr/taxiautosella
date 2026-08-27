@@ -19,15 +19,20 @@ Target Audience: Luxury chalet guests, 5-star hotel clientele, executive airport
 
 ---
 
-## 2. Variant 2: Stashed / Reserved Concept Workspace
+## 2. Variant 2: "The Dolomites Grand Consortium" (Modern Alpine Tech & Consortium Scale)
 *Base Route*: **`#/tech`**
 
 ```text
-Status: Stashed / Under Development
-Purpose: Reserved clean workspace for future creative agent exploration.
+Aesthetic: Deep Alpine Navy (#0A192F) & Titanium Slate (#F8FAFC) | High-Visibility Amber (#F59E0B / #D97706) | Plus Jakarta Sans
+Target Audience: International skiers, tech-forward travelers, corporate retreats, conference planners, and tour operators
 ```
 
-The underlying data models and routing structure are preserved in `src/variants/tech/` so a new creative direction can be spun up without affecting the active variants.
+### Visual & Interactive Highlights:
+* **Interactive Live Rate Calculator**: Instant fixed pricing for all **9 international airports** and **4 railway stations**, with passenger count selector and instant emoji WhatsApp message generator.
+* **Step-by-Step Reservation Wizard (`TechBookingPage.tsx`)**: Flight number tracking input, vehicle class dropdown, luggage bags, and ski equipment selection.
+* **Category Filter Tabs (`TechFleetPage.tsx`)**: Filter all 25 vehicles and specialized transport units by category (*Executive Sedans, Luxury SUVs, VIP Minivans, Ski Minibuses, Coaches, Specialized Units*).
+* **Interactive 18 Driver Profiles (`TechMembersPage.tsx`)**: 1-click chauffeur request for any of the 18 consortium drivers.
+* **Searchable FAQ Accordion (`TechFaqPage.tsx`)**: Real-time keyword filtering across all 13 knowledge base topics.
 
 ---
 

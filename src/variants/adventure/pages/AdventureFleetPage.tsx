@@ -10,7 +10,7 @@ export const AdventureFleetPage: React.FC = () => {
     {
       title: 'Disabled Passenger Transport (Accessible Wheelchair Lift)',
       desc: 'Vehicle equipped with an electric/hydraulic wheelchair ramp and ISO 4-point safety restraint system. Capacity: 1 wheelchair user + up to 7 accompanying guests. Door-to-door assistance and train platform escort.',
-      image: '/images/fleet/autosella_mercedes-v-05.jpg'
+      image: '/images/fleet/mercedes-vito-minibus-side.jpg'
     },
     {
       title: 'Bike & Motorbike Alpine Shuttle Trailer',
@@ -20,7 +20,7 @@ export const AdventureFleetPage: React.FC = () => {
     {
       title: 'Film & Photo Production Logistics Vehicle',
       desc: 'Specialized 4x4 transport and on-location production support for commercial filming, fashion photo shoots, and television crews in the Dolomites.',
-      image: '/images/fleet/autosella_filmproduktion_01.jpg'
+      image: '/images/fleet/autosella_2018_09.jpg'
     }
   ];
 

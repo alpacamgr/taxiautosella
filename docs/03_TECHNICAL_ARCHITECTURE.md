@@ -51,11 +51,17 @@ src/
     │       ├── LuxuryExcursionsPage.tsx# /luxury/excursions (VIP day trips & mountain hut dinners)
     │       ├── LuxuryFaqPage.tsx     # /luxury/faq (Complete Q&A)
     │       └── LuxuryMembersPage.tsx # /luxury/members (18 drivers, official partner links, nightlife)
-    ├── tech/                         # Variant 2: Stashed / Reserved for new creative direction
+    ├── tech/                         # Variant 2: "The Dolomites Grand Consortium" (Active)
     │   ├── TechLayout.tsx
     │   ├── components/TechNav.tsx
     │   └── pages/
-    │       └── TechHome.tsx          # Minimal placeholder component
+    │       ├── TechHome.tsx          # /tech (Cockpit, 13-gateway live rate calculator, WhatsApp builder)
+    │       ├── TechBookingPage.tsx   # /tech/booking (Step-by-step reservation wizard & rate sheets)
+    │       ├── TechFleetPage.tsx     # /tech/fleet (Category filter tabs, 25 vehicles + accessible van)
+    │       ├── TechServicesPage.tsx  # /tech/services (9 mobility & logistics services)
+    │       ├── TechToursPage.tsx     # /tech/tours (Curated Dolomites excursions)
+    │       ├── TechFaqPage.tsx       # /tech/faq (Searchable category accordion Q&A)
+    │       └── TechMembersPage.tsx   # /tech/members (18 interactive driver cards & partner hubs)
     └── adventure/                    # Variant 3: "The Valley Gateway" (Active)
         ├── AdventureLayout.tsx
         ├── components/AdventureNav.tsx
@@ -76,13 +82,19 @@ src/
 | Route | Sub-App Variant | Page Title / Purpose |
 | :--- | :--- | :--- |
 | `#/` or `#/luxury` | Luxury | Luxury Welcome & Concierge Gateway |
-| `#/luxury/booking` | Luxury | Fixed Prices & Online Booking |
+| `#/luxury/booking` | Luxury | Fixed Prices & Online Booking (VIP Concierge add-ons) |
 | `#/luxury/fleet` | Luxury | Complete 25-Vehicle Fleet Showcase |
 | `#/luxury/services` | Luxury | Taxi, Minibus & Bus Services |
 | `#/luxury/excursions` | Luxury | Organised Tours & Sightseeing Trips |
 | `#/luxury/faq` | Luxury | Questions & Answers Directory |
-| `#/luxury/members` | Luxury | Consortium Driver Members & Official Partners |
-| `#/tech` | Tech (Stashed) | Reserved Concept Workspace |
+| `#/luxury/members` | Luxury | Consortium Driver Members (18 Interactive Badges) & Partners |
+| `#/tech` | Tech Consortium | Modern Alpine Cockpit & 13-Gateway Live Calculator |
+| `#/tech/booking` | Tech Consortium | Step-by-Step Reservation Wizard & Fixed Rates |
+| `#/tech/fleet` | Tech Consortium | Fleet Category Filter Tabs & Specs |
+| `#/tech/services` | Tech Consortium | 9 Mobility & Chauffeur Services |
+| `#/tech/tours` | Tech Consortium | Curated Dolomites Tours & Excursions |
+| `#/tech/faq` | Tech Consortium | Searchable Category Accordion Q&A |
+| `#/tech/members` | Tech Consortium | 18 Driver Dispatch Cards & Regional Partners |
 | `#/adventure` | Valley Gateway | Valley Welcome & Dual-Track Dispatch |
 | `#/adventure/booking` | Valley Gateway | Fixed Rates & Online Booking |
 | `#/adventure/fleet` | Valley Gateway | Fleet Collection & Mountain Trailers |

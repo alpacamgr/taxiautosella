@@ -46,9 +46,9 @@ All 25 vehicles in the consortium were audited and mapped to real, high-resoluti
 | **Alpine Minibus** | Mercedes-Benz Vito 4MATIC | 1–8 Pax | 8 Bags • 8 Skis | Ski groups, roof ski boxes, rugged 4x4 | `/images/fleet/mercedes-vito-minibus-4matic.jpg` |
 | **VIP Small Coach** | Mercedes-Benz Sprinter Coach | 16–30 Pax | 16+ Bags • 16 Skis | Wedding parties, sports teams, ski clubs | `/images/fleet/mercedes-sprinter-vip-coach.jpg` |
 | **Grand Touring Coach** | Grand Luxury Touring Coach | Up to 56 Pax | 60 Bags • 50 Skis | Tour operators, large group charters | `/images/fleet/grand-touring-coach-56pax.jpg` |
-| **Accessible Van** | Wheelchair Lift Accessible Van | 1 Wheelchair + 7 Pax | Full Assistance | Electric/hydraulic ramp & 4-point restraints | `/images/fleet/autosella_mercedes-v-05.jpg` |
+| **Accessible Van** | Wheelchair Lift Accessible Van | 1 Wheelchair + 7 Pax | Full Assistance | Electric/hydraulic ramp & 4-point restraints | `/images/fleet/mercedes-vito-minibus-side.jpg` |
 | **Alpine Bike Trailer** | Heavy-Duty Aerodynamic Trailer | Up to 10 MTBs / 3 Motorbikes | Full Luggage | Summer bike shuttles & breakdown recovery | `/images/fleet/mercedes-vito-ski-trailer.jpg` |
-| **Film Support Unit** | 4x4 Production Logistics Unit | Crew + Gear | Specialized | Commercial filming & photo shoot support | `/images/fleet/autosella_filmproduktion_01.jpg` |
+| **Film Support Unit** | 4x4 Production Logistics Unit | Crew + Gear | Specialized | Commercial filming & photo shoot support | `/images/fleet/autosella_2018_09.jpg` |
 
 ---
 

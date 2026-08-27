@@ -23,14 +23,14 @@ export const LuxuryInquiryModal: React.FC = () => {
 
   // Format WhatsApp message text
   const waMessage = encodeURIComponent(
-    `*TAXI AUTO SELLA — LUXURY DISPATCH*\n\n` +
-    `• *Topic:* ${inquiryContext}\n` +
-    `• *Prefill:* ${inquiryPrefill || 'N/A'}\n` +
-    `• *Guest Name:* ${guestName || 'Guest'}\n` +
-    `• *Guest Phone:* ${guestPhone || 'N/A'}\n` +
-    `• *Guest Email:* ${guestEmail || 'N/A'}\n` +
-    `• *Notes:* ${notes || 'None'}\n\n` +
-    `Please advise on details and availability. Thank you!`
+    `👑 *TAXI AUTO SELLA — LUXURY CONCIERGE REQUEST*\n\n` +
+    `⚜️ *Service:* ${inquiryContext}\n` +
+    `🏔️ *Details:* ${inquiryPrefill || 'VIP Alpine Transfer'}\n` +
+    `👤 *Guest Name:* ${guestName || 'Guest'}\n` +
+    `📞 *Guest Phone:* ${guestPhone || 'N/A'}\n` +
+    `✉️ *Guest Email:* ${guestEmail || 'N/A'}\n` +
+    `📝 *VIP Notes:* ${notes || 'None'}\n\n` +
+    `Please confirm VIP chauffeur availability. Thank you!`
   );
 
   const handleWhatsAppDispatch = () => {
@@ -149,10 +149,10 @@ export const LuxuryInquiryModal: React.FC = () => {
               </div>
 
               <div className="flex flex-col gap-2">
-                <label className="text-[10px] tracking-widest uppercase text-[#F8F6F0]/50">Additional Notes</label>
+                <label className="text-[10px] tracking-widest uppercase text-[#F8F6F0]/50">VIP Concierge Notes / Equipment</label>
                 <textarea
                   rows={3}
-                  placeholder="How can we assist you with your luxury experience?"
+                  placeholder="Flight numbers, child seat requirements (0-12 yrs), ski/snowboard equipment, or special requests..."
                   value={notes}
                   onChange={(e) => setNotes(e.target.value)}
                   className="px-4 py-3 text-sm bg-[#F8F6F0]/5 border border-[#C5A880]/20 text-[#F8F6F0] focus:border-[#C5A880] focus:bg-transparent focus:outline-none transition-colors font-light placeholder-[#F8F6F0]/20 resize-none mt-1"
@@ -160,14 +160,13 @@ export const LuxuryInquiryModal: React.FC = () => {
               </div>
 
               <div className="pt-6 border-t border-[#C5A880]/10 flex flex-col sm:flex-row gap-4">
-                <button
-                  type="button"
-                  onClick={handlePhoneCall}
-                  className="flex-1 py-3 px-4 border border-[#C5A880]/50 hover:bg-[#C5A880]/10 text-[#C5A880] text-xs tracking-widest uppercase flex items-center justify-center gap-2 transition-colors"
+                <a
+                  href="tel:+390471790033"
+                  className="flex-1 py-3 px-4 border border-[#C5A880]/50 hover:bg-[#C5A880]/10 text-[#C5A880] text-xs tracking-widest uppercase flex items-center justify-center gap-2 transition-colors font-medium text-center"
                 >
                   <PhoneCall className="w-4 h-4" />
                   <span>Call</span>
-                </button>
+                </a>
                 <button
                   type="button"
                   onClick={handleWhatsAppDispatch}

@@ -35,10 +35,12 @@ import { AdventureMembersPage } from './variants/adventure/pages/AdventureMember
 // Shared Components
 import { BookingModal } from './components/booking/BookingModal';
 import { StickyMobileBar } from './components/mobile/StickyMobileBar';
+import { ScrollToTop } from './components/navigation/ScrollToTop';
 
 export const App: React.FC = () => {
   return (
     <HashRouter>
+      <ScrollToTop />
       <div className="min-h-screen flex flex-col antialiased bg-slate-950">
         
         {/* Global Variant Switcher & Route Header */}

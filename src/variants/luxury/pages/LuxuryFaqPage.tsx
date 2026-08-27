@@ -1,50 +1,63 @@
 import React, { useState } from 'react';
-import { ChevronDown } from 'lucide-react';
+import { ChevronDown, MessageSquare, PhoneCall, HelpCircle } from 'lucide-react';
 import { useAppStore } from '../../../store/useAppStore';
 
 export const LuxuryFaqPage: React.FC = () => {
   const [openIdx, setOpenIdx] = useState<number | null>(0);
+  const { openInquiryModal } = useAppStore();
 
   const faqs = [
     {
-      q: 'How will I recognize my driver at the airport?',
-      a: 'Your personal chauffeur will wait in the arrivals hall holding a personalized sign with your name. You will also receive their mobile number before your journey for seamless coordination. Look for our signature Taxi Auto Sella logo on the driver\'s tablet or sign.'
+      q: 'How will I recognize my driver at the airport arrivals hall?',
+      a: 'Your personal chauffeur will wait in the airport arrivals hall directly past baggage claim, holding a digital tablet or personalized sign with your name. Prior to landing, you will also receive their direct mobile phone number for seamless communication.'
     },
     {
-      q: 'How do I know which vehicle is mine?',
-      a: 'All our Mercedes-Benz vehicles are discreet, usually black or dark colors, featuring the understated Taxi Auto Sella consortium logo. Your driver will guide you directly to the vehicle parked in the VIP or short-term parking.'
+      q: 'What happens if my flight or train is delayed?',
+      a: 'We monitor all inbound flights and rail connections in real time via live tracking systems. Your driver automatically adjusts their arrival time, and we provide up to 60 minutes of complimentary waiting time after your flight touches down with zero surcharge.'
     },
     {
-      q: 'Do I need to pay a deposit?',
-      a: 'For standard transfers, no deposit is required. You can pay the driver directly at the end of the journey. For large groups, luxury coaches, or extended hourly rentals, a partial deposit via bank transfer may be requested to secure the booking.'
+      q: 'Are luggage and ski/snowboard bags included in the price?',
+      a: 'Yes, all standard luggage, ski bags, snowboard cases, and boot bags are 100% included in our fixed price quotes. Please specify your passenger count and equipment when booking so we dispatch the optimal Mercedes model or extra-long wheelbase vehicle.'
     },
     {
-      q: 'How far in advance should I book?',
-      a: 'We recommend booking as early as possible, especially during peak winter season and holidays, to guarantee your preferred vehicle. However, we do accommodate last-minute requests subject to fleet availability.'
+      q: 'Do I need to pay a deposit in advance?',
+      a: 'For standard private transfers, no deposit or prepayment is required. You can settle the fare directly with your chauffeur at the end of the journey. For large group coach charters or extended multi-day rentals, advance deposit details are arranged upon request.'
     },
     {
       q: 'What payment methods do you accept?',
-      a: 'We accept Cash, all major Credit Cards (Visa, Mastercard, Amex via mobile POS terminals carried by every driver), and advance Bank Transfers. We ensure a secure and hassle-free payment process.'
+      a: 'Every driver carries a modern wireless POS terminal accepting all major Credit Cards (Visa, Mastercard, American Express), Apple Pay, Google Pay, and Cash (EUR). We also provide official VAT-compliant tax invoices for corporate clients.'
     },
     {
-      q: 'Are luggage and skis included in the price?',
-      a: 'Yes, all standard luggage and ski/snowboard equipment are included in the quoted fixed rate. Please inform us of the exact amount of luggage and oversized items at the time of booking so we can dispatch the appropriate vehicle.'
+      q: 'Do you provide child and infant safety seats?',
+      a: 'Yes, certified child seats, infant capsules (Group 0+), and booster seats (for ages 0–12) are provided completely free of charge upon request during booking.'
     },
     {
-      q: 'What happens if my flight is delayed?',
-      a: 'We monitor all flight statuses in real-time. If your flight is delayed, your driver will adjust their arrival time. We offer 60 minutes of complimentary waiting time after your flight lands.'
+      q: 'How do I know which vehicle is mine at the pickup point?',
+      a: 'All our vehicles are pristine Mercedes-Benz models (E-Class, S-Class, V-Class, Vito 4MATIC) in elegant dark charcoal or black livery, discreetly displaying the official Taxi Auto Sella consortium crest.'
     },
     {
-      q: 'Do you provide child seats?',
-      a: 'Absolutely. We provide premium infant carriers, child seats, and booster seats (for ages 0-12) free of charge. Please request them during booking, specifying the age and weight of the children.'
+      q: 'Can we request rest stops or photo stops on scenic mountain passes?',
+      a: 'Certainly. Our chauffeurs prioritize your relaxation and comfort. We are pleased to make brief coffee stops or panoramic photo pauses at iconic viewpoints along Passo Sella or Passo Gardena.'
     },
     {
-      q: 'Can we make a rest stop during the transfer?',
-      a: 'Yes. Upon request, your chauffeur will happily make brief stops for restrooms or a quick coffee during longer journeys (e.g., from Munich or Milan), prioritizing your comfort.'
+      q: 'What languages do your drivers speak?',
+      a: 'All 18 of our consortium drivers are local Val Gardena natives and are fully multilingual, speaking fluent English, German, Italian, and Ladin.'
     },
     {
-      q: 'Do your drivers speak multiple languages?',
-      a: 'Our drivers are native to the Val Gardena region and are fully multilingual, fluent in English, German, Italian, and Ladin, ensuring clear communication and exceptional service.'
+      q: 'Do you operate on-demand local night taxis between Val Gardena villages?',
+      a: 'Yes, during the winter and summer high seasons we operate 24/7 on-demand local taxi dispatch between Ortisei (St. Ulrich), Santa Cristina, Selva (Wolkenstein), ski lifts, and all regional restaurants and nightlife venues.'
+    },
+    {
+      q: 'Are your vehicles equipped for severe winter snow and high mountain passes?',
+      a: '100% of our fleet features permanent Mercedes 4MATIC all-wheel-drive systems, premium studded winter tires, and certified snow chains, operated by drivers with decades of Alpine snow experience.'
+    },
+    {
+      q: 'Can you transport downhill mountain bikes and e-bikes in summer?',
+      a: 'Yes, we operate specialized weatherproof bike trailers accommodating up to 10 mountain bikes or 3 motorbikes for the Sella Ronda MTB Tour and regional transfers.'
+    },
+    {
+      q: 'Do you offer wheelchair accessible vehicles for disabled passengers?',
+      a: 'Yes, we have specially modified Mercedes vans equipped with certified hydraulic wheelchair lifts and ISO 4-point floor tie-down restraints for safe, comfortable travel.'
     }
   ];
 
@@ -52,28 +65,34 @@ export const LuxuryFaqPage: React.FC = () => {
     <div className="min-h-screen bg-[#F8F6F0] pt-24 pb-20">
       <div className="max-w-4xl mx-auto px-6 lg:px-16">
         <header className="mb-16">
+          <span className="text-xs font-semibold uppercase tracking-widest text-[#C5A880] block mb-2">
+            Frequently Asked Questions
+          </span>
           <h1 className="font-editorial text-5xl lg:text-7xl font-normal text-[#0E1117] mb-6">
             Questions & <span className="italic text-[#C5A880]">Answers</span>
           </h1>
-          <p className="text-[#0E1117]/70 text-lg font-light leading-relaxed">
-            Everything you need to know about our luxury alpine transfer services, booking policies, and journey details.
+          <p className="text-[#0E1117]/80 text-lg font-light leading-relaxed">
+            Everything you need to know about our luxury alpine transfers, mountain pass guarantees, booking policies, and journey details.
           </p>
         </header>
 
-        <div className="space-y-4">
+        <div className="space-y-3.5">
           {faqs.map((faq, i) => (
-            <div key={i} className="bg-white rounded-xl shadow-sm border border-[#0E1117]/5 overflow-hidden transition-all">
+            <div 
+              key={i} 
+              className="bg-white rounded-xl shadow-sm border border-[#0E1117]/10 overflow-hidden transition-all hover:border-[#C5A880]/50"
+            >
               <button 
                 onClick={() => setOpenIdx(openIdx === i ? null : i)}
                 className="w-full text-left px-6 py-5 flex items-center justify-between focus:outline-none"
               >
-                <span className="font-medium text-[#0E1117] pr-8">{faq.q}</span>
-                <ChevronDown className={`w-5 h-5 text-[#C5A880] transition-transform ${openIdx === i ? 'rotate-180' : ''}`} />
+                <span className="font-semibold text-sm sm:text-base text-[#0E1117] pr-6">{faq.q}</span>
+                <ChevronDown className={`w-5 h-5 text-[#C5A880] flex-shrink-0 transition-transform duration-300 ${openIdx === i ? 'rotate-180 text-[#0E1117]' : ''}`} />
               </button>
               <div 
-                className={`px-6 overflow-hidden transition-all duration-300 ease-in-out ${openIdx === i ? 'max-h-48 pb-6 opacity-100' : 'max-h-0 opacity-0'}`}
+                className={`px-6 overflow-hidden transition-all duration-300 ease-in-out ${openIdx === i ? 'max-h-60 pb-6 opacity-100' : 'max-h-0 opacity-0'}`}
               >
-                <p className="text-sm text-[#0E1117]/70 font-light leading-relaxed">
+                <p className="text-sm text-[#0E1117]/80 font-light leading-relaxed border-t border-[#0E1117]/5 pt-3">
                   {faq.a}
                 </p>
               </div>
@@ -81,21 +100,25 @@ export const LuxuryFaqPage: React.FC = () => {
           ))}
         </div>
 
-        <div className="mt-20 bg-[#0E1117] text-[#F8F6F0] p-10 md:p-16 rounded-3xl flex flex-col md:flex-row items-center justify-between shadow-2xl relative overflow-hidden">
-          <div className="relative z-10 max-w-2xl">
-            <h2 className="font-editorial text-4xl mb-4">Still have questions?</h2>
-            <p className="text-[#F8F6F0]/70 font-light mb-8 md:mb-0">
-              Our concierge team is available to assist you with any specific inquiries or custom requests.
+        <div className="mt-20 bg-[#0E1117] text-[#F8F6F0] p-10 md:p-14 rounded-3xl flex flex-col md:flex-row items-center justify-between shadow-2xl relative overflow-hidden border border-white/10">
+          <div className="relative z-10 max-w-xl">
+            <span className="text-xs font-semibold uppercase tracking-widest text-[#C5A880] block mb-2">
+              Direct Concierge Support
+            </span>
+            <h2 className="font-editorial text-3xl sm:text-4xl mb-3 text-white">Have an Unlisted Request?</h2>
+            <p className="text-[#F8F6F0]/80 font-light mb-8 md:mb-0 text-sm leading-relaxed">
+              Our 24/7 dispatch coordinators in Val Gardena are ready to answer custom questions or organize unique Alpine transfers.
             </p>
           </div>
           <button 
-            onClick={() => useAppStore.getState().openInquiryModal('General Inquiry', '')}
-            className="relative z-10 w-full md:w-auto px-8 py-4 bg-[#C5A880] text-[#0E1117] font-semibold text-xs uppercase tracking-widest hover:bg-white transition-colors rounded-lg flex items-center justify-center gap-2"
+            onClick={() => openInquiryModal('General Inquiry', 'I have a specific question about your transfer services...')}
+            className="relative z-10 w-full md:w-auto px-8 py-4 bg-[#C5A880] text-[#0E1117] font-bold text-xs uppercase tracking-widest hover:bg-white transition-colors rounded-xl flex items-center justify-center gap-2 shadow-xl"
           >
-            <span>Inquire Now</span>
+            <span>Inquire Directly</span>
           </button>
         </div>
       </div>
     </div>
   );
 };
+
