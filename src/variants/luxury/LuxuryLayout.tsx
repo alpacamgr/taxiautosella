@@ -1,7 +1,6 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
 import { LuxuryNav } from './components/LuxuryNav';
-import { BookingModal } from '../../components/booking/BookingModal';
 import { LuxuryInquiryModal } from './components/LuxuryInquiryModal';
 
 export const LuxuryLayout: React.FC = () => {
@@ -20,7 +19,6 @@ export const LuxuryLayout: React.FC = () => {
         <Outlet />
       </div>
 
-      <BookingModal />
       <LuxuryInquiryModal />
 
       {/* Luxury Footer */}
@@ -43,7 +41,7 @@ export const LuxuryLayout: React.FC = () => {
         <div className="max-w-7xl mx-auto pt-8 flex flex-col sm:flex-row justify-between items-center text-[11px] text-[#F8F6F0]/40 gap-4">
           <p>© {new Date().getFullYear()} Taxi Auto Sella Consortium. All rights reserved.</p>
           <div className="flex gap-6">
-            <a href="tel:+390471790033" className="hover:text-[#C5A880]">24/7 Hotline</a>
+            <a href="tel:+390471790033" className="hover:text-[#C5A880]">Call Dispatch</a>
             <a href="mailto:info@taxiautosella.it" className="hover:text-[#C5A880]">Email Dispatch</a>
           </div>
         </div>

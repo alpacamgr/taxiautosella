@@ -23,52 +23,21 @@
   ::-webkit-scrollbar-thumb:hover {
     background: #d4af37;
   }
-}
 
-@layer utilities {
-  .glass-card-dark {
-    background: rgba(17, 24, 39, 0.75);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+  .inquiry-scrollbar {
+    scrollbar-color: #9AA9A1 #F5F7F6;
   }
 
-  .glass-card-gold {
-    background: rgba(17, 24, 39, 0.85);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(212, 175, 55, 0.25);
+  .inquiry-scrollbar::-webkit-scrollbar-track {
+    background: #F5F7F6;
   }
 
-  .glass-card-light {
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(226, 232, 240, 0.8);
+  .inquiry-scrollbar::-webkit-scrollbar-thumb {
+    border: 2px solid #F5F7F6;
+    background: #9AA9A1;
   }
 
-  .glass-card-navy {
-    background: rgba(12, 35, 64, 0.85);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(56, 189, 248, 0.25);
-  }
-
-  .gold-gradient-text {
-    background: linear-gradient(135deg, #F6F0DC 0%, #D4AF37 50%, #B89326 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-
-  .emerald-gradient-text {
-    background: linear-gradient(135deg, #059669 0%, #10B981 50%, #34D399 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-
-  .ice-gradient-text {
-    background: linear-gradient(135deg, #E0F2FE 0%, #38BDF8 50%, #0284C7 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+  .inquiry-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #65766D;
   }
 }

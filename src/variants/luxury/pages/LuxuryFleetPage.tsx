@@ -1,6 +1,6 @@
 import React from 'react';
 import { useAppStore } from '../../../store/useAppStore';
-import { Users, Briefcase, Check, ArrowRight, ShieldCheck } from 'lucide-react';
+import { Users, Briefcase, Check, ArrowRight } from 'lucide-react';
 
 export const LuxuryFleetPage: React.FC = () => {
   const { openInquiryModal } = useAppStore();
@@ -8,9 +8,9 @@ export const LuxuryFleetPage: React.FC = () => {
   const vehicles = [
     {
       id: 'sedan-eclass',
-      name: 'Mercedes-Benz E-Class 4MATIC',
-      subtitle: 'Executive Alpine Sedan',
-      tagline: 'Ideal for couples and solo business travelers with unmatched comfort.',
+      name: 'Mercedes-Benz E-Class 4MATIC Estate',
+      subtitle: 'Executive Alpine Estate',
+      tagline: 'A comfortable choice for couples and business travellers with generous luggage space.',
       passengers: 3, luggage: 3,
       features: ['Permanent 4MATIC 4-Wheel Drive', 'Leather Interior & Climate Control', 'Silent Acoustic Comfort Glass'],
       image: '/images/fleet/mercedes-e-class.jpg',
@@ -18,19 +18,19 @@ export const LuxuryFleetPage: React.FC = () => {
     },
     {
       id: 'sedan-sclass',
-      name: 'Mercedes-Benz S-Class Long VIP',
-      subtitle: 'Prestige Presidential Chauffeur',
-      tagline: 'Top-of-the-line comfort and prestige for VIP delegations and executive travel.',
+      name: 'Mercedes-Benz S-Class Long',
+      subtitle: 'Flagship Private Chauffeur',
+      tagline: 'Flagship comfort for private airport transfers, special occasions, and executive travel.',
       passengers: 3, luggage: 3,
-      features: ['First-Class Rear Reclining Seats', 'Acoustic Privacy Double Glazing', 'White-Glove VIP Chauffeur'],
+      features: ['Comfortable Rear Seating', 'Quiet Long-Wheelbase Cabin', 'Professional Private Driver'],
       image: '/images/fleet/mercedes-s-class-vip.jpg',
-      badge: 'Flagship Luxury'
+      badge: 'S-Class Long'
     },
     {
       id: 'suv-gls',
       name: 'Mercedes-Benz GLS 4MATIC SUV',
-      subtitle: 'Luxury Mountain SUV',
-      tagline: 'Commanding presence and generous clearance for high-altitude luxury travel.',
+      subtitle: 'Mountain SUV',
+      tagline: 'A spacious SUV option for winter roads, luggage and higher-altitude routes.',
       passengers: 4, luggage: 5,
       features: ['AirMATIC Air Suspension', 'Panoramic Sky Roof', 'Extreme Winter Mountain Grip'],
       image: '/images/fleet/mercedes-gl-suv-4matic.jpg',
@@ -38,19 +38,19 @@ export const LuxuryFleetPage: React.FC = () => {
     },
     {
       id: 'van-vclass',
-      name: 'Mercedes-Benz V-Class VIP',
-      subtitle: 'VIP Chauffeur Minivan',
-      tagline: 'Premium space with face-to-face conference seating for VIP families.',
+      name: 'Mercedes-Benz V-Class',
+      subtitle: 'Private Group Minivan',
+      tagline: 'Flexible group seating and luggage space for families or small groups.',
       passengers: 7, luggage: 7,
       features: ['Executive Captain Lounge Seats', 'Dual Zone Panoramic Climate', 'Extra-Long Wheelbase for Luggage'],
       image: '/images/fleet/mercedes-v-class-luxury.jpg',
-      badge: 'VIP Best Seller'
+      badge: 'Popular for Groups'
     },
     {
       id: 'minibus-vito',
       name: 'Mercedes-Benz Vito 4MATIC',
       subtitle: 'Alpine Ski & Group Minibus',
-      tagline: 'The rugged Dolomite workhorse with maximum storage capacity and roof ski carriers.',
+      tagline: 'An eight-seat minibus with space for group luggage and winter equipment.',
       passengers: 8, luggage: 8,
       features: ['Heavy-Duty Winter 4x4 Drivetrain', 'Aerodynamic Ski & Snowboard Box', 'Spacious 8-Passenger Seating'],
       image: '/images/fleet/mercedes-vito-minibus-4matic.jpg',
@@ -58,41 +58,41 @@ export const LuxuryFleetPage: React.FC = () => {
     },
     {
       id: 'sprinter-vip',
-      name: 'Mercedes-Benz Sprinter VIP Coach',
-      subtitle: 'Luxury Small Group Coach',
-      tagline: 'First-class touring coach for wedding parties and corporate events.',
+      name: 'Mercedes-Benz Sprinter Coach',
+      subtitle: 'Small Group Coach',
+      tagline: 'Coach transport for wedding parties, tour groups and corporate events.',
       passengers: '16–30', luggage: '20+',
       features: ['Reclining Leather Touring Seats', 'Microphone & PA Audio System', 'Dedicated Ski Compartment'],
-      image: '/images/fleet/mercedes-sprinter-vip-coach.jpg',
+      image: '/images/fleet/grand-touring-coach-56pax.jpg',
       badge: 'Weddings & Groups'
     },
     {
       id: 'coach-grand',
       name: 'Grand Touring Coach',
       subtitle: 'Large Tour & Excursion Coach',
-      tagline: 'High-capacity luxury coach for large tour operators and ski charters.',
+      tagline: 'High-capacity transport for tour groups, ski charters and excursions.',
       passengers: 56, luggage: 60,
-      features: ['56 Ergonomic Reclining Seats', 'Onboard Restroom & Galley Refrigerator', 'Massive Underfloor Luggage Bays'],
-      image: '/images/fleet/grand-touring-coach-56pax.jpg',
+      features: ['Group Transport Up to 56 Passengers', 'Tour & Excursion Configuration', 'Large Luggage Capacity'],
+      image: '/images/fleet/mercedes-sprinter-vip-coach.jpg',
       badge: 'Up to 56 Seats'
     },
     {
       id: 'van-disabled',
-      name: 'Disabled Accessible Van',
-      subtitle: 'Specialized Wheelchair Transport',
-      tagline: 'Fully equipped with an electric/hydraulic lift and ISO 4-point restraints for wheelchair accessibility.',
+      name: 'Wheelchair-Accessible Transport',
+      subtitle: 'Mobility Support by Arrangement',
+      tagline: 'Contact dispatch with your access requirements so the appropriate vehicle and assistance can be confirmed.',
       passengers: '1 Wheelchair + 6', luggage: 4,
-      features: ['Hydraulic Wheelchair Ramp/Lift', 'ISO 4-Point Restraint System', 'Certified Assistance Chauffeur'],
+      features: ['Access Requirements Confirmed in Advance', 'Door-to-Door Assistance', 'Vehicle Availability on Request'],
       image: '/images/fleet/mercedes-vito-minibus-side.jpg',
       badge: 'Accessible Care'
     },
     {
       id: 'trailer',
-      name: 'Ski & Mountain Bike Trailer',
+      name: 'Bike & Motorcycle Trailer',
       subtitle: 'Heavy Equipment Transport',
-      tagline: 'Dedicated enclosed trailers for large groups requiring extensive bike or ski gear transport.',
+      tagline: 'Dedicated trailer transport for motorcycles, bicycles, and bulky sporting equipment by arrangement.',
       passengers: 'N/A', luggage: '10 Bikes / 30 Skis',
-      features: ['Secure Weatherproof Enclosure', 'Up to 10 Downhill/E-Bikes', 'Summer & Winter Compatible'],
+      features: ['Secure Tie-Down System', 'Motorcycle & Bicycle Transport', 'Equipment Options Confirmed in Advance'],
       image: '/images/fleet/mercedes-vito-ski-trailer.jpg',
       badge: 'Luggage & Bikes'
     },
@@ -100,10 +100,10 @@ export const LuxuryFleetPage: React.FC = () => {
       id: 'production',
       name: 'Film & Photo Production Support',
       subtitle: 'Media Crew Logistics Unit',
-      tagline: 'Specialized 4x4 vehicle for commercial camera crews, equipment transport, and location scouting in the Dolomites.',
+      tagline: 'Coordinated vehicles for production crews, equipment transfers, and location logistics in the Dolomites.',
       passengers: 5, luggage: 'Crew Equipment',
-      features: ['220V Power Inverters Onboard', 'Heavy Gear Shelving & Racks', 'Deep Dolomite Scouting Experience'],
-      image: '/images/fleet/autosella_2018_09.jpg',
+      features: ['Multi-Vehicle Coordination', 'Crew & Equipment Transfers', 'Local Route Planning'],
+      image: '/images/fleet/autosella_2018_07.jpg',
       badge: 'Film & Media'
     }
   ];
@@ -111,14 +111,11 @@ export const LuxuryFleetPage: React.FC = () => {
   return (
     <div className="pt-24 pb-20 px-6 lg:px-16 max-w-7xl mx-auto bg-[#F8F6F0] min-h-screen">
       <div className="max-w-3xl mb-16">
-        <span className="text-xs font-semibold uppercase tracking-widest text-[#C5A880] block mb-2">
-          Fleet Authority
-        </span>
         <h1 className="font-editorial text-5xl sm:text-7xl text-[#0E1117] mb-6">
-          The 25-Vehicle <span className="italic text-[#C5A880]">Collection</span>
+          Cars, Minivans & <span className="italic text-[#C5A880]">Coaches</span>
         </h1>
         <p className="text-lg text-[#0E1117]/80 font-light leading-relaxed">
-          Explore our complete fleet of 25 vehicles, from Mercedes-Benz executive sedans and VIP V-Class lounges, to 4MATIC minibuses, large touring coaches, and specialized support units.
+          Explore our complete fleet of 25 vehicles, from Mercedes-Benz executive sedans and spacious V-Class minivans to 4MATIC models, touring coaches, and specialist transport.
         </p>
       </div>
 
@@ -130,6 +127,8 @@ export const LuxuryFleetPage: React.FC = () => {
                 <img 
                   src={vehicle.image} 
                   alt={vehicle.name}
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                 />
                 {vehicle.badge && (
@@ -160,10 +159,10 @@ export const LuxuryFleetPage: React.FC = () => {
                 <span className="flex items-center gap-1"><Briefcase className="w-3.5 h-3.5 text-[#C5A880]" /> {vehicle.luggage}</span>
               </div>
               <button 
-                onClick={() => openInquiryModal('Fleet Request', `Vehicle: ${vehicle.name}\nCapacity: ${vehicle.passengers} Pax, ${vehicle.luggage}\nTier: ${vehicle.subtitle}\n\nPlease advise on vehicle availability and rate.`)}
-                className="px-4 py-2 bg-[#0E1117] text-[#F8F6F0] hover:bg-[#C5A880] hover:text-[#0E1117] font-semibold text-xs uppercase tracking-wider rounded-lg transition-colors flex items-center gap-1.5 shadow-md"
+                onClick={() => openInquiryModal('Fleet Request', `Vehicle: ${vehicle.name}\nCapacity: ${vehicle.passengers} passengers, ${vehicle.luggage} luggage\nType: ${vehicle.subtitle}`)}
+                className="flex min-h-11 items-center gap-1.5 bg-[#0E1117] px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-[#8C6D46] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8C6D46] focus-visible:ring-offset-2"
               >
-                <span>Reserve</span>
+                <span>Ask</span>
                 <ArrowRight className="w-3.5 h-3.5" />
               </button>
             </div>
@@ -171,21 +170,18 @@ export const LuxuryFleetPage: React.FC = () => {
         ))}
       </div>
 
-      <div className="mt-20 max-w-7xl mx-auto bg-[#0E1117] text-[#F8F6F0] p-10 md:p-16 rounded-3xl flex flex-col md:flex-row items-center justify-between shadow-2xl relative overflow-hidden border border-white/10">
-        <div className="relative z-10 max-w-2xl">
-          <span className="text-xs font-semibold uppercase tracking-widest text-[#C5A880] block mb-2">
-            Consortium Scale
-          </span>
-          <h2 className="font-editorial text-4xl mb-4 text-white">Need a Multi-Vehicle Fleet Charter?</h2>
-          <p className="text-[#F8F6F0]/80 font-light mb-8 md:mb-0 leading-relaxed text-sm">
-            For large corporate events, VIP weddings in the Dolomites, or complex film production logistics, our dispatch coordinators can assemble multiple Mercedes sedans, V-Class vans, and coaches seamlessly.
+      <div className="mt-20 flex max-w-7xl flex-col items-start justify-between gap-8 border border-[#0E1117]/15 bg-[#EEE9DE] p-8 md:flex-row md:items-center md:p-12">
+        <div className="max-w-2xl">
+          <h2 className="font-editorial text-4xl mb-4">Planning group transport?</h2>
+          <p className="text-[#0E1117]/70 font-light leading-relaxed text-sm">
+            For corporate events, weddings in the Dolomites, large groups, or film-production logistics, dispatch can coordinate multiple Mercedes cars, minivans, and coaches.
           </p>
         </div>
         <button 
           onClick={() => openInquiryModal('Custom Fleet Charter', 'I require a custom multi-vehicle charter for an event...')}
-          className="relative z-10 w-full md:w-auto px-8 py-4 bg-[#C5A880] text-[#0E1117] font-bold text-xs uppercase tracking-widest hover:bg-white transition-colors rounded-xl flex items-center justify-center gap-2 shadow-xl"
+          className="flex min-h-12 w-full items-center justify-center gap-2 bg-[#0E1117] px-8 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-[#8C6D46] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8C6D46] focus-visible:ring-offset-2 md:w-auto"
         >
-          <span>Inquire Multi-Vehicle</span>
+          <span>Ask about group transport</span>
           <ArrowRight className="w-4 h-4" />
         </button>
       </div>

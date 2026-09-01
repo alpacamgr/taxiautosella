@@ -1,27 +1,35 @@
 import React, { useState } from 'react';
 import { useAppStore } from '../../../store/useAppStore';
-import { ArrowRight, MapPin, Calendar, Users, Info, ShieldCheck, Clock } from 'lucide-react';
+import { ArrowRight, MapPin, Calendar, Users, Info } from 'lucide-react';
 
 export const LuxuryBookingPage: React.FC = () => {
   const { openInquiryModal } = useAppStore();
   const [form, setForm] = useState({
     name: '', email: '', phone: '', pickup: '', dropoff: '', date: '', time: '', passengers: '1-2', message: ''
   });
-  const [champagne, setChampagne] = useState(false);
-  const [skiPassClearance, setSkiPassClearance] = useState(false);
+  const [skiEquipment, setSkiEquipment] = useState(false);
+  const [travellingWithPet, setTravellingWithPet] = useState(false);
   const [childSeats, setChildSeats] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     const addons = [
-      champagne ? '• Chilled Champagne on Board (+€95)' : null,
-      skiPassClearance ? '• Dolomiti Superski Pass Pick-up & Delivery (Complimentary)' : null,
-      childSeats ? '• Certified Child/Infant Safety Seats (Complimentary)' : null,
+      skiEquipment ? '• Ski or snowboard equipment' : null,
+      travellingWithPet ? '• Travelling with a pet' : null,
+      childSeats ? '• Child or infant safety seat requested' : null,
     ].filter(Boolean).join('\n');
 
     openInquiryModal(
-      'Custom VIP Transfer Inquiry',
-      `Guest Name: ${form.name || 'Guest'}\nPhone: ${form.phone || 'N/A'}\nEmail: ${form.email || 'N/A'}\nPick-Up: ${form.pickup}\nDrop-Off: ${form.dropoff}\nDate: ${form.date}\nPassengers: ${form.passengers}\n${addons ? `VIP Add-ons:\n${addons}\n` : ''}Special Notes: ${form.message || 'None'}`
+      'Custom Transfer Inquiry',
+      `Pick-Up: ${form.pickup}\nDrop-Off: ${form.dropoff}\nDate: ${form.date}${form.time ? ` at ${form.time}` : ''}\nPassengers: ${form.passengers}\n${addons ? `Travel requirements:\n${addons}\n` : ''}Special Notes: ${form.message || 'None'}`,
+      {
+        name: form.name,
+        phone: form.phone,
+        email: form.email,
+        date: form.date,
+        time: form.time,
+        groupSize: form.passengers,
+      }
     );
   };
 
@@ -48,14 +56,11 @@ export const LuxuryBookingPage: React.FC = () => {
     <div className="min-h-screen bg-[#F8F6F0] pt-24 pb-20">
       <div className="max-w-7xl mx-auto px-6 lg:px-16">
         <header className="mb-16">
-          <span className="text-xs font-semibold uppercase tracking-widest text-[#8C6D46] block mb-2">
-            Transparent Fixed Pricing
-          </span>
           <h1 className="font-editorial text-5xl lg:text-7xl font-normal text-[#0E1117] mb-6">
             Prices & <span className="italic text-[#8C6D46]">Booking</span>
           </h1>
           <p className="text-[#0E1117]/80 text-lg max-w-2xl font-light leading-relaxed">
-            Secure your premium transfer to Val Gardena. We offer transparent, fixed-rate pricing for all major Alpine gateways with our signature white-glove service.
+            Arrange an airport or railway transfer, a private long-distance journey, or practical local transport in Val Gardena. Dispatch confirms the right vehicle and final rate for your trip.
           </p>
         </header>
 
@@ -65,24 +70,25 @@ export const LuxuryBookingPage: React.FC = () => {
             <section>
               <div className="flex items-center justify-between border-b border-[#0E1117]/10 pb-4 mb-6">
                 <h2 className="font-editorial text-3xl text-[#0E1117]">Airport Transfers</h2>
-                <span className="text-xs text-[#0E1117]/60 font-medium">Click any route for instant quote</span>
+                <span className="text-xs text-[#0E1117]/60 font-medium">Select a route to start an inquiry</span>
               </div>
               <div className="grid gap-3">
                 {airports.map((ap) => (
-                  <div 
+                  <button
+                    type="button"
                     key={ap.name} 
-                    onClick={() => openInquiryModal('Gateway Transfer', `Route: ${ap.name} ➔ Val Gardena\nDistance: ${ap.dist}\nApprox Duration: ${ap.time}\nRate: ${ap.price}\n\nPlease confirm availability and vehicle choice.`)}
-                    className="flex items-center justify-between p-4 bg-white rounded-xl shadow-sm border border-[#0E1117]/10 hover:border-[#8C6D46] hover:shadow-md cursor-pointer transition-all group"
+                    onClick={() => openInquiryModal('Gateway Transfer', `Route: ${ap.name} ➔ Val Gardena\nDistance: ${ap.dist}\nApprox Duration: ${ap.time}\nRate: ${ap.price}`)}
+                    className="w-full flex items-center justify-between p-4 bg-white rounded-xl shadow-sm border border-[#0E1117]/10 hover:border-[#8C6D46] hover:shadow-md cursor-pointer transition-all group text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8C6D46] focus-visible:ring-offset-2"
                   >
-                    <div>
-                      <h4 className="font-semibold text-sm text-[#0E1117] group-hover:text-[#8C6D46] transition-colors">{ap.name}</h4>
-                      <p className="text-xs text-[#0E1117]/60 mt-1 font-medium">{ap.dist} • Approx {ap.time}</p>
-                    </div>
-                    <div className="text-right">
-                      <div className="text-lg font-editorial text-[#0E1117] font-bold group-hover:text-[#8C6D46] transition-colors">{ap.price}</div>
-                      <div className="text-[10px] uppercase tracking-wider text-[#0E1117]/60 font-semibold">Fixed All-Inclusive</div>
-                    </div>
-                  </div>
+                    <span className="block">
+                      <span className="block font-semibold text-sm text-[#0E1117] group-hover:text-[#8C6D46] transition-colors">{ap.name}</span>
+                      <span className="block text-xs text-[#0E1117]/60 mt-1 font-medium">{ap.dist} • Approx {ap.time}</span>
+                    </span>
+                    <span className="block text-right">
+                      <span className="block text-lg font-editorial text-[#0E1117] font-bold group-hover:text-[#8C6D46] transition-colors">{ap.price}</span>
+                      <span className="block text-[10px] uppercase tracking-wider text-[#0E1117]/60 font-semibold">Fixed All-Inclusive</span>
+                    </span>
+                  </button>
                 ))}
               </div>
             </section>
@@ -94,32 +100,33 @@ export const LuxuryBookingPage: React.FC = () => {
               </div>
               <div className="grid gap-3">
                 {stations.map((st) => (
-                  <div 
+                  <button
+                    type="button"
                     key={st.name} 
-                    onClick={() => openInquiryModal('Train Station Transfer', `Route: ${st.name} ➔ Val Gardena\nDistance: ${st.dist}\nApprox Duration: ${st.time}\nRate: ${st.price}\n\nPlease confirm arrival time.`)}
-                    className="flex items-center justify-between p-4 bg-white rounded-xl shadow-sm border border-[#0E1117]/10 hover:border-[#8C6D46] hover:shadow-md cursor-pointer transition-all group"
+                    onClick={() => openInquiryModal('Train Station Transfer', `Route: ${st.name} ➔ Val Gardena\nDistance: ${st.dist}\nApprox Duration: ${st.time}\nRate: ${st.price}`)}
+                    className="w-full flex items-center justify-between p-4 bg-white rounded-xl shadow-sm border border-[#0E1117]/10 hover:border-[#8C6D46] hover:shadow-md cursor-pointer transition-all group text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8C6D46] focus-visible:ring-offset-2"
                   >
-                    <div>
-                      <h4 className="font-semibold text-sm text-[#0E1117] group-hover:text-[#8C6D46] transition-colors">{st.name}</h4>
-                      <p className="text-xs text-[#0E1117]/60 mt-1 font-medium">{st.dist} • Approx {st.time}</p>
-                    </div>
-                    <div className="text-right">
-                      <div className="text-lg font-editorial text-[#0E1117] font-bold group-hover:text-[#8C6D46] transition-colors">{st.price}</div>
-                      <div className="text-[10px] uppercase tracking-wider text-[#0E1117]/60 font-semibold">Fixed Rate</div>
-                    </div>
-                  </div>
+                    <span className="block">
+                      <span className="block font-semibold text-sm text-[#0E1117] group-hover:text-[#8C6D46] transition-colors">{st.name}</span>
+                      <span className="block text-xs text-[#0E1117]/60 mt-1 font-medium">{st.dist} • Approx {st.time}</span>
+                    </span>
+                    <span className="block text-right">
+                      <span className="block text-lg font-editorial text-[#0E1117] font-bold group-hover:text-[#8C6D46] transition-colors">{st.price}</span>
+                      <span className="block text-[10px] uppercase tracking-wider text-[#0E1117]/60 font-semibold">Fixed Rate</span>
+                    </span>
+                  </button>
                 ))}
               </div>
             </section>
 
             <section>
               <h2 className="font-editorial text-3xl text-[#0E1117] mb-6 border-b border-[#0E1117]/10 pb-4">Hourly Chauffeur Rental</h2>
-              <div className="p-6 bg-[#0E1117] text-[#F8F6F0] rounded-xl flex items-start gap-4 shadow-xl border border-white/10">
-                <Info className="w-6 h-6 text-[#C5A880] flex-shrink-0 mt-0.5" />
+              <div className="flex items-start gap-4 border border-[#0E1117]/15 bg-[#EEE9DE] p-6">
+                <Info className="w-6 h-6 text-[#8C6D46] flex-shrink-0 mt-0.5" />
                 <div>
-                  <h4 className="font-medium text-base mb-1.5 text-white">Bespoke Hourly VIP Service</h4>
-                  <p className="text-sm text-[#F8F6F0]/80 leading-relaxed font-light">
-                    For utmost flexibility, reserve a dedicated chauffeur by the hour for shopping in Milan or Verona, corporate roadshows, or customized Dolomites sightseeing. Minimum 4 hours. Transparent quote upon request.
+                  <h4 className="font-medium text-base mb-1.5 text-[#0E1117]">Private Driver by the Hour</h4>
+                  <p className="text-sm text-[#0E1117]/70 leading-relaxed font-light">
+                    Hire a driver by the hour for business travel, shopping, events or a Dolomites itinerary. Ask dispatch for availability and a quote.
                   </p>
                 </div>
               </div>
@@ -130,7 +137,7 @@ export const LuxuryBookingPage: React.FC = () => {
           <div className="lg:col-span-5">
             <div className="sticky top-24 bg-white p-8 rounded-2xl shadow-xl border border-[#0E1117]/10">
               <div className="border-b border-[#0E1117]/10 pb-4 mb-6">
-                <h3 className="font-editorial text-2xl text-[#0E1117]">Formal Transfer Request</h3>
+                <h3 className="font-editorial text-2xl text-[#0E1117]">Plan Your Transfer</h3>
                 <p className="text-xs text-[#0E1117]/70 font-medium mt-1">
                   Direct dispatch to Val Gardena drivers • Fast reply
                 </p>
@@ -145,7 +152,7 @@ export const LuxuryBookingPage: React.FC = () => {
                       value={form.name}
                       onChange={e => setForm({...form, name: e.target.value})}
                       className="w-full bg-[#F8F6F0] border border-[#0E1117]/15 p-3 rounded-lg text-sm text-[#0E1117] outline-none focus:border-[#C5A880] focus:ring-1 focus:ring-[#C5A880]" 
-                      placeholder="e.g. Lord Davies"
+                      placeholder="e.g. Anna Rossi"
                       required 
                     />
                   </div>
@@ -230,7 +237,7 @@ export const LuxuryBookingPage: React.FC = () => {
                       >
                         <option value="1-2">1–2 Passengers (Sedan)</option>
                         <option value="3-4">3–4 Passengers (SUV/Van)</option>
-                        <option value="5-7">5–7 (V-Class VIP)</option>
+                        <option value="5-7">5–7 (V-Class)</option>
                         <option value="8">8 Passengers (Vito 4x4)</option>
                         <option value="9+">9+ Group Coach</option>
                       </select>
@@ -238,31 +245,31 @@ export const LuxuryBookingPage: React.FC = () => {
                   </div>
                 </div>
 
-                {/* VIP Concierge Add-ons */}
+                {/* Travel requirements */}
                 <div className="p-4 border border-[#8C6D46]/20 bg-[#8C6D46]/5 rounded-xl space-y-2.5">
                   <span className="block text-[11px] uppercase tracking-wider text-[#0E1117] font-bold">
-                    VIP Concierge Add-ons
+                    Travel requirements
                   </span>
                   <label className="flex items-center gap-3 cursor-pointer group">
                     <input 
                       type="checkbox" 
-                      checked={champagne}
-                      onChange={e => setChampagne(e.target.checked)}
+                      checked={skiEquipment}
+                      onChange={e => setSkiEquipment(e.target.checked)}
                       className="accent-[#8C6D46] w-4 h-4 cursor-pointer" 
                     />
                     <span className="text-xs font-medium text-[#0E1117]/85 group-hover:text-[#8C6D46] transition-colors">
-                      Chilled Champagne (Veuve Clicquot) on Board (+€95)
+                      Ski or snowboard equipment
                     </span>
                   </label>
                   <label className="flex items-center gap-3 cursor-pointer group">
                     <input 
                       type="checkbox" 
-                      checked={skiPassClearance}
-                      onChange={e => setSkiPassClearance(e.target.checked)}
+                      checked={travellingWithPet}
+                      onChange={e => setTravellingWithPet(e.target.checked)}
                       className="accent-[#8C6D46] w-4 h-4 cursor-pointer" 
                     />
                     <span className="text-xs font-medium text-[#0E1117]/85 group-hover:text-[#8C6D46] transition-colors">
-                      Dolomiti Superski Pass Pick-up & Delivery (Complimentary)
+                      Travelling with a pet
                     </span>
                   </label>
                   <label className="flex items-center gap-3 cursor-pointer group">
@@ -273,7 +280,7 @@ export const LuxuryBookingPage: React.FC = () => {
                       className="accent-[#8C6D46] w-4 h-4 cursor-pointer" 
                     />
                     <span className="text-xs font-medium text-[#0E1117]/85 group-hover:text-[#8C6D46] transition-colors">
-                      Certified Child / Infant Safety Seats (Complimentary)
+                      Child or infant safety seat
                     </span>
                   </label>
                 </div>
@@ -282,7 +289,7 @@ export const LuxuryBookingPage: React.FC = () => {
                   type="submit"
                   className="w-full bg-[#0E1117] hover:bg-[#8C6D46] text-[#F8F6F0] hover:text-white transition-all py-4 rounded-xl font-bold text-xs uppercase tracking-widest flex items-center justify-center gap-2 shadow-lg"
                 >
-                  <span>Submit VIP Inquiry</span>
+                  <span>Review Transfer Request</span>
                   <ArrowRight className="w-4 h-4" />
                 </button>
               </form>

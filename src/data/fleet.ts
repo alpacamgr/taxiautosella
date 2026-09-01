@@ -16,9 +16,9 @@ export interface VehicleCategory {
 export const FLEET: VehicleCategory[] = [
   {
     id: 'sedan-eclass',
-    name: 'Mercedes-Benz E-Class 4MATIC',
-    subtitle: 'Executive Alpine Sedan',
-    tagline: 'Ideal for couples, solo business travelers, and executive transfers with unmatched comfort.',
+    name: 'Mercedes-Benz E-Class 4MATIC Estate',
+    subtitle: 'Executive Alpine Estate',
+    tagline: 'A comfortable choice for couples, business travellers, and transfers requiring generous luggage space.',
     category: 'sedan',
     passengers: 3,
     luggage: 3,
@@ -37,8 +37,8 @@ export const FLEET: VehicleCategory[] = [
   {
     id: 'van-vclass',
     name: 'Mercedes-Benz V-Class Luxury',
-    subtitle: 'VIP Chauffeur Minivan',
-    tagline: 'Premium space with face-to-face conference seating for VIP families and executive groups.',
+    subtitle: 'Private Group Minivan',
+    tagline: 'Flexible group seating and luggage space for families or small groups.',
     category: 'luxury_van',
     passengers: 7,
     luggage: 7,
@@ -52,13 +52,13 @@ export const FLEET: VehicleCategory[] = [
       'Oversized Ski / Snowboard Transport'
     ],
     image: '/images/fleet/mercedes-v-class-luxury.jpg',
-    badge: 'VIP Best Seller'
+    badge: 'Popular for Groups'
   },
   {
     id: 'minibus-vito',
     name: 'Mercedes-Benz Vito 4MATIC',
     subtitle: 'Alpine Ski & Group Minibus',
-    tagline: 'The rugged Dolomite workhorse with maximum storage capacity and roof ski carriers.',
+    tagline: 'An eight-seat minibus with space for group luggage and winter equipment.',
     category: 'minibus',
     passengers: 8,
     luggage: 8,
@@ -76,9 +76,9 @@ export const FLEET: VehicleCategory[] = [
   },
   {
     id: 'sedan-sclass',
-    name: 'Mercedes-Benz S-Class Long VIP',
-    subtitle: 'Prestige Presidential Chauffeur',
-    tagline: 'Top-of-the-line comfort and prestige for distinguished guests and executive travel.',
+    name: 'Mercedes-Benz S-Class Long',
+    subtitle: 'Flagship Private Chauffeur',
+    tagline: 'Long-wheelbase rear seating for airport transfers, business travel and special occasions.',
     category: 'sedan',
     passengers: 3,
     luggage: 3,
@@ -89,15 +89,15 @@ export const FLEET: VehicleCategory[] = [
       'Acoustic Privacy Double Glazing',
       '4MATIC All-Wheel Drive',
       'Onboard Refreshments Bar',
-      'White-Glove VIP Chauffeur'
+      'Professional Private Driver'
     ],
     image: '/images/fleet/mercedes-s-class-vip.jpg',
-    badge: 'Flagship Luxury'
+    badge: 'S-Class Long'
   },
   {
     id: 'sprinter-vip',
-    name: 'Mercedes-Benz Sprinter VIP Coach',
-    subtitle: 'Luxury Small Group Coach (16–30 Seats)',
+    name: 'Mercedes-Benz Sprinter Coach',
+    subtitle: 'Small Group Coach (16–30 Seats)',
     tagline: 'First-class touring coach for wedding parties, ski clubs, and corporate events.',
     category: 'coach',
     passengers: 16,
@@ -111,14 +111,14 @@ export const FLEET: VehicleCategory[] = [
       'Panoramic Alpine View Windows',
       'Professional Commercial Chauffeur'
     ],
-    image: '/images/fleet/mercedes-sprinter-vip-coach.jpg',
+    image: '/images/fleet/grand-touring-coach-56pax.jpg',
     badge: 'Group & Events'
   },
   {
     id: 'coach-grand',
     name: 'Grand Touring Coach (Up to 56 Seats)',
     subtitle: 'Large Tour & Excursion Coach',
-    tagline: 'High-capacity luxury coach for large tour operators, ski charters, and international excursions.',
+    tagline: 'High-capacity coach for tour groups, ski charters and longer excursions.',
     category: 'coach',
     passengers: 56,
     luggage: 60,
@@ -131,7 +131,7 @@ export const FLEET: VehicleCategory[] = [
       'Massive Underfloor Luggage Bays',
       'Full Euro-6 Eco Emissions Certified'
     ],
-    image: '/images/fleet/grand-touring-coach-56pax.jpg',
+    image: '/images/fleet/mercedes-sprinter-vip-coach.jpg',
     badge: 'Large Groups'
   }
 ];

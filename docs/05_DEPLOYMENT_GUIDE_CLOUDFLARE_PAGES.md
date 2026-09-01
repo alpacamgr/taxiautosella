@@ -1,6 +1,6 @@
 # Deployment & Hosting Guide — Cloudflare Pages
 
-How to build, test, and deploy the Taxi Auto Sella multi-variant prototype to **Cloudflare Pages** (or any static hosting provider).
+How to build, test, and deploy the Taxi Auto Sella website to **Cloudflare Pages** (or any static hosting provider).
 
 ---
 
@@ -39,7 +39,7 @@ npx wrangler pages deploy dist --project-name=taxiautosella
 
 ## 3. SPA Routing & Zero-Config Architecture
 
-Because the project uses React Router with `HashRouter` (`#/luxury`, `#/tech`, `#/adventure`), all URLs are resolved 100% on the client side without requiring server-side rewrite rules or custom `_redirects` files. Cloudflare Pages natively serves `/index.html` on the root domain, and the client-side router seamlessly handles all subpages and navigation states.
+Because the project uses React Router with `HashRouter` (`#/luxury` and its subpages), all URLs are resolved on the client without server-side rewrite rules or a custom `_redirects` file. Cloudflare Pages serves `/index.html` at the root, and the client router handles page navigation.
 
 ---
 
