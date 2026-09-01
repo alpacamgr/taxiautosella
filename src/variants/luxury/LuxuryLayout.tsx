@@ -1,16 +1,34 @@
 import React from 'react';
-import { Outlet } from 'react-router-dom';
+import { Outlet, Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { LuxuryNav } from './components/LuxuryNav';
 import { LuxuryInquiryModal } from './components/LuxuryInquiryModal';
+import { CookieConsent } from './components/CookieConsent';
+import {
+  COMPANY_LEGAL_NAME,
+  ADDRESS_LINE1,
+  ADDRESS_LINE2,
+  VAT_NUMBER,
+  PHONE_DISPLAY,
+  PHONE_TEL,
+  EMAIL,
+  FACEBOOK_URL,
+} from '../../config/contact';
+
+const openCookieSettings = () => {
+  window.dispatchEvent(new CustomEvent('open-cookie-settings'));
+};
 
 export const LuxuryLayout: React.FC = () => {
+  const { t } = useTranslation('common');
+
   return (
     <div className="min-h-screen bg-[#F8F6F0] text-[#0E1117] flex flex-col font-sans selection:bg-[#C5A880] selection:text-white">
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap');
         .font-editorial { font-family: 'Playfair Display', serif; }
       `}</style>
-      
+
       {/* Luxury Sub-Nav */}
       <LuxuryNav />
 
@@ -25,27 +43,69 @@ export const LuxuryLayout: React.FC = () => {
       <footer className="bg-[#0E1117] text-[#F8F6F0] py-16 px-6 lg:px-16 mt-auto">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start gap-12 border-b border-white/10 pb-12">
           <div>
-            <h3 className="font-editorial text-3xl text-[#F8F6F0] mb-2">Taxi Auto Sella</h3>
+            <h3 className="font-editorial text-3xl text-[#F8F6F0] mb-2">{t('brand')}</h3>
             <p className="text-xs text-[#F8F6F0]/60 max-w-sm font-light leading-relaxed">
-              Consortium Noleggio con Conducente. Str. Gherdeina 7/A, I-39047 Santa Cristina (BZ), Val Gardena, Dolomites, Italy.
+              {t('footer.tagline', {
+                legal: COMPANY_LEGAL_NAME,
+                line1: ADDRESS_LINE1,
+                line2: ADDRESS_LINE2,
+              })}
             </p>
+            <div className="mt-4 space-y-1 text-[11px] text-[#F8F6F0]/50 font-light">
+              <div>{t('footer.vat', { value: VAT_NUMBER })}</div>
+              <div>{t('footer.rea')}</div>
+              <div>{t('footer.pec')}</div>
+            </div>
           </div>
 
           <div className="space-y-2 text-xs font-light text-[#F8F6F0]/70">
-            <div><strong>Direct Dispatch:</strong> (+39) 0471 790033</div>
-            <div><strong>Inquiries:</strong> info@taxiautosella.it</div>
-            <div><strong>VAT No.:</strong> IT01707460216</div>
+            <div>
+              <strong className="font-semibold text-[#F8F6F0]">{t('footer.directDispatch')}</strong>{' '}
+              <a href={`tel:${PHONE_TEL}`} className="hover:text-[#C5A880]">{PHONE_DISPLAY}</a>
+            </div>
+            <div>
+              <strong className="font-semibold text-[#F8F6F0]">{t('footer.inquiries')}</strong>{' '}
+              <a href={`mailto:${EMAIL}`} className="hover:text-[#C5A880]">{EMAIL}</a>
+            </div>
+            <div>
+              <a
+                href={FACEBOOK_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1 text-[#F8F6F0]/70 hover:text-[#C5A880]"
+              >
+                {t('footer.facebook')}
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div className="max-w-7xl mx-auto pt-8 flex flex-col gap-6 border-b border-white/10 pb-8 text-[11px] text-[#F8F6F0]/60">
+          <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
+            <Link to="/contact" className="hover:text-[#C5A880]">{t('footer.contact')}</Link>
+            <Link to="/privacy" className="hover:text-[#C5A880]">{t('footer.privacy')}</Link>
+            <Link to="/cookie-policy" className="hover:text-[#C5A880]">{t('footer.cookiePolicy')}</Link>
+            <button
+              type="button"
+              onClick={openCookieSettings}
+              className="hover:text-[#C5A880] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C5A880]"
+            >
+              {t('footer.cookieSettings')}
+            </button>
+            <Link to="/imprint" className="hover:text-[#C5A880]">{t('footer.imprint')}</Link>
           </div>
         </div>
 
         <div className="max-w-7xl mx-auto pt-8 flex flex-col sm:flex-row justify-between items-center text-[11px] text-[#F8F6F0]/40 gap-4">
-          <p>© {new Date().getFullYear()} Taxi Auto Sella Consortium. All rights reserved.</p>
+          <p>{t('footer.copyright', { year: new Date().getFullYear() })}</p>
           <div className="flex gap-6">
-            <a href="tel:+390471790033" className="hover:text-[#C5A880]">Call Dispatch</a>
-            <a href="mailto:info@taxiautosella.it" className="hover:text-[#C5A880]">Email Dispatch</a>
+            <a href={`tel:${PHONE_TEL}`} className="hover:text-[#C5A880]">{t('footer.callDispatch')}</a>
+            <a href={`mailto:${EMAIL}`} className="hover:text-[#C5A880]">{t('footer.emailDispatch')}</a>
           </div>
         </div>
       </footer>
+
+      <CookieConsent />
     </div>
   );
 };

@@ -1,0 +1,55 @@
+{
+  "header": {
+    "title": "Members & <em>Partners</em>",
+    "subtitle": "Taxi Auto Sella is a consortium of 18 local drivers based in Santa Cristina, serving Val Gardena and longer routes."
+  },
+  "drivers": {
+    "sectionTitle": "Consortium drivers",
+    "sectionCount": "18 local operators",
+    "role": "Partner Chauffeur",
+    "requestContext": "Preferred Chauffeur Request",
+    "requestPrefill": "Preferred Chauffeur: {{driver}}\n\nPlease check availability for private Alpine transfer in Val Gardena."
+  },
+  "partners": {
+    "sectionTitle": "Official Partners",
+    "sectionBody": "Organizations and local businesses Taxi Auto Sella works with in and around Val Gardena.",
+    "visitAria": "Visit {{name}}",
+    "items": {
+      "valgardena": { "name": "Val Gardena Tourist Board", "desc": "Official regional tourism partner" },
+      "dolomitisuperski": { "name": "Dolomiti Superski", "desc": "Regional ski area" },
+      "unesco": { "name": "UNESCO Dolomites Foundation", "desc": "Dolomites World Heritage organization" },
+      "suedtirol": { "name": "Südtirol / South Tyrol Official", "desc": "Provincial tourism board" },
+      "elikos": { "name": "Elikos Helicopter Service", "desc": "Helicopter transfers & scenic flights" },
+      "sportclinic": { "name": "Dolomiti Sportclinic", "desc": "High-specialization orthopedic clinic" },
+      "intersport": { "name": "Intersport Rent Val Gardena", "desc": "Ski, snowboard & bike rental equipment" },
+      "hoteleuropa": { "name": "Hotel Europa (Ortisei)", "desc": "Hotel in Ortisei" },
+      "rusctlea": { "name": "Rusctlea Ristorante", "desc": "South Tyrolean restaurant" },
+      "woodcarving": { "name": "Bruno Riffeser Woodcarving", "desc": "Val Gardena woodcarving studio" },
+      "carrozzeria": { "name": "Carrozzeria Gardena", "desc": "Official fleet maintenance & bodywork" },
+      "digiem": { "name": "Digiem Agency", "desc": "Digital systems & web infrastructure" }
+    }
+  },
+  "nightlife": {
+    "sectionTitle": "Nightlife Shuttles",
+    "sectionBody": "During the winter and summer seasons, night dispatch connects hotels, homes, restaurants and venues across Val Gardena.",
+    "requestContext": "Night Taxi Dispatch",
+    "requestPrefill": "Venue: {{venue}}\nImmediate night taxi dispatch requested in Val Gardena.",
+    "callBoxTitle": "Need a taxi tonight?",
+    "callBoxBody": "Call dispatch for pickup in Ortisei, Santa Cristina or Selva.",
+    "callBoxButton": "Call {{phone}}"
+  },
+  "homePartners": {
+    "valgardena": "Val Gardena Tourist Board",
+    "dolomitisuperski": "Dolomiti Superski",
+    "unesco": "UNESCO Dolomites World Heritage",
+    "suedtirol": "Südtirol / South Tyrol",
+    "elikos": "Elikos Helicopter Service",
+    "sportclinic": "Dolomiti Sportclinic",
+    "intersport": "Intersport Rent",
+    "hoteleuropa": "Hotel Europa",
+    "rusctlea": "Rusctlea Ristorante",
+    "woodcarving": "Bruno Riffeser Woodcarving",
+    "carrozzeria": "Carrozzeria Gardena",
+    "digiem": "Digiem Agency"
+  }
+}

@@ -9,6 +9,13 @@ export interface InquiryContact {
   groupSize?: string;
 }
 
+export interface HeroPrefill {
+  pickup: string;
+  destination: string;
+  date: string;
+  passengers: string;
+}
+
 interface AppStore {
   isInquiryModalOpen: boolean;
   inquiryContext: string;
@@ -16,6 +23,9 @@ interface AppStore {
   inquiryContact: InquiryContact;
   openInquiryModal: (context: string, prefill?: string, contact?: InquiryContact) => void;
   closeInquiryModal: () => void;
+  heroPrefill: HeroPrefill | null;
+  setHeroPrefill: (prefill: HeroPrefill) => void;
+  clearHeroPrefill: () => void;
 }
 
 export const useAppStore = create<AppStore>((set) => ({
@@ -30,4 +40,7 @@ export const useAppStore = create<AppStore>((set) => ({
     inquiryContact: contact,
   }),
   closeInquiryModal: () => set({ isInquiryModalOpen: false }),
+  heroPrefill: null,
+  setHeroPrefill: (prefill) => set({ heroPrefill: prefill }),
+  clearHeroPrefill: () => set({ heroPrefill: null }),
 }));

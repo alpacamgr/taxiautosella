@@ -1,0 +1,53 @@
+{
+  "header": {
+    "title": "Day Trips & <em>Excursions</em>",
+    "subtitle": "Discover the cultural, historical, and natural highlights surrounding Val Gardena with experienced local drivers and an itinerary shaped around your day."
+  },
+  "askAboutTrip": "Ask about this trip",
+  "requestContext": "Excursion Inquiry",
+  "requestPrefill": "Excursion: {{title}}\nDuration: {{duration}}",
+  "items": {
+    "dolomites-road": {
+      "title": "Great Dolomites Road & Passo Sella Loop",
+      "duration": "Full Day (approx. 7h)",
+      "desc": "A full-day loop over Passo Sella, Gardena, Pordoi and Campolongo, with stops agreed with your driver.",
+      "alt": "Great Dolomites Road curving beneath the Sella Massif",
+      "badge": "UNESCO World Heritage"
+    },
+    "alpine-hut": {
+      "title": "Romantic Alpine Hut Dinners & Night Shuttles",
+      "duration": "Evening Tour",
+      "desc": "Evening transport to a mountain hut, with a return ride to your accommodation.",
+      "alt": "Traditional Dolomites mountain hut glowing warmly at blue hour",
+      "badge": "Culinary Evening"
+    },
+    "venice": {
+      "title": "Venice Lagoon & Grand Canal",
+      "duration": "Full Day (approx. 10h)",
+      "desc": "A full-day return journey to Venice, with drop-off and pickup arranged near the historic centre.",
+      "alt": "Venice lagoon and historic waterfront viewed from the water",
+      "badge": "Bestselling Excursion"
+    },
+    "verona-garda": {
+      "title": "Verona Arena & Lake Garda Sirmione",
+      "duration": "Full Day (approx. 9h)",
+      "desc": "A day trip combining central Verona with Sirmione on Lake Garda.",
+      "alt": "Sirmione peninsula extending into Lake Garda",
+      "badge": "Culture & Romance"
+    },
+    "innsbruck": {
+      "title": "Innsbruck Imperial & Swarovski Crystal Worlds",
+      "duration": "Full Day (approx. 8h)",
+      "desc": "A return trip over the Brenner Pass to central Innsbruck and Swarovski Crystal Worlds in Wattens.",
+      "alt": "Innsbruck Golden Roof framed by the Nordkette mountains",
+      "badge": "Austria Alpine Tour"
+    },
+    "bolzano-merano": {
+      "title": "Bolzano Ötzi Museum & Merano Thermal Spa",
+      "duration": "Half or Full Day (5–8h)",
+      "desc": "Visit the Ötzi museum in Bolzano, then continue to Merano for its promenade and gardens.",
+      "alt": "Merano riverside promenade with Mediterranean gardens and Alpine peaks",
+      "badge": "South Tyrol Heritage"
+    }
+  }
+}

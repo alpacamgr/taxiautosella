@@ -1,0 +1,153 @@
+{
+  "eyebrow": "Legal",
+  "lastUpdated": "Last updated: [Date — to be provided by client]",
+  "privacy": {
+    "title": "Privacy <em>policy</em>",
+    "intro": "This privacy policy explains how {{company}} (\"we\", \"us\") collects and processes personal data when you visit this website, request a transfer, or otherwise contact the dispatch team. It is issued under Regulation (EU) 2016/679 (GDPR) and Italian Legislative Decree 196/2003 as amended.",
+    "sections": {
+      "controller": {
+        "title": "1. Data controller",
+        "emailLabel": "Email:",
+        "phoneLabel": "Telephone:",
+        "dpoNote": "[Data Protection Officer contact — to be provided by client, if appointed]"
+      },
+      "data": {
+        "title": "2. What data we collect",
+        "intro": "Depending on how you interact with us, we may collect:",
+        "items": [
+          "<b>Booking and contact details</b> you provide through WhatsApp, email, telephone, our online booking widget or the contact form: first and last name, telephone number, email, pickup and drop-off addresses, flight or train number, passenger count, luggage or equipment details, child-seat requirements, and any accessibility needs.",
+          "<b>Payment-related data</b> when a deposit or advance payment is required for coach hire or multi-day bookings. Card details are handled by our payment provider and are not stored on our own systems.",
+          "<b>Technical data</b> automatically collected when you visit the site: IP address, browser type, device, referring URL, and pages viewed, in server logs kept by our hosting provider.",
+          "<b>Correspondence</b> you send us (WhatsApp threads, email, form messages) so we can answer and document the request."
+        ]
+      },
+      "bases": {
+        "title": "3. Purposes and legal bases",
+        "items": [
+          "<b>Fulfilling a transfer or service you request</b> — legal basis: performance of a contract or pre-contractual measures (Art. 6(1)(b) GDPR).",
+          "<b>Operating dispatch, coordinating drivers, and communicating during a journey</b> — legal basis: our legitimate interest in running the consortium's transport service safely and on time (Art. 6(1)(f) GDPR).",
+          "<b>Meeting tax, accounting and transport-authority obligations</b> — legal basis: compliance with a legal obligation (Art. 6(1)(c) GDPR).",
+          "<b>Answering questions and general correspondence</b> — legal basis: legitimate interest in responding to enquiries.",
+          "<b>Marketing communications</b>, if any — legal basis: your prior consent (Art. 6(1)(a) GDPR), which you may withdraw at any time."
+        ]
+      },
+      "recipients": {
+        "title": "4. Recipients of your data",
+        "intro": "Your data may be shared with:",
+        "items": [
+          "Drivers and member companies of the consortium who carry out the booked service.",
+          "The Mooovex online booking platform used for the reservation widget.",
+          "Cloudflare, Inc., which hosts the website and serves it globally.",
+          "WhatsApp / Meta Platforms Ireland Ltd. when you choose to contact us via WhatsApp — messages travel over their infrastructure under their own terms and privacy policy.",
+          "Our email provider, accountants, and other service providers that process data on our behalf under a data-processing agreement.",
+          "Public authorities where required by law."
+        ],
+        "note": "[Full list of processors — to be provided by client if a register is maintained.]"
+      },
+      "transfers": {
+        "title": "5. Transfers outside the EEA",
+        "body": "Some providers (for example Cloudflare and Meta) may process data outside the European Economic Area. Where this occurs, transfers rely on the European Commission's Standard Contractual Clauses or other lawful safeguards."
+      },
+      "retention": {
+        "title": "6. Retention",
+        "body": "Booking and correspondence data is kept for as long as needed to provide the service and then for the periods required by Italian tax and civil law (typically ten years for accounting records). Technical server logs are kept for a short period by the hosting provider. Marketing consent is stored until withdrawn.",
+        "note": "[Exact retention periods per data category — to be confirmed by client.]"
+      },
+      "rights": {
+        "title": "7. Your rights",
+        "body": "Under GDPR you have the right to access your data and to request its rectification, erasure, restriction, or portability, and to object to processing based on our legitimate interest. Where processing is based on consent, you may withdraw it at any time without affecting the lawfulness of processing before withdrawal.",
+        "contact": "To exercise these rights, contact us at <email/>."
+      },
+      "complaint": {
+        "title": "8. Right to lodge a complaint",
+        "body": "You have the right to lodge a complaint with the Italian data protection authority: Garante per la protezione dei dati personali, Piazza Venezia 11, 00187 Roma — <garante>www.garanteprivacy.it</garante>."
+      },
+      "automated": {
+        "title": "9. Automated decision making",
+        "body": "We do not use your data for automated decision making or profiling within the meaning of Art. 22 GDPR."
+      },
+      "changes": {
+        "title": "10. Changes to this policy",
+        "body": "We may update this policy from time to time. The current version and the \"last updated\" date are shown at the top of this page."
+      }
+    }
+  },
+  "cookiePolicy": {
+    "title": "Cookie <em>policy</em>",
+    "intro": "This page explains how our own website handles cookies and similar technologies, and what third-party services embedded in our pages may do. It complements our <privacy>privacy policy</privacy>.",
+    "sections": {
+      "own": {
+        "title": "1. Cookies set by this website",
+        "body": "Our site sets only a single technical preference in your browser's local storage (<code>tas-cookie-consent</code>) to remember your cookie choice so we do not show the consent banner on every visit. This preference is stored in your own browser and is never transmitted to us.",
+        "extra": "We do not use analytics, tracking pixels, or advertising cookies of our own."
+      },
+      "thirdParty": {
+        "title": "2. Third-party services embedded in our pages",
+        "intro": "Some pages embed content from third parties. When you interact with these embeds, the providers may set their own technical cookies or storage entries under their own privacy terms:",
+        "items": [
+          "<b>Mooovex online booking</b> — the reservation widget on the \"Transfers & Prices\" page loads from Mooovex and may set cookies required for the booking session.",
+          "<b>OpenStreetMap</b> — the map embed on the contact page loads tiles from OpenStreetMap servers, which may set technical cookies.",
+          "<b>WhatsApp / Meta</b> — the WhatsApp click-to-chat links open WhatsApp under Meta's own terms and privacy policy."
+        ],
+        "note": "We do not receive or read the data these third parties process; please see each provider's policy for details."
+      },
+      "hosting": {
+        "title": "3. Hosting and server logs",
+        "body": "The site is hosted on Cloudflare, Inc.'s infrastructure. Cloudflare may keep short-lived technical logs (IP address, request path, timestamp) to protect the site from abuse and to deliver content."
+      },
+      "manage": {
+        "title": "4. Managing your cookie choice",
+        "body": "You can review or change your choice at any time using the button below, which reopens the cookie consent banner.",
+        "button": "Cookie settings",
+        "extra": "You can also clear cookies and site data at any time through your browser settings."
+      }
+    }
+  },
+  "imprint": {
+    "title": "Imprint / <em>Note legali</em>",
+    "subtitle": "Information required under Italian Legislative Decree 70/2003 and Article 5 of the German Telemediengesetz (for our German-speaking guests).",
+    "publisher": "Publisher",
+    "contact": {
+      "title": "Contact",
+      "phoneLabel": "Telephone:",
+      "faxLabel": "Fax:",
+      "emailLabel": "Email:",
+      "pecNote": "PEC: [PEC address — to be provided by client]"
+    },
+    "company": {
+      "title": "Company data",
+      "vatLabel": "VAT number: {{value}}",
+      "codeNote": "Codice fiscale: [Fiscal code — to be provided by client]",
+      "reaNote": "REA / Chamber of Commerce number: [REA number — to be provided by client]",
+      "repNote": "Legal representative: [Name — to be provided by client]"
+    },
+    "authorisations": {
+      "title": "Transport authorisations",
+      "ncc": "NCC (Noleggio con Conducente) authorisation: [Licence reference — to be provided by client]",
+      "bus": "Bus / minibus licence: [Licence reference — to be provided by client]",
+      "authority": "Issuing authority: [Comune di Santa Cristina Val Gardena / other — to be confirmed by client]"
+    },
+    "insurance": {
+      "title": "Insurance",
+      "body": "Passenger and third-party liability insurance in accordance with Italian law. [Insurer and policy number — to be provided by client if disclosure is required.]"
+    },
+    "hosting": {
+      "title": "Hosting",
+      "body": "This website is served on the infrastructure of <b>Cloudflare, Inc.</b>, 101 Townsend Street, San Francisco, CA 94107, USA."
+    },
+    "credits": {
+      "title": "Website credits",
+      "body": "Website design and development: [Your name/company — to be filled in]"
+    },
+    "terms": {
+      "title": "Terms of use",
+      "p1": "This website is an informational presentation of the transport services offered by the consortium. Content is provided in good faith and updated periodically; timings, routes and vehicles shown here are indicative and depend on operating conditions.",
+      "p2": "A booking request submitted through the online booking widget, WhatsApp, email or telephone is a <b>request</b> for dispatch to arrange a service. No transfer is confirmed until dispatch replies with a confirmation and, where applicable, a quoted price. Prices shown on the site are indicative unless quoted specifically in the booking calculator or in a written confirmation.",
+      "p3": "Italian law and the exclusive jurisdiction of the competent Italian court apply to any dispute arising from the use of this website."
+    },
+    "copyright": {
+      "title": "Copyright",
+      "body": "Photographs, logos and editorial text on this site are the property of {{company}} or used under licence, and may not be reproduced without written permission."
+    }
+  }
+}

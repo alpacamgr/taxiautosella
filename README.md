@@ -4,15 +4,15 @@ A single, production-focused redesign of the Taxi Auto Sella website for Val Gar
 
 ## Main routes
 
-- `#/luxury` — home and quick transfer request
-- `#/luxury/booking` — airport and rail prices plus a detailed request form
-- `#/luxury/fleet` — cars, minivans, coaches, and specialist transport
-- `#/luxury/services` — local taxi, shuttle, group, and tailored services
-- `#/luxury/excursions` — Dolomites and regional day trips
-- `#/luxury/faq` — booking and travel answers
-- `#/luxury/members` — consortium drivers, partners, and night taxi requests
+- `/` — home and quick transfer request
+- `/booking` — airport and rail prices plus a detailed request form
+- `/fleet` — cars, minivans, coaches, and specialist transport
+- `/services` — local taxi, shuttle, group, and tailored services
+- `/excursions` — Dolomites and regional day trips
+- `/faq` — booking and travel answers
+- `/members` — consortium drivers, partners, and night taxi requests
 
-Unknown and retired prototype URLs redirect to `#/luxury`.
+Unknown and retired prototype URLs redirect to `/`. Deep links are served by the Cloudflare single-page-application fallback in `wrangler.json`.
 
 ## Inquiry experience
 
@@ -36,3 +36,32 @@ pnpm preview
 ```
 
 The production build is emitted to `dist/`.
+
+## Adding a language
+
+The site is set up for multilingual copy: every user-visible string lives in
+`src/locales/<code>/*.json`, split by namespace (`common`, `home`, `booking`,
+`fleet`, `services`, `excursions`, `faq`, `members`, `contact`, `legal`,
+`inquiry`, `reviews`). English is bundled today; German and Italian are the
+planned next languages.
+
+To add German (`de`) or Italian (`it`):
+
+1. Copy the whole `src/locales/en/` directory to `src/locales/de/` (or
+   `src/locales/it/`) and translate the JSON values in place. Keep the keys
+   and any `<em>…</em>` / `<b>…</b>` / `<br/>` markers exactly as they are —
+   `<Trans>` places them back into the layout for you.
+2. Import the new namespace files and add an entry to
+   `SUPPORTED_LANGUAGES` in `src/i18n/index.ts` (uncomment the pre-seeded
+   `de` / `it` line and add its files to the `buildResources()` map). The
+   `<html lang>` attribute, the `Intl.*` formatters used for dates and the
+   Mooovex booking iframe (`/en/`, `/de/`, `/it/`) all follow this value.
+3. The `LanguageSwitcher` (`src/variants/luxury/components/LanguageSwitcher.tsx`)
+   renders nothing while there is only one supported language, so it appears
+   in the nav and the mobile menu automatically once the array has two or
+   more entries.
+
+URL-prefixed routes (`/de/…`, `/it/…`), `hreflang` tags and per-language
+sitemap entries are a later step. They would go in `src/App.tsx` (add a
+language segment to the routes) and in the `<head>` block of `index.html`.
+

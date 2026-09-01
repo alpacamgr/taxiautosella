@@ -26,7 +26,7 @@ Val Gardena’s largest and most established taxi and bus consortium (35+ years 
 - **Winter & Summer Mountain Conditions**: High Alpine passes (Passo Sella, Passo Gardena, Passo Pordoi) requiring permanent 4MATIC 4x4 drivetrains, certified snow chains, and seasoned local chauffeurs.
 - **Flight Arrivals & Delays**: International travelers landing across 9 gateways requiring real-time flight monitoring and terminal meet & greet with personalized name boards.
 - **Dual-Track Conversion Funnel**:
-  - *Track A (Planned Long-Distance Transfers)*: Dynamic online quote calculator, vehicle tier selection, ski equipment options.
+  - *Track A (Planned Long-Distance Transfers)*: The client's existing Mooovex online-booking widget (embedded), which quotes an exact price, draws the route and creates the booking directly in dispatch.
   - *Track B (Urgent Local Rides)*: 1-tap WhatsApp and phone hotline for fast resort dispatch.
 
 ## Capabilities and Constraints
@@ -46,7 +46,8 @@ Val Gardena’s largest and most established taxi and bus consortium (35+ years 
 
 - Scraped legacy website assets and service catalog from `https://www.taxiautosella.it/en/` (Digiem build).
 - Verified route distances, driving durations, and pricing models for all 9 regional gateways to Val Gardena.
-- 3 interactive switchable design concepts implemented in code: Alpine Luxury, Modern Tech, and Dolomites Adventure.
+- One polished design concept implemented in code (Alpine Luxury); the earlier Modern Tech and Dolomites Adventure prototypes were retired.
+- The legacy site embeds a Mooovex booking widget at `onlinebooking.taxiautosella.it` (EN/DE/IT); the new site embeds the same widget.
 
 ## Product Principles
 

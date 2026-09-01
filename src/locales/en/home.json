@@ -1,0 +1,97 @@
+{
+  "hero": {
+    "title": "The Grand <em>Alpine</em> Chauffeur",
+    "titleLine1": "The Grand",
+    "titleLine2Prefix": "",
+    "titleEmphasis": "Alpine",
+    "titleLine2Suffix": "Chauffeur",
+    "subtitle": "Private airport transfers, local taxi rides, excursions, and group travel across the Dolomites—coordinated by an established Val Gardena consortium with a 25-vehicle fleet.",
+    "backgroundAlt": "Taxi Auto Sella 25 Mercedes 4MATIC Fleet Lineup in the Dolomites",
+    "badges": {
+      "fleet": "Mercedes 4MATIC fleet",
+      "dispatch": "24h dispatch in high season",
+      "payment": "Card payment on board"
+    }
+  },
+  "quote": {
+    "title": "Get an instant price",
+    "subtitle": "Exact fare · No prepayment · Pay the driver on board",
+    "pickupLabel": "Pick-Up Location / Airport",
+    "pickupPlaceholder": "e.g. Innsbruck, Munich, Verona, Bolzano",
+    "destinationLabel": "Destination in Val Gardena",
+    "destinationPlaceholder": "Hotel, Chalet or Resort in Ortisei / Selva",
+    "dateLabel": "Date",
+    "passengersLabel": "Passengers",
+    "passengers": {
+      "1": "1 Passenger",
+      "2": "2 Passengers",
+      "3-4": "3–4 Passengers",
+      "5-7": "5–7 (V-Class)",
+      "8": "8 Passengers (Vito 4x4)",
+      "9+": "9+ Group Coach"
+    },
+    "submit": "Get instant price",
+    "whatsappFallback": "Prefer WhatsApp? Send a request instead",
+    "perks": {
+      "card": "✓ Card payment on board",
+      "equipment": "✓ Ski & bike equipment",
+      "whatsapp": "✓ Direct WhatsApp dispatch"
+    },
+    "transferRequestContext": "Transfer Request",
+    "prefillLine": {
+      "pickup": "Pick-Up: {{value}}",
+      "destination": "Destination: {{value}}",
+      "date": "Date: {{value}}",
+      "passengers": "Passengers: {{value}}"
+    }
+  },
+  "heritage": {
+    "title": "Local drivers for <br/><em>35+ years</em>",
+    "paragraph1": "Based in Santa Cristina for more than 35 years, Taxi Auto Sella brings together eighteen local drivers who know the villages, passes and seasonal road conditions of Val Gardena.",
+    "paragraph2": "From winter airport arrivals to late-night dinner shuttles between Ortisei and Selva, the team combines local road knowledge with Mercedes 4MATIC options and seasonally prepared vehicles.",
+    "stats": {
+      "fleet": "Vehicle Fleet",
+      "drivers": "Native Drivers",
+      "years": "Years Active"
+    },
+    "featureImage": {
+      "alt": "Mercedes S-Class private transfer",
+      "eyebrow": "Private Transfer",
+      "title": "Mercedes-Benz S-Class Long",
+      "caption": "A quiet, spacious flagship saloon for private airport transfers, business travel, and special occasions."
+    }
+  },
+  "fleetTeaser": {
+    "title": "Vehicles for the <em>journey</em>",
+    "subtitle": "From Mercedes 4MATIC cars and minivans to touring coaches and specialist transport, dispatch matches the vehicle to the passengers, luggage, and season.",
+    "viewAll": "View All 25 Vehicles & Coaches",
+    "capacityPax": "{{count}} Pax",
+    "capacityBags": "{{count}} Bags",
+    "inquireAria": "Inquire about {{name}}",
+    "fleetRequestContext": "Fleet Request",
+    "fleetRequestPrefill": "Vehicle: {{name}}\nCapacity: {{passengers}} Pax, {{luggage}} Bags\nTier: {{subtitle}}\n\nPlease advise on availability."
+  },
+  "routes": {
+    "title": "Airport & station <em>transfers</em>",
+    "viewAll": "View All Airports & Train Stations",
+    "indicative": "Indicative",
+    "items": {
+      "inn": { "from": "Innsbruck Airport (INN)", "to": "Val Gardena", "time": "1h 30m", "dist": "120 km", "price": "from €240" },
+      "vrn": { "from": "Verona Valerio Catullo (VRN)", "to": "Val Gardena", "time": "2h 05m", "dist": "190 km", "price": "from €340" },
+      "muc": { "from": "Munich Franz Josef Strauss (MUC)", "to": "Val Gardena", "time": "3h 30m", "dist": "310 km", "price": "from €480" },
+      "vce": { "from": "Venice Marco Polo (VCE)", "to": "Val Gardena", "time": "3h 15m", "dist": "270 km", "price": "from €440" },
+      "mxp": { "from": "Milan Malpensa (MXP)", "to": "Val Gardena", "time": "3h 55m", "dist": "350 km", "price": "from €540" },
+      "bzo": { "from": "Bolzano Airport (BZO)", "to": "Val Gardena", "time": "45m", "dist": "42 km", "price": "from €110" }
+    }
+  },
+  "nightlife": {
+    "title": "Val Gardena <em>Nightlife</em>",
+    "body": "Night taxis connect hotels, homes, restaurants and venues across Ortisei, Santa Cristina and Selva.",
+    "context": "Nightlife Taxi Dispatch",
+    "prefill": "Venue: {{venue}}\nNeed immediate evening pickup in Val Gardena."
+  },
+  "partners": {
+    "title": "Official <em>Partners</em>",
+    "body": "Tourism organizations and local businesses Taxi Auto Sella works with in and around Val Gardena."
+  }
+}

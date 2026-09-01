@@ -1,0 +1,80 @@
+{
+  "close": "Close",
+  "callWithPhone": "Call {{phone}}",
+  "callDispatch": "Call dispatch",
+  "yourRequest": "Your request",
+  "nameLabel": "Name",
+  "namePlaceholder": "Your name",
+  "phoneLabel": "Phone",
+  "phoneOptional": "· optional",
+  "phonePlaceholder": "+39 …",
+  "detailsLabel": "Details",
+  "equipmentLabel": "Equipment",
+  "equipmentOptional": "· optional",
+  "equipmentOptions": {
+    "skis": "Skis or snowboard",
+    "bikes": "Bicycles",
+    "child": "Child seat"
+  },
+  "hint": "A name is enough to start.",
+  "validation": "A name is enough to start.",
+  "sendWhatsapp": "Send on WhatsApp",
+  "emailInstead": "Email instead",
+  "statusWhatsapp": "WhatsApp opened with your details. Send the message there to finish.",
+  "statusEmail": "Your email draft should now be open. Send it there to finish.",
+  "messagePreview": "Message preview",
+  "notBookedNote": "Nothing is booked until dispatch confirms availability and price.",
+  "template": {
+    "heading": "TAXI AUTO SELLA — {{context}}",
+    "equipment": "Equipment: {{values}}",
+    "name": "Name: {{value}}",
+    "phone": "Phone: {{value}}",
+    "details": "Details: {{value}}",
+    "closing": "Please reply with availability and price."
+  },
+  "emailSubject": "Taxi Auto Sella — {{context}}",
+  "kinds": {
+    "urgent": {
+      "eyebrow": "NIGHT TAXI",
+      "title": "Call or message a night taxi",
+      "intro": "For a ride right now, calling dispatch is fastest. You can also send the pickup details on WhatsApp.",
+      "contextLabel": "Night taxi",
+      "placeholder": "Where are you and where to?"
+    },
+    "excursion": {
+      "eyebrow": "EXCURSION REQUEST",
+      "title": "Plan this excursion",
+      "intro": "Tell the driver your preferred day and group and dispatch will confirm the route and price.",
+      "contextLabel": "Excursion",
+      "placeholder": "Preferred date, group size, stops you'd like…"
+    },
+    "fleet": {
+      "eyebrow": "FLEET REQUEST",
+      "title": "Ask about a vehicle",
+      "intro": "Passenger count, luggage and equipment help dispatch propose the right available vehicle.",
+      "contextLabel": "Fleet",
+      "placeholder": "Dates, passengers, luggage and equipment…"
+    },
+    "service": {
+      "eyebrow": "SERVICE REQUEST",
+      "title": "Arrange this service",
+      "intro": "Add the practical details dispatch needs to check the service and suitable vehicle.",
+      "contextLabel": "Service",
+      "placeholder": "What do you need and when…"
+    },
+    "transfer": {
+      "eyebrow": "TRANSFER REQUEST",
+      "title": "Request a transfer",
+      "intro": "For an exact price and route, use the online calculator. Or send the details here and dispatch will reply.",
+      "contextLabel": "Transfer",
+      "placeholder": "Pickup, destination, date, time, passengers…"
+    },
+    "general": {
+      "eyebrow": "YOUR REQUEST",
+      "title": "Send a question",
+      "intro": "Write what you need help with. A member of the local dispatch team will reply.",
+      "contextLabel": "General",
+      "placeholder": "How can we help?"
+    }
+  }
+}

@@ -1,42 +1,45 @@
 import React from 'react';
-import { useAppStore } from '../../store/useAppStore';
-import { PhoneCall, MessageSquare, Send } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+import { PhoneCall, MessageSquare, Calculator } from 'lucide-react';
+import { PHONE_TEL, whatsappLink } from '../../config/contact';
 
 export const StickyMobileBar: React.FC = () => {
-  const { openInquiryModal } = useAppStore();
+  const navigate = useNavigate();
+  const { t } = useTranslation('common');
 
   return (
     <div className="fixed bottom-0 left-0 right-0 z-40 block lg:hidden px-3 py-2.5 bg-[#0E1117]/95 backdrop-blur-xl border-t border-white/10 shadow-2xl">
       <div className="flex items-center gap-2 max-w-md mx-auto">
-        
+
         {/* 1-Tap WhatsApp */}
         <a
-          href="https://wa.me/390471790033?text=Hello%20Taxi%20Auto%20Sella,%20I%20would%20like%20to%20request%20a%20taxi%20transfer."
+          href={whatsappLink(t('stickyBar.whatsappMessage'))}
           target="_blank"
           rel="noreferrer"
-          className="flex-1 min-h-11 px-3 bg-[#167C4D] active:bg-[#11633D] text-white font-semibold text-xs flex items-center justify-center gap-1.5"
+          className="flex-1 min-h-11 px-3 rounded-lg bg-[#167C4D] active:bg-[#11633D] text-white font-semibold text-xs flex items-center justify-center gap-1.5"
         >
           <MessageSquare className="w-4 h-4" />
-          <span>WhatsApp</span>
+          <span>{t('stickyBar.whatsapp')}</span>
         </a>
 
         {/* 1-Tap Direct Phone Call */}
         <a
-          href="tel:+390471790033"
-          className="flex-1 min-h-11 px-3 border border-white/20 active:bg-white/10 text-white font-semibold text-xs flex items-center justify-center gap-1.5"
+          href={`tel:${PHONE_TEL}`}
+          className="flex-1 min-h-11 px-3 rounded-lg border border-white/20 active:bg-white/10 text-white font-semibold text-xs flex items-center justify-center gap-1.5"
         >
           <PhoneCall className="w-4 h-4 text-[#C5A880]" />
-          <span>Call</span>
+          <span>{t('stickyBar.call')}</span>
         </a>
 
         {/* Instant Quote / Book */}
         <button
           type="button"
-          onClick={() => openInquiryModal('Transfer reservation', 'I would like to arrange a transfer with Taxi Auto Sella.')}
-          className="flex-1 min-h-11 px-3 bg-[#C5A880] active:bg-[#B09269] text-[#0E1117] font-semibold text-xs flex items-center justify-center gap-1.5"
+          onClick={() => navigate('/booking')}
+          className="flex-1 min-h-11 px-3 rounded-lg bg-[#C5A880] active:bg-[#B09269] text-[#0E1117] font-semibold text-xs flex items-center justify-center gap-1.5"
         >
-          <Send className="w-4 h-4" />
-          <span>Plan a ride</span>
+          <Calculator className="w-4 h-4" />
+          <span>{t('stickyBar.getPrice')}</span>
         </button>
 
       </div>

@@ -1,0 +1,57 @@
+{
+  "header": {
+    "title": "Taxi, Minibus & <em>Bus Services</em>",
+    "subtitle": "Airport transfers are one part of the service. The consortium also handles local rides, ski shuttles, school routes, accessible transport, luggage, pets and equipment."
+  },
+  "cta": {
+    "title": "Something not listed?",
+    "body": "Tell dispatch what you need, including passengers, equipment and any access requirements.",
+    "button": "Ask dispatch",
+    "context": "Special Service Request",
+    "prefill": "I am interested in arranging a special service..."
+  },
+  "requestContext": "Service Request",
+  "requestPrefill": "Service Type: {{title}}\n\nPlease provide more details.",
+  "items": {
+    "chauffeur": {
+      "title": "Private Chauffeur",
+      "desc": "Point-to-point journeys and driver hire by the day."
+    },
+    "ski": {
+      "title": "Hotel-to-Ski-Slope Shuttles",
+      "desc": "Hotel, residence and chalet pickups for ski lifts across Val Gardena."
+    },
+    "casino": {
+      "title": "Austrian Casino Trips",
+      "desc": "Evening transport to casinos in Innsbruck, Seefeld and other Austrian destinations."
+    },
+    "nonEmergency": {
+      "title": "Non-Emergency Passenger Transport",
+      "desc": "Careful transport for self-sufficient passengers who do not require medical assistance. Contact dispatch to confirm suitability."
+    },
+    "wheelchair": {
+      "title": "Wheelchair-Accessible Transport",
+      "desc": "A specially adapted vehicle is available for one wheelchair and up to seven passengers. Contact dispatch with your requirements."
+    },
+    "school": {
+      "title": "School Bus Services",
+      "desc": "Local school transport by prior arrangement."
+    },
+    "childSeats": {
+      "title": "Child Seats (0-12 yrs)",
+      "desc": "Child seats, infant carriers and boosters are available on request. Include the child’s age."
+    },
+    "pet": {
+      "title": "Pet Transport",
+      "desc": "Pets can travel by prior arrangement. Tell dispatch the animal and carrier size."
+    },
+    "courier": {
+      "title": "Express Luggage & Courier",
+      "desc": "Delivery of delayed luggage, documents or equipment across the region."
+    },
+    "trailer": {
+      "title": "Bike & Motorbike Trailer",
+      "desc": "Enclosed trailers for up to 10 mountain bikes or 3 motorbikes."
+    }
+  }
+}

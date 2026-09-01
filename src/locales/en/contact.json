@@ -1,0 +1,36 @@
+{
+  "header": {
+    "eyebrow": "Reach the consortium",
+    "title": "Contact & <em>Dispatch</em>",
+    "subtitle": "Talk to the local dispatch team in Santa Cristina. Call, WhatsApp or email — for the fastest answer during a journey, WhatsApp works best."
+  },
+  "address": {
+    "title": "Consortium address",
+    "directDispatch": "Direct dispatch",
+    "email": "Email inquiries",
+    "fax": "Fax",
+    "vatBadge": "IT",
+    "vatLabel": "VAT number",
+    "whatsappButton": "Message dispatch on WhatsApp"
+  },
+  "hours": {
+    "title": "Dispatch hours",
+    "body": "24-hour dispatch during the winter and summer high season. Outside high season, call or WhatsApp and dispatch will confirm availability."
+  },
+  "map": {
+    "title": "Map",
+    "note": "Map position approximate — to be confirmed.",
+    "openGoogle": "Open in Google Maps"
+  },
+  "howToFind": {
+    "title": "How to find us",
+    "body": "The office sits on the main road through Santa Cristina Val Gardena, between Ortisei (St. Ulrich) and Selva (Wolkenstein). Ponte Gardena rail station is about 18 km down the valley; Bolzano airport is around 40 km via the Val Gardena road and the A22 Brenner motorway."
+  },
+  "cta": {
+    "title": "Need a taxi <em>now?</em>",
+    "body": "For an on-demand ride, call the direct dispatch line or send a WhatsApp with your pickup point and number of passengers.",
+    "call": "Call {{phone}}"
+  },
+  "whatsappMessage": "Hello Taxi Auto Sella, I would like to request a taxi transfer.",
+  "pageName": "Contact — Taxi Auto Sella"
+}

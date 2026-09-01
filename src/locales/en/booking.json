@@ -1,0 +1,57 @@
+{
+  "header": {
+    "title": "Prices & <em>Booking</em>",
+    "subtitle": "Get an exact price with the online calculator, or browse indicative fares for airports and railway stations below. Dispatch confirms availability and the final vehicle for every trip."
+  },
+  "instantQuote": {
+    "eyebrow": "INSTANT PRICE & ONLINE BOOKING",
+    "title": "Get your exact price in <em>seconds</em>",
+    "body": "The price shown is final — it already includes tolls, luggage and the standard waiting window. No prepayment; you pay the driver.",
+    "iframeTitle": "Online booking",
+    "note": "Bookings made here go directly to Taxi Auto Sella dispatch.",
+    "prefillBanner": {
+      "label": "Your trip:",
+      "trailing": " — enter it in the calculator to see your exact price.",
+      "dismiss": "Dismiss",
+      "passengersSuffix": " passengers",
+      "empty": "—"
+    }
+  },
+  "airports": {
+    "title": "Airport Transfers",
+    "note": "Indicative fares — exact price in the calculator above",
+    "items": {
+      "bzo": { "name": "Bolzano (BZO)", "price": "from €110", "time": "45m", "dist": "42 km" },
+      "inn": { "name": "Innsbruck (INN)", "price": "from €240", "time": "1h 30m", "dist": "120 km" },
+      "vrn": { "name": "Verona (VRN)", "price": "from €340", "time": "2h 05m", "dist": "190 km" },
+      "vce": { "name": "Venice Marco Polo (VCE)", "price": "from €440", "time": "3h 15m", "dist": "270 km" },
+      "tsf": { "name": "Treviso (TSF)", "price": "from €440", "time": "3h 05m", "dist": "260 km" },
+      "bgy": { "name": "Bergamo Orio al Serio (BGY)", "price": "from €480", "time": "3h 10m", "dist": "270 km" },
+      "muc": { "name": "Munich (MUC)", "price": "from €480", "time": "3h 30m", "dist": "310 km" },
+      "blq": { "name": "Bologna (BLQ)", "price": "from €480", "time": "3h 15m", "dist": "280 km" },
+      "mxp": { "name": "Milan Linate/Malpensa (LIN/MXP)", "price": "from €540", "time": "3h 55m", "dist": "350 km" }
+    }
+  },
+  "stations": {
+    "title": "Railway Stations",
+    "note": "South Tyrol railway connections",
+    "items": {
+      "ponte": { "name": "Ponte Gardena / Waidbruck", "price": "from €60", "time": "25m", "dist": "18 km" },
+      "chiusa": { "name": "Chiusa / Klausen", "price": "from €70", "time": "30m", "dist": "22 km" },
+      "bressanone": { "name": "Bressanone / Brixen", "price": "from €95", "time": "40m", "dist": "32 km" },
+      "bolzano": { "name": "Bolzano / Bozen", "price": "from €110", "time": "45m", "dist": "40 km" }
+    }
+  },
+  "routeRow": {
+    "approx": "{{dist}} • Approx {{time}}",
+    "indicative": "Indicative"
+  },
+  "hourly": {
+    "sectionTitle": "Hourly Chauffeur Rental",
+    "cardTitle": "Private Driver by the Hour",
+    "cardBody": "Hire a driver by the hour for business travel, shopping, events or a Dolomites itinerary. Ask dispatch for availability and a quote.",
+    "cta": "Ask about hourly rental",
+    "context": "Hourly Chauffeur Service",
+    "prefill": "Service: Private driver by the hour"
+  }
+}

@@ -1,0 +1,131 @@
+{
+  "header": {
+    "title": "Cars, Minivans & <em>Coaches</em>",
+    "subtitle": "Explore our complete fleet of 25 vehicles, from Mercedes-Benz executive sedans and spacious V-Class minivans to 4MATIC models, touring coaches, and specialist transport."
+  },
+  "capacityPax": "{{count}} Pax",
+  "capacityPaxLabel": "{{value}} Pax",
+  "inquireLabel": "Ask",
+  "inquireAria": "Inquire about {{name}}",
+  "fleetRequestContext": "Fleet Request",
+  "fleetRequestPrefill": "Vehicle: {{name}}\nCapacity: {{passengers}} passengers, {{luggage}} luggage\nType: {{subtitle}}",
+  "groupCta": {
+    "title": "Planning group transport?",
+    "body": "For corporate events, weddings in the Dolomites, large groups, or film-production logistics, dispatch can coordinate multiple Mercedes cars, minivans, and coaches.",
+    "button": "Ask about group transport",
+    "context": "Custom Fleet Charter",
+    "prefill": "I require a custom multi-vehicle charter for an event..."
+  },
+  "vehicles": {
+    "sedan-eclass": {
+      "name": "Mercedes-Benz E-Class 4MATIC Estate",
+      "subtitle": "Executive Alpine Estate",
+      "tagline": "A comfortable choice for couples and business travellers with generous luggage space.",
+      "badge": "Couples & Business",
+      "features": [
+        "Permanent 4MATIC 4-Wheel Drive",
+        "Leather Interior & Climate Control",
+        "Silent Acoustic Comfort Glass"
+      ]
+    },
+    "sedan-sclass": {
+      "name": "Mercedes-Benz S-Class Long",
+      "subtitle": "Flagship Private Chauffeur",
+      "tagline": "Flagship comfort for private airport transfers, special occasions, and executive travel.",
+      "badge": "S-Class Long",
+      "features": [
+        "Comfortable Rear Seating",
+        "Quiet Long-Wheelbase Cabin",
+        "Professional Private Driver"
+      ]
+    },
+    "suv-gls": {
+      "name": "Mercedes-Benz GLS 4MATIC SUV",
+      "subtitle": "Mountain SUV",
+      "tagline": "A spacious SUV option for winter roads, luggage and higher-altitude routes.",
+      "badge": "High Altitude",
+      "features": [
+        "AirMATIC Air Suspension",
+        "Panoramic Sky Roof",
+        "Extreme Winter Mountain Grip"
+      ]
+    },
+    "van-vclass": {
+      "name": "Mercedes-Benz V-Class",
+      "subtitle": "Private Group Minivan",
+      "tagline": "Flexible group seating and luggage space for families or small groups.",
+      "badge": "Popular for Groups",
+      "features": [
+        "Executive Captain Lounge Seats",
+        "Dual Zone Panoramic Climate",
+        "Extra-Long Wheelbase for Luggage"
+      ]
+    },
+    "minibus-vito": {
+      "name": "Mercedes-Benz Vito 4MATIC",
+      "subtitle": "Alpine Ski & Group Minibus",
+      "tagline": "An eight-seat minibus with space for group luggage and winter equipment.",
+      "badge": "Best for Skiers",
+      "features": [
+        "Heavy-Duty Winter 4x4 Drivetrain",
+        "Aerodynamic Ski & Snowboard Box",
+        "Spacious 8-Passenger Seating"
+      ]
+    },
+    "sprinter-vip": {
+      "name": "Mercedes-Benz Sprinter Coach",
+      "subtitle": "Small Group Coach",
+      "tagline": "Coach transport for wedding parties, tour groups and corporate events.",
+      "badge": "Weddings & Groups",
+      "features": [
+        "Reclining Leather Touring Seats",
+        "Microphone & PA Audio System",
+        "Dedicated Ski Compartment"
+      ]
+    },
+    "coach-grand": {
+      "name": "Grand Touring Coach",
+      "subtitle": "Large Tour & Excursion Coach",
+      "tagline": "High-capacity transport for tour groups, ski charters and excursions.",
+      "badge": "Up to 56 Seats",
+      "features": [
+        "Group Transport Up to 56 Passengers",
+        "Tour & Excursion Configuration",
+        "Large Luggage Capacity"
+      ]
+    },
+    "van-disabled": {
+      "name": "Wheelchair-Accessible Transport",
+      "subtitle": "Mobility Support by Arrangement",
+      "tagline": "Contact dispatch with your access requirements so the appropriate vehicle and assistance can be confirmed.",
+      "badge": "Accessible Care",
+      "features": [
+        "Access Requirements Confirmed in Advance",
+        "Door-to-Door Assistance",
+        "Vehicle Availability on Request"
+      ]
+    },
+    "trailer": {
+      "name": "Bike & Motorcycle Trailer",
+      "subtitle": "Heavy Equipment Transport",
+      "tagline": "Dedicated trailer transport for motorcycles, bicycles, and bulky sporting equipment by arrangement.",
+      "badge": "Luggage & Bikes",
+      "features": [
+        "Secure Tie-Down System",
+        "Motorcycle & Bicycle Transport",
+        "Equipment Options Confirmed in Advance"
+      ]
+    },
+    "production": {
+      "name": "Film & Photo Production Support",
+      "subtitle": "Media Crew Logistics Unit",
+      "tagline": "Coordinated vehicles for production crews, equipment transfers, and location logistics in the Dolomites.",
+      "badge": "Film & Media",
+      "features": [
+        "Multi-Vehicle Coordination",
+        "Crew & Equipment Transfers",
+        "Local Route Planning"
+      ]
+    }
+  }
+}

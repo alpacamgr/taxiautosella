@@ -1,0 +1,67 @@
+{
+  "header": {
+    "title": "Questions & <em>Answers</em>",
+    "subtitle": "Practical answers about pickup, delays, payment, luggage, children, winter travel and accessible vehicles."
+  },
+  "cta": {
+    "title": "Still need help?",
+    "body": "Ask the local dispatch team about a route, vehicle or transport requirement.",
+    "button": "Ask dispatch",
+    "context": "General Inquiry",
+    "prefill": "I have a specific question about your transfer services..."
+  },
+  "items": {
+    "recognize": {
+      "q": "How will I recognize my driver at the airport arrivals hall?",
+      "a": "Your driver will wait in the arrivals area with a sign showing your name and may contact you on the mobile number supplied with the booking."
+    },
+    "delay": {
+      "q": "What happens if my flight or train is delayed?",
+      "a": "Up to one hour of flight-delay waiting is included. For longer delays, waiting time may be charged; please let dispatch know as soon as you can."
+    },
+    "luggage": {
+      "q": "Are luggage and ski/snowboard bags included in the price?",
+      "a": "Standard luggage and ski or snowboard bags are included. Specify passenger and equipment quantities when booking so dispatch can assign a suitable vehicle."
+    },
+    "deposit": {
+      "q": "Do I need to pay a deposit in advance?",
+      "a": "Standard private transfers do not require prepayment. Group coach hire or multi-day bookings may require a deposit; dispatch will confirm this before booking."
+    },
+    "payment": {
+      "q": "What payment methods do you accept?",
+      "a": "Payment is available by cash, bank transfer, or credit card. Ask dispatch in advance if you need a particular payment arrangement or invoice."
+    },
+    "children": {
+      "q": "Do you provide child and infant safety seats?",
+      "a": "Yes. Child seats for different ages are available on request. Include the child’s age when booking so dispatch can prepare the right seat."
+    },
+    "vehicle": {
+      "q": "How do I know which vehicle is mine at the pickup point?",
+      "a": "Vehicle choice depends on passenger count, luggage, equipment, accessibility needs, and availability. If you prefer a particular vehicle, ask when booking."
+    },
+    "stops": {
+      "q": "Can we request rest stops or photo stops on scenic mountain passes?",
+      "a": "Yes. Ask for a short rest or photo stop when booking so it can be allowed for in the route and timing."
+    },
+    "languages": {
+      "q": "What languages do your drivers speak?",
+      "a": "The local driver team can assist guests in Italian, German, and English. Mention your preferred language when booking."
+    },
+    "night": {
+      "q": "Do you operate on-demand local night taxis between Val Gardena villages?",
+      "a": "Yes, during the winter and summer high seasons we operate 24/7 on-demand local taxi dispatch between Ortisei (St. Ulrich), Santa Cristina, Selva (Wolkenstein), ski lifts, and all regional restaurants and nightlife venues."
+    },
+    "winter": {
+      "q": "Are your vehicles equipped for severe winter snow and high mountain passes?",
+      "a": "The fleet includes Mercedes 4MATIC vehicles, and minivans are prepared with winter equipment and external ski carriers during the winter season. Dispatch selects a suitable vehicle for the conditions and group."
+    },
+    "bikes": {
+      "q": "Can you transport downhill mountain bikes and e-bikes in summer?",
+      "a": "Yes, we operate specialized weatherproof bike trailers accommodating up to 10 mountain bikes or 3 motorbikes for the Sella Ronda MTB Tour and regional transfers."
+    },
+    "wheelchair": {
+      "q": "Do you offer wheelchair accessible vehicles for disabled passengers?",
+      "a": "Yes. A specially adapted vehicle can carry one wheelchair and up to seven passengers. Contact dispatch before booking so the team can confirm availability and your exact access requirements."
+    }
+  }
+}

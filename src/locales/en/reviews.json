@@ -1,0 +1,21 @@
+{
+  "eyebrow": "Guest reviews",
+  "title": "What travellers <em>say</em>",
+  "ratingLabel": "Google reviews",
+  "fiveStarsAria": "Five stars",
+  "sampleNote": "Sample reviews for presentation purposes — to be replaced with live Google reviews.",
+  "items": {
+    "weber": {
+      "quote": "Driver met us at Munich arrivals with a name sign, loaded five ski bags without fuss, and had us in Selva before dinner. Exactly what we hoped for.",
+      "date": "February 2025"
+    },
+    "anand": {
+      "quote": "Snow was coming in over the Sella pass and the driver knew every alternative. Calm, punctual, and the Mercedes was spotless.",
+      "date": "January 2025"
+    },
+    "bianchi": {
+      "quote": "Chiamata a mezzanotte da Ortisei dopo la cena — la macchina è arrivata in dieci minuti. Autista gentile e prezzo esattamente quello concordato.",
+      "date": "December 2024"
+    }
+  }
+}

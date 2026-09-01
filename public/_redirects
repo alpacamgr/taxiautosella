@@ -1,0 +1,53 @@
+# Legacy taxiautosella.it URLs -> new site (301 permanent).
+# All languages currently point at the English pages. When DE/IT go live,
+# change the /de/ and /it/ targets to the localised routes (e.g. /de/flotte).
+# Rules must NOT contain a catch-all like "/* /index.html 200": Workers Static
+# Assets serves the SPA fallback via "not_found_handling" in wrangler.json.
+
+# Language roots
+/en                                /            301
+/en/                               /            301
+/de                                /            301
+/de/                               /            301
+/it                                /            301
+/it/                               /            301
+/ru                                /            301
+/ru/                               /            301
+
+# English
+/en/online-booking.html            /booking     301
+/en/our-vehicles.html              /fleet       301
+/en/taxi-minibus-bus.html          /services    301
+/en/organised-tours-trips.html     /excursions  301
+/en/questions-and-answers.html     /faq         301
+/en/members-sponsors.html          /members     301
+/en/privacy.html                   /privacy     301
+/en/impressum.html                 /imprint     301
+
+# German
+/de/online-buchung.html            /booking     301
+/de/unsere-fahrzeuge.html          /fleet       301
+/de/taxi-minibus-bus.html          /services    301
+/de/ausfluege-und-reisen.html      /excursions  301
+/de/fragen-und-antworten.html      /faq         301
+/de/mitglieder-sponsoren.html      /members     301
+/de/privacy.html                   /privacy     301
+/de/impressum.html                 /imprint     301
+
+# Italian
+/it/prenotazione-online.html       /booking     301
+/it/parco-macchine.html            /fleet       301
+/it/taxi-minibus-bus.html          /services    301
+/it/gite-e-viaggi.html             /excursions  301
+/it/domande-e-risposte.html        /faq         301
+/it/consorziati-sponsor.html       /members     301
+/it/privacy.html                   /privacy     301
+/it/impressum.html                 /imprint     301
+
+# Russian (legacy site used the English slugs)
+/ru/online-booking.html            /booking     301
+/ru/our-vehicles.html              /fleet       301
+/ru/taxi-minibus-bus.html          /services    301
+/ru/organised-tours-trips.html     /excursions  301
+/ru/questions-and-answers.html     /faq         301
+/ru/members-sponsors.html          /members     301

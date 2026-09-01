@@ -6,12 +6,15 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "optimize:images": "node scripts/optimize-images.mjs"
   },
   "dependencies": {
+    "i18next": "23.15.2",
     "lucide-react": "^1.16.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "react-i18next": "15.0.3",
     "react-router-dom": "^7.18.2",
     "zustand": "^5.0.3"
   },
@@ -22,6 +25,7 @@
     "@vitejs/plugin-react": "^4.3.4",
     "autoprefixer": "^10.4.20",
     "postcss": "^8.5.3",
+    "sharp": "0.35.4",
     "tailwindcss": "^3.4.17",
     "typescript": "^5.7.3",
     "vite": "^6.2.0"

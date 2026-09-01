@@ -1,0 +1,78 @@
+{
+  "brand": "Taxi Auto Sella",
+  "pageTitles": {
+    "home": "Taxi Auto Sella — Val Gardena Airport Transfers & Taxi",
+    "booking": "Transfers & Prices — Taxi Auto Sella",
+    "fleet": "Fleet: Cars, Minivans & Coaches — Taxi Auto Sella",
+    "services": "Taxi, Minibus & Bus Services — Taxi Auto Sella",
+    "excursions": "Day Trips & Excursions — Taxi Auto Sella",
+    "faq": "Questions & Answers — Taxi Auto Sella",
+    "members": "Members & Partners — Taxi Auto Sella",
+    "contact": "Contact — Taxi Auto Sella",
+    "privacy": "Privacy Policy — Taxi Auto Sella",
+    "cookiePolicy": "Cookie Policy — Taxi Auto Sella",
+    "imprint": "Imprint — Taxi Auto Sella",
+    "notFound": "Page not found — Taxi Auto Sella"
+  },
+  "nav": {
+    "home": "Home",
+    "booking": "Transfers & Prices",
+    "fleet": "Fleet",
+    "services": "Services",
+    "excursions": "Excursions",
+    "faq": "FAQ",
+    "members": "About & Partners",
+    "contact": "Contact",
+    "book": "Book",
+    "bookTransfer": "Book transfer",
+    "callAria": "Call Taxi Auto Sella at {{phone}}",
+    "callWithNumber": "Call {{phone}}",
+    "whatsapp": "WhatsApp",
+    "logoAlt": "Taxi Auto Sella home",
+    "openMenu": "Open navigation menu",
+    "closeMenu": "Close navigation menu"
+  },
+  "footer": {
+    "directDispatch": "Direct Dispatch:",
+    "inquiries": "Inquiries:",
+    "facebook": "Facebook",
+    "contact": "Contact",
+    "privacy": "Privacy",
+    "cookiePolicy": "Cookie policy",
+    "cookieSettings": "Cookie settings",
+    "imprint": "Imprint",
+    "vat": "VAT: {{value}}",
+    "rea": "REA: [to be provided]",
+    "pec": "PEC: [to be provided]",
+    "copyright": "© {{year}} Taxi Auto Sella Consortium. All rights reserved.",
+    "callDispatch": "Call Dispatch",
+    "emailDispatch": "Email Dispatch",
+    "tagline": "{{legal}}. {{line1}}, {{line2}}"
+  },
+  "stickyBar": {
+    "whatsapp": "WhatsApp",
+    "call": "Call",
+    "getPrice": "Get price",
+    "whatsappMessage": "Hello Taxi Auto Sella, I would like to arrange a transfer."
+  },
+  "cookieBanner": {
+    "ariaLabel": "Cookie consent",
+    "dismissAria": "Dismiss cookie banner (only necessary)",
+    "title": "Cookie preferences",
+    "body": "We use only technical cookies. Embedded booking and map services may set their own. See our <policy>cookie policy</policy> and <privacy>privacy policy</privacy>.",
+    "onlyNecessary": "Only necessary",
+    "acceptAll": "Accept all"
+  },
+  "language": {
+    "switcherLabel": "Language",
+    "switchTo": "Switch to {{language}}"
+  },
+  "notFound": {
+    "eyebrow": "Error 404",
+    "title": "This page took a <em>wrong turn</em>",
+    "body": "The address you opened does not exist on this site. It may have moved when the website was redesigned.",
+    "home": "Back to the homepage",
+    "booking": "Get an instant price",
+    "contact": "Contact dispatch"
+  }
+}
