@@ -20,6 +20,13 @@
     --tas-muted-55: rgb(14 17 23 / 0.55);
     --tas-muted-50: rgb(14 17 23 / 0.5);
     --tas-muted-40: rgb(14 17 23 / 0.4);
+    --tas-primary: 14 17 23;
+    --tas-primary-hover: 140 109 70;
+    --tas-primary-soft: 238 233 222;
+    --tas-line: 223 218 208;
+    --tas-muted-text: 96 98 104;
+    --tas-star: 197 168 128;
+    --tas-on-accent: 14 17 23;
   }
 
   :root[data-tas-version='v2'] {
@@ -38,6 +45,49 @@
     --tas-muted-55: rgb(14 17 23 / 0.55);
     --tas-muted-50: rgb(14 17 23 / 0.5);
     --tas-muted-40: rgb(14 17 23 / 0.4);
+    --tas-primary: 14 17 23;
+    --tas-primary-hover: 140 109 70;
+    --tas-primary-soft: 238 233 222;
+    --tas-line: 223 218 208;
+    --tas-muted-text: 96 98 104;
+    --tas-star: 197 168 128;
+    --tas-on-accent: 14 17 23;
+  }
+
+  /* V3 "Alpine Light": white canvas, Dolomite navy ink, pine-green action colour. */
+  :root[data-tas-version='v3'] {
+    --tas-ink: 23 42 58;
+    --tas-paper: 255 255 255;
+    --tas-surface: 255 255 255;
+    --tas-parchment: 243 246 249;
+    --tas-brass-fill: 15 110 78;
+    --tas-accent-on-light: 15 110 78;
+    --tas-accent-on-dark: 94 196 148;
+    --tas-accent-strong: 11 90 64;
+    --tas-focus: 15 110 78;
+    --tas-brass-hover: 19 128 92;
+    --tas-brass-active: 11 90 64;
+    --tas-muted-60: rgb(23 42 58 / 0.6);
+    --tas-muted-55: rgb(23 42 58 / 0.55);
+    --tas-muted-50: rgb(23 42 58 / 0.5);
+    --tas-muted-40: rgb(23 42 58 / 0.4);
+    --tas-primary: 15 110 78;
+    --tas-primary-hover: 11 90 64;
+    --tas-primary-soft: 230 244 238;
+    --tas-line: 219 226 234;
+    --tas-muted-text: 91 107 123;
+    --tas-star: 245 166 35;
+    --tas-on-accent: 255 255 255;
+  }
+
+  :root[data-tas-version='v3'] ::-webkit-scrollbar-track {
+    background: rgb(var(--tas-parchment));
+  }
+  :root[data-tas-version='v3'] ::-webkit-scrollbar-thumb {
+    background: rgb(var(--tas-line));
+  }
+  :root[data-tas-version='v3'] ::-webkit-scrollbar-thumb:hover {
+    background: rgb(var(--tas-muted-text));
   }
 
   html {

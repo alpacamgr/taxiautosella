@@ -1,0 +1,134 @@
+{
+  "hero": {
+    "title": "Airport to Val Gardena, <em>door to door.</em>",
+    "subtitle": "Fixed-price private transfers from Innsbruck, Munich, Verona, Venice and Bolzano with local Mercedes drivers who know every pass in every season.",
+    "backgroundAlt": "Taxi Auto Sella Mercedes 4MATIC fleet lined up in the Dolomites",
+    "proof": {
+      "rating": "4.9 on Google",
+      "drivers": "18 local drivers",
+      "fleet": "25 Mercedes vehicles"
+    }
+  },
+  "quote": {
+    "title": "Get your price",
+    "pickupLabel": "From",
+    "pickupPlaceholder": "Airport, station or address",
+    "destinationLabel": "To",
+    "destinationPlaceholder": "Hotel or address in Val Gardena",
+    "dateLabel": "Date",
+    "passengersLabel": "Passengers",
+    "decrease": "Fewer passengers",
+    "increase": "More passengers",
+    "submit": "See price & book",
+    "whatsappFallback": "Prefer WhatsApp? Send your request instead",
+    "trustLine": "Fixed price · Free flight tracking · Pay the driver on board"
+  },
+  "trust": {
+    "price": {
+      "title": "All-inclusive fixed price",
+      "body": "Tolls, luggage and the standard waiting window are included. No surprises on arrival."
+    },
+    "meet": {
+      "title": "Meet & greet in arrivals",
+      "body": "Your driver waits with a name board and helps with skis, bikes and bags."
+    },
+    "flight": {
+      "title": "Free flight delay tracking",
+      "body": "We watch your flight. Late landing, same driver, same price."
+    },
+    "winter": {
+      "title": "Mercedes 4MATIC, every season",
+      "body": "All-wheel drive, snow chains and drivers who know the Sella and Gardena passes."
+    }
+  },
+  "services": {
+    "title": "Three ways we get you there",
+    "subtitle": "Planned transfers, private day trips and the local taxi that answers the phone at midnight.",
+    "transfers": {
+      "title": "Airport & station transfers",
+      "body": "Fixed fares from nine airports and the Brenner-line railway stations to your hotel door.",
+      "cta": "See prices & book"
+    },
+    "excursions": {
+      "title": "Day excursions",
+      "body": "Sella Ronda, Venice, Verona, Innsbruck and Lake Garda with a private driver who knows the road.",
+      "cta": "Explore trips"
+    },
+    "local": {
+      "title": "Local taxi in Val Gardena",
+      "body": "Ski lifts, restaurants and night rides between Ortisei, Santa Cristina and Selva. One tap to dispatch.",
+      "cta": "Message dispatch",
+      "call": "Call {{phone}}"
+    }
+  },
+  "routes": {
+    "title": "Airports & stations we serve",
+    "subtitle": "Indicative fares for a standard car. The booking calculator shows the exact price for your vehicle and date.",
+    "viewAll": "All airports & stations",
+    "from": "from"
+  },
+  "steps": {
+    "title": "How it works",
+    "subtitle": "From your first click to your hotel door.",
+    "items": {
+      "book": {
+        "title": "Book in two minutes",
+        "body": "Enter your route, see the exact price and confirm online. No prepayment."
+      },
+      "confirm": {
+        "title": "We confirm and watch your flight",
+        "body": "Dispatch confirms your driver and follows your flight on the day of travel."
+      },
+      "meet": {
+        "title": "Meet your driver in arrivals",
+        "body": "Look for the name board. Luggage, skis and child seats are handled for you."
+      },
+      "arrive": {
+        "title": "Relax to your door",
+        "body": "Pay the driver on board by card or cash. Same price whatever the weather."
+      }
+    }
+  },
+  "drivers": {
+    "title": "Meet your local drivers",
+    "subtitle": "Eighteen driver-partners based in Santa Cristina, rooted in Val Gardena for more than 35 years. They speak English, Italian, German and Ladin.",
+    "based": "Based in",
+    "basedValue": "Santa Cristina",
+    "languages": "Languages",
+    "languagesValue": "EN · IT · DE · Ladin",
+    "viewAll": "All 18 drivers & partners",
+    "requestContext": "Preferred Chauffeur Request",
+    "requestPrefill": "Preferred Chauffeur: {{driver}}\n\nPlease check availability for a private transfer in Val Gardena."
+  },
+  "stats": {
+    "years": "Years in Val Gardena",
+    "drivers": "Local drivers",
+    "fleet": "Mercedes vehicles",
+    "rating": "Google rating"
+  },
+  "fleet": {
+    "title": "The right vehicle for your group",
+    "subtitle": "From a Mercedes E-Class for two to minibuses with ski boxes and coaches for whole groups.",
+    "viewAll": "See the whole fleet"
+  },
+  "partners": {
+    "title": "Hotels, chalets & concierges",
+    "body": "Arrange guest arrivals with one message. Dispatch confirms the vehicle, tracks the flight and sends your guest the driver's name.",
+    "cta": "Contact dispatch",
+    "context": "Hotel & Concierge Transfer Request",
+    "prefill": "Hotel / agency: \nGuest arrivals to arrange: ",
+    "listTitle": "We work with"
+  },
+  "urgent": {
+    "title": "Need a taxi right now in Val Gardena?",
+    "body": "Dispatch answers 24 hours a day in high season. Call or send your pickup on WhatsApp.",
+    "call": "Call {{phone}}",
+    "whatsapp": "WhatsApp dispatch",
+    "whatsappMessage": "Hello Taxi Auto Sella, I need a taxi now in Val Gardena. Pickup: "
+  },
+  "footer": {
+    "travel": "Travel",
+    "company": "Company",
+    "dispatch": "Dispatch"
+  }
+}

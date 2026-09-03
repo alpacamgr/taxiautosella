@@ -15,7 +15,7 @@ import sharp from 'sharp';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
 const PUBLIC_DIR = path.join(ROOT, 'public');
-const FOLDERS = ['hero', 'fleet', 'excursions'].map((f) =>
+const FOLDERS = ['hero', 'fleet', 'drivers', 'services', 'excursions'].map((f) =>
   path.join(PUBLIC_DIR, 'images', f)
 );
 const MANIFEST_PATH = path.join(ROOT, 'src', 'data', 'imageManifest.json');

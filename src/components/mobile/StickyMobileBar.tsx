@@ -36,7 +36,7 @@ export const StickyMobileBar: React.FC = () => {
         <button
           type="button"
           onClick={() => navigate('/booking')}
-          className="flex-1 min-h-11 px-3 rounded-lg bg-tas-brass-fill active:bg-tas-brass-active text-tas-ink font-semibold text-xs flex items-center justify-center gap-1.5"
+          className="flex-1 min-h-11 px-3 rounded-lg bg-tas-brass-fill active:bg-tas-brass-active text-tas-on-accent font-semibold text-xs flex items-center justify-center gap-1.5"
         >
           <Calculator className="w-4 h-4" />
           <span>{t('stickyBar.getPrice')}</span>

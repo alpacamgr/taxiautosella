@@ -39,14 +39,15 @@ The production build is emitted to `dist/`.
 
 ## Design versions
 
-The preview switch in the bottom-right corner changes between two independently editable site trees:
+The preview switch in the bottom-right corner changes between three independently editable site trees:
 
-- V1: `src/variants/luxury/`
-- V2: `src/variants/luxury-v2/`
+- V1: `src/variants/luxury/` — dark editorial "Alpine Luxury" (serif, ink and brass)
+- V2: `src/variants/luxury-v2/` — V1 with a photo-only hero (no quote form)
+- V3: `src/variants/light/` — light "Alpine Light", structured after Welcome Pickups: white canvas, navy text, one green action colour, sans-serif throughout, booking card in the hero, trust strip, service cards, price grid, how-it-works, driver profiles, reviews, hotel/partner band. Its style contract is in `src/variants/light/STYLE.md`; its home copy lives in `src/locales/en/home-light.json` (namespace `homeLight`).
 
-V1 is the default. Add `?version=v2` to any route to open V2 directly; the selection is also retained while navigating. Shared translations, fleet data, contact details, and image assets remain centralized, while the layouts, pages, and variant components can evolve separately.
+V1 is the default. Add `?version=v2` or `?version=v3` to any route to open a version directly; the selection is also retained while navigating. Shared translations, fleet data, contact details, and image assets remain centralized, while the layouts, pages, and variant components can evolve separately.
 
-The two palettes currently use identical token values. Their separate token blocks live in `src/styles/index.css`, so a future version-specific palette change can be scoped without affecting the other version.
+Each version has its own token block in `src/styles/index.css` (`:root[data-tas-version='v3']` carries the light palette), so palette changes are scoped per version.
 
 ## Deployment
 

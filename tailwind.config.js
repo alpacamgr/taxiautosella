@@ -22,6 +22,13 @@ export default {
         'tas-muted-55': 'var(--tas-muted-55)',
         'tas-muted-50': 'var(--tas-muted-50)',
         'tas-muted-40': 'var(--tas-muted-40)',
+        'tas-primary': 'rgb(var(--tas-primary) / <alpha-value>)',
+        'tas-primary-hover': 'rgb(var(--tas-primary-hover) / <alpha-value>)',
+        'tas-primary-soft': 'rgb(var(--tas-primary-soft) / <alpha-value>)',
+        'tas-line': 'rgb(var(--tas-line) / <alpha-value>)',
+        'tas-muted-text': 'rgb(var(--tas-muted-text) / <alpha-value>)',
+        'tas-star': 'rgb(var(--tas-star) / <alpha-value>)',
+        'tas-on-accent': 'rgb(var(--tas-on-accent) / <alpha-value>)',
         gold: {
           50: '#FBF8EE',
           100: '#F6F0DC',
@@ -62,6 +69,8 @@ export default {
         'tech': '0 20px 30px -10px rgba(5, 150, 105, 0.15)',
         'adventure': '0 20px 30px -10px rgba(56, 189, 248, 0.25)',
         'glass': '0 8px 32px 0 rgba(0, 0, 0, 0.37)',
+        'card': '0 1px 2px rgba(23, 42, 58, 0.06), 0 12px 32px -18px rgba(23, 42, 58, 0.22)',
+        'card-hover': '0 2px 4px rgba(23, 42, 58, 0.08), 0 20px 44px -18px rgba(23, 42, 58, 0.30)',
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',

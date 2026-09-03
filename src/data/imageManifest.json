@@ -1,4 +1,9 @@
 {
+  "/images/hero/alpine-light-hero.jpg": [
+    640,
+    1280,
+    1920
+  ],
   "/images/hero/autosella-fleet-lineup-dolomites.jpg": [
     640,
     1280
@@ -69,6 +74,44 @@
     640,
     1280
   ],
+  "/images/drivers/driver-01.jpg": [
+    640
+  ],
+  "/images/drivers/driver-02.jpg": [
+    640
+  ],
+  "/images/drivers/driver-03.jpg": [
+    640
+  ],
+  "/images/drivers/driver-04.jpg": [
+    640
+  ],
+  "/images/drivers/driver-05.jpg": [
+    640
+  ],
+  "/images/drivers/driver-06.jpg": [
+    640
+  ],
+  "/images/services/family-in-van.jpg": [
+    640,
+    1280
+  ],
+  "/images/services/hotel-arrival.jpg": [
+    640,
+    1280
+  ],
+  "/images/services/local-taxi-ortisei-night.jpg": [
+    640,
+    1280
+  ],
+  "/images/services/meet-greet-arrivals.jpg": [
+    640,
+    1280
+  ],
+  "/images/services/ski-luggage-loading.jpg": [
+    640,
+    1280
+  ],
   "/images/excursions/alpine-hut-evening.webp": [
     640,
     1280
@@ -90,6 +133,10 @@
     1280
   ],
   "/images/excursions/merano-promenade.webp": [
+    640,
+    1280
+  ],
+  "/images/excursions/seceda-summer.jpg": [
     640,
     1280
   ],

@@ -30,6 +30,20 @@ import { LuxuryCookiePolicyPage as LuxuryCookiePolicyPageV2 } from './variants/l
 import { LuxuryImprintPage as LuxuryImprintPageV2 } from './variants/luxury-v2/pages/LuxuryImprintPage';
 import { LuxuryNotFoundPage as LuxuryNotFoundPageV2 } from './variants/luxury-v2/pages/LuxuryNotFoundPage';
 
+import { LightLayout } from './variants/light/LightLayout';
+import { LightHome } from './variants/light/pages/LightHome';
+import { LightBookingPage } from './variants/light/pages/LightBookingPage';
+import { LightFleetPage } from './variants/light/pages/LightFleetPage';
+import { LightServicesPage } from './variants/light/pages/LightServicesPage';
+import { LightExcursionsPage } from './variants/light/pages/LightExcursionsPage';
+import { LightFaqPage } from './variants/light/pages/LightFaqPage';
+import { LightMembersPage } from './variants/light/pages/LightMembersPage';
+import { LightContactPage } from './variants/light/pages/LightContactPage';
+import { LightPrivacyPage } from './variants/light/pages/LightPrivacyPage';
+import { LightCookiePolicyPage } from './variants/light/pages/LightCookiePolicyPage';
+import { LightImprintPage } from './variants/light/pages/LightImprintPage';
+import { LightNotFoundPage } from './variants/light/pages/LightNotFoundPage';
+
 import { StickyMobileBar } from './components/mobile/StickyMobileBar';
 import { ScrollToTop } from './components/navigation/ScrollToTop';
 import { SiteVersion, VersionToggle } from './components/preview/VersionToggle';
@@ -79,6 +93,21 @@ const SITE_VERSIONS = {
     Imprint: LuxuryImprintPageV2,
     NotFound: LuxuryNotFoundPageV2,
   },
+  v3: {
+    Layout: LightLayout,
+    Home: LightHome,
+    Booking: LightBookingPage,
+    Fleet: LightFleetPage,
+    Services: LightServicesPage,
+    Excursions: LightExcursionsPage,
+    Faq: LightFaqPage,
+    Members: LightMembersPage,
+    Contact: LightContactPage,
+    Privacy: LightPrivacyPage,
+    CookiePolicy: LightCookiePolicyPage,
+    Imprint: LightImprintPage,
+    NotFound: LightNotFoundPage,
+  },
 };
 
 const PageTitle: React.FC = () => {
@@ -93,8 +122,10 @@ const PageTitle: React.FC = () => {
   return null;
 };
 
-const readInitialVersion = (): SiteVersion =>
-  document.documentElement.dataset.tasVersion === 'v2' ? 'v2' : 'v1';
+const readInitialVersion = (): SiteVersion => {
+  const v = document.documentElement.dataset.tasVersion;
+  return v === 'v2' || v === 'v3' ? v : 'v1';
+};
 
 const VersionedSite: React.FC = () => {
   const [version, setVersion] = React.useState<SiteVersion>(readInitialVersion);
@@ -107,8 +138,8 @@ const VersionedSite: React.FC = () => {
     const params = new URLSearchParams(location.search);
     const currentVersion = params.get('version');
 
-    if (version === 'v2' && currentVersion !== 'v2') {
-      params.set('version', 'v2');
+    if (version !== 'v1' && currentVersion !== version) {
+      params.set('version', version);
     } else if (version === 'v1' && currentVersion !== null) {
       params.delete('version');
     } else {
