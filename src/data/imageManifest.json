@@ -1,23 +1,31 @@
 {
+  "/images/hero/alpine-light-hero-mobile.jpg": [
+    640,
+    960
+  ],
   "/images/hero/alpine-light-hero.jpg": [
     640,
-    1280,
-    1920
+    960,
+    1280
   ],
   "/images/hero/autosella-fleet-lineup-dolomites.jpg": [
     640,
+    960,
     1280
   ],
   "/images/fleet/autosella_2018_04.jpg": [
     640,
+    960,
     1280
   ],
   "/images/fleet/autosella_2018_07.jpg": [
     640,
+    960,
     1280
   ],
   "/images/fleet/autosella_2018_09.jpg": [
     640,
+    960,
     1280
   ],
   "/images/fleet/banner_taxi_martin.png": [],
@@ -25,34 +33,42 @@
   "/images/fleet/facebook.png": [],
   "/images/fleet/grand-touring-coach-56pax.jpg": [
     640,
+    960,
     1280
   ],
   "/images/fleet/grand-touring-coach-side.jpg": [
     640,
+    960,
     1280
   ],
   "/images/fleet/mercedes-e-class-2.jpg": [
     640,
+    960,
     1280
   ],
   "/images/fleet/mercedes-e-class.jpg": [
     640,
+    960,
     1280
   ],
   "/images/fleet/mercedes-gl-suv-4matic.jpg": [
     640,
+    960,
     1280
   ],
   "/images/fleet/mercedes-s-class-vip.jpg": [
     640,
+    960,
     1280
   ],
   "/images/fleet/mercedes-sprinter-side.jpg": [
     640,
+    960,
     1280
   ],
   "/images/fleet/mercedes-sprinter-vip-coach.jpg": [
     640,
+    960,
     1280
   ],
   "/images/fleet/mercedes-v-class-interior.jpg": [
@@ -60,18 +76,22 @@
   ],
   "/images/fleet/mercedes-v-class-luxury.jpg": [
     640,
+    960,
     1280
   ],
   "/images/fleet/mercedes-vito-minibus-4matic.jpg": [
     640,
+    960,
     1280
   ],
   "/images/fleet/mercedes-vito-minibus-side.jpg": [
     640,
+    960,
     1280
   ],
   "/images/fleet/mercedes-vito-ski-trailer.jpg": [
     640,
+    960,
     1280
   ],
   "/images/drivers/driver-01.jpg": [
@@ -94,58 +114,72 @@
   ],
   "/images/services/family-in-van.jpg": [
     640,
+    960,
     1280
   ],
   "/images/services/hotel-arrival.jpg": [
     640,
+    960,
     1280
   ],
   "/images/services/local-taxi-ortisei-night.jpg": [
     640,
+    960,
     1280
   ],
   "/images/services/meet-greet-arrivals.jpg": [
     640,
+    960,
     1280
   ],
   "/images/services/ski-luggage-loading.jpg": [
     640,
+    960,
     1280
   ],
   "/images/excursions/alpine-hut-evening.webp": [
     640,
+    960,
     1280
   ],
   "/images/excursions/dolomites-sella-road.webp": [
     640,
+    960,
     1280
   ],
   "/images/excursions/innsbruck-golden-roof.webp": [
     640,
+    960,
     1280
   ],
   "/images/excursions/innsbruck-imperial-tour.jpg": [
     640,
+    960,
     1280
   ],
   "/images/excursions/lake-garda-sirmione-tour.jpg": [
     640,
+    960,
     1280
   ],
   "/images/excursions/merano-promenade.webp": [
     640,
+    960,
     1280
   ],
   "/images/excursions/seceda-summer.jpg": [
     640,
+    960,
     1280
   ],
   "/images/excursions/venice-lagoon-tour.jpg": [
     640,
+    960,
     1280
   ],
   "/images/excursions/verona-arena-tour.jpg": [
     640,
+    960,
     1280
   ]
 }

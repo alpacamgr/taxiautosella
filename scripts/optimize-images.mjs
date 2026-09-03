@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// Generates responsive WebP variants (640/1280/1920) for hero/fleet/excursions
+// Generates responsive WebP variants (640/960/1280/1920) for hero/fleet/excursions
 // images under public/images. Originals are never modified. A manifest of
 // available widths per original is written to src/data/imageManifest.json so
 // the ResponsiveImage component can build accurate srcSets.
@@ -19,10 +19,10 @@ const FOLDERS = ['hero', 'fleet', 'drivers', 'services', 'excursions'].map((f) =
   path.join(PUBLIC_DIR, 'images', f)
 );
 const MANIFEST_PATH = path.join(ROOT, 'src', 'data', 'imageManifest.json');
-const WIDTHS = [640, 1280, 1920];
+const WIDTHS = [640, 960, 1280, 1920];
 const QUALITY = 78;
 const SRC_EXT = /\.(jpe?g|png|webp)$/i;
-const VARIANT_SUFFIX = /-(640|1280|1920)$/;
+const VARIANT_SUFFIX = /-(640|960|1280|1920)$/;
 
 async function listImages(dir) {
   let entries;
@@ -115,7 +115,7 @@ async function main() {
   // Summary table
   console.log('\nImage optimisation summary');
   console.log('='.repeat(96));
-  const header = ['file', 'orig', 'w', '640', '1280', '1920'];
+  const header = ['file', 'orig', 'w', '640', '960', '1280', '1920'];
   const pad = (s, n) => String(s).padEnd(n);
   console.log(
     pad(header[0], 52) +
@@ -123,7 +123,8 @@ async function main() {
       pad(header[2], 6) +
       pad(header[3], 10) +
       pad(header[4], 10) +
-      pad(header[5], 10)
+      pad(header[5], 10) +
+      pad(header[6], 10)
   );
   console.log('-'.repeat(96));
   for (const r of rows) {
@@ -132,6 +133,7 @@ async function main() {
         pad(fmtBytes(r.original), 10) +
         pad(r.srcWidth, 6) +
         pad(r.variants[640] ? fmtBytes(r.variants[640]) : '-', 10) +
+        pad(r.variants[960] ? fmtBytes(r.variants[960]) : '-', 10) +
         pad(r.variants[1280] ? fmtBytes(r.variants[1280]) : '-', 10) +
         pad(r.variants[1920] ? fmtBytes(r.variants[1920]) : '-', 10)
     );

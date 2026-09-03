@@ -121,14 +121,14 @@ export const LightHome: React.FC = () => {
             alt={t('homeLight:hero.backgroundAlt')}
             priority
             sizes="100vw"
-            className="h-full w-full object-cover object-center lg:object-[65%_center]"
+            className="h-full w-full object-cover object-center lg:object-top"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-tas-ink/80 via-tas-ink/50 to-tas-ink/20" />
+          <div className="absolute inset-0 bg-gradient-to-b from-tas-ink/85 via-tas-ink/55 to-tas-ink/25 lg:from-tas-ink/80 lg:via-tas-ink/35 lg:to-tas-ink/15" />
           <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-tas-ink/60 to-transparent" />
         </div>
 
-        <div className="relative mx-auto grid max-w-7xl gap-10 px-6 pb-0 pt-12 sm:pt-16 lg:grid-cols-12 lg:items-center lg:gap-12 lg:px-16 lg:pb-24 lg:pt-20">
-          <div className="lg:col-span-7">
+        <div className="relative mx-auto grid max-w-7xl gap-10 px-6 pb-0 pt-12 sm:pt-16 lg:min-h-[820px] lg:grid-cols-12 lg:items-start lg:gap-12 lg:px-16 lg:pb-24 lg:pt-16">
+          <div className="lg:col-span-7 [text-shadow:0_2px_14px_rgba(12,24,36,0.55)]">
             <h1 className="max-w-2xl text-4xl font-bold leading-[1.08] tracking-tight sm:text-5xl lg:text-6xl">
               <Trans i18nKey="homeLight:hero.title" components={{ em: <span className="text-tas-accent-on-dark" /> }} />
             </h1>

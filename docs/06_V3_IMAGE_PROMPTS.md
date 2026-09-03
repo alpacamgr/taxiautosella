@@ -50,11 +50,12 @@ Shared scene:
 
 #### 1a. Desktop, 2400×1400 (landscape) — `hero/alpine-light-hero.jpg`
 
-> [shared scene] Wide composition: the woman and the open door occupy the
-> right 40% of the frame, her face in the upper-right quadrant at roughly one
-> third from the top. The left 60% is calm and uncluttered (snowy street, soft
-> mountain backdrop, slightly darker tones) so a large white headline can sit
-> over it. Shallow depth of field on the background, sharp on her face.
+> [shared scene] Wide composition, camera at seated eye level: the van and the
+> open door occupy the left third, her face in the lower-left quadrant (about
+> one third in from the left, two thirds down). Above and behind her, snowy
+> village and Dolomite peaks in slightly darker tones so a white headline can
+> sit over them. The right 45% is calm and uncluttered (open snowy road, soft
+> mountains, no people) because the booking card covers it.
 
 #### 1b. Mobile, 1200×1600 (portrait) — `hero/alpine-light-hero-mobile.jpg`
 
