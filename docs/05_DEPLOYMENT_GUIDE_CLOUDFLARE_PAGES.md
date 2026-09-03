@@ -1,6 +1,6 @@
-# Deployment & Hosting Guide — Cloudflare Pages
+# Deployment & Hosting Guide — Cloudflare Workers Static Assets
 
-How to build, test, and deploy the Taxi Auto Sella website to **Cloudflare Pages** (or any static hosting provider).
+How to build, test, and deploy the Taxi Auto Sella website with **Cloudflare Workers Static Assets**.
 
 ---
 
@@ -9,37 +9,33 @@ How to build, test, and deploy the Taxi Auto Sella website to **Cloudflare Pages
 The build output generated in `dist/` consists of pure static HTML, CSS, JavaScript, and optimized media assets. It requires **no server-side runtime, zero edge worker shims, and zero ongoing database costs**.
 
 It can be hosted on:
-* **Cloudflare Pages** (Recommended for instant global edge CDN & zero cost)
+* **Cloudflare Workers Static Assets** (current deployment target)
+* **Cloudflare Pages**
 * **Netlify / Vercel**
 * **Traditional Apache / Nginx servers**
 * **cPanel / DirectAdmin shared hosting**
 
 ---
 
-## 2. Deploying to Cloudflare Pages
+## 2. Deploying to Cloudflare
 
-### Method A: Git Integration (Recommended)
-1. Push your repository to GitHub: `https://github.com/alpacamgr/taxiautosella`.
-2. In the [Cloudflare Dashboard](https://dash.cloudflare.com/), navigate to **Workers & Pages** ➔ **Create Application** ➔ **Pages** ➔ **Connect to Git**.
-3. Select the `taxiautosella` repository.
-4. Configure Build Settings:
-   * **Framework Preset**: `Vite`
-   * **Build Command**: `npm run build`
-   * **Build Output Directory**: `dist`
-   * **Node.js Version**: `18.x` or `20.x`
-5. Click **Save and Deploy**. Cloudflare Pages will build the site in ~25 seconds and assign a preview URL (e.g. `taxiautosella.pages.dev`).
+Authenticate Wrangler for the intended Cloudflare account, then run:
 
-### Method B: Direct Upload via Wrangler CLI
 ```bash
-npm run build
-npx wrangler pages deploy dist --project-name=taxiautosella
+pnpm deploy
 ```
+
+The command runs the TypeScript/Vite production build first and then executes `wrangler deploy`. The Worker name, asset directory, compatibility date, and SPA fallback are defined in `wrangler.json`.
+
+Push the same commit to GitHub so the repository and deployed artifact stay aligned.
 
 ---
 
 ## 3. SPA Routing & Zero-Config Architecture
 
-Because the project uses React Router with `HashRouter` (`#/luxury` and its subpages), all URLs are resolved on the client without server-side rewrite rules or a custom `_redirects` file. Cloudflare Pages serves `/index.html` at the root, and the client router handles page navigation.
+The project uses React Router with `BrowserRouter`. Cloudflare serves `dist/index.html` for unmatched asset paths through `assets.not_found_handling: "single-page-application"` in `wrangler.json`, allowing direct visits to routes such as `/fleet` or `/booking`.
+
+V1 is the default site implementation. V2 can be opened with `?version=v2`; the selected version is retained across client-side navigation.
 
 ---
 
@@ -47,14 +43,14 @@ Because the project uses React Router with `HashRouter` (`#/luxury` and its subp
 
 ```bash
 # Install dependencies
-npm install
+pnpm install
 
 # Start local hot-reload dev server
-npm run dev
+pnpm dev
 
 # Run full TypeScript & Vite production build
-npm run build
+pnpm build
 
 # Preview production build locally
-npm run preview
+pnpm preview
 ```

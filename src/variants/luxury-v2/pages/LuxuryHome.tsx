@@ -1,17 +1,15 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Trans, useTranslation } from 'react-i18next';
 import { useAppStore } from '../../../store/useAppStore';
 import { FLEET } from '../../../data/fleet';
 import {
-  MapPin,
-  Calendar,
   Users,
   ArrowRight,
   Briefcase,
   Clock,
   CreditCard,
 } from 'lucide-react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { ResponsiveImage } from '../../../components/ui/ResponsiveImage';
 import { LuxuryReviews } from '../components/LuxuryReviews';
 import { Reveal } from '../../../components/motion/Reveal';
@@ -54,36 +52,8 @@ const PARTNER_LINKS_RIGHT = [
 const ROUTE_IDS = ['inn', 'vrn', 'muc', 'vce', 'mxp', 'bzo'] as const;
 
 export const LuxuryHome: React.FC = () => {
-  const { openInquiryModal, setHeroPrefill } = useAppStore();
+  const { openInquiryModal } = useAppStore();
   const { t } = useTranslation(['home', 'fleet', 'members']);
-  const navigate = useNavigate();
-
-  const [bookingDetails, setBookingDetails] = useState({
-    pickup: '',
-    dropoff: '',
-    date: '',
-    passengers: '2',
-  });
-
-  const handleStartBooking = (e: React.FormEvent) => {
-    e.preventDefault();
-    setHeroPrefill({
-      pickup: bookingDetails.pickup,
-      destination: bookingDetails.dropoff,
-      date: bookingDetails.date,
-      passengers: bookingDetails.passengers,
-    });
-    navigate('/booking');
-  };
-
-  const openWhatsAppTransferSheet = () => {
-    const lines: string[] = [];
-    if (bookingDetails.pickup) lines.push(t('home:quote.prefillLine.pickup', { value: bookingDetails.pickup }));
-    if (bookingDetails.dropoff) lines.push(t('home:quote.prefillLine.destination', { value: bookingDetails.dropoff }));
-    if (bookingDetails.date) lines.push(t('home:quote.prefillLine.date', { value: bookingDetails.date }));
-    if (bookingDetails.passengers) lines.push(t('home:quote.prefillLine.passengers', { value: bookingDetails.passengers }));
-    openInquiryModal(t('home:quote.transferRequestContext'), lines.join('\n'));
-  };
 
   return (
     <div>
@@ -129,113 +99,6 @@ export const LuxuryHome: React.FC = () => {
             </div>
           </div>
 
-          <div className="lg:col-span-5 w-full">
-            <form
-              onSubmit={handleStartBooking}
-              className="bg-tas-paper p-7 sm:p-9 text-tas-ink shadow-2xl rounded-2xl border border-white/20 backdrop-blur-lg relative"
-            >
-              <div className="text-center border-b border-tas-ink/10 pb-3.5 mb-5">
-                <h2 className="font-editorial text-2xl text-tas-ink">{t('home:quote.title')}</h2>
-                <p className="text-[11px] text-tas-ink/70 font-medium tracking-wide mt-1">
-                  {t('home:quote.subtitle')}
-                </p>
-              </div>
-
-              <div className="space-y-4">
-                <div className="group relative">
-                  <label className="block text-[11px] font-bold uppercase tracking-wider text-tas-ink/70 mb-1">
-                    {t('home:quote.pickupLabel')}
-                  </label>
-                  <div className="flex items-center border-b border-tas-ink/30 py-2 transition-colors focus-within:border-tas-focus">
-                    <MapPin className="w-4 h-4 text-tas-accent-on-light mr-3 flex-shrink-0" />
-                    <input
-                      type="text"
-                      placeholder={t('home:quote.pickupPlaceholder')}
-                      className="w-full bg-transparent border-none outline-none text-sm font-medium text-tas-ink placeholder:text-tas-muted-50"
-                      value={bookingDetails.pickup}
-                      onChange={(e) => setBookingDetails({ ...bookingDetails, pickup: e.target.value })}
-                    />
-                  </div>
-                </div>
-
-                <div className="group relative">
-                  <label className="block text-[11px] font-bold uppercase tracking-wider text-tas-ink/70 mb-1">
-                    {t('home:quote.destinationLabel')}
-                  </label>
-                  <div className="flex items-center border-b border-tas-ink/30 py-2 transition-colors focus-within:border-tas-focus">
-                    <MapPin className="w-4 h-4 text-tas-accent-on-light mr-3 flex-shrink-0" />
-                    <input
-                      type="text"
-                      placeholder={t('home:quote.destinationPlaceholder')}
-                      className="w-full bg-transparent border-none outline-none text-sm font-medium text-tas-ink placeholder:text-tas-muted-50"
-                      value={bookingDetails.dropoff}
-                      onChange={(e) => setBookingDetails({ ...bookingDetails, dropoff: e.target.value })}
-                    />
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-2 gap-4 pt-1">
-                  <div className="group relative">
-                    <label className="block text-[11px] font-bold uppercase tracking-wider text-tas-ink/70 mb-1">
-                      {t('home:quote.dateLabel')}
-                    </label>
-                    <div className="flex items-center border-b border-tas-ink/30 py-2 transition-colors focus-within:border-tas-focus">
-                      <Calendar className="w-4 h-4 text-tas-accent-on-light mr-2 flex-shrink-0" />
-                      <input
-                        type="date"
-                        className="w-full bg-transparent border-none outline-none text-xs font-semibold text-tas-ink"
-                        value={bookingDetails.date}
-                        onChange={(e) => setBookingDetails({ ...bookingDetails, date: e.target.value })}
-                      />
-                    </div>
-                  </div>
-
-                  <div className="group relative">
-                    <label className="block text-[11px] font-bold uppercase tracking-wider text-tas-ink/70 mb-1">
-                      {t('home:quote.passengersLabel')}
-                    </label>
-                    <div className="flex items-center border-b border-tas-ink/30 py-2 transition-colors focus-within:border-tas-focus">
-                      <Users className="w-4 h-4 text-tas-accent-on-light mr-2 flex-shrink-0" />
-                      <select
-                        className="w-full bg-transparent border-none outline-none text-xs font-semibold text-tas-ink cursor-pointer"
-                        value={bookingDetails.passengers}
-                        onChange={(e) => setBookingDetails({ ...bookingDetails, passengers: e.target.value })}
-                      >
-                        <option value="1">{t('home:quote.passengers.1')}</option>
-                        <option value="2">{t('home:quote.passengers.2')}</option>
-                        <option value="3-4">{t('home:quote.passengers.3-4')}</option>
-                        <option value="5-7">{t('home:quote.passengers.5-7')}</option>
-                        <option value="8">{t('home:quote.passengers.8')}</option>
-                        <option value="9+">{t('home:quote.passengers.9+')}</option>
-                      </select>
-                    </div>
-                  </div>
-                </div>
-
-                <button
-                  type="submit"
-                  className="w-full mt-6 bg-tas-ink hover:bg-tas-brass-fill text-tas-paper hover:text-tas-ink transition-all duration-300 py-4 px-6 font-semibold text-xs uppercase tracking-widest flex items-center justify-between group shadow-xl rounded-xl"
-                >
-                  <span className="font-bold">{t('home:quote.submit')}</span>
-                  <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" />
-                </button>
-
-                <button
-                  type="button"
-                  onClick={openWhatsAppTransferSheet}
-                  className="w-full mt-2 text-[11px] text-tas-ink/70 font-medium underline decoration-tas-focus decoration-[1.5px] underline-offset-4 hover:text-tas-ink transition-colors"
-                >
-                  {t('home:quote.whatsappFallback')}
-                </button>
-              </div>
-
-              <div className="mt-4 pt-3 border-t border-tas-ink/10 flex items-center justify-between text-[10px] text-tas-ink/70 font-medium">
-                <span>{t('home:quote.perks.card')}</span>
-                <span>{t('home:quote.perks.equipment')}</span>
-                <span>{t('home:quote.perks.whatsapp')}</span>
-              </div>
-            </form>
-          </div>
         </div>
       </section>
 

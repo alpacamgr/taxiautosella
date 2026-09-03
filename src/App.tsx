@@ -1,8 +1,7 @@
 import React from 'react';
-import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, useLocation, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
-// Variant 1: Alpine Luxury & Heritage
 import { LuxuryLayout } from './variants/luxury/LuxuryLayout';
 import { LuxuryHome } from './variants/luxury/pages/LuxuryHome';
 import { LuxuryBookingPage } from './variants/luxury/pages/LuxuryBookingPage';
@@ -17,8 +16,23 @@ import { LuxuryCookiePolicyPage } from './variants/luxury/pages/LuxuryCookiePoli
 import { LuxuryImprintPage } from './variants/luxury/pages/LuxuryImprintPage';
 import { LuxuryNotFoundPage } from './variants/luxury/pages/LuxuryNotFoundPage';
 
+import { LuxuryLayout as LuxuryLayoutV2 } from './variants/luxury-v2/LuxuryLayout';
+import { LuxuryHome as LuxuryHomeV2 } from './variants/luxury-v2/pages/LuxuryHome';
+import { LuxuryBookingPage as LuxuryBookingPageV2 } from './variants/luxury-v2/pages/LuxuryBookingPage';
+import { LuxuryFleetPage as LuxuryFleetPageV2 } from './variants/luxury-v2/pages/LuxuryFleetPage';
+import { LuxuryServicesPage as LuxuryServicesPageV2 } from './variants/luxury-v2/pages/LuxuryServicesPage';
+import { LuxuryExcursionsPage as LuxuryExcursionsPageV2 } from './variants/luxury-v2/pages/LuxuryExcursionsPage';
+import { LuxuryFaqPage as LuxuryFaqPageV2 } from './variants/luxury-v2/pages/LuxuryFaqPage';
+import { LuxuryMembersPage as LuxuryMembersPageV2 } from './variants/luxury-v2/pages/LuxuryMembersPage';
+import { LuxuryContactPage as LuxuryContactPageV2 } from './variants/luxury-v2/pages/LuxuryContactPage';
+import { LuxuryPrivacyPage as LuxuryPrivacyPageV2 } from './variants/luxury-v2/pages/LuxuryPrivacyPage';
+import { LuxuryCookiePolicyPage as LuxuryCookiePolicyPageV2 } from './variants/luxury-v2/pages/LuxuryCookiePolicyPage';
+import { LuxuryImprintPage as LuxuryImprintPageV2 } from './variants/luxury-v2/pages/LuxuryImprintPage';
+import { LuxuryNotFoundPage as LuxuryNotFoundPageV2 } from './variants/luxury-v2/pages/LuxuryNotFoundPage';
+
 import { StickyMobileBar } from './components/mobile/StickyMobileBar';
 import { ScrollToTop } from './components/navigation/ScrollToTop';
+import { SiteVersion, VersionToggle } from './components/preview/VersionToggle';
 
 const PATH_TO_TITLE_KEY: Record<string, string> = {
   '/': 'common:pageTitles.home',
@@ -34,48 +48,125 @@ const PATH_TO_TITLE_KEY: Record<string, string> = {
   '/imprint': 'common:pageTitles.imprint',
 };
 
+const SITE_VERSIONS = {
+  v1: {
+    Layout: LuxuryLayout,
+    Home: LuxuryHome,
+    Booking: LuxuryBookingPage,
+    Fleet: LuxuryFleetPage,
+    Services: LuxuryServicesPage,
+    Excursions: LuxuryExcursionsPage,
+    Faq: LuxuryFaqPage,
+    Members: LuxuryMembersPage,
+    Contact: LuxuryContactPage,
+    Privacy: LuxuryPrivacyPage,
+    CookiePolicy: LuxuryCookiePolicyPage,
+    Imprint: LuxuryImprintPage,
+    NotFound: LuxuryNotFoundPage,
+  },
+  v2: {
+    Layout: LuxuryLayoutV2,
+    Home: LuxuryHomeV2,
+    Booking: LuxuryBookingPageV2,
+    Fleet: LuxuryFleetPageV2,
+    Services: LuxuryServicesPageV2,
+    Excursions: LuxuryExcursionsPageV2,
+    Faq: LuxuryFaqPageV2,
+    Members: LuxuryMembersPageV2,
+    Contact: LuxuryContactPageV2,
+    Privacy: LuxuryPrivacyPageV2,
+    CookiePolicy: LuxuryCookiePolicyPageV2,
+    Imprint: LuxuryImprintPageV2,
+    NotFound: LuxuryNotFoundPageV2,
+  },
+};
+
 const PageTitle: React.FC = () => {
   const { pathname } = useLocation();
   const { t, i18n } = useTranslation();
+
   React.useEffect(() => {
     const key = PATH_TO_TITLE_KEY[pathname] ?? 'common:pageTitles.notFound';
     document.title = t(key);
   }, [pathname, t, i18n.language]);
+
   return null;
 };
 
-export const App: React.FC = () => {
+const readInitialVersion = (): SiteVersion =>
+  document.documentElement.dataset.tasVersion === 'v2' ? 'v2' : 'v1';
+
+const VersionedSite: React.FC = () => {
+  const [version, setVersion] = React.useState<SiteVersion>(readInitialVersion);
+  const location = useLocation();
+  const navigate = useNavigate();
+  const site = SITE_VERSIONS[version];
+  const Layout = site.Layout;
+
+  React.useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const currentVersion = params.get('version');
+
+    if (version === 'v2' && currentVersion !== 'v2') {
+      params.set('version', 'v2');
+    } else if (version === 'v1' && currentVersion !== null) {
+      params.delete('version');
+    } else {
+      return;
+    }
+
+    const search = params.toString();
+    navigate(
+      {
+        pathname: location.pathname,
+        search: search ? `?${search}` : '',
+        hash: location.hash,
+      },
+      { replace: true },
+    );
+  }, [location.hash, location.pathname, location.search, navigate, version]);
+
+  const selectVersion = (nextVersion: SiteVersion) => {
+    setVersion(nextVersion);
+    document.documentElement.dataset.tasVersion = nextVersion;
+    window.localStorage.setItem('tas-version', nextVersion);
+  };
+
   return (
-    <BrowserRouter>
+    <>
       <ScrollToTop />
       <PageTitle />
       <div className="min-h-screen flex flex-col antialiased bg-slate-950">
-        {/* Modular Sub-App Routes for Each Variant */}
         <main className="flex-1 pb-16 lg:pb-0">
           <Routes>
-            {/* Variant 1: Alpine Luxury & Heritage */}
-            <Route path="/" element={<LuxuryLayout />}>
-              <Route index element={<LuxuryHome />} />
-              <Route path="booking" element={<LuxuryBookingPage />} />
-              <Route path="fleet" element={<LuxuryFleetPage />} />
-              <Route path="services" element={<LuxuryServicesPage />} />
-              <Route path="excursions" element={<LuxuryExcursionsPage />} />
-              <Route path="faq" element={<LuxuryFaqPage />} />
-              <Route path="members" element={<LuxuryMembersPage />} />
-              <Route path="contact" element={<LuxuryContactPage />} />
-              <Route path="privacy" element={<LuxuryPrivacyPage />} />
-              <Route path="cookie-policy" element={<LuxuryCookiePolicyPage />} />
-              <Route path="imprint" element={<LuxuryImprintPage />} />
-              <Route path="*" element={<LuxuryNotFoundPage />} />
+            <Route path="/" element={<Layout />}>
+              <Route index element={<site.Home />} />
+              <Route path="booking" element={<site.Booking />} />
+              <Route path="fleet" element={<site.Fleet />} />
+              <Route path="services" element={<site.Services />} />
+              <Route path="excursions" element={<site.Excursions />} />
+              <Route path="faq" element={<site.Faq />} />
+              <Route path="members" element={<site.Members />} />
+              <Route path="contact" element={<site.Contact />} />
+              <Route path="privacy" element={<site.Privacy />} />
+              <Route path="cookie-policy" element={<site.CookiePolicy />} />
+              <Route path="imprint" element={<site.Imprint />} />
+              <Route path="*" element={<site.NotFound />} />
             </Route>
           </Routes>
         </main>
 
-        {/* Mobile quick actions */}
         <StickyMobileBar />
+        <VersionToggle version={version} onChange={selectVersion} />
       </div>
-    </BrowserRouter>
+    </>
   );
 };
+
+export const App: React.FC = () => (
+  <BrowserRouter>
+    <VersionedSite />
+  </BrowserRouter>
+);
 
 export default App;

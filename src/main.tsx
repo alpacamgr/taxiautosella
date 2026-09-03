@@ -4,13 +4,13 @@ import './i18n';
 import App from './App';
 import './styles/index.css';
 
-const paletteParam = new URLSearchParams(window.location.search).get('palette');
-const savedPalette = window.localStorage.getItem('tas-palette');
-const initialPalette = paletteParam === 'v2' || (paletteParam !== 'original' && savedPalette === 'v2')
+const versionParam = new URLSearchParams(window.location.search).get('version');
+const savedVersion = window.localStorage.getItem('tas-version');
+const initialVersion = versionParam === 'v2' || (versionParam !== 'v1' && savedVersion === 'v2')
   ? 'v2'
-  : 'original';
+  : 'v1';
 
-document.documentElement.dataset.tasPalette = initialPalette;
+document.documentElement.dataset.tasVersion = initialVersion;
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>

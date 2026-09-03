@@ -3,7 +3,7 @@
 ## Stack
 
 - Vite, React 18, and TypeScript
-- React Router with `HashRouter` for static hosting
+- React Router with `BrowserRouter` and a host-level SPA fallback
 - Tailwind CSS for the interface system
 - Zustand for shared inquiry-dialog state
 - Lucide React for icons
@@ -15,27 +15,22 @@ src/
 ├── App.tsx
 ├── components/
 │   ├── mobile/StickyMobileBar.tsx
-│   └── navigation/ScrollToTop.tsx
+│   ├── navigation/ScrollToTop.tsx
+│   └── preview/VersionToggle.tsx
 ├── data/fleet.ts
 ├── store/useAppStore.ts
-└── variants/luxury/
-    ├── LuxuryLayout.tsx
-    ├── components/
-    │   ├── LuxuryInquiryModal.tsx
-    │   └── LuxuryNav.tsx
-    └── pages/
-        ├── LuxuryHome.tsx
-        ├── LuxuryBookingPage.tsx
-        ├── LuxuryFleetPage.tsx
-        ├── LuxuryServicesPage.tsx
-        ├── LuxuryExcursionsPage.tsx
-        ├── LuxuryFaqPage.tsx
-        └── LuxuryMembersPage.tsx
+└── variants/
+    ├── luxury/       # V1 layout, components, and pages
+    └── luxury-v2/    # Independently editable V2 copy
 ```
 
 ## Routing
 
-The public site has one visual system under `#/luxury`. The root route renders the same home page, and unknown routes redirect to `#/luxury`.
+The site uses `BrowserRouter` with public routes such as `/`, `/booking`, and `/fleet`. `App.tsx` selects the complete V1 or V2 route component set. V1 is the default; `?version=v2` selects V2, and the choice is stored locally and preserved across route changes.
+
+Variant-specific layouts, pages, and components are duplicated so design experiments in one tree do not modify the other. Shared translations, business data, contact configuration, state, and image infrastructure remain centralized to prevent factual drift.
+
+Cloudflare’s `single-page-application` asset fallback serves `index.html` for direct route visits.
 
 ## Inquiry state and external handoff
 

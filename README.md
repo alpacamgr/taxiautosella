@@ -37,6 +37,25 @@ pnpm preview
 
 The production build is emitted to `dist/`.
 
+## Design versions
+
+The preview switch in the bottom-right corner changes between two independently editable site trees:
+
+- V1: `src/variants/luxury/`
+- V2: `src/variants/luxury-v2/`
+
+V1 is the default. Add `?version=v2` to any route to open V2 directly; the selection is also retained while navigating. Shared translations, fleet data, contact details, and image assets remain centralized, while the layouts, pages, and variant components can evolve separately.
+
+The two palettes currently use identical token values. Their separate token blocks live in `src/styles/index.css`, so a future version-specific palette change can be scoped without affecting the other version.
+
+## Deployment
+
+`wrangler.json` deploys the production build as Cloudflare Workers Static Assets and provides the single-page-application fallback required by React Router.
+
+```bash
+pnpm deploy
+```
+
 ## Adding a language
 
 The site is set up for multilingual copy: every user-visible string lives in
