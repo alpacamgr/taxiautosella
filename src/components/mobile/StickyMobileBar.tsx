@@ -9,7 +9,7 @@ export const StickyMobileBar: React.FC = () => {
   const { t } = useTranslation('common');
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 z-40 block lg:hidden px-3 py-2.5 bg-[#0E1117]/95 backdrop-blur-xl border-t border-white/10 shadow-2xl">
+    <div className="fixed bottom-0 left-0 right-0 z-40 block lg:hidden px-3 py-2.5 bg-tas-ink/95 backdrop-blur-xl border-t border-white/10 shadow-2xl">
       <div className="flex items-center gap-2 max-w-md mx-auto">
 
         {/* 1-Tap WhatsApp */}
@@ -26,9 +26,9 @@ export const StickyMobileBar: React.FC = () => {
         {/* 1-Tap Direct Phone Call */}
         <a
           href={`tel:${PHONE_TEL}`}
-          className="flex-1 min-h-11 px-3 rounded-lg border border-white/20 active:bg-white/10 text-white font-semibold text-xs flex items-center justify-center gap-1.5"
+          className="flex-1 min-h-11 px-3 rounded-lg border border-white/20 active:bg-tas-surface/10 text-white font-semibold text-xs flex items-center justify-center gap-1.5"
         >
-          <PhoneCall className="w-4 h-4 text-[#C5A880]" />
+          <PhoneCall className="w-4 h-4 text-tas-accent-on-dark" />
           <span>{t('stickyBar.call')}</span>
         </a>
 
@@ -36,7 +36,7 @@ export const StickyMobileBar: React.FC = () => {
         <button
           type="button"
           onClick={() => navigate('/booking')}
-          className="flex-1 min-h-11 px-3 rounded-lg bg-[#C5A880] active:bg-[#B09269] text-[#0E1117] font-semibold text-xs flex items-center justify-center gap-1.5"
+          className="flex-1 min-h-11 px-3 rounded-lg bg-tas-brass-fill active:bg-tas-brass-active text-tas-ink font-semibold text-xs flex items-center justify-center gap-1.5"
         >
           <Calculator className="w-4 h-4" />
           <span>{t('stickyBar.getPrice')}</span>

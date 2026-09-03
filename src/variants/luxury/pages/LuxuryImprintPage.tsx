@@ -10,40 +10,40 @@ import {
   VAT_NUMBER,
 } from '../../../config/contact';
 
-const emComponent = { em: <span className="italic text-[#C5A880]" /> };
+const emComponent = { em: <span className="italic text-tas-accent-on-light" /> };
 
 export const LuxuryImprintPage: React.FC = () => {
   const { t } = useTranslation('legal');
 
   return (
-    <div className="min-h-screen bg-[#F8F6F0] pt-24 pb-20">
+    <div className="min-h-screen bg-tas-paper pt-24 pb-20">
       <div className="mx-auto max-w-3xl px-6 lg:px-16">
         <header className="mb-12">
-          <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-[#8C6D46]">{t('eyebrow')}</p>
-          <h1 className="mt-3 font-editorial text-5xl font-normal text-[#0E1117] lg:text-6xl">
+          <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-tas-accent-strong">{t('eyebrow')}</p>
+          <h1 className="mt-3 font-editorial text-5xl font-normal text-tas-ink lg:text-6xl">
             <Trans i18nKey="legal:imprint.title" components={emComponent} />
           </h1>
-          <p className="mt-6 text-sm font-light leading-relaxed text-[#0E1117]/70">{t('imprint.subtitle')}</p>
+          <p className="mt-6 text-sm font-light leading-relaxed text-tas-ink/70">{t('imprint.subtitle')}</p>
         </header>
 
-        <div className="space-y-10 text-[15px] font-light leading-relaxed text-[#0E1117]/85">
+        <div className="space-y-10 text-[15px] font-light leading-relaxed text-tas-ink/85">
           <section>
-            <h2 className="font-editorial text-2xl text-[#0E1117]">{t('imprint.publisher')}</h2>
+            <h2 className="font-editorial text-2xl text-tas-ink">{t('imprint.publisher')}</h2>
             <div className="mt-3 space-y-1">
-              <p className="font-semibold text-[#0E1117]">{COMPANY_LEGAL_NAME}</p>
+              <p className="font-semibold text-tas-ink">{COMPANY_LEGAL_NAME}</p>
               <p>{ADDRESS_LINE1}</p>
               <p>{ADDRESS_LINE2}</p>
             </div>
           </section>
 
           <section>
-            <h2 className="font-editorial text-2xl text-[#0E1117]">{t('imprint.contact.title')}</h2>
+            <h2 className="font-editorial text-2xl text-tas-ink">{t('imprint.contact.title')}</h2>
             <div className="mt-3 space-y-1">
               <p>
                 {t('imprint.contact.phoneLabel')}{' '}
                 <a
                   href={`tel:${PHONE_DISPLAY.replace(/\s+/g, '')}`}
-                  className="underline decoration-[#C5A880] underline-offset-4 hover:text-[#8C6D46]"
+                  className="underline decoration-tas-focus underline-offset-4 hover:text-tas-accent-strong"
                 >
                   {PHONE_DISPLAY}
                 </a>
@@ -51,52 +51,52 @@ export const LuxuryImprintPage: React.FC = () => {
               <p>{t('imprint.contact.faxLabel')} {FAX_DISPLAY}</p>
               <p>
                 {t('imprint.contact.emailLabel')}{' '}
-                <a href={`mailto:${EMAIL}`} className="underline decoration-[#C5A880] underline-offset-4 hover:text-[#8C6D46]">
+                <a href={`mailto:${EMAIL}`} className="underline decoration-tas-focus underline-offset-4 hover:text-tas-accent-strong">
                   {EMAIL}
                 </a>
               </p>
-              <p className="text-[#0E1117]/70">{t('imprint.contact.pecNote')}</p>
+              <p className="text-tas-ink/70">{t('imprint.contact.pecNote')}</p>
             </div>
           </section>
 
           <section>
-            <h2 className="font-editorial text-2xl text-[#0E1117]">{t('imprint.company.title')}</h2>
+            <h2 className="font-editorial text-2xl text-tas-ink">{t('imprint.company.title')}</h2>
             <div className="mt-3 space-y-1">
               <p>{t('imprint.company.vatLabel', { value: VAT_NUMBER })}</p>
-              <p className="text-[#0E1117]/70">{t('imprint.company.codeNote')}</p>
-              <p className="text-[#0E1117]/70">{t('imprint.company.reaNote')}</p>
-              <p className="text-[#0E1117]/70">{t('imprint.company.repNote')}</p>
+              <p className="text-tas-ink/70">{t('imprint.company.codeNote')}</p>
+              <p className="text-tas-ink/70">{t('imprint.company.reaNote')}</p>
+              <p className="text-tas-ink/70">{t('imprint.company.repNote')}</p>
             </div>
           </section>
 
           <section>
-            <h2 className="font-editorial text-2xl text-[#0E1117]">{t('imprint.authorisations.title')}</h2>
+            <h2 className="font-editorial text-2xl text-tas-ink">{t('imprint.authorisations.title')}</h2>
             <div className="mt-3 space-y-1">
-              <p className="text-[#0E1117]/70">{t('imprint.authorisations.ncc')}</p>
-              <p className="text-[#0E1117]/70">{t('imprint.authorisations.bus')}</p>
-              <p className="text-[#0E1117]/70">{t('imprint.authorisations.authority')}</p>
+              <p className="text-tas-ink/70">{t('imprint.authorisations.ncc')}</p>
+              <p className="text-tas-ink/70">{t('imprint.authorisations.bus')}</p>
+              <p className="text-tas-ink/70">{t('imprint.authorisations.authority')}</p>
             </div>
           </section>
 
           <section>
-            <h2 className="font-editorial text-2xl text-[#0E1117]">{t('imprint.insurance.title')}</h2>
-            <p className="mt-3 text-[#0E1117]/70">{t('imprint.insurance.body')}</p>
+            <h2 className="font-editorial text-2xl text-tas-ink">{t('imprint.insurance.title')}</h2>
+            <p className="mt-3 text-tas-ink/70">{t('imprint.insurance.body')}</p>
           </section>
 
           <section>
-            <h2 className="font-editorial text-2xl text-[#0E1117]">{t('imprint.hosting.title')}</h2>
+            <h2 className="font-editorial text-2xl text-tas-ink">{t('imprint.hosting.title')}</h2>
             <p className="mt-3">
               <Trans i18nKey="legal:imprint.hosting.body" components={{ b: <strong /> }} />
             </p>
           </section>
 
           <section>
-            <h2 className="font-editorial text-2xl text-[#0E1117]">{t('imprint.credits.title')}</h2>
-            <p className="mt-3 text-[#0E1117]/70">{t('imprint.credits.body')}</p>
+            <h2 className="font-editorial text-2xl text-tas-ink">{t('imprint.credits.title')}</h2>
+            <p className="mt-3 text-tas-ink/70">{t('imprint.credits.body')}</p>
           </section>
 
           <section>
-            <h2 className="font-editorial text-2xl text-[#0E1117]">{t('imprint.terms.title')}</h2>
+            <h2 className="font-editorial text-2xl text-tas-ink">{t('imprint.terms.title')}</h2>
             <p className="mt-3">{t('imprint.terms.p1')}</p>
             <p className="mt-3">
               <Trans i18nKey="legal:imprint.terms.p2" components={{ b: <strong /> }} />
@@ -105,7 +105,7 @@ export const LuxuryImprintPage: React.FC = () => {
           </section>
 
           <section>
-            <h2 className="font-editorial text-2xl text-[#0E1117]">{t('imprint.copyright.title')}</h2>
+            <h2 className="font-editorial text-2xl text-tas-ink">{t('imprint.copyright.title')}</h2>
             <p className="mt-3">{t('imprint.copyright.body', { company: COMPANY_LEGAL_NAME })}</p>
           </section>
         </div>

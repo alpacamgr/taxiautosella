@@ -230,7 +230,7 @@ export const LuxuryInquiryModal: React.FC = () => {
 
   return (
     <div
-      className={`fixed inset-0 z-50 flex items-end justify-end ${mounted ? 'bg-[#0E1117]/55 backdrop-blur-sm' : 'bg-transparent'} ${reducedMotion ? '' : 'transition-colors duration-[250ms]'}`}
+      className={`fixed inset-0 z-50 flex items-end justify-end ${mounted ? 'bg-tas-ink/55 backdrop-blur-sm' : 'bg-transparent'} ${reducedMotion ? '' : 'transition-colors duration-[250ms]'}`}
       onMouseDown={(event) => {
         if (event.target === event.currentTarget) closeInquiryModal();
       }}
@@ -241,27 +241,27 @@ export const LuxuryInquiryModal: React.FC = () => {
         aria-modal="true"
         aria-labelledby="inquiry-title"
         aria-describedby="inquiry-intro"
-        className={`relative flex h-auto max-h-[92dvh] w-full flex-col overflow-hidden rounded-t-3xl bg-[#F8F6F0] shadow-[0_24px_80px_rgba(17,32,25,0.28)] lg:h-full lg:max-h-none lg:max-w-md lg:rounded-none lg:rounded-l-3xl ${transitionClass} ${mounted ? slideOpen : `${slideClosedMobile} ${slideClosedDesktop}`}`}
+        className={`relative flex h-auto max-h-[92dvh] w-full flex-col overflow-hidden rounded-t-3xl bg-tas-paper shadow-[0_24px_80px_rgba(17,32,25,0.28)] lg:h-full lg:max-h-none lg:max-w-md lg:rounded-none lg:rounded-l-3xl ${transitionClass} ${mounted ? slideOpen : `${slideClosedMobile} ${slideClosedDesktop}`}`}
       >
-        <header className="relative border-b border-[#0E1117]/10 bg-[#F8F6F0] px-5 pt-5 pb-4 sm:px-7 sm:pt-6">
+        <header className="relative border-b border-tas-ink/10 bg-tas-paper px-5 pt-5 pb-4 sm:px-7 sm:pt-6">
           <div className="pr-12">
-            <div className="flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.14em] text-[#8C6D46]">
-              <span className="inline-block h-px w-6 bg-[#C5A880]" aria-hidden="true" />
+            <div className="flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.14em] text-tas-accent-strong">
+              <span className="inline-block h-px w-6 bg-tas-brass-fill" aria-hidden="true" />
               {presentation.eyebrow}
             </div>
             <h2
               id="inquiry-title"
-              className="mt-2 font-editorial text-[1.75rem] leading-tight text-[#0E1117] sm:text-3xl"
+              className="mt-2 font-editorial text-[1.75rem] leading-tight text-tas-ink sm:text-3xl"
             >
               {presentation.title}
             </h2>
-            <p id="inquiry-intro" className="mt-2 text-sm leading-6 text-[#0E1117]/70">
+            <p id="inquiry-intro" className="mt-2 text-sm leading-6 text-tas-ink/70">
               {presentation.intro}
             </p>
             {!isUrgent && (
               <a
                 href={`tel:${PHONE_TEL}`}
-                className="mt-3 inline-flex items-center gap-1.5 text-xs font-semibold text-[#0E1117]/80 underline decoration-[#C5A880] decoration-[1.5px] underline-offset-4 hover:text-[#0E1117]"
+                className="mt-3 inline-flex items-center gap-1.5 text-xs font-semibold text-tas-ink/80 underline decoration-tas-focus decoration-[1.5px] underline-offset-4 hover:text-tas-ink"
               >
                 <Phone className="h-3.5 w-3.5" aria-hidden="true" />
                 {t('callWithPhone', { phone: PHONE_DISPLAY })}
@@ -272,7 +272,7 @@ export const LuxuryInquiryModal: React.FC = () => {
             ref={closeButtonRef}
             type="button"
             onClick={closeInquiryModal}
-            className="absolute right-3 top-3 flex h-10 w-10 items-center justify-center rounded-full text-[#0E1117]/70 transition-colors hover:bg-[#0E1117]/5 hover:text-[#0E1117] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C5A880] focus-visible:ring-offset-2 focus-visible:ring-offset-[#F8F6F0] sm:right-5 sm:top-5"
+            className="absolute right-3 top-3 flex h-10 w-10 items-center justify-center rounded-full text-tas-ink/70 transition-colors hover:bg-tas-ink/5 hover:text-tas-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-tas-focus focus-visible:ring-offset-2 focus-visible:ring-offset-tas-paper sm:right-5 sm:top-5"
             aria-label={t('close')}
           >
             <X className="h-5 w-5" aria-hidden="true" />
@@ -284,28 +284,28 @@ export const LuxuryInquiryModal: React.FC = () => {
             {isUrgent && (
               <a
                 href={`tel:${PHONE_TEL}`}
-                className="flex min-h-14 items-center justify-between rounded-2xl bg-[#0E1117] px-5 text-[#F8F6F0] transition-colors hover:bg-[#8C6D46] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C5A880] focus-visible:ring-offset-2 focus-visible:ring-offset-[#F8F6F0]"
+                className="flex min-h-14 items-center justify-between rounded-2xl bg-tas-ink px-5 text-tas-paper transition-colors hover:bg-tas-accent-strong focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-tas-focus focus-visible:ring-offset-2 focus-visible:ring-offset-tas-paper"
               >
                 <span className="flex items-center gap-2.5 text-sm font-bold uppercase tracking-[0.12em]">
                   <Phone className="h-4 w-4" aria-hidden="true" /> {t('callDispatch')}
                 </span>
-                <span className="text-xs text-[#F8F6F0]/80">{PHONE_DISPLAY}</span>
+                <span className="text-xs text-tas-paper/80">{PHONE_DISPLAY}</span>
               </a>
             )}
 
             {summary.length > 0 && (
               <section
                 aria-label={t('yourRequest')}
-                className="rounded-2xl border border-[#0E1117]/10 bg-[#EEE9DE] px-4 py-3.5"
+                className="rounded-2xl border border-tas-ink/10 bg-tas-parchment px-4 py-3.5"
               >
-                <p className="text-[10px] font-bold uppercase tracking-[0.14em] text-[#8C6D46]">
+                <p className="text-[10px] font-bold uppercase tracking-[0.14em] text-tas-accent-strong">
                   {t('yourRequest')}
                 </p>
                 <dl className="mt-2 space-y-1.5">
                   {summary.map((item, i) => (
-                    <div key={`${item.label}-${i}`} className="flex flex-wrap gap-x-2 text-sm leading-5 text-[#0E1117]">
-                      <dt className="font-semibold text-[#0E1117]/80">{item.label}:</dt>
-                      <dd className="text-[#0E1117]/90">{item.value}</dd>
+                    <div key={`${item.label}-${i}`} className="flex flex-wrap gap-x-2 text-sm leading-5 text-tas-ink">
+                      <dt className="font-semibold text-tas-ink/80">{item.label}:</dt>
+                      <dd className="text-tas-ink/90">{item.value}</dd>
                     </div>
                   ))}
                 </dl>
@@ -314,7 +314,7 @@ export const LuxuryInquiryModal: React.FC = () => {
 
             <div className="space-y-4">
               <label className="block">
-                <span className="text-xs font-bold uppercase tracking-[0.12em] text-[#0E1117]/70">
+                <span className="text-xs font-bold uppercase tracking-[0.12em] text-tas-ink/70">
                   {t('nameLabel')}
                 </span>
                 <input
@@ -324,13 +324,13 @@ export const LuxuryInquiryModal: React.FC = () => {
                   onChange={(e) => setName(e.target.value)}
                   autoComplete="name"
                   placeholder={t('namePlaceholder')}
-                  className="mt-1.5 h-11 w-full rounded-xl border border-[#0E1117]/15 bg-white px-3.5 text-sm text-[#0E1117] outline-none placeholder:text-[#0E1117]/40 focus:border-[#C5A880] focus:ring-2 focus:ring-[#C5A880]/25"
+                  className="mt-1.5 h-11 w-full rounded-xl border border-tas-ink/15 bg-tas-surface px-3.5 text-sm text-tas-ink outline-none placeholder:text-tas-muted-40 focus:border-tas-focus focus:ring-2 focus:ring-tas-focus/25"
                 />
               </label>
               <label className="block">
-                <span className="text-xs font-bold uppercase tracking-[0.12em] text-[#0E1117]/70">
+                <span className="text-xs font-bold uppercase tracking-[0.12em] text-tas-ink/70">
                   {t('phoneLabel')}{' '}
-                  <span className="font-medium text-[#0E1117]/50 normal-case tracking-normal">
+                  <span className="font-medium text-tas-muted-50 normal-case tracking-normal">
                     {t('phoneOptional')}
                   </span>
                 </span>
@@ -340,11 +340,11 @@ export const LuxuryInquiryModal: React.FC = () => {
                   onChange={(e) => setPhone(e.target.value)}
                   autoComplete="tel"
                   placeholder={t('phonePlaceholder')}
-                  className="mt-1.5 h-11 w-full rounded-xl border border-[#0E1117]/15 bg-white px-3.5 text-sm text-[#0E1117] outline-none placeholder:text-[#0E1117]/40 focus:border-[#C5A880] focus:ring-2 focus:ring-[#C5A880]/25"
+                  className="mt-1.5 h-11 w-full rounded-xl border border-tas-ink/15 bg-tas-surface px-3.5 text-sm text-tas-ink outline-none placeholder:text-tas-muted-40 focus:border-tas-focus focus:ring-2 focus:ring-tas-focus/25"
                 />
               </label>
               <label className="block">
-                <span className="text-xs font-bold uppercase tracking-[0.12em] text-[#0E1117]/70">
+                <span className="text-xs font-bold uppercase tracking-[0.12em] text-tas-ink/70">
                   {t('detailsLabel')}
                 </span>
                 <textarea
@@ -352,15 +352,15 @@ export const LuxuryInquiryModal: React.FC = () => {
                   onChange={(e) => setDetails(e.target.value)}
                   rows={4}
                   placeholder={presentation.placeholder}
-                  className="mt-1.5 w-full resize-none rounded-xl border border-[#0E1117]/15 bg-white px-3.5 py-3 text-sm leading-6 text-[#0E1117] outline-none placeholder:text-[#0E1117]/40 focus:border-[#C5A880] focus:ring-2 focus:ring-[#C5A880]/25"
+                  className="mt-1.5 w-full resize-none rounded-xl border border-tas-ink/15 bg-tas-surface px-3.5 py-3 text-sm leading-6 text-tas-ink outline-none placeholder:text-tas-muted-40 focus:border-tas-focus focus:ring-2 focus:ring-tas-focus/25"
                 />
               </label>
 
               {showEquipment && (
                 <div>
-                  <p className="text-xs font-bold uppercase tracking-[0.12em] text-[#0E1117]/70">
+                  <p className="text-xs font-bold uppercase tracking-[0.12em] text-tas-ink/70">
                     {t('equipmentLabel')}{' '}
-                    <span className="font-medium text-[#0E1117]/50 normal-case tracking-normal">
+                    <span className="font-medium text-tas-muted-50 normal-case tracking-normal">
                       {t('equipmentOptional')}
                     </span>
                   </p>
@@ -374,13 +374,13 @@ export const LuxuryInquiryModal: React.FC = () => {
                           type="button"
                           aria-pressed={on}
                           onClick={() => toggleChoice(choice)}
-                          className={`flex min-h-9 items-center gap-2 rounded-full border px-3 text-xs font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C5A880] focus-visible:ring-offset-2 focus-visible:ring-offset-[#F8F6F0] ${
+                          className={`flex min-h-9 items-center gap-2 rounded-full border px-3 text-xs font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-tas-focus focus-visible:ring-offset-2 focus-visible:ring-offset-tas-paper ${
                             on
-                              ? 'border-[#8C6D46] bg-[#EEE9DE] text-[#0E1117]'
-                              : 'border-[#0E1117]/15 bg-white text-[#0E1117]/75 hover:border-[#8C6D46] hover:text-[#0E1117]'
+                              ? 'border-tas-accent-strong bg-tas-parchment text-tas-ink'
+                              : 'border-tas-ink/15 bg-tas-surface text-tas-ink/75 hover:border-tas-accent-strong hover:text-tas-ink'
                           }`}
                         >
-                          <span className={`flex h-4 w-4 items-center justify-center rounded-full border ${on ? 'border-[#8C6D46] bg-[#8C6D46] text-white' : 'border-[#0E1117]/30'}`}>
+                          <span className={`flex h-4 w-4 items-center justify-center rounded-full border ${on ? 'border-tas-accent-strong bg-tas-accent-strong text-white' : 'border-tas-ink/30'}`}>
                             {on && <Check className="h-2.5 w-2.5" aria-hidden="true" />}
                           </span>
                           {label}
@@ -391,7 +391,7 @@ export const LuxuryInquiryModal: React.FC = () => {
                 </div>
               )}
 
-              <p className="text-[11px] text-[#0E1117]/55">{t('hint')}</p>
+              <p className="text-[11px] text-tas-muted-55">{t('hint')}</p>
               {validation && (
                 <p role="alert" className="text-sm font-medium text-[#A23E2A]">
                   {validation}
@@ -403,7 +403,7 @@ export const LuxuryInquiryModal: React.FC = () => {
               <button
                 type="button"
                 onClick={openWhatsApp}
-                className="flex min-h-12 w-full items-center justify-between rounded-xl bg-[#0E1117] px-4 text-sm font-bold uppercase tracking-[0.12em] text-[#F8F6F0] transition-colors hover:bg-[#8C6D46] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C5A880] focus-visible:ring-offset-2 focus-visible:ring-offset-[#F8F6F0]"
+                className="flex min-h-12 w-full items-center justify-between rounded-xl bg-tas-ink px-4 text-sm font-bold uppercase tracking-[0.12em] text-tas-paper transition-colors hover:bg-tas-accent-strong focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-tas-focus focus-visible:ring-offset-2 focus-visible:ring-offset-tas-paper"
               >
                 <span className="flex items-center gap-2">
                   <MessageCircle className="h-4 w-4" aria-hidden="true" />
@@ -414,7 +414,7 @@ export const LuxuryInquiryModal: React.FC = () => {
               <button
                 type="button"
                 onClick={openEmail}
-                className="flex min-h-10 w-full items-center justify-center gap-2 text-sm font-medium text-[#0E1117]/75 underline decoration-[#C5A880] decoration-[1.5px] underline-offset-4 hover:text-[#0E1117] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C5A880] focus-visible:ring-offset-2 focus-visible:ring-offset-[#F8F6F0]"
+                className="flex min-h-10 w-full items-center justify-center gap-2 text-sm font-medium text-tas-ink/75 underline decoration-tas-focus decoration-[1.5px] underline-offset-4 hover:text-tas-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-tas-focus focus-visible:ring-offset-2 focus-visible:ring-offset-tas-paper"
               >
                 <Mail className="h-4 w-4" aria-hidden="true" />
                 {t('emailInstead')}
@@ -424,16 +424,16 @@ export const LuxuryInquiryModal: React.FC = () => {
               </p>
             </div>
 
-            <section aria-label={t('messagePreview')} className="rounded-xl border border-[#0E1117]/10 bg-white/70 px-3.5 py-3">
-              <p className="text-[10px] font-bold uppercase tracking-[0.14em] text-[#0E1117]/50">
+            <section aria-label={t('messagePreview')} className="rounded-xl border border-tas-ink/10 bg-tas-surface/70 px-3.5 py-3">
+              <p className="text-[10px] font-bold uppercase tracking-[0.14em] text-tas-muted-50">
                 {t('messagePreview')}
               </p>
-              <pre className="mt-1.5 whitespace-pre-wrap break-words font-sans text-[12px] leading-5 text-[#0E1117]/75">
+              <pre className="mt-1.5 whitespace-pre-wrap break-words font-sans text-[12px] leading-5 text-tas-ink/75">
                 {message}
               </pre>
             </section>
 
-            <p className="text-[11px] leading-5 text-[#0E1117]/55">
+            <p className="text-[11px] leading-5 text-tas-muted-55">
               {t('notBookedNote')}
             </p>
           </div>

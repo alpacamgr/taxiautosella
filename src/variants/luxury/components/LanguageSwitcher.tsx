@@ -47,10 +47,10 @@ export const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({
               onClick={() => {
                 if (!active) void setLanguage(lang.code);
               }}
-              className={`min-h-8 rounded px-1 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C5A880] ${
+              className={`min-h-8 rounded px-1 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-tas-focus ${
                 active
-                  ? 'text-[#C5A880]'
-                  : 'text-[#F8F6F0]/70 hover:text-[#F8F6F0]'
+                  ? 'text-tas-accent-on-dark'
+                  : 'text-tas-paper/70 hover:text-tas-paper'
               }`}
             >
               {lang.code.toUpperCase()}

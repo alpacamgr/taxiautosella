@@ -3,6 +3,43 @@
 @tailwind utilities;
 
 @layer base {
+  :root,
+  :root[data-tas-palette='original'] {
+    --tas-ink: 14 17 23;
+    --tas-paper: 248 246 240;
+    --tas-surface: 255 255 255;
+    --tas-parchment: 238 233 222;
+    --tas-brass-fill: 197 168 128;
+    --tas-accent-on-light: 197 168 128;
+    --tas-accent-on-dark: 197 168 128;
+    --tas-accent-strong: 140 109 70;
+    --tas-focus: 197 168 128;
+    --tas-brass-hover: 212 185 147;
+    --tas-brass-active: 176 146 105;
+    --tas-muted-60: rgb(14 17 23 / 0.6);
+    --tas-muted-55: rgb(14 17 23 / 0.55);
+    --tas-muted-50: rgb(14 17 23 / 0.5);
+    --tas-muted-40: rgb(14 17 23 / 0.4);
+  }
+
+  :root[data-tas-palette='v2'] {
+    --tas-ink: 20 32 29;
+    --tas-paper: 241 242 239;
+    --tas-surface: 253 252 248;
+    --tas-parchment: 228 233 226;
+    --tas-brass-fill: 185 145 93;
+    --tas-accent-on-light: 108 78 39;
+    --tas-accent-on-dark: 208 181 137;
+    --tas-accent-strong: 108 78 39;
+    --tas-focus: 132 101 67;
+    --tas-brass-hover: 202 164 111;
+    --tas-brass-active: 151 116 68;
+    --tas-muted-60: rgb(96 105 102);
+    --tas-muted-55: rgb(96 105 102);
+    --tas-muted-50: rgb(96 105 102);
+    --tas-muted-40: rgb(96 105 102);
+  }
+
   html {
     scroll-behavior: smooth;
     font-family: 'Plus Jakarta Sans', Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -14,14 +51,14 @@
     height: 8px;
   }
   ::-webkit-scrollbar-track {
-    background: #0b0f17;
+    background: rgb(var(--tas-ink));
   }
   ::-webkit-scrollbar-thumb {
-    background: #2a3447;
+    background: rgb(var(--tas-focus));
     border-radius: 4px;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: #d4af37;
+    background: rgb(var(--tas-brass-fill));
   }
 
   .inquiry-scrollbar {

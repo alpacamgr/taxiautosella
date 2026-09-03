@@ -27,20 +27,20 @@ const VEHICLES: FleetPageEntry[] = [
   { id: 'production', passengers: 5, luggage: 'Crew Equipment', image: '/images/fleet/autosella_2018_07.jpg' },
 ];
 
-const emComponent = { em: <span className="italic text-[#C5A880]" /> };
+const emComponent = { em: <span className="italic text-tas-accent-on-light" /> };
 
 export const LuxuryFleetPage: React.FC = () => {
   const { openInquiryModal } = useAppStore();
   const { t } = useTranslation('fleet');
 
   return (
-    <div className="pt-24 pb-20 px-6 lg:px-16 max-w-7xl mx-auto bg-[#F8F6F0] min-h-screen">
+    <div className="pt-24 pb-20 px-6 lg:px-16 max-w-7xl mx-auto bg-tas-paper min-h-screen">
       <Reveal>
         <div className="max-w-3xl mb-16">
-          <h1 className="font-editorial text-5xl sm:text-7xl text-[#0E1117] mb-6">
+          <h1 className="font-editorial text-5xl sm:text-7xl text-tas-ink mb-6">
             <Trans i18nKey="fleet:header.title" components={emComponent} />
           </h1>
-          <p className="text-lg text-[#0E1117]/80 font-light leading-relaxed">
+          <p className="text-lg text-tas-ink/80 font-light leading-relaxed">
             {t('header.subtitle')}
           </p>
         </div>
@@ -56,7 +56,7 @@ export const LuxuryFleetPage: React.FC = () => {
 
           return (
             <Reveal key={vehicle.id} delay={(i % 3) * 80}>
-              <div className="bg-white p-6 shadow-xl rounded-2xl flex flex-col justify-between border border-[#0E1117]/10 hover:border-[#C5A880] transition-all group h-full">
+              <div className="bg-tas-surface p-6 shadow-xl rounded-2xl flex flex-col justify-between border border-tas-ink/10 hover:border-tas-focus transition-all group h-full">
                 <div>
                   <div className="h-60 overflow-hidden mb-6 rounded-xl bg-slate-900 relative">
                     <ResponsiveImage
@@ -66,34 +66,34 @@ export const LuxuryFleetPage: React.FC = () => {
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                     />
                     {badge && (
-                      <span className="absolute top-3 right-3 px-3 py-1 bg-[#0E1117]/90 backdrop-blur-md text-[#C5A880] text-[10px] font-bold uppercase tracking-wider rounded-full border border-[#C5A880]/30">
+                      <span className="absolute top-3 right-3 px-3 py-1 bg-tas-ink/90 backdrop-blur-md text-tas-accent-on-dark text-[10px] font-bold uppercase tracking-wider rounded-full border border-tas-focus/30">
                         {badge}
                       </span>
                     )}
                   </div>
-                  <h3 className="font-editorial text-2xl text-[#0E1117] mb-1">{name}</h3>
-                  <p className="text-xs text-[#C5A880] font-semibold tracking-wide uppercase mb-3">{subtitle}</p>
-                  <p className="text-xs text-[#0E1117]/80 font-light leading-relaxed mb-6">{tagline}</p>
+                  <h3 className="font-editorial text-2xl text-tas-ink mb-1">{name}</h3>
+                  <p className="text-xs text-tas-accent-on-light font-semibold tracking-wide uppercase mb-3">{subtitle}</p>
+                  <p className="text-xs text-tas-ink/80 font-light leading-relaxed mb-6">{tagline}</p>
 
-                  <ul className="space-y-2 mb-6 text-xs text-[#0E1117]/80 font-medium">
+                  <ul className="space-y-2 mb-6 text-xs text-tas-ink/80 font-medium">
                     {Array.isArray(features) &&
                       features.map((feat, idx) => (
                         <li key={idx} className="flex items-center gap-2">
-                          <Check className="w-3.5 h-3.5 text-[#C5A880] flex-shrink-0" />
+                          <Check className="w-3.5 h-3.5 text-tas-accent-on-light flex-shrink-0" />
                           <span>{feat}</span>
                         </li>
                       ))}
                   </ul>
                 </div>
 
-                <div className="pt-4 border-t border-[#0E1117]/10 flex items-center justify-between">
-                  <div className="flex items-center gap-4 text-xs text-[#0E1117]/70 font-semibold">
+                <div className="pt-4 border-t border-tas-ink/10 flex items-center justify-between">
+                  <div className="flex items-center gap-4 text-xs text-tas-ink/70 font-semibold">
                     <span className="flex items-center gap-1">
-                      <Users className="w-3.5 h-3.5 text-[#C5A880]" />{' '}
+                      <Users className="w-3.5 h-3.5 text-tas-accent-on-light" />{' '}
                       {t('capacityPaxLabel', { value: vehicle.passengers })}
                     </span>
                     <span className="flex items-center gap-1">
-                      <Briefcase className="w-3.5 h-3.5 text-[#C5A880]" /> {vehicle.luggage}
+                      <Briefcase className="w-3.5 h-3.5 text-tas-accent-on-light" /> {vehicle.luggage}
                     </span>
                   </div>
                   <button
@@ -109,7 +109,7 @@ export const LuxuryFleetPage: React.FC = () => {
                       )
                     }
                     aria-label={t('inquireAria', { name })}
-                    className="flex min-h-11 items-center gap-1.5 bg-[#0E1117] px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-[#8C6D46] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8C6D46] focus-visible:ring-offset-2"
+                    className="flex min-h-11 items-center gap-1.5 bg-tas-ink px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-tas-accent-strong focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-tas-focus focus-visible:ring-offset-2"
                   >
                     <span>{t('inquireLabel')}</span>
                     <ArrowRight className="w-3.5 h-3.5" />
@@ -121,14 +121,14 @@ export const LuxuryFleetPage: React.FC = () => {
         })}
       </div>
 
-      <div className="mt-20 flex max-w-7xl flex-col items-start justify-between gap-8 border border-[#0E1117]/15 bg-[#EEE9DE] p-8 md:flex-row md:items-center md:p-12">
+      <div className="mt-20 flex max-w-7xl flex-col items-start justify-between gap-8 border border-tas-ink/15 bg-tas-parchment p-8 md:flex-row md:items-center md:p-12">
         <div className="max-w-2xl">
           <h2 className="font-editorial text-4xl mb-4">{t('groupCta.title')}</h2>
-          <p className="text-[#0E1117]/70 font-light leading-relaxed text-sm">{t('groupCta.body')}</p>
+          <p className="text-tas-ink/70 font-light leading-relaxed text-sm">{t('groupCta.body')}</p>
         </div>
         <button
           onClick={() => openInquiryModal(t('groupCta.context'), t('groupCta.prefill'))}
-          className="flex min-h-12 w-full items-center justify-center gap-2 bg-[#0E1117] px-8 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-[#8C6D46] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8C6D46] focus-visible:ring-offset-2 md:w-auto"
+          className="flex min-h-12 w-full items-center justify-center gap-2 bg-tas-ink px-8 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-tas-accent-strong focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-tas-focus focus-visible:ring-offset-2 md:w-auto"
         >
           <span>{t('groupCta.button')}</span>
           <ArrowRight className="w-4 h-4" />

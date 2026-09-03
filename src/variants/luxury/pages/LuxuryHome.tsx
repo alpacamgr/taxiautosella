@@ -18,8 +18,8 @@ import { LuxuryReviews } from '../components/LuxuryReviews';
 import { Reveal } from '../../../components/motion/Reveal';
 import { CountUp } from '../../../components/motion/CountUp';
 
-const emComponent = { em: <span className="italic text-[#C5A880]" /> };
-const emGoldPatina = { em: <span className="italic text-[#8C6D46]" /> };
+const emComponent = { em: <span className="italic text-tas-accent-on-light" /> };
+const emGoldPatina = { em: <span className="italic text-tas-accent-strong" /> };
 
 const NIGHTLIFE_VENUES = [
   'Caffe 2000',
@@ -89,7 +89,7 @@ export const LuxuryHome: React.FC = () => {
   return (
     <div>
       {/* HERO */}
-      <section className="relative w-full bg-[#0E1117] text-[#F8F6F0] pt-12 sm:pt-16 lg:pt-20 pb-16 sm:pb-20 lg:pb-24 px-6 lg:px-16 overflow-hidden">
+      <section className="relative w-full bg-tas-ink text-tas-paper pt-12 sm:pt-16 lg:pt-20 pb-16 sm:pb-20 lg:pb-24 px-6 lg:px-16 overflow-hidden">
         <div className="absolute inset-0 z-0 overflow-hidden">
           <ResponsiveImage
             src="/images/hero/autosella-fleet-lineup-dolomites.jpg"
@@ -98,7 +98,7 @@ export const LuxuryHome: React.FC = () => {
             sizes="100vw"
             className="w-full h-full object-cover object-[center_76%] sm:object-[center_72%] lg:object-[center_68%] brightness-95 contrast-105 tas-ken-burns"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#0E1117]/95 via-[#0E1117]/85 to-transparent lg:w-3/5" />
+          <div className="absolute inset-0 bg-gradient-to-r from-tas-ink/95 via-tas-ink/85 to-transparent lg:w-3/5" />
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-center">
@@ -108,7 +108,7 @@ export const LuxuryHome: React.FC = () => {
                 i18nKey="home:hero.title"
                 components={{
                   em: (
-                    <span className="italic text-[#C5A880] drop-shadow-[0_4px_16px_rgba(0,0,0,0.95)]" />
+                    <span className="italic text-tas-accent-on-dark drop-shadow-[0_4px_16px_rgba(0,0,0,0.95)]" />
                   ),
                 }}
               />
@@ -120,15 +120,15 @@ export const LuxuryHome: React.FC = () => {
 
             <div className="flex flex-wrap items-center gap-3.5 pt-1 text-xs font-medium tracking-wider text-white">
               <div className="flex items-center gap-2 bg-black/40 px-3.5 py-2 rounded-xl border border-white/20 backdrop-blur-sm shadow-md drop-shadow-[0_2px_6px_rgba(0,0,0,0.8)]">
-                <ShieldCheck className="w-4 h-4 text-[#C5A880] flex-shrink-0" />
+                <ShieldCheck className="w-4 h-4 text-tas-accent-on-dark flex-shrink-0" />
                 <span>{t('home:hero.badges.fleet')}</span>
               </div>
               <div className="flex items-center gap-2 bg-black/40 px-3.5 py-2 rounded-xl border border-white/20 backdrop-blur-sm shadow-md drop-shadow-[0_2px_6px_rgba(0,0,0,0.8)]">
-                <Clock className="w-4 h-4 text-[#C5A880] flex-shrink-0" />
+                <Clock className="w-4 h-4 text-tas-accent-on-dark flex-shrink-0" />
                 <span>{t('home:hero.badges.dispatch')}</span>
               </div>
               <div className="flex items-center gap-2 bg-black/40 px-3.5 py-2 rounded-xl border border-white/20 backdrop-blur-sm shadow-md drop-shadow-[0_2px_6px_rgba(0,0,0,0.8)]">
-                <CreditCard className="w-4 h-4 text-[#C5A880] flex-shrink-0" />
+                <CreditCard className="w-4 h-4 text-tas-accent-on-dark flex-shrink-0" />
                 <span>{t('home:hero.badges.payment')}</span>
               </div>
             </div>
@@ -137,26 +137,26 @@ export const LuxuryHome: React.FC = () => {
           <div className="lg:col-span-5 w-full">
             <form
               onSubmit={handleStartBooking}
-              className="bg-[#F8F6F0] p-7 sm:p-9 text-[#0E1117] shadow-2xl rounded-2xl border border-white/20 backdrop-blur-lg relative"
+              className="bg-tas-paper p-7 sm:p-9 text-tas-ink shadow-2xl rounded-2xl border border-white/20 backdrop-blur-lg relative"
             >
-              <div className="text-center border-b border-[#0E1117]/10 pb-3.5 mb-5">
-                <h2 className="font-editorial text-2xl text-[#0E1117]">{t('home:quote.title')}</h2>
-                <p className="text-[11px] text-[#0E1117]/70 font-medium tracking-wide mt-1">
+              <div className="text-center border-b border-tas-ink/10 pb-3.5 mb-5">
+                <h2 className="font-editorial text-2xl text-tas-ink">{t('home:quote.title')}</h2>
+                <p className="text-[11px] text-tas-ink/70 font-medium tracking-wide mt-1">
                   {t('home:quote.subtitle')}
                 </p>
               </div>
 
               <div className="space-y-4">
                 <div className="group relative">
-                  <label className="block text-[11px] font-bold uppercase tracking-wider text-[#0E1117]/70 mb-1">
+                  <label className="block text-[11px] font-bold uppercase tracking-wider text-tas-ink/70 mb-1">
                     {t('home:quote.pickupLabel')}
                   </label>
-                  <div className="flex items-center border-b border-[#0E1117]/30 py-2 transition-colors focus-within:border-[#C5A880]">
-                    <MapPin className="w-4 h-4 text-[#C5A880] mr-3 flex-shrink-0" />
+                  <div className="flex items-center border-b border-tas-ink/30 py-2 transition-colors focus-within:border-tas-focus">
+                    <MapPin className="w-4 h-4 text-tas-accent-on-light mr-3 flex-shrink-0" />
                     <input
                       type="text"
                       placeholder={t('home:quote.pickupPlaceholder')}
-                      className="w-full bg-transparent border-none outline-none text-sm font-medium text-[#0E1117] placeholder-[#0E1117]/50"
+                      className="w-full bg-transparent border-none outline-none text-sm font-medium text-tas-ink placeholder:text-tas-muted-50"
                       value={bookingDetails.pickup}
                       onChange={(e) => setBookingDetails({ ...bookingDetails, pickup: e.target.value })}
                     />
@@ -164,15 +164,15 @@ export const LuxuryHome: React.FC = () => {
                 </div>
 
                 <div className="group relative">
-                  <label className="block text-[11px] font-bold uppercase tracking-wider text-[#0E1117]/70 mb-1">
+                  <label className="block text-[11px] font-bold uppercase tracking-wider text-tas-ink/70 mb-1">
                     {t('home:quote.destinationLabel')}
                   </label>
-                  <div className="flex items-center border-b border-[#0E1117]/30 py-2 transition-colors focus-within:border-[#C5A880]">
-                    <MapPin className="w-4 h-4 text-[#C5A880] mr-3 flex-shrink-0" />
+                  <div className="flex items-center border-b border-tas-ink/30 py-2 transition-colors focus-within:border-tas-focus">
+                    <MapPin className="w-4 h-4 text-tas-accent-on-light mr-3 flex-shrink-0" />
                     <input
                       type="text"
                       placeholder={t('home:quote.destinationPlaceholder')}
-                      className="w-full bg-transparent border-none outline-none text-sm font-medium text-[#0E1117] placeholder-[#0E1117]/50"
+                      className="w-full bg-transparent border-none outline-none text-sm font-medium text-tas-ink placeholder:text-tas-muted-50"
                       value={bookingDetails.dropoff}
                       onChange={(e) => setBookingDetails({ ...bookingDetails, dropoff: e.target.value })}
                     />
@@ -181,14 +181,14 @@ export const LuxuryHome: React.FC = () => {
 
                 <div className="grid grid-cols-2 gap-4 pt-1">
                   <div className="group relative">
-                    <label className="block text-[11px] font-bold uppercase tracking-wider text-[#0E1117]/70 mb-1">
+                    <label className="block text-[11px] font-bold uppercase tracking-wider text-tas-ink/70 mb-1">
                       {t('home:quote.dateLabel')}
                     </label>
-                    <div className="flex items-center border-b border-[#0E1117]/30 py-2 transition-colors focus-within:border-[#C5A880]">
-                      <Calendar className="w-4 h-4 text-[#C5A880] mr-2 flex-shrink-0" />
+                    <div className="flex items-center border-b border-tas-ink/30 py-2 transition-colors focus-within:border-tas-focus">
+                      <Calendar className="w-4 h-4 text-tas-accent-on-light mr-2 flex-shrink-0" />
                       <input
                         type="date"
-                        className="w-full bg-transparent border-none outline-none text-xs font-semibold text-[#0E1117]"
+                        className="w-full bg-transparent border-none outline-none text-xs font-semibold text-tas-ink"
                         value={bookingDetails.date}
                         onChange={(e) => setBookingDetails({ ...bookingDetails, date: e.target.value })}
                       />
@@ -196,13 +196,13 @@ export const LuxuryHome: React.FC = () => {
                   </div>
 
                   <div className="group relative">
-                    <label className="block text-[11px] font-bold uppercase tracking-wider text-[#0E1117]/70 mb-1">
+                    <label className="block text-[11px] font-bold uppercase tracking-wider text-tas-ink/70 mb-1">
                       {t('home:quote.passengersLabel')}
                     </label>
-                    <div className="flex items-center border-b border-[#0E1117]/30 py-2 transition-colors focus-within:border-[#C5A880]">
-                      <Users className="w-4 h-4 text-[#C5A880] mr-2 flex-shrink-0" />
+                    <div className="flex items-center border-b border-tas-ink/30 py-2 transition-colors focus-within:border-tas-focus">
+                      <Users className="w-4 h-4 text-tas-accent-on-light mr-2 flex-shrink-0" />
                       <select
-                        className="w-full bg-transparent border-none outline-none text-xs font-semibold text-[#0E1117] cursor-pointer"
+                        className="w-full bg-transparent border-none outline-none text-xs font-semibold text-tas-ink cursor-pointer"
                         value={bookingDetails.passengers}
                         onChange={(e) => setBookingDetails({ ...bookingDetails, passengers: e.target.value })}
                       >
@@ -219,7 +219,7 @@ export const LuxuryHome: React.FC = () => {
 
                 <button
                   type="submit"
-                  className="w-full mt-6 bg-[#0E1117] hover:bg-[#C5A880] text-[#F8F6F0] hover:text-[#0E1117] transition-all duration-300 py-4 px-6 font-semibold text-xs uppercase tracking-widest flex items-center justify-between group shadow-xl rounded-xl"
+                  className="w-full mt-6 bg-tas-ink hover:bg-tas-brass-fill text-tas-paper hover:text-tas-ink transition-all duration-300 py-4 px-6 font-semibold text-xs uppercase tracking-widest flex items-center justify-between group shadow-xl rounded-xl"
                 >
                   <span className="font-bold">{t('home:quote.submit')}</span>
                   <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" />
@@ -228,13 +228,13 @@ export const LuxuryHome: React.FC = () => {
                 <button
                   type="button"
                   onClick={openWhatsAppTransferSheet}
-                  className="w-full mt-2 text-[11px] text-[#0E1117]/70 font-medium underline decoration-[#C5A880] decoration-[1.5px] underline-offset-4 hover:text-[#0E1117] transition-colors"
+                  className="w-full mt-2 text-[11px] text-tas-ink/70 font-medium underline decoration-tas-focus decoration-[1.5px] underline-offset-4 hover:text-tas-ink transition-colors"
                 >
                   {t('home:quote.whatsappFallback')}
                 </button>
               </div>
 
-              <div className="mt-4 pt-3 border-t border-[#0E1117]/10 flex items-center justify-between text-[10px] text-[#0E1117]/70 font-medium">
+              <div className="mt-4 pt-3 border-t border-tas-ink/10 flex items-center justify-between text-[10px] text-tas-ink/70 font-medium">
                 <span>{t('home:quote.perks.card')}</span>
                 <span>{t('home:quote.perks.equipment')}</span>
                 <span>{t('home:quote.perks.whatsapp')}</span>
@@ -245,46 +245,46 @@ export const LuxuryHome: React.FC = () => {
       </section>
 
       {/* HERITAGE */}
-      <section className="py-24 px-6 lg:px-16 max-w-7xl mx-auto border-b border-[#0E1117]/10">
+      <section className="py-24 px-6 lg:px-16 max-w-7xl mx-auto border-b border-tas-ink/10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
           <Reveal className="lg:col-span-6 space-y-6">
-            <h2 className="font-editorial text-4xl sm:text-5xl lg:text-6xl font-normal leading-tight text-[#0E1117]">
+            <h2 className="font-editorial text-4xl sm:text-5xl lg:text-6xl font-normal leading-tight text-tas-ink">
               <Trans
                 i18nKey="home:heritage.title"
-                components={{ em: <span className="italic text-[#C5A880]" />, br: <br /> }}
+                components={{ em: <span className="italic text-tas-accent-on-light" />, br: <br /> }}
               />
             </h2>
 
-            <p className="text-base text-[#0E1117]/80 font-light leading-relaxed">
+            <p className="text-base text-tas-ink/80 font-light leading-relaxed">
               {t('home:heritage.paragraph1')}
             </p>
 
-            <p className="text-sm text-[#0E1117]/70 font-light leading-relaxed">
+            <p className="text-sm text-tas-ink/70 font-light leading-relaxed">
               {t('home:heritage.paragraph2')}
             </p>
 
-            <div className="grid grid-cols-3 gap-6 pt-6 border-t border-[#0E1117]/10">
+            <div className="grid grid-cols-3 gap-6 pt-6 border-t border-tas-ink/10">
               <div>
-                <div className="font-editorial text-4xl text-[#0E1117]">
+                <div className="font-editorial text-4xl text-tas-ink">
                   <CountUp value={25} />
                 </div>
-                <div className="text-[11px] font-bold text-[#0E1117]/70 uppercase tracking-widest mt-1">
+                <div className="text-[11px] font-bold text-tas-ink/70 uppercase tracking-widest mt-1">
                   {t('home:heritage.stats.fleet')}
                 </div>
               </div>
               <div>
-                <div className="font-editorial text-4xl text-[#0E1117]">
+                <div className="font-editorial text-4xl text-tas-ink">
                   <CountUp value={18} />
                 </div>
-                <div className="text-[11px] font-bold text-[#0E1117]/70 uppercase tracking-widest mt-1">
+                <div className="text-[11px] font-bold text-tas-ink/70 uppercase tracking-widest mt-1">
                   {t('home:heritage.stats.drivers')}
                 </div>
               </div>
               <div>
-                <div className="font-editorial text-4xl text-[#0E1117]">
+                <div className="font-editorial text-4xl text-tas-ink">
                   <CountUp value={35} suffix="+" />
                 </div>
-                <div className="text-[11px] font-bold text-[#0E1117]/70 uppercase tracking-widest mt-1">
+                <div className="text-[11px] font-bold text-tas-ink/70 uppercase tracking-widest mt-1">
                   {t('home:heritage.stats.years')}
                 </div>
               </div>
@@ -299,9 +299,9 @@ export const LuxuryHome: React.FC = () => {
                 sizes="(min-width: 1024px) 50vw, 100vw"
                 className="w-full h-[480px] object-cover group-hover:scale-105 transition-transform duration-700"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0E1117]/80 via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-tas-ink/80 via-transparent to-transparent" />
               <div className="absolute bottom-6 left-6 right-6 text-white">
-                <span className="text-xs font-semibold uppercase tracking-widest text-[#C5A880] block mb-1">
+                <span className="text-xs font-semibold uppercase tracking-widest text-tas-accent-on-dark block mb-1">
                   {t('home:heritage.featureImage.eyebrow')}
                 </span>
                 <h3 className="font-editorial text-2xl text-white">{t('home:heritage.featureImage.title')}</h3>
@@ -315,20 +315,20 @@ export const LuxuryHome: React.FC = () => {
       </section>
 
       {/* FLEET TEASER */}
-      <section className="py-24 px-6 lg:px-16 max-w-7xl mx-auto border-b border-[#0E1117]/10">
+      <section className="py-24 px-6 lg:px-16 max-w-7xl mx-auto border-b border-tas-ink/10">
         <Reveal>
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
             <div>
-              <h2 className="font-editorial text-4xl sm:text-5xl font-normal text-[#0E1117]">
+              <h2 className="font-editorial text-4xl sm:text-5xl font-normal text-tas-ink">
                 <Trans i18nKey="home:fleetTeaser.title" components={emComponent} />
               </h2>
-              <p className="text-sm text-[#0E1117]/70 font-light mt-2 max-w-md">
+              <p className="text-sm text-tas-ink/70 font-light mt-2 max-w-md">
                 {t('home:fleetTeaser.subtitle')}
               </p>
             </div>
             <Link
               to="/fleet"
-              className="flex items-center gap-2 self-start text-sm font-semibold text-[#0E1117] transition-colors hover:text-[#8C6D46] md:self-auto"
+              className="flex items-center gap-2 self-start text-sm font-semibold text-tas-ink transition-colors hover:text-tas-accent-strong md:self-auto"
             >
               <span>{t('home:fleetTeaser.viewAll')}</span>
               <ArrowRight className="w-4 h-4" />
@@ -344,7 +344,7 @@ export const LuxuryHome: React.FC = () => {
             const badge = t(`fleet:vehicles.${vehicle.id}.badge`);
             return (
               <Reveal key={vehicle.id} delay={i * 80}>
-                <div className="bg-white p-6 shadow-xl rounded-2xl flex flex-col justify-between border border-[#0E1117]/10 hover:border-[#C5A880] transition-all group h-full">
+                <div className="bg-tas-surface p-6 shadow-xl rounded-2xl flex flex-col justify-between border border-tas-ink/10 hover:border-tas-focus transition-all group h-full">
                   <div>
                     <div className="h-60 overflow-hidden mb-6 rounded-xl bg-slate-900 relative">
                       <ResponsiveImage
@@ -354,24 +354,24 @@ export const LuxuryHome: React.FC = () => {
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                       />
                       {badge && (
-                        <span className="absolute top-3 right-3 px-3 py-1 bg-[#0E1117]/90 backdrop-blur-md text-[#C5A880] text-[10px] font-bold uppercase tracking-wider rounded-full border border-[#C5A880]/30">
+                        <span className="absolute top-3 right-3 px-3 py-1 bg-tas-ink/90 backdrop-blur-md text-tas-accent-on-dark text-[10px] font-bold uppercase tracking-wider rounded-full border border-tas-focus/30">
                           {badge}
                         </span>
                       )}
                     </div>
-                    <h3 className="font-editorial text-2xl text-[#0E1117] mb-1">{name}</h3>
-                    <p className="text-xs text-[#C5A880] font-semibold tracking-wide uppercase mb-3">{subtitle}</p>
-                    <p className="text-xs text-[#0E1117]/80 font-light leading-relaxed mb-6">{tagline}</p>
+                    <h3 className="font-editorial text-2xl text-tas-ink mb-1">{name}</h3>
+                    <p className="text-xs text-tas-accent-on-light font-semibold tracking-wide uppercase mb-3">{subtitle}</p>
+                    <p className="text-xs text-tas-ink/80 font-light leading-relaxed mb-6">{tagline}</p>
                   </div>
 
-                  <div className="pt-4 border-t border-[#0E1117]/10 flex items-center justify-between">
-                    <div className="flex items-center gap-4 text-xs text-[#0E1117]/70 font-medium">
+                  <div className="pt-4 border-t border-tas-ink/10 flex items-center justify-between">
+                    <div className="flex items-center gap-4 text-xs text-tas-ink/70 font-medium">
                       <span className="flex items-center gap-1.5">
-                        <Users className="w-4 h-4 text-[#C5A880]" />{' '}
+                        <Users className="w-4 h-4 text-tas-accent-on-light" />{' '}
                         {t('home:fleetTeaser.capacityPax', { count: vehicle.passengers })}
                       </span>
                       <span className="flex items-center gap-1.5">
-                        <Briefcase className="w-4 h-4 text-[#C5A880]" />{' '}
+                        <Briefcase className="w-4 h-4 text-tas-accent-on-light" />{' '}
                         {t('home:fleetTeaser.capacityBags', { count: vehicle.luggage })}
                       </span>
                     </div>
@@ -387,7 +387,7 @@ export const LuxuryHome: React.FC = () => {
                           }),
                         )
                       }
-                      className="p-3 rounded-full bg-[#0E1117] text-[#F8F6F0] hover:bg-[#C5A880] hover:text-[#0E1117] transition-colors shadow-md"
+                      className="p-3 rounded-full bg-tas-ink text-tas-paper hover:bg-tas-brass-fill hover:text-tas-ink transition-colors shadow-md"
                       aria-label={t('home:fleetTeaser.inquireAria', { name })}
                     >
                       <ArrowRight className="w-4 h-4" />
@@ -401,17 +401,17 @@ export const LuxuryHome: React.FC = () => {
       </section>
 
       {/* ROUTES */}
-      <section className="py-24 px-6 lg:px-16 max-w-7xl mx-auto border-b border-[#0E1117]/10">
+      <section className="py-24 px-6 lg:px-16 max-w-7xl mx-auto border-b border-tas-ink/10">
         <Reveal>
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
             <div>
-              <h2 className="font-editorial text-4xl sm:text-5xl font-normal text-[#0E1117]">
+              <h2 className="font-editorial text-4xl sm:text-5xl font-normal text-tas-ink">
                 <Trans i18nKey="home:routes.title" components={emGoldPatina} />
               </h2>
             </div>
             <Link
               to="/booking"
-              className="flex items-center gap-2 text-sm font-semibold text-[#0E1117] transition-colors hover:text-[#8C6D46]"
+              className="flex items-center gap-2 text-sm font-semibold text-tas-ink transition-colors hover:text-tas-accent-strong"
             >
               <span>{t('home:routes.viewAll')}</span>
               <ArrowRight className="w-4 h-4" />
@@ -424,23 +424,23 @@ export const LuxuryHome: React.FC = () => {
             <Reveal key={id} delay={i * 80}>
               <Link
                 to="/booking"
-                className="w-full p-6 bg-white rounded-2xl border border-[#0E1117]/10 hover:border-[#8C6D46] transition-all cursor-pointer shadow-md hover:shadow-xl flex items-center justify-between group text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8C6D46] focus-visible:ring-offset-2"
+                className="w-full p-6 bg-tas-surface rounded-2xl border border-tas-ink/10 hover:border-tas-accent-strong transition-all cursor-pointer shadow-md hover:shadow-xl flex items-center justify-between group text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-tas-focus focus-visible:ring-offset-2"
               >
                 <span className="block">
-                  <span className="block font-bold text-sm text-[#0E1117] group-hover:text-[#8C6D46] transition-colors mb-1">
+                  <span className="block font-bold text-sm text-tas-ink group-hover:text-tas-accent-strong transition-colors mb-1">
                     {t(`home:routes.items.${id}.from`)}
                   </span>
-                  <span className="text-xs text-[#0E1117]/70 flex items-center gap-2 font-medium">
+                  <span className="text-xs text-tas-ink/70 flex items-center gap-2 font-medium">
                     <span>{t(`home:routes.items.${id}.dist`)}</span>
                     <span>•</span>
                     <span>{t(`home:routes.items.${id}.time`)}</span>
                   </span>
                 </span>
                 <span className="block text-right">
-                  <span className="text-base font-bold text-[#0E1117] group-hover:text-[#8C6D46] transition-colors block">
+                  <span className="text-base font-bold text-tas-ink group-hover:text-tas-accent-strong transition-colors block">
                     {t(`home:routes.items.${id}.price`)}
                   </span>
-                  <span className="text-[10px] text-[#0E1117]/60 font-semibold uppercase tracking-wider">
+                  <span className="text-[10px] text-tas-muted-60 font-semibold uppercase tracking-wider">
                     {t('home:routes.indicative')}
                   </span>
                 </span>
@@ -457,10 +457,10 @@ export const LuxuryHome: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
           <Reveal>
             <div>
-              <h2 className="font-editorial text-4xl sm:text-5xl font-normal text-[#0E1117] mb-6">
+              <h2 className="font-editorial text-4xl sm:text-5xl font-normal text-tas-ink mb-6">
                 <Trans i18nKey="home:nightlife.title" components={emGoldPatina} />
               </h2>
-              <p className="text-sm text-[#0E1117]/80 font-light leading-relaxed mb-6">
+              <p className="text-sm text-tas-ink/80 font-light leading-relaxed mb-6">
                 {t('home:nightlife.body')}
               </p>
               <div className="flex flex-wrap gap-2.5">
@@ -474,7 +474,7 @@ export const LuxuryHome: React.FC = () => {
                         t('home:nightlife.prefill', { venue }),
                       )
                     }
-                    className="px-4 py-2 bg-white border border-[#0E1117]/15 rounded-full text-xs font-semibold text-[#0E1117] hover:border-[#8C6D46] hover:text-[#8C6D46] transition-colors cursor-pointer shadow-sm"
+                    className="px-4 py-2 bg-tas-surface border border-tas-ink/15 rounded-full text-xs font-semibold text-tas-ink hover:border-tas-accent-strong hover:text-tas-accent-strong transition-colors cursor-pointer shadow-sm"
                   >
                     {venue}
                   </button>
@@ -485,17 +485,17 @@ export const LuxuryHome: React.FC = () => {
 
           <Reveal delay={80}>
             <div>
-              <h2 className="font-editorial text-4xl sm:text-5xl font-normal text-[#0E1117] mb-6">
+              <h2 className="font-editorial text-4xl sm:text-5xl font-normal text-tas-ink mb-6">
                 <Trans i18nKey="home:partners.title" components={emGoldPatina} />
               </h2>
-              <p className="text-sm text-[#0E1117]/80 font-light leading-relaxed mb-6">
+              <p className="text-sm text-tas-ink/80 font-light leading-relaxed mb-6">
                 {t('home:partners.body')}
               </p>
-              <div className="grid grid-cols-2 gap-4 text-xs text-[#0E1117]/90 font-medium">
+              <div className="grid grid-cols-2 gap-4 text-xs text-tas-ink/90 font-medium">
                 <ul className="space-y-3">
                   {PARTNER_LINKS_LEFT.map((p) => (
                     <li key={p.key}>
-                      • <a href={p.url} target="_blank" rel="noopener noreferrer" className="hover:text-[#8C6D46] underline-offset-2 hover:underline">
+                      • <a href={p.url} target="_blank" rel="noopener noreferrer" className="hover:text-tas-accent-strong underline-offset-2 hover:underline">
                         {t(`members:homePartners.${p.key}` as const)}
                       </a>
                     </li>
@@ -504,7 +504,7 @@ export const LuxuryHome: React.FC = () => {
                 <ul className="space-y-3">
                   {PARTNER_LINKS_RIGHT.map((p) => (
                     <li key={p.key}>
-                      • <a href={p.url} target="_blank" rel="noopener noreferrer" className="hover:text-[#8C6D46] underline-offset-2 hover:underline">
+                      • <a href={p.url} target="_blank" rel="noopener noreferrer" className="hover:text-tas-accent-strong underline-offset-2 hover:underline">
                         {t(`members:homePartners.${p.key}` as const)}
                       </a>
                     </li>

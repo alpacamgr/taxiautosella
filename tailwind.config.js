@@ -7,6 +7,21 @@ export default {
   theme: {
     extend: {
       colors: {
+        'tas-ink': 'rgb(var(--tas-ink) / <alpha-value>)',
+        'tas-paper': 'rgb(var(--tas-paper) / <alpha-value>)',
+        'tas-surface': 'rgb(var(--tas-surface) / <alpha-value>)',
+        'tas-parchment': 'rgb(var(--tas-parchment) / <alpha-value>)',
+        'tas-brass-fill': 'rgb(var(--tas-brass-fill) / <alpha-value>)',
+        'tas-accent-on-light': 'rgb(var(--tas-accent-on-light) / <alpha-value>)',
+        'tas-accent-on-dark': 'rgb(var(--tas-accent-on-dark) / <alpha-value>)',
+        'tas-accent-strong': 'rgb(var(--tas-accent-strong) / <alpha-value>)',
+        'tas-focus': 'rgb(var(--tas-focus) / <alpha-value>)',
+        'tas-brass-hover': 'rgb(var(--tas-brass-hover) / <alpha-value>)',
+        'tas-brass-active': 'rgb(var(--tas-brass-active) / <alpha-value>)',
+        'tas-muted-60': 'var(--tas-muted-60)',
+        'tas-muted-55': 'var(--tas-muted-55)',
+        'tas-muted-50': 'var(--tas-muted-50)',
+        'tas-muted-40': 'var(--tas-muted-40)',
         gold: {
           50: '#FBF8EE',
           100: '#F6F0DC',

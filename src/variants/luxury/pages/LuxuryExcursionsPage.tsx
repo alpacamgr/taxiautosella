@@ -19,21 +19,21 @@ const EXCURSIONS_UI: ExcursionEntry[] = [
   { id: 'bolzano-merano', image: '/images/excursions/merano-promenade.webp' },
 ];
 
-const emComponent = { em: <span className="italic text-[#C5A880]" /> };
+const emComponent = { em: <span className="italic text-tas-accent-on-light" /> };
 
 export const LuxuryExcursionsPage: React.FC = () => {
   const { openInquiryModal } = useAppStore();
   const { t } = useTranslation('excursions');
 
   return (
-    <div className="min-h-screen bg-[#F8F6F0] pt-24 pb-20">
+    <div className="min-h-screen bg-tas-paper pt-24 pb-20">
       <div className="max-w-7xl mx-auto px-6 lg:px-16">
         <Reveal>
           <header className="mb-16 max-w-3xl">
-            <h1 className="font-editorial text-5xl lg:text-7xl font-normal text-[#0E1117] mb-6">
+            <h1 className="font-editorial text-5xl lg:text-7xl font-normal text-tas-ink mb-6">
               <Trans i18nKey="excursions:header.title" components={emComponent} />
             </h1>
-            <p className="text-[#0E1117]/80 text-lg font-light leading-relaxed">
+            <p className="text-tas-ink/80 text-lg font-light leading-relaxed">
               {t('header.subtitle')}
             </p>
           </header>
@@ -48,7 +48,7 @@ export const LuxuryExcursionsPage: React.FC = () => {
             const badge = t(`items.${exc.id}.badge`);
             return (
               <Reveal key={exc.id} delay={(i % 2) * 80}>
-                <article className="group bg-white rounded-2xl overflow-hidden shadow-xl border border-[#0E1117]/10 hover:border-[#C5A880] transition-all flex flex-col h-full">
+                <article className="group bg-tas-surface rounded-2xl overflow-hidden shadow-xl border border-tas-ink/10 hover:border-tas-focus transition-all flex flex-col h-full">
                   <div className="w-full aspect-[3/2] bg-slate-900 overflow-hidden relative">
                     <ResponsiveImage
                       src={exc.image}
@@ -60,7 +60,7 @@ export const LuxuryExcursionsPage: React.FC = () => {
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 brightness-95"
                     />
                     {badge && (
-                      <span className="absolute top-4 left-4 px-3 py-1.5 bg-[#0E1117]/90 text-[#F8F6F0] text-[10px] font-bold uppercase tracking-wider rounded-md border border-white/15">
+                      <span className="absolute top-4 left-4 px-3 py-1.5 bg-tas-ink/90 text-tas-paper text-[10px] font-bold uppercase tracking-wider rounded-md border border-white/15">
                         {badge}
                       </span>
                     )}
@@ -68,19 +68,19 @@ export const LuxuryExcursionsPage: React.FC = () => {
                   <div className="p-7 lg:p-8 flex flex-1 flex-col justify-between">
                     <div>
                       <div className="flex items-center justify-between gap-2 mb-2">
-                        <div className="flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#C5A880]">
+                        <div className="flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-tas-accent-on-light">
                           <Clock className="w-3.5 h-3.5" />
                           <span>{duration}</span>
                         </div>
                       </div>
-                      <h3 className="font-editorial text-2xl text-[#0E1117] mb-2.5 leading-tight">{title}</h3>
-                      <p className="text-xs text-[#0E1117]/80 font-light leading-relaxed mb-6">{desc}</p>
+                      <h3 className="font-editorial text-2xl text-tas-ink mb-2.5 leading-tight">{title}</h3>
+                      <p className="text-xs text-tas-ink/80 font-light leading-relaxed mb-6">{desc}</p>
                     </div>
                     <button
                       onClick={() =>
                         openInquiryModal(t('requestContext'), t('requestPrefill', { title, duration }))
                       }
-                      className="self-start text-sm font-semibold text-[#0E1117] hover:text-[#8C6D46] transition-colors flex items-center gap-2 pt-3 border-t border-[#0E1117]/10 w-full justify-between group-hover:border-[#C5A880]"
+                      className="self-start text-sm font-semibold text-tas-ink hover:text-tas-accent-strong transition-colors flex items-center gap-2 pt-3 border-t border-tas-ink/10 w-full justify-between group-hover:border-tas-focus"
                     >
                       <span>{t('askAboutTrip')}</span>
                       <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" />
