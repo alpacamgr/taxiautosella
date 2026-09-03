@@ -67,7 +67,7 @@ const secondaryButton =
 const textLink =
   'inline-flex items-center gap-1.5 text-sm font-semibold text-tas-primary transition-colors hover:text-tas-primary-hover';
 const inputClass =
-  'min-h-12 w-full rounded-lg border border-tas-line bg-tas-surface pl-10 pr-3.5 text-sm text-tas-ink placeholder:text-tas-muted-text focus:border-tas-primary focus:outline-none focus:ring-2 focus:ring-tas-primary/20';
+  'min-h-12 w-full rounded-lg border border-tas-line bg-tas-surface px-3.5 text-sm text-tas-ink placeholder:text-tas-muted-text focus:border-tas-primary focus:outline-none focus:ring-2 focus:ring-tas-primary/20';
 
 export const LightHome: React.FC = () => {
   const { openInquiryModal, setHeroPrefill } = useAppStore();
@@ -113,26 +113,28 @@ export const LightHome: React.FC = () => {
   return (
     <div>
       {/* HERO */}
-      <section className="relative overflow-hidden bg-tas-ink text-white">
+      <section className="relative bg-tas-ink text-white">
         <div className="absolute inset-0">
           <ResponsiveImage
             src="/images/hero/alpine-light-hero.jpg"
+            mobileSrc="/images/hero/alpine-light-hero-mobile.jpg"
             alt={t('homeLight:hero.backgroundAlt')}
             priority
             sizes="100vw"
-            className="h-full w-full object-cover object-[65%_center]"
+            className="h-full w-full object-cover object-center lg:object-[65%_center]"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-tas-ink/80 via-tas-ink/50 to-tas-ink/20" />
           <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-tas-ink/60 to-transparent" />
         </div>
 
-        <div className="relative mx-auto grid max-w-7xl gap-10 px-6 pb-16 pt-12 sm:pt-16 lg:grid-cols-12 lg:items-center lg:gap-12 lg:px-16 lg:pb-24 lg:pt-20">
+        <div className="relative mx-auto grid max-w-7xl gap-10 px-6 pb-0 pt-12 sm:pt-16 lg:grid-cols-12 lg:items-center lg:gap-12 lg:px-16 lg:pb-24 lg:pt-20">
           <div className="lg:col-span-7">
             <h1 className="max-w-2xl text-4xl font-bold leading-[1.08] tracking-tight sm:text-5xl lg:text-6xl">
               <Trans i18nKey="homeLight:hero.title" components={{ em: <span className="text-tas-accent-on-dark" /> }} />
             </h1>
             <p className="mt-5 max-w-xl text-base leading-relaxed text-white/85 sm:text-lg">
-              {t('homeLight:hero.subtitle')}
+              <span className="sm:hidden">{t('homeLight:hero.subtitleShort')}</span>
+              <span className="hidden sm:inline">{t('homeLight:hero.subtitle')}</span>
             </p>
 
             <ul className="mt-7 flex flex-wrap gap-x-6 gap-y-3 text-sm font-semibold text-white/90">
@@ -151,7 +153,7 @@ export const LightHome: React.FC = () => {
             </ul>
           </div>
 
-          <div className="lg:col-span-5">
+          <div className="-mb-60 lg:col-span-5 lg:mb-0">
             <form
               onSubmit={handleStartBooking}
               className="rounded-2xl bg-tas-surface p-6 text-tas-ink shadow-[0_24px_60px_rgba(12,24,36,0.35)] sm:p-7"
@@ -165,7 +167,7 @@ export const LightHome: React.FC = () => {
                     <MapPin className="pointer-events-none absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-tas-primary" />
                     <input
                       type="text"
-                      className={inputClass}
+                      className={`${inputClass} pl-10`}
                       placeholder={t('homeLight:quote.pickupPlaceholder')}
                       value={booking.pickup}
                       onChange={(e) => setBooking({ ...booking, pickup: e.target.value })}
@@ -179,7 +181,7 @@ export const LightHome: React.FC = () => {
                     <MapPin className="pointer-events-none absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-tas-primary" />
                     <input
                       type="text"
-                      className={inputClass}
+                      className={`${inputClass} pl-10`}
                       placeholder={t('homeLight:quote.destinationPlaceholder')}
                       value={booking.dropoff}
                       onChange={(e) => setBooking({ ...booking, dropoff: e.target.value })}
@@ -191,10 +193,10 @@ export const LightHome: React.FC = () => {
                   <label className="block">
                     <span className="mb-1.5 block text-sm font-semibold">{t('homeLight:quote.dateLabel')}</span>
                     <span className="relative block">
-                      <CalendarDays className="pointer-events-none absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-tas-primary" />
+                      <CalendarDays className="pointer-events-none absolute left-3.5 top-1/2 hidden h-4 w-4 -translate-y-1/2 text-tas-primary sm:block" />
                       <input
                         type="date"
-                        className={inputClass}
+                        className={`${inputClass} sm:pl-10`}
                         value={booking.date}
                         onChange={(e) => setBooking({ ...booking, date: e.target.value })}
                       />
@@ -252,9 +254,9 @@ export const LightHome: React.FC = () => {
 
       {/* TRUST */}
       <section className="border-b border-tas-line bg-tas-surface">
-        <div className="mx-auto grid max-w-7xl gap-8 px-6 py-12 sm:grid-cols-2 lg:grid-cols-4 lg:px-16">
+        <div className="mx-auto grid max-w-7xl grid-cols-2 gap-x-4 gap-y-8 px-6 pb-12 pt-72 lg:grid-cols-4 lg:px-16 lg:py-12">
           {trust.map(({ id, Icon }, i) => (
-            <Reveal key={id} delay={i * 60} className="flex gap-4">
+            <Reveal key={id} delay={i * 60} className="flex flex-col gap-3 sm:flex-row sm:gap-4">
               <span className="flex h-11 w-11 flex-none items-center justify-center rounded-full bg-tas-primary-soft text-tas-primary">
                 <Icon className="h-5 w-5" />
               </span>
@@ -320,17 +322,17 @@ export const LightHome: React.FC = () => {
               <div className="flex flex-1 flex-col p-6">
                 <h3 className="text-xl font-bold text-tas-ink">{t('homeLight:services.local.title')}</h3>
                 <p className="mt-2 flex-1 text-sm leading-relaxed text-tas-muted-text">{t('homeLight:services.local.body')}</p>
-                <div className="mt-6 flex flex-wrap gap-3">
+                <div className="mt-6 flex flex-col gap-3 sm:flex-row">
                   <a
                     href={whatsappLink(t('homeLight:urgent.whatsappMessage'))}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={primaryButton}
+                    className={`${primaryButton} w-full sm:w-auto`}
                   >
                     <MessageSquare className="h-4 w-4" />
                     {t('homeLight:services.local.cta')}
                   </a>
-                  <a href={`tel:${PHONE_TEL}`} className={secondaryButton}>
+                  <a href={`tel:${PHONE_TEL}`} className={`${secondaryButton} w-full sm:w-auto`}>
                     <Phone className="h-4 w-4 text-tas-primary" />
                     {t('homeLight:services.local.call', { phone: PHONE_DISPLAY })}
                   </a>
@@ -599,8 +601,8 @@ export const LightHome: React.FC = () => {
             <h2 className="text-2xl font-bold tracking-tight sm:text-3xl">{t('homeLight:urgent.title')}</h2>
             <p className="mt-2 max-w-xl text-base text-white/80">{t('homeLight:urgent.body')}</p>
           </div>
-          <div className="flex flex-wrap gap-3">
-            <a href={`tel:${PHONE_TEL}`} className={`${primaryButton} min-h-14 px-6 text-base`}>
+          <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
+            <a href={`tel:${PHONE_TEL}`} className={`${primaryButton} min-h-14 w-full px-6 text-base sm:w-auto`}>
               <Phone className="h-5 w-5" />
               {t('homeLight:urgent.call', { phone: PHONE_DISPLAY })}
             </a>
@@ -608,7 +610,7 @@ export const LightHome: React.FC = () => {
               href={whatsappLink(t('homeLight:urgent.whatsappMessage'))}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex min-h-14 items-center justify-center gap-2 rounded-lg border border-white/25 px-6 text-base font-semibold text-white transition-colors hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
+              className="inline-flex w-full min-h-14 items-center justify-center gap-2 rounded-lg border border-white/25 px-6 text-base font-semibold text-white transition-colors hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white sm:w-auto"
             >
               <MessageSquare className="h-5 w-5 text-tas-accent-on-dark" />
               {t('homeLight:urgent.whatsapp')}

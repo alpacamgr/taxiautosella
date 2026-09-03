@@ -23,22 +23,22 @@ export const LightNotFoundPage: React.FC = () => {
         <Trans t={t} i18nKey="notFound.title" components={{ em: <span className="text-tas-primary" /> }} />
       </h1>
       <p className="text-base leading-relaxed text-tas-muted-text max-w-xl mb-10">{t('notFound.body')}</p>
-      <div className="flex flex-wrap gap-3">
+      <div className="flex flex-col gap-3 sm:flex-row">
         <Link
           to="/"
-          className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg bg-tas-primary px-5 text-sm font-bold text-white transition-colors hover:bg-tas-primary-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-tas-primary focus-visible:ring-offset-2"
+          className="inline-flex w-full min-h-12 items-center justify-center gap-2 rounded-lg bg-tas-primary px-5 text-sm font-bold text-white transition-colors hover:bg-tas-primary-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-tas-primary focus-visible:ring-offset-2 sm:w-auto"
         >
           {t('notFound.home')} <ArrowRight className="h-4 w-4" />
         </Link>
         <Link
           to="/booking"
-          className="inline-flex min-h-12 items-center justify-center rounded-lg border border-tas-line bg-tas-surface px-5 text-sm font-bold text-tas-ink transition-colors hover:border-tas-ink/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-tas-primary focus-visible:ring-offset-2"
+          className="inline-flex w-full min-h-12 items-center justify-center rounded-lg border border-tas-line bg-tas-surface px-5 text-sm font-bold text-tas-ink transition-colors hover:border-tas-ink/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-tas-primary focus-visible:ring-offset-2 sm:w-auto"
         >
           {t('notFound.booking')}
         </Link>
         <Link
           to="/contact"
-          className="inline-flex min-h-12 items-center justify-center rounded-lg border border-tas-line bg-tas-surface px-5 text-sm font-bold text-tas-ink transition-colors hover:border-tas-ink/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-tas-primary focus-visible:ring-offset-2"
+          className="inline-flex w-full min-h-12 items-center justify-center rounded-lg border border-tas-line bg-tas-surface px-5 text-sm font-bold text-tas-ink transition-colors hover:border-tas-ink/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-tas-primary focus-visible:ring-offset-2 sm:w-auto"
         >
           {t('notFound.contact')}
         </Link>

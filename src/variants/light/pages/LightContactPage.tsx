@@ -154,9 +154,9 @@ export const LightContactPage: React.FC = () => {
                   href={whatsappLink(whatsappText)}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-8 inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-lg bg-[#25D366] px-5 text-sm font-bold text-tas-ink transition-colors hover:bg-[#2BE171] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-tas-primary focus-visible:ring-offset-2"
+                  className="mt-8 inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-lg bg-tas-primary px-5 py-3 text-center text-sm font-bold text-white transition-colors hover:bg-tas-primary-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-tas-primary focus-visible:ring-offset-2"
                 >
-                  <MessageSquare className="h-4 w-4" />
+                  <MessageSquare className="h-4 w-4 flex-none" />
                   {t('address.whatsappButton')}
                 </a>
               </div>
@@ -231,7 +231,7 @@ export const LightContactPage: React.FC = () => {
             <div className="flex w-full flex-col gap-3 sm:flex-row md:w-auto">
               <a
                 href={`tel:${PHONE_TEL}`}
-                className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg bg-tas-primary px-6 text-sm font-bold text-white transition-colors hover:bg-tas-primary-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-tas-ink"
+                className="inline-flex w-full min-h-12 items-center justify-center gap-2 rounded-lg bg-tas-primary px-6 text-sm font-bold text-white transition-colors hover:bg-tas-primary-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-tas-ink sm:w-auto"
               >
                 <Phone className="h-4 w-4" />
                 {t('cta.call', { phone: PHONE_DISPLAY })}
@@ -240,7 +240,7 @@ export const LightContactPage: React.FC = () => {
                 href={whatsappLink(whatsappText)}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg border border-white/30 px-6 text-sm font-bold text-white transition-colors hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-tas-ink"
+                className="inline-flex w-full min-h-12 items-center justify-center gap-2 rounded-lg border border-white/30 px-6 text-sm font-bold text-white transition-colors hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-tas-ink sm:w-auto"
               >
                 <MessageSquare className="h-4 w-4" />
                 {t('common:nav.whatsapp' as const)}

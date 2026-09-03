@@ -137,7 +137,7 @@ export const LightBookingPage: React.FC = () => {
               title={t('instantQuote.iframeTitle')}
               loading="lazy"
               allow="geolocation"
-              className="block h-[900px] w-full lg:h-[760px]"
+              className="block h-[760px] w-full"
             />
           </div>
           <p className="mt-3 text-sm text-tas-muted-text">{t('instantQuote.note')}</p>

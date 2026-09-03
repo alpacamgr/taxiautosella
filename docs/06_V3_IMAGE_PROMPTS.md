@@ -21,7 +21,8 @@ emblem, distorted hands, extra fingers, oversaturated, HDR, lens flare`.
 
 | # | File (under `public/images/`) | Size / ratio | Used in |
 |---|-------------------------------|--------------|---------|
-| 1 | `hero/alpine-light-hero.jpg` | 2400×1400, 16:9-ish | Home hero background |
+| 1a | `hero/alpine-light-hero.jpg` | 2400×1400, landscape | Home hero background, desktop (≥1024px) |
+| 1b | `hero/alpine-light-hero-mobile.jpg` | 1200×1600, portrait 3:4 | Home hero background, phones and tablets |
 | 2 | `drivers/driver-01.jpg` … `driver-06.jpg` | 800×800, square | "Meet your local drivers" cards (home + members) |
 | 3 | `services/meet-greet-arrivals.jpg` | 1600×1200, 4:3 | "Airport & station transfers" card, "How it works" |
 | 4 | `services/local-taxi-ortisei-night.jpg` | 1600×1200, 4:3 | "Local taxi in Val Gardena" card, urgent-taxi block |
@@ -30,12 +31,42 @@ emblem, distorted hands, extra fingers, oversaturated, HDR, lens flare`.
 | 7 | `services/family-in-van.jpg` | 1600×1200, 4:3 | Reviews section / "Relax to your door" |
 | 8 | `excursions/seceda-summer.jpg` | 1600×1200, 4:3 | Excursions page, summer season |
 
-### 1. Home hero
+### 1. Home hero (two crops of the same scene)
 
-> A dark grey premium minivan driving along a freshly ploughed mountain road
-> in Val Gardena on a bright winter morning, Sassolungo and the Dolomite peaks
-> sharp in the background, blue sky, sunlit snow, road slightly curving,
-> vehicle in the right third of the frame, wide open sky on the left for text.
+The hero must read as "a real person being driven" at a glance, like the
+Welcome Pickups hero, and the face has to stay visible on **both** a wide
+desktop crop and a tall phone crop. Generate the two crops separately rather
+than cropping one image; the composition rules differ.
+
+Shared scene:
+
+> A woman in her mid-thirties in a light winter jacket sitting in the rear seat
+> of a dark grey premium minivan, the sliding door open, smiling at someone
+> just outside the frame, natural relaxed expression, a driver's arm in a dark
+> jacket holding the door handle at the edge of the frame, snowy alpine village
+> street and sunlit Dolomite peaks visible through the open door and rear
+> window, bright winter morning, soft natural light on her face, no sunglasses,
+> no visible branding, no text.
+
+#### 1a. Desktop, 2400×1400 (landscape) — `hero/alpine-light-hero.jpg`
+
+> [shared scene] Wide composition: the woman and the open door occupy the
+> right 40% of the frame, her face in the upper-right quadrant at roughly one
+> third from the top. The left 60% is calm and uncluttered (snowy street, soft
+> mountain backdrop, slightly darker tones) so a large white headline can sit
+> over it. Shallow depth of field on the background, sharp on her face.
+
+#### 1b. Mobile, 1200×1600 (portrait) — `hero/alpine-light-hero-mobile.jpg`
+
+> [shared scene] Tall composition: the woman fills the lower two thirds of the
+> frame, face centred horizontally at roughly 40% from the top, looking
+> slightly up and to the left. The top third of the frame is the open door
+> frame, dark interior roof and a strip of snowy mountains, kept dark and
+> simple so white text stays readable over it. Nothing important in the bottom
+> 25% of the frame (a booking card overlaps it).
+
+After dropping both files in, run `pnpm optimize:images`; the site serves the
+portrait crop below 1024px automatically (`ResponsiveImage mobileSrc`).
 
 ### 2. Driver portraits (six variations)
 

@@ -9,6 +9,9 @@ export interface ResponsiveImageProps {
   className?: string;
   sizes?: string;
   priority?: boolean;
+  /** Alternative (usually portrait) crop served below the lg breakpoint. */
+  mobileSrc?: string;
+  mobileSizes?: string;
   width?: number;
   height?: number;
 }
@@ -25,11 +28,15 @@ export const ResponsiveImage: React.FC<ResponsiveImageProps> = ({
   className,
   sizes = '(min-width: 1024px) 33vw, 100vw',
   priority = false,
+  mobileSrc,
+  mobileSizes,
   width,
   height,
 }) => {
   const widths = IMAGE_MANIFEST[src] ?? [];
   const srcSet = widths.map((w) => `${toWebp(src, w)} ${w}w`).join(', ');
+  const mobileWidths = mobileSrc ? IMAGE_MANIFEST[mobileSrc] ?? [] : [];
+  const mobileSrcSet = mobileWidths.map((w) => `${toWebp(mobileSrc as string, w)} ${w}w`).join(', ');
 
   const loading: 'eager' | 'lazy' = priority ? 'eager' : 'lazy';
   const decoding: 'sync' | 'async' = priority ? 'sync' : 'async';
@@ -52,11 +59,14 @@ export const ResponsiveImage: React.FC<ResponsiveImageProps> = ({
     />
   );
 
-  if (!srcSet) return img;
+  if (!srcSet && !mobileSrcSet) return img;
 
   return (
     <picture>
-      <source type="image/webp" srcSet={srcSet} sizes={sizes} />
+      {mobileSrcSet && (
+        <source media="(max-width: 1023px)" type="image/webp" srcSet={mobileSrcSet} sizes={mobileSizes ?? sizes} />
+      )}
+      {srcSet && <source type="image/webp" srcSet={srcSet} sizes={sizes} />}
       {img}
     </picture>
   );
