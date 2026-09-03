@@ -22,7 +22,7 @@ It can be hosted on:
 Authenticate Wrangler for the intended Cloudflare account, then run:
 
 ```bash
-pnpm deploy
+pnpm run deploy
 ```
 
 The command runs the TypeScript/Vite production build first and then executes `wrangler deploy`. The Worker name, asset directory, compatibility date, and SPA fallback are defined in `wrangler.json`.

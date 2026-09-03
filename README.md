@@ -53,7 +53,7 @@ The two palettes currently use identical token values. Their separate token bloc
 `wrangler.json` deploys the production build as Cloudflare Workers Static Assets and provides the single-page-application fallback required by React Router.
 
 ```bash
-pnpm deploy
+pnpm run deploy
 ```
 
 ## Adding a language
