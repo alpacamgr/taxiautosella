@@ -39,15 +39,16 @@ The production build is emitted to `dist/`.
 
 ## Design versions
 
-The preview switch in the bottom-right corner changes between three independently editable site trees:
+The preview switch in the bottom-right corner changes between four independently editable site trees:
 
 - V1: `src/variants/luxury/` — dark editorial "Alpine Luxury" (serif, ink and brass)
 - V2: `src/variants/luxury-v2/` — V1 with a photo-only hero (no quote form)
 - V3: `src/variants/light/` — light "Alpine Light", structured after Welcome Pickups: white canvas, navy text, one green action colour, sans-serif throughout, booking card in the hero, trust strip, service cards, price grid, how-it-works, driver profiles, reviews, hotel/partner band. Its style contract is in `src/variants/light/STYLE.md`; its home copy lives in `src/locales/en/home-light.json` (namespace `homeLight`).
+- V4: `src/variants/amber/` — V3 with an amber palette, a Google rating band under the hero, and the price/route grid moved directly beneath the trust strip with rows that prefill the booking form. Amber is a fill colour only: text and icons on light surfaces use a bronze accent, and text on amber fills is navy. Its style contract is in `src/variants/amber/STYLE.md`; its home copy lives in `src/locales/en/home-amber.json` (namespace `homeAmber`).
 
-V1 is the default. Add `?version=v2` or `?version=v3` to any route to open a version directly; the selection is also retained while navigating. Shared translations, fleet data, contact details, and image assets remain centralized, while the layouts, pages, and variant components can evolve separately.
+V1 is the default. Add `?version=v2`, `?version=v3` or `?version=v4` to any route to open a version directly; the selection is also retained while navigating. Shared translations, fleet data, contact details, and image assets remain centralized, while the layouts, pages, and variant components can evolve separately.
 
-Each version has its own token block in `src/styles/index.css` (`:root[data-tas-version='v3']` carries the light palette), so palette changes are scoped per version.
+V1-V3 keep their token blocks in `src/styles/index.css` (`:root[data-tas-version='v3']` carries the light palette). V4 goes further: it owns `src/variants/amber/tokens.css` plus its own copies of `Reveal`, `CountUp`, `ResponsiveImage` and `JsonLd`, and imports nothing from `src/components/` or another variant — deleting `src/variants/amber/` and its four registration lines removes it entirely. Only business data and infrastructure stay shared: `src/config/contact`, `src/data/`, `src/i18n`, `src/store/`.
 
 ## Deployment
 

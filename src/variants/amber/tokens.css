@@ -1,0 +1,52 @@
+/*
+ * V4 "Alpine Amber" design tokens.
+ *
+ * Self-contained: imported by AmberLayout.tsx, so deleting src/variants/amber/
+ * removes the palette with it. Deliberately NOT inside `@layer base` — Tailwind
+ * only allows @layer in a file that also carries the @tailwind directives, and
+ * unlayered rules win the cascade anyway.
+ *
+ * Colour roles (the rule that makes amber work):
+ *   amber  = FILL only  — buttons, chips, stars, the dark-section accent
+ *   bronze = TEXT/ICONS on light surfaces — amber on white fails contrast
+ *   navy   = structure, and the text that sits ON amber (7.5:1)
+ */
+:root[data-tas-version='v4'] {
+  --tas-ink: 23 42 58;              /* #172A3A — matches logo-navy.svg */
+  --tas-paper: 255 255 255;
+  --tas-surface: 255 255 255;
+  --tas-parchment: 250 248 243;     /* #FAF8F3 warm off-white */
+
+  --tas-primary: 245 166 35;        /* #F5A623 amber — fills only */
+  --tas-primary-hover: 226 148 20;  /* #E29414 */
+  --tas-primary-soft: 254 243 219;  /* #FEF3DB icon chips */
+  --tas-on-accent: 23 42 58;        /* navy on amber — 7.5:1 */
+
+  --tas-brass-fill: 245 166 35;
+  --tas-brass-hover: 226 148 20;
+  --tas-brass-active: 199 128 12;
+
+  --tas-accent-on-light: 146 94 0;  /* #925E00 bronze — 5.7:1 on white */
+  --tas-accent-strong: 122 78 0;    /* #7A4E00 bronze hover */
+  --tas-accent-on-dark: 251 191 36; /* #FBBF24 amber on navy */
+  --tas-focus: 176 113 0;           /* #B07100 — visible ring on white */
+
+  --tas-line: 229 231 235;
+  --tas-muted-text: 91 107 123;
+  --tas-star: 245 166 35;
+
+  --tas-muted-60: rgb(23 42 58 / 0.6);
+  --tas-muted-55: rgb(23 42 58 / 0.55);
+  --tas-muted-50: rgb(23 42 58 / 0.5);
+  --tas-muted-40: rgb(23 42 58 / 0.4);
+}
+
+:root[data-tas-version='v4'] ::-webkit-scrollbar-track {
+  background: rgb(var(--tas-parchment));
+}
+:root[data-tas-version='v4'] ::-webkit-scrollbar-thumb {
+  background: rgb(var(--tas-line));
+}
+:root[data-tas-version='v4'] ::-webkit-scrollbar-thumb:hover {
+  background: rgb(var(--tas-muted-text));
+}

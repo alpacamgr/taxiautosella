@@ -14,6 +14,7 @@ import enLegal from '../locales/en/legal.json';
 import enInquiry from '../locales/en/inquiry.json';
 import enReviews from '../locales/en/reviews.json';
 import enHomeLight from '../locales/en/home-light.json';
+import enHomeAmber from '../locales/en/home-amber.json';
 
 /**
  * A supported language for the site.
@@ -57,6 +58,7 @@ export const ENGLISH_RESOURCES = {
   inquiry: enInquiry,
   reviews: enReviews,
   homeLight: enHomeLight,
+  homeAmber: enHomeAmber,
 } as const;
 
 export type Namespace = keyof typeof ENGLISH_RESOURCES;

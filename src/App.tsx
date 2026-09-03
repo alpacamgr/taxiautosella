@@ -43,6 +43,19 @@ import { LightPrivacyPage } from './variants/light/pages/LightPrivacyPage';
 import { LightCookiePolicyPage } from './variants/light/pages/LightCookiePolicyPage';
 import { LightImprintPage } from './variants/light/pages/LightImprintPage';
 import { LightNotFoundPage } from './variants/light/pages/LightNotFoundPage';
+import { AmberLayout } from './variants/amber/AmberLayout';
+import { AmberHome } from './variants/amber/pages/AmberHome';
+import { AmberBookingPage } from './variants/amber/pages/AmberBookingPage';
+import { AmberFleetPage } from './variants/amber/pages/AmberFleetPage';
+import { AmberServicesPage } from './variants/amber/pages/AmberServicesPage';
+import { AmberExcursionsPage } from './variants/amber/pages/AmberExcursionsPage';
+import { AmberFaqPage } from './variants/amber/pages/AmberFaqPage';
+import { AmberMembersPage } from './variants/amber/pages/AmberMembersPage';
+import { AmberContactPage } from './variants/amber/pages/AmberContactPage';
+import { AmberPrivacyPage } from './variants/amber/pages/AmberPrivacyPage';
+import { AmberCookiePolicyPage } from './variants/amber/pages/AmberCookiePolicyPage';
+import { AmberImprintPage } from './variants/amber/pages/AmberImprintPage';
+import { AmberNotFoundPage } from './variants/amber/pages/AmberNotFoundPage';
 
 import { StickyMobileBar } from './components/mobile/StickyMobileBar';
 import { ScrollToTop } from './components/navigation/ScrollToTop';
@@ -108,6 +121,21 @@ const SITE_VERSIONS = {
     Imprint: LightImprintPage,
     NotFound: LightNotFoundPage,
   },
+  v4: {
+    Layout: AmberLayout,
+    Home: AmberHome,
+    Booking: AmberBookingPage,
+    Fleet: AmberFleetPage,
+    Services: AmberServicesPage,
+    Excursions: AmberExcursionsPage,
+    Faq: AmberFaqPage,
+    Members: AmberMembersPage,
+    Contact: AmberContactPage,
+    Privacy: AmberPrivacyPage,
+    CookiePolicy: AmberCookiePolicyPage,
+    Imprint: AmberImprintPage,
+    NotFound: AmberNotFoundPage,
+  },
 };
 
 const PageTitle: React.FC = () => {
@@ -124,7 +152,7 @@ const PageTitle: React.FC = () => {
 
 const readInitialVersion = (): SiteVersion => {
   const v = document.documentElement.dataset.tasVersion;
-  return v === 'v2' || v === 'v3' ? v : 'v1';
+  return v === 'v2' || v === 'v3' || v === 'v4' ? v : 'v1';
 };
 
 const VersionedSite: React.FC = () => {

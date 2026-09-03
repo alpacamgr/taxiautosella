@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-export type SiteVersion = 'v1' | 'v2' | 'v3';
+export type SiteVersion = 'v1' | 'v2' | 'v3' | 'v4';
 
 interface VersionToggleProps {
   version: SiteVersion;
@@ -16,7 +16,7 @@ const renderVersionRow = (
     className="flex items-center rounded-xl border border-white/15 bg-tas-ink p-1 text-[10px] font-bold uppercase tracking-[0.08em] text-tas-paper shadow-lg"
     aria-label="Switch website version"
   >
-    {(['v1', 'v2', 'v3'] as const).map((option) => {
+    {(['v1', 'v2', 'v3', 'v4'] as const).map((option) => {
       const active = version === option;
       return (
         <button
